@@ -1,0 +1,23 @@
+// *******************************
+// CH01 - Color Variables
+// CH02 - Breakpoint Variables
+// *******************************
+
+// *******************************
+// CH01 - Color Variables
+// *******************************
+
+$lightColor: white; //Primary color
+$lightColor1: darken($lightColor, 10%);
+$lightColor2: darken($lightColor1, 20%);
+
+$darkColor: black;
+
+// *******************************
+// CH02 - Breakpoint Variables
+// *******************************
+
+$breakpoint-desktop: 1200px;
+$breakpoint-laptop: 950px;
+$breakpoint-tablet: 768px;
+$breakpoint-mobile: 400px;

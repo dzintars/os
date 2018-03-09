@@ -1,0 +1,18 @@
+{{ template "tpl-app-head" . }}
+<body>
+    <div class="os-app">
+        <div class="os-mod">
+            <div class="os-mod-1 icn-apps" id="btn-start"></div>
+            {{ template "tpl-app-start-menu" . }}
+            <div class="os-mod-2"></div>
+            <div class="os-mod-3"></div>
+            <div class="os-mod-4">
+            {{ template "tpl-app-credentials" . }}
+            </div>
+            <div class="os-mod-5">
+                {{ template "tpl-app-taskbar" . }}
+            </div>
+        </div>
+    </div>
+    {{ template "tpl-app-bottom" . }}
+</body>

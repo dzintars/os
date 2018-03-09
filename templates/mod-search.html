@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+{{ template "head" .}}
+</head>
+<body>
+<div class="os-app">
+    <div class="os-mod">
+        <div class="os-mod-1 icn-apps" id="btn-start"></div>
+        {{ template "tpl-app-start-menu" . }}
+        <div class="os-mod-2">
+            <button class="os-mod-tb-btn">Publish Service</button>
+        </div>
+        <div class="os-mod-3"></div>
+        <div class="os-mod-4">
+        {{ template "tpl-app-credentials" . }}
+        </div>
+        <div class="os-mod-5">
+        {{ template "tpl-app-taskbar" . }}
+        </div>
+        <div class="os-mod-panel full-width full-height">
+        {{ template "tpl-app-main-navigation" . }}<br>
+        </div>
+        <div class="os-mod-8">
+            <div class="os-mod-sb">
+                <div id="os-mod-link-about" class="os-mod-link">About</div>
+                <div class="os-mod-link">Advertising</div>
+                <div class="os-mod-link">Business</div>
+                <div class="os-mod-link">Team</div>
+                <div class="os-mod-link">Terms</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ template "bottom" . }}
+</body>
+</html>

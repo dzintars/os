@@ -1,0 +1,14 @@
+<svg id="Home" data-name="Home" xmlns="http://www.w3.org/2000/svg" 
+viewBox="0 0 64 64"
+version="1.1"
+shape-rendering="geometricPrecision">
+    <defs>
+    <style>.cls-1{fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:1.5px;}</style>
+    </defs>
+    <title>home-64</title>
+    <line class="cls-1" x1="9.5" y1="29" x2="9.5" y2="62.5"/>
+    <line class="cls-1" x1="54.5" y1="29" x2="54.5" y2="62.5"/>
+    <line class="cls-1" x1="9.5" y1="62.5" x2="54.5" y2="62.5"/>
+    <line class="cls-1" x1="32" y1="1.5" x2="1.25" y2="32"/>
+    <line class="cls-1" x1="32" y1="1.5" x2="62.75" y2="32"/>
+</svg>

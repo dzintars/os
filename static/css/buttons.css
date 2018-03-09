@@ -1,0 +1,33 @@
+.os-btn {
+    align-content: center;
+}
+
+
+.os-mod-tb-btn {
+    height: 32px;
+    align-content: center;
+    font-size: 0.8em;
+}
+
+.os-app-btn-lg {
+    height: 36px;
+    width: 36px;
+    border: none;
+    float: right;
+    background: transparent;
+    background-repeat: no-repeat;
+    background-size: 24px 24px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.os-btn-lrg {
+    height: 28px;
+    font-size: 1em;
+    border: 1px solid #D3D4D9;
+    cursor: pointer;
+}
+
+.os-btn-lrg:hover {
+    border: 1px solid black;
+}

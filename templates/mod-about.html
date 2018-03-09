@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+{{ template "head" .}}
+</head>
+<body>
+<div class="os-app">
+    <div class="os-mod">
+        <div class="os-mod-1 icn-apps" id="btn-start"></div>
+        {{ template "tpl-app-start-menu" . }}
+        {{ template "tpl-app-taskbar" . }}
+        {{ template "tpl-app-shortcuts" . }}
+        <div class="os-mod-panel full-width full-height">
+            <h1>About Project</h1>
+            <p>This is my personal test environment while learning programming.<br>
+                In future it gonna be GOlang backed collaborative ERP system for Supply Chain domain.<br>
+                Used technologies: GOlang, Web Components, MariaDB, GraphQL, ESI, Microservices and others.
+            </p>
+            <h1>About Me</h1>
+            <p>I am newbie in programming but with good skills in Supply Chain domain. I selected GO as my main and first programming language because it perfectly fits for project I gonna build.<br>
+            This project is refactoring of existing PHP based prototype which I am not able to finish.</p>
+            <h1>For Developers</h1>
+            <p>If you are passionated GOlang developer and you would like join to the development, you can find me online.</p>
+            <h1>Disclaimer</h1>
+            <p>This project can be deleted or modified at any time and you should not to use it!</p>
+        </div>
+        <div class="os-mod-8">
+            <div class="os-mod-sb">
+                <div id="os-mod-link-about" class="os-mod-link">About</div>
+                <div class="os-mod-link">Advertising</div>
+                <div class="os-mod-link">Business</div>
+                <div class="os-mod-link">Team</div>
+                <div class="os-mod-link">Terms</div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ template "bottom" . }}
+</body>
+</html>

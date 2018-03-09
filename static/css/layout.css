@@ -1,0 +1,326 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+h1 {
+    font-size: 1.4em;
+    padding: 10px 0;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+h3 {
+    font-size: 1em;
+}
+
+h4 {
+    font-size: 0.9em;
+}
+
+p {
+    font-size: 0.8em;
+    padding: 10px 0;
+}
+
+.os-mod {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 36px repeat(16, 1fr);
+    grid-template-rows: 36px repeat(16, 1fr) 24px;
+    box-sizing: border-box;
+}
+
+.os-mod-1 {
+    grid-column: 1/1;
+    grid-row: 1/1;
+    background: ghostwhite;
+    background-repeat: no-repeat;
+    background-size: 28px 28px;
+    background-position: center;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.os-mod-2 {
+    background: ghostwhite;
+    grid-column: 2/12;
+    /*box-sizing: border-box;*/
+    display: flex;
+    align-items: center;
+}
+
+.os-mod-3 {
+    background: ghostwhite;
+    grid-column: 12/15;
+    box-sizing: border-box;
+}
+
+.os-mod-4 {
+    background: ghostwhite;
+    grid-column: 15/18;
+    box-sizing: border-box;
+}
+
+.os-mod-5 {
+    background: ghostwhite;
+    grid-row: 2/19;
+    box-sizing: border-box;
+}
+
+.os-mod-panel {
+    background-color: rgba(0,0,0,0.04);
+    box-sizing: border-box;
+    border-top: 1px solid #B0B5B3;
+    border-bottom: 1px solid #B0B5B3;
+    border-left: 1px solid #B0B5B3;
+    width: 100%;
+    height: 100%;
+}
+
+.os-mod-panel.left {
+    grid-column: 2/10;
+}
+
+.os-mod-panel.right {
+    grid-column: 10/18;
+}
+
+.os-mod-panel.full-width {
+    grid-column: 2/18;
+}
+
+.os-mod-panel.top {
+    grid-row: 2/10;
+}
+
+.os-mod-panel.bottom {
+    grid-row: 10/18;
+}
+
+.os-mod-panel.full-height {
+    grid-row: 2/18;
+}
+
+.os-mod-8 {
+    background: ghostwhite;
+    grid-column: 2/18;
+    box-sizing: border-box;
+    border-left: 1px solid #B0B5B3;
+    align-items: center;
+    padding: 0 2px 0 10px;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+}
+.os-mod-sb {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+}
+
+.os-mod-link {
+    cursor: pointer;
+    font-size: 0.8em;
+    margin: 0 10px 0 10px;
+    color: #706f6f;
+}
+
+.os-mod-link:hover {
+    text-decoration: underline;
+}
+
+.os-mod-link-separator {
+    border-left: 1px solid #B0B5B3;
+}
+
+.os-mod-sb-title {
+    grid-column: 1/18;
+}
+
+.os-mod-sb-tools {
+    grid-column: 18/18;
+}
+
+.os-btn-ftr {
+    height: 20px;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    float: right;
+    background: dodgerblue;
+    color: #f3f3f3;
+    cursor: pointer;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+google-map {
+    height: 100%;
+    width: 100%;
+}
+
+/*Container for Main Grid*/
+.os-mod-pc {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.os-mod-nav {
+    padding: 30px 30px 10px 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    border-bottom: 1px solid #b0b5b3;
+    background-color: rgba(0,0,0,0.04);
+}
+
+.os-mod-nav-sections {
+    display: flex;
+    flex-direction: row;
+}
+
+.os-mod-nav-item {
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 0 20px 0 0;
+    padding: 10px;
+}
+
+.os-mod-nav-item:hover {
+    background-color: rgba(0,0,0,0.06);
+}
+
+.os-app-main-search {
+    display: flex;
+    flex-direction: row;
+    height: 36px;
+    width: 600px;
+    border: 1px solid #D3D4D9;
+    background: none;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    margin-bottom: 30px;
+}
+
+.os-app-main-search:hover {
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.os-app-main-search-input {
+    flex-grow: 1;
+    border: none;
+    font-size: 1.2em;
+    padding: 0 5px 0 5px;
+}
+
+.os-app-main-search-btn {
+    border: none;
+    cursor: pointer;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: auto;
+    background-color: black;
+    font-size: 0.8em;
+    color: #fff;
+    text-align: center;
+    padding: 4px 5px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    left: 40px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.os-app-mg {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.os-app-mgb {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.os-app-mgi {
+    background-color: rgba(0,0,0,0.06);
+    height: 30%;
+    width: 30%;
+}
+
+
+
+
+
+.os-app-taskbar {
+    background: ghostwhite;
+    grid-column: 2/18;
+    grid-row: 1/1;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.os-mod-toolbar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.os-app-auth {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.os-app-signin {
+    display: flex;
+    flex-direction: row;
+}
+
+.os-fld-lrg {
+    height: 28px;
+    font-size: 1em;
+    padding: 0 5px;
+    margin: 0 4px 0 0;
+}
+
+.os-lnk {
+    text-transform: uppercase;
+    padding: 0 10px;
+    color: black;
+}
+
+.os-lnk a {
+    text-decoration: none;
+}
+
+.signup {
+    font-size: 1em;
+}
+.forgot {
+    font-size: 0.8em;
+}
