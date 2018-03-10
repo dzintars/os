@@ -7,11 +7,36 @@
 // CH01 - Color Variables
 // *******************************
 
-$lightColor: white; //Primary color
-$lightColor1: darken($lightColor, 10%);
-$lightColor2: darken($lightColor1, 20%);
+$white: white;
+$black: black;
+$blue: dodgerblue;
+$green: green;
+$orange: #FACE20;
+$red: red;
 
-$darkColor: black;
+$light: $white; //Primary color
+$light1: darken($light, 10%);
+$light2: darken($light, 20%);
+$light3: darken($light, 30%);
+
+$dark: $black;
+$dark1: darken($dark, 10%);
+
+
+
+$colorDefault: $white;
+$colorDefault1: darken($colorDefault, 10%);
+$colorDefault2: darken($colorDefault, 20%);
+$colorDefault3: darken($colorDefault, 30%);
+$colorDefault4: darken($colorDefault, 40%);
+
+$colorSuccess: green;
+
+$colorDanger: red;
+
+$colorAttention: dodgerblue;
+
+
 
 // *******************************
 // CH02 - Breakpoint Variables

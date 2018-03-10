@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById("os-app-btn-home").addEventListener("click", home);
     document.getElementById("os-mod-link-about").addEventListener("click", osAbout);
     document.getElementById("os-mod-link-test").addEventListener("click", osTest);
+    document.getElementById("btn-start-accounts").addEventListener("click", osAccounts);
 });
 
 function crm() {
@@ -49,4 +50,8 @@ function osAbout() {
 
 function osTest() {
     location.href = "/test";
+}
+
+function osAccounts() {
+    location.href = "/accounts";
 }

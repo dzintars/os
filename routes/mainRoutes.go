@@ -20,6 +20,7 @@ func mainHandler(r *mux.Router) {
 	r.HandleFunc("/search", searchPostHandler).Methods("POST")
 	r.HandleFunc("/about", aboutGetHandler).Methods("GET")
 	r.HandleFunc("/test", testGetHandler).Methods("GET")
+	r.HandleFunc("/accounts", accountsGetHandler).Methods("GET")
 }
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
@@ -42,6 +43,9 @@ func searchPostHandler(w http.ResponseWriter, r *http.Request) {
 func aboutGetHandler(w http.ResponseWriter, r *http.Request) {
 	d := models.App{Abr: "OS", Title: "About"}
 	utils.ExecuteTemplate(w, "mod-about.html", d)
+}
+func accountsGetHandler(w http.ResponseWriter, r *http.Request) {
+	utils.ExecuteTemplate(w, "mod-accounts.html", nil)
 }
 
 func testGetHandler(w http.ResponseWriter, r *http.Request) {

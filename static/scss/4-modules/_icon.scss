@@ -1,0 +1,28 @@
+.ico {
+    display: inline-block;
+    background: url(/img/sprite.png) no-repeat;
+    line-height: 0;
+    vertical-align: bottom;
+}
+
+.ico-16 {
+    height: 16px;
+    width: 16px;
+}
+
+.ico-28 {
+    height: 28px;
+    width: 28px;
+}
+
+.ico-inbox {
+    background-position: 20px 20px;
+}
+
+.ico-drafts {
+    background-position: 20px 40px;
+}
+
+.ico-apps {
+    background-image: url(/static/icons/9dots.svg);
+}

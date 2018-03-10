@@ -1,0 +1,13 @@
+.module {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.vbox {
+    flex-direction: row;
+}
+
+.hbox {
+    flex-direction: column;
+}

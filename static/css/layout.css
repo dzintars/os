@@ -33,7 +33,6 @@ p {
     display: grid;
     grid-template-columns: 36px repeat(16, 1fr);
     grid-template-rows: 36px repeat(16, 1fr) 24px;
-    box-sizing: border-box;
 }
 
 .os-mod-1 {
@@ -44,7 +43,6 @@ p {
     background-size: 28px 28px;
     background-position: center;
     cursor: pointer;
-    box-sizing: border-box;
 }
 
 .os-mod-2 {
