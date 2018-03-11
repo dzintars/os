@@ -7,17 +7,19 @@
 // CH01 - Color Variables
 // *******************************
 
-$white: white;
-$black: black;
+$white: #fff;
+$black: #000;
 $blue: dodgerblue;
 $green: green;
 $orange: #FACE20;
 $red: red;
 
 $light: $white; //Primary color
-$light1: darken($light, 10%);
-$light2: darken($light, 20%);
-$light3: darken($light, 30%);
+$light1: darken($light, 5%);
+$light2: darken($light, 15%);
+$light3: darken($light, 25%);
+$light5: darken($light, 50%);
+$light65: darken($light, 65%);
 
 $dark: $black;
 $dark1: darken($dark, 10%);
@@ -35,6 +37,11 @@ $colorSuccess: green;
 $colorDanger: red;
 
 $colorAttention: dodgerblue;
+
+$blue5: darken($blue, 5%);
+$blue10: darken($blue, 10%);
+$blue15: darken($blue, 15%);
+$blue20: darken($blue, 20%);
 
 
 

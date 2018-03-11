@@ -1,0 +1,17 @@
+.col {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.col-1 {
+    grid-template-columns: 1fr;
+}
+
+.col-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.col-x {
+    grid-template-columns: 1fr 1200px 1fr;
+}

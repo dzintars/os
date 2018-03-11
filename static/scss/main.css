@@ -334,6 +334,15 @@ template {
   display: none;
 }
 
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: normal;
+}
+
 .btn {
   border: none;
 }
@@ -350,9 +359,28 @@ template {
 
 .btn-start {
   border: none;
+  background: none;
   background-repeat: no-repeat;
   background-position: center;
   cursor: pointer;
+}
+
+.btn-28 {
+  height: 28px;
+}
+
+.btn-blue {
+  background: dodgerblue;
+  border: 1px solid #0077ea;
+  background: linear-gradient(to bottom, dodgerblue 0%, #0583ff 100%);
+  color: #f2f2f2;
+  font-size: 0.9rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-blue:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .os {
@@ -361,7 +389,7 @@ template {
   grid-template-rows: 36px repeat(14, 1fr);
   height: 100vh;
   width: 100vw;
-  background: white;
+  background: #f2f2f2;
 }
 
 .start {
@@ -389,24 +417,14 @@ template {
 .workspace {
   grid-column: 2/30;
   grid-row: 2/16;
-  border-top: 1px solid #cccccc;
-  border-left: 1px solid #cccccc;
+  border-top: 1px solid #bfbfbf;
+  border-left: 1px solid #bfbfbf;
   height: 100%;
   width: 100%;
 }
 
-.module {
-  display: flex;
-  height: 100%;
-  width: 100%;
-}
-
-.vbox {
-  flex-direction: row;
-}
-
-.hbox {
-  flex-direction: column;
+.container {
+  flex-grow: 1;
 }
 
 .module {
@@ -429,8 +447,8 @@ template {
 
 .statusbar {
   height: 22px;
-  background: #e6e6e6;
-  border-top: 1px solid #cccccc;
+  background: #d9d9d9;
+  border-top: 1px solid #bfbfbf;
 }
 
 .ico {
@@ -460,5 +478,160 @@ template {
 
 .ico-apps {
   background-image: url(/static/icons/9dots.svg);
+}
+
+.ico-user {
+  background-image: url(/static/img/svg-icons/account.svg);
+}
+
+.ico-chevron-r {
+  background-image: url(/static/img/svg-icons/chevron-r.svg);
+}
+
+.card {
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  margin-top: 18px;
+  margin-left: 20px;
+  align-self: start;
+}
+
+.card:last-child {
+  margin-right: 20px;
+}
+
+.card:hover {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.card-header {
+  display: flex;
+  flex-direction: row;
+  height: 48px;
+  justify-content: center;
+  align-content: center;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.card-header-icon {
+  width: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-header-title {
+  align-self: center;
+  flex-grow: 1;
+  font-size: 1.2em;
+  color: #595959;
+  font-weight: normal;
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-footer {
+  padding: 10px;
+  border-top: 1px solid #d9d9d9;
+  height: auto;
+}
+
+.padding-0101 {
+  padding: 0 20px;
+}
+
+.col {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+.col-1 {
+  grid-template-columns: 1fr;
+}
+
+.col-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.col-x {
+  grid-template-columns: 1fr 1200px 1fr;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  height: 56px;
+  background: dodgerblue;
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  font-size: 24px;
+  line-height: 32px;
+  vertical-align: middle;
+  font-weight: normal;
+}
+
+.app-intro {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-body {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.w1200 {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.app-intro-title {
+  display: flex;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 42px;
+  margin-top: 48px;
+}
+
+.app-intro-txt {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.app-section {
+  padding: 10px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-section-title {
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 34px;
+}
+
+.app-section-txt p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 16px;
+}
+
+.txt {
+  display: flex;
+}
+
+.txt-title {
+  display: flex;
 }
 /*# sourceMappingURL=main.css.map */

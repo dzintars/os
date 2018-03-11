@@ -1,0 +1,54 @@
+.card {
+    //border: 1px solid $light2;
+    background: $light;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.12),0 1px 5px 0 rgba(0,0,0,0.2);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    margin-top: 18px;
+    margin-left: 20px;
+    align-self: start;
+}
+
+.card:last-child {
+    margin-right: 20px;
+}
+
+.card:hover {
+    //border: 1px solid $light3;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.card-header {
+    display: flex;
+    flex-direction: row;
+    height: 48px;
+    justify-content: center;
+    align-content: center;
+    border-bottom: 1px solid $light2;
+    &-icon {
+        width: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &-title {
+        align-self: center;
+        flex-grow: 1;
+        font-size: 1.2em;
+        color: $light65;
+        font-weight: normal;
+    }
+}
+
+.card-body {
+    padding: 10px;
+}
+
+.card-footer {
+    padding: 10px;
+    border-top: 1px solid $light2;
+    height: auto;
+}
+
+.padding-0101 {
+    padding: 0 20px;
+}
