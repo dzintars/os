@@ -16,7 +16,7 @@ func authHandler(r *mux.Router) {
 }
 
 func signupGetHandler(w http.ResponseWriter, r *http.Request) {
-	utils.ExecuteTemplate(w, "signup.html", nil)
+	utils.ExecuteTemplate(w, "mod-signup.html", nil)
 }
 
 func signupPostHandler(w http.ResponseWriter, r *http.Request) {

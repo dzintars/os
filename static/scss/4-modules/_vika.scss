@@ -1,0 +1,27 @@
+.vika-body {
+    background: #6ccff6;
+}
+
+.element {
+    border: 2px solid red;
+}
+
+.violet {
+    color: #eb9fef;
+    border: 2px dashed #ef27a6;
+    padding: 10px;
+}
+
+.green {
+    color: #006aff;
+}
+
+.mery-cat {
+    height: 200px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    background-image: url(/static/img/mery-cat.png);
+    border: 2px dashed blue;
+}

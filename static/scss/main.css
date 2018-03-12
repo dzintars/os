@@ -369,6 +369,10 @@ h1 {
   height: 28px;
 }
 
+.btn-32 {
+  height: 32px;
+}
+
 .btn-blue {
   background: dodgerblue;
   border: 1px solid #0077ea;
@@ -530,17 +534,49 @@ h1 {
 }
 
 .card-body {
-  padding: 10px;
+  padding: 20px;
+}
+
+.card-body-text {
+  font-size: 15px;
+  text-justify: auto;
+}
+
+.card-body-links {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body-links > a {
+  color: #0077ea;
+  text-decoration: none;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.card-body-links > a:hover {
+  text-decoration: underline;
 }
 
 .card-footer {
   padding: 10px;
   border-top: 1px solid #d9d9d9;
   height: auto;
+  display: flex;
+  justify-content: flex-end;
 }
 
 .padding-0101 {
   padding: 0 20px;
+}
+
+.fieldset {
+  display: flex;
+}
+
+.label {
+  display: flex;
 }
 
 .col {
@@ -633,5 +669,48 @@ h1 {
 
 .txt-title {
   display: flex;
+}
+
+.form-element {
+  display: flex;
+}
+
+.os-start-menu {
+  height: 200px;
+  width: 300px;
+  background: red;
+  color: white;
+  z-index: 1;
+  position: fixed;
+  top: 36px;
+  left: 36px;
+}
+
+.vika-body {
+  background: #6ccff6;
+}
+
+.element {
+  border: 2px solid red;
+}
+
+.violet {
+  color: #eb9fef;
+  border: 2px dashed #ef27a6;
+  padding: 10px;
+}
+
+.green {
+  color: #006aff;
+}
+
+.mery-cat {
+  height: 200px;
+  width: 300px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-image: url(/static/img/mery-cat.png);
+  border: 2px dashed blue;
 }
 /*# sourceMappingURL=main.css.map */

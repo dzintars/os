@@ -21,6 +21,7 @@ func mainHandler(r *mux.Router) {
 	r.HandleFunc("/about", aboutGetHandler).Methods("GET")
 	r.HandleFunc("/test", testGetHandler).Methods("GET")
 	r.HandleFunc("/accounts", accountsGetHandler).Methods("GET")
+	r.HandleFunc("/vika", vikaGetHandler).Methods("GET")
 }
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
@@ -46,6 +47,9 @@ func aboutGetHandler(w http.ResponseWriter, r *http.Request) {
 }
 func accountsGetHandler(w http.ResponseWriter, r *http.Request) {
 	utils.ExecuteTemplate(w, "mod-accounts.html", nil)
+}
+func vikaGetHandler(w http.ResponseWriter, r *http.Request) {
+	utils.ExecuteTemplate(w, "mod-vika.html", nil)
 }
 
 func testGetHandler(w http.ResponseWriter, r *http.Request) {

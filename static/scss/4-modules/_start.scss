@@ -1,0 +1,10 @@
+.#{$os}#{$start}#{$menu} {
+    height: 200px;
+    width: 300px;
+    background: red;
+    color: white;
+    z-index: 1;
+    position: fixed;
+    top: 36px;
+    left: 36px;
+}

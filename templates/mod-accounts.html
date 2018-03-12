@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="os">
-        <div class="start"><button class="btn-start btn-sq-32 ico-apps" type="button"></button></div>
+        <div class="start"><button id="btn-start" class="btn-start btn-sq-32 ico-apps" type="button"></button></div>
         <div class="actions"></div>
         <div class="taskbar"></div>
         <div class="workspace">
@@ -34,8 +34,12 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>Personal account is your default account and can be used to buy goods and services for personal needs. You can have only one Personal Account. Please press Activate button and you will be redirected to small activation form.</p>
-                                <a href="#">Learn More</a>
+                                <div class="card-body-text">
+                                    Personal account will be your default account and can be used to buy goods and services for personal needs. You can have only one Personal Account.<br>Please press Activate button and you will be redirected to small activation form.
+                                </div>
+                                <div class="card-body-links">
+                                    <a href="#">Learn More</a>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <button class="btn-28 btn-blue" type="button">Activate</button>
@@ -46,14 +50,18 @@
                                 <div class="card-header-icon">
                                     <div class="ico-28  ico-user"></div>
                                 </div>
-                                <div class="card-header-title">Join Business Account</div>
+                                <div class="card-header-title">Join to Business Account</div>
                                 <div class="card-header-icon">
                                     <div class="ico-16 ico-chevron-r"></div>
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>If there already has Business Account of company you work you can easy sent Join Request. Persons with Join Request Accept right will receive your join request and will be able to accept it. Please press Join button and provide correct personal information.</p>
-                                <a href="#">Learn More</a>
+                                <div class="card-body-text">
+                                    If there already has Business Account of company you work you can easy sent Join Request. Persons with Join Request Accept Rights will receive your join request and will be able to accept it.<br>Please press Join button and provide correct personal information.
+                                </div>
+                                <div class="card-body-links">
+                                    <a href="#">Learn More</a>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <button class="btn-28 btn-blue" type="button">Join</button>
@@ -70,8 +78,12 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <p>If you are business owner or employee of organization which has no Business Account this option let you create new Business Account. Remember that merging 2 existing Business Acounts of the same organization can be tricky, so first, check does this organization already exists. Please provide correct organization data so your partners can recognize you.</p>
-                                <a href="#">Learn More</a>
+                                <div class="card-body-text">
+                                    If you are business owner or employee of organization which has no Business Account this option let you create new Business Account. Remember that merging 2 existing Business Acounts of the same organization can be tricky, so first, check does this organization already exists. Please provide correct organization data so your partners can recognize you.
+                                </div>
+                                <div class="card-body-links">
+                                    <a href="#">Learn More</a>
+                                </div>
                             </div>
                             <div class="card-footer">
                                 <button class="btn-28 btn-blue" type="button">Create</button>
@@ -83,7 +95,7 @@
                             <div class="app-section-title">Account Validation</div>
                             <div class="app-section-txt">
                                 <p>Every account has validation level.</p>
-                                <p>There is 4 validation levels in total. When new account is created default validation level is assigned to it. You have option to make validation at any level you want.</p>
+                                <p>There are 4 validation levels. When new account is created default validation level is assigned to it. You have option to make validation at any level you want.</p>
                                 <p>Validation levels is required to make safe deals with other users. As higher validation user has, as safer deals can be made.</p>
                                 <p>It is up to you to make deals with low validation level account owner and we do not make any responsibility about descision you make.</p>
                             </div>
@@ -101,5 +113,34 @@
             </div>
         </div>
     </div>
+
+    <template  id="os-start-menu">
+        <div class="os-start-menu">
+            Start Menu Container
+        </div>
+    </template>
+<script>
+    //https://stackoverflow.com/questions/49244944/toggle-appendchild-if-doesnt-exist-and-removechild-if-exist/49245337#49245337
+    //Will play with this to use display: block and outside click to hide.
+    let element = document.getElementById('os-start-menu');
+    let content = element.content;
+
+    function toggle () {
+        // Attempt to reference the element in the document, not the template content
+        var imported = document.querySelector(".os-start-menu");
+    
+        // Check for the element, not the template content
+        if (document.body.contains(imported)) {
+            // Element exists, get its parent
+            imported.parentNode.removeChild(imported);
+        } else {
+            // Use .importNode to bring template content in:
+            document.body.appendChild(document.importNode(content, true));
+        }
+    }
+
+    let button = document.getElementById('btn-start');
+    button.addEventListener('click', toggle, false);
+</script>
 </body>
 </html>

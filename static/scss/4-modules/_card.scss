@@ -40,15 +40,45 @@
 }
 
 .card-body {
-    padding: 10px;
+    padding: 20px;
+    &-text {
+        font-size: 15px;
+        text-justify: auto;
+    }
+    &-links {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+
+        & > a {
+            color: $blue10;
+            text-decoration: none;
+            font-weight: 300;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
 }
 
 .card-footer {
     padding: 10px;
     border-top: 1px solid $light2;
     height: auto;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .padding-0101 {
     padding: 0 20px;
+}
+
+.fieldset {
+    display: flex;
+}
+
+.label {
+    display: flex;
 }
