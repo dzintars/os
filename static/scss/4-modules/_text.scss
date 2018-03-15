@@ -1,0 +1,15 @@
+.text {
+    font-size: 1em;
+    &-xl {
+        font-size: 1.4em;
+    }
+    &-l {
+        font-size: 1.2em;
+    }
+    &-s {
+        font-size: 0.9em;
+    }
+    &-xs {
+        font-size: 0.8em;
+    }
+}

@@ -1,8 +1,5 @@
 .ico {
     display: inline-block;
-    background: url(/img/sprite.png) no-repeat;
-    line-height: 0;
-    vertical-align: bottom;
 }
 
 .ico-16 {
@@ -13,6 +10,11 @@
 .ico-28 {
     height: 28px;
     width: 28px;
+}
+
+.ico-32 {
+    height: 32px;
+    width: 32px;
 }
 
 .ico-inbox {
@@ -33,4 +35,10 @@
 }
 .ico-chevron-r {
     background-image: url(/static/img/svg-icons/chevron-r.svg);
+}
+.ico-close {
+    background-image: url(/static/img/svg-icons/close.svg);
+}
+.ico-drag {
+    background-image: url(/static/img/svg-icons/drag.svg);
 }

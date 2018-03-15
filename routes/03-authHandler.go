@@ -13,7 +13,10 @@ func authHandler(r *mux.Router) {
 	r.HandleFunc("/signin", signinGetHandler).Methods("GET")
 	r.HandleFunc("/signin", signinPostHandler).Methods("POST")
 	r.HandleFunc("/signout", signoutGetHandler).Methods("GET")
+	r.HandleFunc("/forgot-password", forgotpasswordGetHandler).Methods("GET")
 }
+
+// Handlers
 
 func signupGetHandler(w http.ResponseWriter, r *http.Request) {
 	utils.ExecuteTemplate(w, "mod-signup.html", nil)
@@ -33,4 +36,7 @@ func signinPostHandler(w http.ResponseWriter, r *http.Request) {
 
 func signoutGetHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/signin", http.StatusSeeOther)
+}
+func forgotpasswordGetHandler(w http.ResponseWriter, r *http.Request) {
+	utils.ExecuteTemplate(w, "mod-forgotpassword.html", nil)
 }

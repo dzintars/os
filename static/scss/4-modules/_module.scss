@@ -5,9 +5,11 @@
 }
 
 .vbox {
+    display: flex;
     flex-direction: row;
 }
 
 .hbox {
+    display: flex;
     flex-direction: column;
 }

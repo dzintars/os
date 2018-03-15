@@ -14,6 +14,8 @@ $green: green;
 $orange: #FACE20;
 $red: red;
 
+$primaryColor: &light;
+
 $light: $white; //Primary color
 $light1: darken($light, 5%);
 $light2: darken($light, 15%);
@@ -54,7 +56,28 @@ $breakpoint-laptop: 950px;
 $breakpoint-tablet: 768px;
 $breakpoint-mobile: 400px;
 
+// *******************************
 //Global class naming prefix variables
-$os: os;
-$start: -start;
-$menu: -menu;
+// *******************************
+
+// Global CSS Version prefix
+$os1: "os1";
+
+$start: "-start";
+$menu: "-menu";
+
+//Start Menu
+$startMenuContainerWidth: calc(100% - 36px);
+$startMenuContainerHeight: calc(100% - 36px);
+$startMenuBodyWidth: 600px;
+$startMenuBodyHeight: 100%;
+
+$px28: 28px;
+$px32: 32px;
+$px36: 36px;
+$px48: 48px;
+
+$h-32: $px32;
+$h-36: $px36;
+$h-48: $px48;
+$w-32: $px32;

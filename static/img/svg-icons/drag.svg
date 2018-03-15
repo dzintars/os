@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+<title>Drag</title>
+    <g id="drag">
+        <rect x1="0" y1="25%" height="2" width="100%" style="stroke: none; fill: black" shape-rendering="crispEdges"></rect>
+        <rect x1="0" y1="50%" height="2" width="100%" style="stroke: none; fill: black" shape-rendering="crispEdges"></rect>
+        <rect x1="0" y1="75%" height="2" width="100%" style="stroke: none; fill: black" shape-rendering="crispEdges"></rect>
+    </g>
+</svg>

@@ -9,12 +9,12 @@
 </head>
 <body>
     <div class="os">
-        <div class="start"><button id="btn-start" class="btn-start btn-sq-32 ico-apps" type="button"></button></div>
+        <div class="start"><button id="btn-start" class="btn-start btn-sq-28 ico-apps" type="button"></button></div>
         <div class="actions"></div>
         <div class="taskbar"></div>
         <div class="workspace">
             <div class="module hbox">
-                <div class="app-header">Accounts</div>
+                <div class="app-header row">Accounts</div>
                 <div class="app-body hbox">
                     <div class="container w1200 col col-1">
                         <div class="app-intro hbox">
@@ -94,6 +94,7 @@
                         <div class="app-section hbox">
                             <div class="app-section-title">Account Validation</div>
                             <div class="app-section-txt">
+                                <dialog></dialog>
                                 <p>Every account has validation level.</p>
                                 <p>There are 4 validation levels. When new account is created default validation level is assigned to it. You have option to make validation at any level you want.</p>
                                 <p>Validation levels is required to make safe deals with other users. As higher validation user has, as safer deals can be made.</p>
@@ -101,6 +102,7 @@
                             </div>
                         </div>
                     </div>
+                    <hr>
                     <div class="container w1200">
                         <div class="app-section hbox">
                             <div class="app-section-title">Account Merging</div>
@@ -115,8 +117,11 @@
     </div>
 
     <template  id="os-start-menu">
-        <div class="os-start-menu">
-            Start Menu Container
+        <div class="os1-start-menu vbox">
+            <div class="os1-start-menu-body hbox">
+                <div class="ico-32 ico-close"></div>
+            </div>
+            <div id="startOverlay" class="os1-start-menu-transparent"></div>
         </div>
     </template>
 <script>
@@ -126,8 +131,9 @@
     let content = element.content;
 
     function toggle () {
+        'use strict';
         // Attempt to reference the element in the document, not the template content
-        var imported = document.querySelector(".os-start-menu");
+        var imported = document.querySelector(".os1-start-menu");
     
         // Check for the element, not the template content
         if (document.body.contains(imported)) {

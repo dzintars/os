@@ -1,10 +1,10 @@
 .os {
     display: grid;
-    grid-template-columns: 36px repeat(28, 1fr);
-    grid-template-rows: 36px repeat(14, 1fr);
+    grid-template-columns: $px36 1fr;
+    grid-template-rows: $px36 1fr;
     height: 100vh;
     width: 100vw;
-    background: $light1;
+    overflow: hidden;
 }
 
 .start {
@@ -16,7 +16,7 @@
 }
 
 .actions {
-    grid-column: 2/30;
+    grid-column: 2/2;
     grid-row: 1/1;
     display: flex;
     justify-content: center;
@@ -24,14 +24,14 @@
 
 .taskbar {
     grid-column: 1/1;
-    grid-row: 2/16;
+    grid-row: 2/2;
     display: flex;
     align-items: center;
 }
 
 .workspace {
-    grid-column: 2/30;
-    grid-row: 2/16;
+    grid-column: 2/2;
+    grid-row: 2/2;
     border-top: 1px solid $light3;
     border-left: 1px solid $light3;
     height: 100%;

@@ -1,10 +1,19 @@
-.#{$os}#{$start}#{$menu} {
-    height: 200px;
-    width: 300px;
-    background: red;
-    color: white;
-    z-index: 1;
+.#{$os1}#{$start}#{$menu} {
     position: fixed;
-    top: 36px;
-    left: 36px;
+    top: $px36;
+    left: $px36;
+    width: $startMenuContainerWidth;
+    height: $startMenuContainerHeight;
+    z-index: $zindexStart;
+    &-body {
+        width: $startMenuBodyWidth;
+        min-width: $startMenuBodyWidth;
+        height: $startMenuBodyHeight;
+        background: $light;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    }
+    &-transparent {
+        flex-grow: 1;
+        background:rgba(0,0,0,0.2);
+    }
 }

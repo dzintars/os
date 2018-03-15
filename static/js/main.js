@@ -13,32 +13,22 @@ startButton.onclick = function () {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("app-title-crm").addEventListener("click", crm);
-    document.getElementById("btn-crm-customers").addEventListener("click", crmCustomers);
-    document.getElementById("btn-crm-dashboard").addEventListener("click", crmDashboard);
-    document.getElementById("btn-crm-projects").addEventListener("click", crmProjects);
     document.getElementById("btn-start-exit").addEventListener("click", home);
     document.getElementById("os-app-btn-home").addEventListener("click", home);
+
+    document.getElementById("front-nav-btn-applications").addEventListener("click", osModApplications);
+    document.getElementById("front-nav-btn-business").addEventListener("click", osModBusiness);
+    document.getElementById("front-nav-btn-services").addEventListener("click", osModServices);
+    document.getElementById("front-nav-btn-products").addEventListener("click", osModProducts);
+    document.getElementById("front-nav-btn-promotions").addEventListener("click", osModPromotions);
+
     document.getElementById("os-mod-link-about").addEventListener("click", osAbout);
     document.getElementById("os-mod-link-test").addEventListener("click", osTest);
-    document.getElementById("btn-start-accounts").addEventListener("click", osAccounts);
+
+    document.getElementById("start-menu-btn-open-crm").addEventListener("click", appCrm);
+    document.getElementById("start-menu-btn-open-crm-dashboard").addEventListener("click", appCrmDashboard);
+    document.getElementById("start-menu-btn-open-crm-customers").addEventListener("click", appCrmCustomers);
 });
-
-function crm() {
-    location.href = "/apps/crm";
-}
-
-function crmCustomers() {
-    location.href = "/apps/crm/customers";
-}
-
-function crmDashboard() {
-    location.href = "/apps/crm/dashboard";
-}
-
-function crmProjects() {
-    location.href = "/apps/crm/projects";
-}
 
 function home() {
     location.href = "/";
@@ -47,11 +37,32 @@ function home() {
 function osAbout() {
     location.href = "/about";
 }
-
 function osTest() {
     location.href = "/test";
 }
 
-function osAccounts() {
-    location.href = "/accounts";
+function osModApplications() {
+    location.href = "/apps";
+}
+function osModBusiness() {
+    location.href = "/business";
+}
+function osModServices() {
+    location.href = "/services";
+}
+function osModProducts() {
+    location.href = "/products";
+}
+function osModPromotions() {
+    location.href = "/promotions";
+}
+
+function appCrm() {
+    location.href = "/apps/crm";
+}
+function appCrmDashboard() {
+    location.href = "/apps/crm/dashboard";
+}
+function appCrmCustomers() {
+    location.href = "/apps/crm/customers";
 }
