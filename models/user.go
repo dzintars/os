@@ -2,8 +2,8 @@ package models
 
 // User struct
 type User struct {
-	ID   int
-	Name string
+	ID   int    `json:"id"`
+	Name string `json:"name"`
 }
 
 // ListUsers is function to retrieve a full list of all users

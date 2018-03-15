@@ -7,7 +7,7 @@ type Project struct {
 }
 
 func GetProjects() ([]Project, error) {
-	db := db_loc()
+	db := dbLoc()
 	rows, err := db.Query("SELECT id, title, quantity FROM order_projects WHERE stakeholder_id='1453'")
 	if err != nil {
 		panic(err.Error())
