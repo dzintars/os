@@ -1,5 +1,14 @@
 <div>
-{{ range . }}
-<h2>{{ .ID }} | {{ .Name }}</h2>
-{{ end }}
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        {{ range . }}
+        <tr>
+            <td>{{ .ID }}</td>
+            <td>{{ .Name }}</td>
+        </tr>
+        {{ end }}
+    </table>
 </div>

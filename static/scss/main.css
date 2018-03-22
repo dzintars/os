@@ -429,6 +429,7 @@ hr {
   border-left: 1px solid #bfbfbf;
   height: 100%;
   width: 100%;
+  overflow-x: auto;
 }
 
 .container {
@@ -654,6 +655,7 @@ hr {
 }
 
 .app-body {
+  all: unset;
   flex-grow: 1;
   overflow: auto;
 }
@@ -738,8 +740,13 @@ hr {
   flex-grow: 1;
 }
 
+tr {
+  height: 21px;
+  border-top: 1px solid #d9d9d9;
+}
+
 .vika-body {
-  background: #6ccff6;
+  background: #f2f2f2;
 }
 
 .element {
@@ -747,7 +754,7 @@ hr {
 }
 
 .violet {
-  color: #eb9fef;
+  color: #ef17fa;
   border: 2px dashed #ef27a6;
   padding: 10px;
 }

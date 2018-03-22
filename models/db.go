@@ -3,8 +3,8 @@ package models
 import (
 	"database/sql"
 	"fmt"
-	"log"
 
+	// MySQL Driver
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -19,12 +19,17 @@ const (
 func dbLoc() (db *sql.DB) {
 	connection := fmt.Sprintf("%s:%s@/%s", DBUser, DBPass, DBDbase)
 	db, err := sql.Open("mysql", connection)
-	if err != nil {
-		log.Println("Couldn't connect to" + DBDbase)
-	}
+	checkErr(err)
+
 	if err = db.Ping(); err != nil {
 		panic(err)
 	}
 
 	return db
+}
+
+func checkErr(err error) {
+	if err != nil {
+		panic(err)
+	}
 }

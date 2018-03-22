@@ -111,6 +111,22 @@
                             </div>
                         </div>
                     </div>
+
+                    <div>
+                            <table>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                </tr>
+                                {{ range . }}
+                                <tr>
+                                    <td>{{ .ID }}</td>
+                                    <td>{{ .Name }}</td>
+                                </tr>
+                                {{ end }}
+                            </table>
+                        </div>
+                        
                 </div>
             </div>
         </div>

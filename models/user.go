@@ -8,11 +8,12 @@ type User struct {
 
 // ListUsers is function to retrieve a full list of all users
 func ListUsers() ([]User, error) {
+	getUsers := "SELECT id, name FROM sys_users"
+
 	db := dbLoc()
-	rows, err := db.Query("SELECT id, name FROM sys_users")
-	if err != nil {
-		panic(err.Error())
-	}
+	rows, err := db.Query(getUsers)
+	checkErr(err)
+
 	usr := User{}
 	res := []User{}
 
@@ -20,9 +21,7 @@ func ListUsers() ([]User, error) {
 		var id int
 		var name string
 		err := rows.Scan(&id, &name)
-		if err != nil {
-			panic(err.Error())
-		}
+		checkErr(err)
 		usr.ID = id
 		usr.Name = name
 		res = append(res, usr)

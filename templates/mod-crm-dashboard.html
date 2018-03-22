@@ -1,7 +1,5 @@
-<html lang="en">
-<head>
-    {{ template "head" . }}
-</head>
+{{ template "tpl-app-head" . }}
+
 <body>
     <div class="os-app">
         <div class="os-mod">
@@ -10,16 +8,7 @@
             {{ template "tpl-app-taskbar" . }}
             {{ template "tpl-app-shortcuts" . }}
             <div class="os-mod-panel left full-height"></div>
-            <div class="os-mod-panel right full-height">
-                <google-map fit-to-markers api-key="AIzaSyCxodW1vxiI4GyjeLqS0h2Et5VhxungczA">
-                    <google-map-marker slot="markers" latitude="56.95" longitude="24.00" draggable="true"></google-map-marker>
-                    <google-map-marker slot="markers" latitude="56.98" longitude="24.05" draggable="true"></google-map-marker>
-                    <google-map-marker slot="markers" latitude="56.90" longitude="24.10" draggable="true"></google-map-marker>
-                    <google-map-marker slot="markers" latitude="56.86" longitude="24.15" draggable="true"></google-map-marker>
-                    <google-map-marker slot="markers" latitude="56.95" longitude="24.15" draggable="true"></google-map-marker>
-                    <google-map-marker slot="markers" latitude="56.90" longitude="24.20" draggable="true"></google-map-marker>
-                </google-map>
-            </div>
+            <div class="os-mod-panel right full-height"></div>
             <div class="os-mod-8">
                 <div class="os-mod-sb-title">{{.Abr}} | {{.ModuleTitle}}</div>
                 <form class="os-mod-sb-tools" action="/signin">

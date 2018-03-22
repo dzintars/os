@@ -19,6 +19,7 @@
 }
 
 .app-body {
+    all:unset;
     flex-grow: 1;
     overflow: auto;
 }
