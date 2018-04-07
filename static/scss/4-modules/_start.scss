@@ -9,11 +9,18 @@
         width: $startMenuBodyWidth;
         min-width: $startMenuBodyWidth;
         height: $startMenuBodyHeight;
-        background: $light;
+        background: rgba(255,255,255,0.9);
+        //background: $light;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     }
     &-transparent {
         flex-grow: 1;
-        background:rgba(0,0,0,0.2);
+        background: rgba(0,0,0,0.6);
     }
+}
+
+.btn-start {
+    margin: 4px;
+    width: 28px;
+    cursor: pointer;
 }

@@ -1,0 +1,23 @@
+.vbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.hbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.vsep {
+    border-left: 1px solid $light1;
+    height: 90%;
+}
+.hsep {
+    border-top: 1px solid $light1;
+    width: 90%;
+}
+
+.vsp-8 {
+    height: 100%;
+    width: 8px;
+}

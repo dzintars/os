@@ -1,18 +1,26 @@
 {{ define "tpl-app-taskbar" }}
-<div class="os-app-taskbar">
-    <div class="os-mod-toolbar"></div>
-    <div class="os-app-auth">
-        <form method="POST">
-            <fieldset class="os-app-signin">
-                <input id="username" type="text" name="username" class="os-fld-lrg username" placeholder="Username">
-                <input id="password" type="password" name="password" class="os-fld-lrg password" placeholder="Password">
-                <button type="submit" class="os-btn-lrg">Sign In</button>
-            </fieldset>
-        </form>
-        <div class="os-app-signup">
-            <p class="os-lnk signup"><a href="/signup">Sign Up</a></p>
-            <p class="os-lnk forgot"><a href="/signup">Forgot Password</a></p>
+    <div class="taskbar vbox">
+        <img src="/static/img/svg-icons/9dots.svg" alt="Don't read this!" class="btn-start" id="btn-start">
+        <div class="toolbar vbox">
+            <button class="btn-28">New</button>
+            <button class="btn-28">Edit</button>
+            <button class="btn-28">Delete</button>
+            <button class="btn-28">Export</button>
+        </div>
+        <div class="toolgroup vbox">
+            <form class="hfrm signin vbox" method="POST">
+                <fieldset class="vbox">
+                    <input id="username" class="inp-28" type="text" name="username" placeholder="Username">
+                    <input id="password" class="inp-28" type="password" name="password" placeholder="Password">
+                    <button class="btn-28" type="submit">Sign In</button>
+                </fieldset>
+            </form>
+            <div class="vsp-8"></div>
+            <div class="signup">
+                <p class="txt-l nolink"><a href="/signup">Sign Up</a></p>
+                <p class="txt-s nolink"><a href="/restore-access">Forgot Password</a></p>
+            </div>
+            <div class="vsp-8"></div>
         </div>
     </div>
-</div>
 {{ end }}

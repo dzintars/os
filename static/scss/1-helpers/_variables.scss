@@ -9,12 +9,10 @@
 
 $white: #fff;
 $black: #000;
-$blue: dodgerblue;
-$green: green;
-$orange: #FACE20;
-$red: red;
-
-$primaryColor: &light;
+$blue: #006AFF;
+$green: #3EC300;
+$orange: #FCBA04;
+$red: #E70E02;
 
 $light: $white; //Primary color
 $light1: darken($light, 5%);
@@ -23,12 +21,14 @@ $light3: darken($light, 25%);
 $light5: darken($light, 50%);
 $light65: darken($light, 65%);
 
+$primaryColor: $light;
+
 $dark: $black;
 $dark1: darken($dark, 10%);
 
 
 
-$colorDefault: $white;
+$colorDefault: $light;
 $colorDefault1: darken($colorDefault, 10%);
 $colorDefault2: darken($colorDefault, 20%);
 $colorDefault3: darken($colorDefault, 30%);
@@ -77,7 +77,9 @@ $px32: 32px;
 $px36: 36px;
 $px48: 48px;
 
+$h-28: $px28;
 $h-32: $px32;
 $h-36: $px36;
 $h-48: $px48;
 $w-32: $px32;
+$w-36: $px36;

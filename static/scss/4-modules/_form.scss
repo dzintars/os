@@ -1,5 +1,22 @@
-.form {
+form {
+    margin: unset;
+    padding: unset;
     &-element {
         display: flex;
+    }
+}
+
+fieldset {
+    margin: unset;
+    padding: unset;
+}
+
+.hfrm {
+    fieldset {
+        align-items: center;
+        border: 0;
+        input {
+            margin-right: 8px;
+        }
     }
 }

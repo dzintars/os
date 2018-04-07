@@ -1,32 +1,16 @@
-<html lang="en">
-<head>
-    {{ template "tpl-app-head" . }}
-</head>
-<body>
-<div class="os-app">
-    <div class="os-mod">
-        <div class="os-mod-1 icn-apps" id="btn-start"></div>
-        {{ template "tpl-app-start-menu" . }}
+{{ template "tpl-app-head-x" . }}
+<os-viewport>
+    <div class="container hbox">
         {{ template "tpl-app-taskbar" . }}
-        {{ template "tpl-app-shortcuts" . }}
-        <div class="os-mod-panel full-width full-height">
-            <div class="os-mod-pc">
-            {{ template "tpl-app-main-navigation" . }}
-            {{ template "tpl-app-main-grid" . }}
-            </div>
-        </div>
-        <div class="os-mod-8">
-            <div class="os-mod-sb">
-                <div id="os-mod-link-about" class="os-mod-link">About</div>
-                <div class="os-mod-link">Advertising</div>
-                <div class="os-mod-link">Business</div>
-                <div class="os-mod-link">Team</div>
-                <div class="os-mod-link">Terms</div>
-                <div id="os-mod-link-test" class="os-mod-link">Test</div>
-            </div>
-        </div>
+        <os-info img="/static/img/svg-icons/gchrome.svg" text="Google Chrome Only!"></os-info>
+        <h1>Google Chrome and Opera only!</h1>
+        <os-taskbar>
+            <os-info img="/static/img/svg-icons/account.svg" text="This is custom web component" size="1.6rem"></os-info>
+            <input type="text" placeholder="I'm a native inside custom">
+        </os-taskbar>
+        <h1>Simple &lt;img&gt; tag:</h1>
+        <img src="/static/img/svg-icons/account.svg" width="64px" alt="Don't read this!">
+        <!-- Simple pop-up dialog box, containing a form -->
     </div>
-</div>
+</os-viewport>
 {{ template "tpl-app-bottom" . }}
-</body>
-</html>
