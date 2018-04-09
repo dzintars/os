@@ -1,0 +1,1 @@
+import {} from '/static/components/checkbox.js'

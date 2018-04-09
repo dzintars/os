@@ -1,4 +1,4 @@
-let taskbar = document.createElement('template');
+const taskbar = document.createElement('template');
 
 taskbar.innerHTML = `
     <style>
