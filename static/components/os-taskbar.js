@@ -5,9 +5,14 @@ taskbar.innerHTML = `
     :host {
         display: flex;
         align-items: center;
-        border: 1px solid dodgerblue;
         height: 36px;
         width: 100%;
+    }
+    :host([vbox]) {
+        flex-direction: row;
+    }
+    :host([hbox]) {
+        flex-direction: column;
     }
     </style>
     <slot></slot>

@@ -1,0 +1,56 @@
+os-button-toogle {
+    background-color: #eee;  
+    padding: 3px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #333;
+    border-radius: 3px;
+    transition: background-color .2s ease;
+  }
+  os-button-toogle[pressed],
+  os-button-toogle:not([disabled]):active {
+    background-color: #999;
+  }
+  os-button-toogle[disabled] {
+    opacity: 0.35;
+  }
+
+  button[open-launcher] {
+    border: none;
+    min-width: 80px;
+    height: 100%;
+    background-color: $blue;
+    margin-right: 4px;
+    cursor: pointer;
+    color: $light;
+    font-weight: 400;
+    font-size: 1rem;
+    vertical-align: center;
+  }
+
+  os-taskbar {
+    border-bottom: 1px solid $blue;
+  }
+
+  os-statusbar {
+    background: $light1;
+    color: $light5;
+    & > div {
+      margin: 0 8px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .expander {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  os-taskbar {
+    min-height: 37px;
+  }

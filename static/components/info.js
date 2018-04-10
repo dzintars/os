@@ -24,8 +24,10 @@ class OsInfo extends HTMLElement {
       // Insert icon
       let imgUrl;
       if(this.hasAttribute('img')) {
+        //Get icon if provided in outer HTML document
         imgUrl = this.getAttribute('img');
       } else {
+        //Or use default image as placeholder.
         imgUrl = 'img/default.png';
       }
   

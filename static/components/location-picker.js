@@ -2,12 +2,14 @@ const location = document.createElement('template');
 
 location.innerHTML = `
     <style>
+    :host {
+        all: initial;
+      }
     div {
-        --size: 22px;
         display: flex;
         align-items: center;
-        border: thin solid gray;
-        height: var(--size);
+        border: 1px solid gray;
+        height: 22px;
         width: 200px;
     }
     div:focus-within {
@@ -25,7 +27,7 @@ location.innerHTML = `
     }
     button {
         border: none;
-        width: var(--size);
+        min-width: 22px;
         height: 100%
     }
     button:hover {
@@ -36,9 +38,9 @@ location.innerHTML = `
     }
     </style>
     <div>
-    <input type="text" name="location"></input>
-    <button>B</button>
-    <slot></slot>
+        <input type="text" name="location"></input>
+        <button>B</button>
+        <slot></slot>
     </div>
 `;
 

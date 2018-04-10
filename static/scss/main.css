@@ -74,7 +74,6 @@ p {
 button {
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #006AFF;
   outline: none;
   color: inherit;
   text-align: center;
@@ -112,6 +111,39 @@ button {
 
 .btn-blue:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+button[direction] {
+  flex-grow: 1;
+  height: 28px;
+  margin: 0;
+  border: none;
+  color: #fff;
+  font-weight: 400;
+}
+
+button[green] {
+  background-color: #3EC300;
+}
+
+button[blue] {
+  background-color: dodgerblue;
+}
+
+button[red] {
+  background-color: #E70E02;
+}
+
+button[orange] {
+  background-color: #FCBA04;
+}
+
+button[violet] {
+  background-color: #CA3CFF;
+}
+
+button[direction]:hover {
+  text-decoration: underline;
 }
 
 .os {
@@ -175,6 +207,10 @@ button {
   display: flex;
   align-items: center;
   border-bottom: 1px solid #006AFF;
+}
+
+button[small] {
+  background-color: red;
 }
 
 .ico-16 {
@@ -450,11 +486,11 @@ fieldset {
 
 .os1-start-menu {
   position: fixed;
-  top: 36px;
-  left: 36px;
-  width: calc(100% - 36px);
+  top: 37px;
+  width: 100%;
   height: calc(100% - 36px);
   z-index: 100;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .os1-start-menu-body {
@@ -462,18 +498,23 @@ fieldset {
   min-width: 600px;
   height: 100%;
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
-.os1-start-menu-transparent {
+.os1-start-menu-overlay {
   flex-grow: 1;
   background: rgba(0, 0, 0, 0.6);
 }
 
-.btn-start {
-  margin: 4px;
-  width: 28px;
-  cursor: pointer;
+.directions {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 30px;
+  padding: 4px;
+}
+
+.shortcuts {
+  padding: 20px;
+  background-color: #f2f2f2;
 }
 
 .row {
@@ -498,6 +539,67 @@ tr {
 
 .inp-28 {
   height: 28px;
+}
+
+os-button-toogle {
+  background-color: #eee;
+  padding: 3px;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #333;
+  border-radius: 3px;
+  transition: background-color .2s ease;
+}
+
+os-button-toogle[pressed],
+os-button-toogle:not([disabled]):active {
+  background-color: #999;
+}
+
+os-button-toogle[disabled] {
+  opacity: 0.35;
+}
+
+button[open-launcher] {
+  border: none;
+  min-width: 80px;
+  height: 100%;
+  background-color: #006AFF;
+  margin-right: 4px;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1rem;
+  vertical-align: center;
+}
+
+os-taskbar {
+  border-bottom: 1px solid #006AFF;
+}
+
+os-statusbar {
+  background: #f2f2f2;
+  color: gray;
+}
+
+os-statusbar > div {
+  margin: 0 8px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+os-statusbar > div:hover {
+  text-decoration: underline;
+}
+
+.expander {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+os-taskbar {
+  min-height: 37px;
 }
 
 .vika-body {

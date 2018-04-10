@@ -13,6 +13,7 @@ $blue: #006AFF;
 $green: #3EC300;
 $orange: #FCBA04;
 $red: #E70E02;
+$violet: #CA3CFF;
 
 $light: $white; //Primary color
 $light1: darken($light, 5%);
@@ -67,7 +68,7 @@ $start: "-start";
 $menu: "-menu";
 
 //Start Menu
-$startMenuContainerWidth: calc(100% - 36px);
+$startMenuContainerWidth: 100%;
 $startMenuContainerHeight: calc(100% - 36px);
 $startMenuBodyWidth: 600px;
 $startMenuBodyHeight: 100%;

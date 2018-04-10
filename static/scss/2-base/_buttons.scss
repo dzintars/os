@@ -1,7 +1,6 @@
 button {
     display: inline-block;
     vertical-align: middle;
-    border: 1px solid $blue;
     outline: none;
     color: inherit;
     text-align: center;
@@ -39,4 +38,33 @@ button {
 
 .btn-blue:hover {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+button {
+    &[direction] {
+    flex-grow: 1;
+    height: 28px;
+    margin: 0;
+    border: none;
+    color: $light;
+    font-weight: 400;
+    }
+    &[green] {
+        background-color: $green;
+    }
+    &[blue] {
+        background-color: dodgerblue;
+    }
+    &[red] {
+        background-color: $red;
+    }
+    &[orange] {
+        background-color: $orange;
+    }
+    &[violet] {
+        background-color: $violet;
+    }
+    &[direction]:hover {
+        text-decoration: underline;
+    }
 }

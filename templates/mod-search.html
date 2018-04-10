@@ -1,36 +1,20 @@
-<html lang="en">
-<head>
-{{ template "head" .}}
-</head>
-<body>
-<div class="os-app">
-    <div class="os-mod">
-        <div class="os-mod-1 icn-apps" id="btn-start"></div>
-        {{ template "tpl-app-start-menu" . }}
-        <div class="os-mod-2">
-            <button class="os-mod-tb-btn">Publish Service</button>
-        </div>
-        <div class="os-mod-3"></div>
-        <div class="os-mod-4">
-        {{ template "tpl-app-credentials" . }}
-        </div>
-        <div class="os-mod-5">
-        {{ template "tpl-app-taskbar" . }}
-        </div>
-        <div class="os-mod-panel full-width full-height">
-        {{ template "tpl-app-main-navigation" . }}<br>
-        </div>
-        <div class="os-mod-8">
-            <div class="os-mod-sb">
-                <div id="os-mod-link-about" class="os-mod-link">About</div>
-                <div class="os-mod-link">Advertising</div>
-                <div class="os-mod-link">Business</div>
-                <div class="os-mod-link">Team</div>
-                <div class="os-mod-link">Terms</div>
-            </div>
-        </div>
-    </div>
-</div>
-{{ template "bottom" . }}
-</body>
-</html>
+{{define "tpl-app-search"}}
+<os-container hbox>
+    <os-panel hbox>
+        <os-row hbox center>
+            <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo" width="200px">
+            <os-omnibox></os-omnibox>
+        </os-row>
+    </os-panel>
+    <os-statusbar vbox>
+        <div>About</div>
+        <div>Advertising</div>
+        <div>Business</div>
+        <div>Team</div>
+        <div>Terms</div>
+        <os-panel vbox></os-panel>
+        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
+        <div>Google Chrome Only</div>
+    </os-statusbar>
+</os-container>
+{{end}}

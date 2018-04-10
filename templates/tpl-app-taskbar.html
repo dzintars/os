@@ -1,26 +1,22 @@
 {{ define "tpl-app-taskbar" }}
-    <div class="taskbar vbox">
-        <img src="/static/img/svg-icons/9dots.svg" alt="Don't read this!" class="btn-start" id="btn-start">
-        <div class="toolbar vbox">
-            <button class="btn-28">New</button>
-            <button class="btn-28">Edit</button>
-            <button class="btn-28">Delete</button>
-            <button class="btn-28">Export</button>
-        </div>
-        <div class="toolgroup vbox">
-            <form class="hfrm signin vbox" method="POST">
-                <fieldset class="vbox">
-                    <input id="username" class="inp-28" type="text" name="username" placeholder="Username">
-                    <input id="password" class="inp-28" type="password" name="password" placeholder="Password">
-                    <button class="btn-28" type="submit">Sign In</button>
-                </fieldset>
-            </form>
-            <div class="vsp-8"></div>
-            <div class="signup">
-                <p class="txt-l nolink"><a href="/signup">Sign Up</a></p>
-                <p class="txt-s nolink"><a href="/restore-access">Forgot Password</a></p>
+<os-taskbar vbox>
+    <button id="btn-open-launcher" open-launcher>APPS</button>
+</os-taskbar>
+<template  id="os-start-menu">
+    <div class="os1-start-menu vbox">
+        <div class="os1-start-menu-body hbox">
+            <div class="directions vbox">
+                <button id="btn-goto-services" direction green>Services</button>
+                <button id="btn-goto-products" direction blue>Products</button>
+                <button id="btn-goto-business" direction orange>Business</button>
+                <button id="btn-goto-promotions" direction red>Promotions</button>
+                <button id="btn-goto-apps" direction violet>Applications</button>
             </div>
-            <div class="vsp-8"></div>
+            <div class="shortcuts">
+                <a href="/apps/sys/users">Users</a>
+            </div>
         </div>
+        <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
     </div>
+</template>
 {{ end }}

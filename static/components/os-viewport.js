@@ -6,7 +6,12 @@ viewport.innerHTML = `
         display: flex;
         width: 100vw;
         height: 100vh;
-        border: 1px solid #f00;
+    }
+    :host([vbox]) {
+        flex-direction: row;
+    }
+    :host([hbox]) {
+        flex-direction: column;
     }
     </style>
     <slot></slot>

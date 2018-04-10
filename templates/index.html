@@ -1,21 +1,6 @@
 {{ template "tpl-app-head-x" . }}
-<os-viewport>
-    <div class="container hbox">
-        {{ template "tpl-app-taskbar" . }}
-        <os-info img="/static/img/svg-icons/gchrome.svg" text="Google Chrome Only!"></os-info>
-        <h1>Google Chrome and Opera only!</h1>
-        <os-taskbar>
-            <os-info img="/static/img/svg-icons/account.svg" text="This is custom web component" size="1.6rem"></os-info>
-            <input type="text" placeholder="I'm a native inside custom">
-        </os-taskbar>
-        <h1>Simple &lt;img&gt; tag:</h1>
-        <img src="/static/img/svg-icons/account.svg" width="64px" alt="Don't read this!">
-        <!-- Simple pop-up dialog box, containing a form -->
-        <os-taskbar>
-            <p>in da shadows</p>
-        </os-taskbar>
-        <howto-checkbox id="join-checkbox"></howto-checkbox>
-        <os-location-picker></os-location-picker>
-    </div>
+<os-viewport hbox>
+    {{ template "tpl-app-taskbar" . }}
+    {{ template "tpl-app-search" . }}
 </os-viewport>
 {{ template "tpl-app-bottom" . }}
