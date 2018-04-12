@@ -12,23 +12,23 @@
 //     }
 // };
 
-document.addEventListener('DOMContentLoaded', function() {
-    //document.getElementById("btn-start-exit").addEventListener("click", home);
-    // document.getElementById("os-app-btn-home").addEventListener("click", home);
+// document.addEventListener('DOMContentLoaded', function() {
+//     // document.getElementById("btn-start-exit").addEventListener("click", home);
+//     // document.getElementById("os-app-btn-home").addEventListener("click", home);
 
-    document.getElementById("btn-goto-products").addEventListener("click", osModProducts);
-    document.getElementById("btn-goto-business").addEventListener("click", osModBusiness);
-    document.getElementById("btn-goto-services").addEventListener("click", osModServices);
-    document.getElementById("btn-goto-promotions").addEventListener("click", osModPromotions);
-    document.getElementById("btn-goto-apps").addEventListener("click", osModApplications);
+//     document.getElementById("btn-goto-services").addEventListener("click", osModServices);
+//     document.getElementById("btn-goto-products").addEventListener("click", osModProducts);
+//     document.getElementById("btn-goto-business").addEventListener("click", osModBusiness);
+//     document.getElementById("btn-goto-promotions").addEventListener("click", osModPromotions);
+//     document.getElementById("btn-goto-apps").addEventListener("click", osModApplications);
 
-    // document.getElementById("os-mod-link-about").addEventListener("click", osAbout);
-    // document.getElementById("os-mod-link-test").addEventListener("click", osTest);
+//     // document.getElementById("os-mod-link-about").addEventListener("click", osAbout);
+//     // document.getElementById("os-mod-link-test").addEventListener("click", osTest);
 
-    // document.getElementById("start-menu-btn-open-crm").addEventListener("click", appCrm);
-    // document.getElementById("start-menu-btn-open-crm-dashboard").addEventListener("click", appCrmDashboard);
-    // document.getElementById("start-menu-btn-open-crm-customers").addEventListener("click", appCrmCustomers);
-});
+//     // document.getElementById("start-menu-btn-open-crm").addEventListener("click", appCrm);
+//     // document.getElementById("start-menu-btn-open-crm-dashboard").addEventListener("click", appCrmDashboard);
+//     // document.getElementById("start-menu-btn-open-crm-customers").addEventListener("click", appCrmCustomers);
+// });
 
 // function home() {
 //     location.href = "/";
@@ -41,21 +41,21 @@ document.addEventListener('DOMContentLoaded', function() {
 //     location.href = "/test";
 // }
 
-function osModApplications() {
-    location.href = "/apps";
-}
-function osModBusiness() {
-    location.href = "/business";
-}
-function osModServices() {
-    location.href = "/services";
-}
-function osModProducts() {
-    location.href = "/products";
-}
-function osModPromotions() {
-    location.href = "/promotions";
-}
+// function osModApplications() {
+//     location.href = "/apps";
+// }
+// function osModBusiness() {
+//     location.href = "/business";
+// }
+// function osModServices() {
+//     location.href = "/services";
+// }
+// function osModProducts() {
+//     location.href = "/products";
+// }
+// function osModPromotions() {
+//     location.href = "/promotions";
+// }
 
 // function appCrm() {
 //     location.href = "/apps/crm";
@@ -89,3 +89,28 @@ function toggle () {
 
 let button = document.getElementById('btn-open-launcher');
 button.addEventListener('click', toggle, false);
+
+//document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('click', function(e) {
+    document.getElementById("btn-goto-services").addEventListener("click", osModServices);
+    document.getElementById("btn-goto-products").addEventListener("click", osModProducts);
+    document.getElementById("btn-goto-business").addEventListener("click", osModBusiness);
+    document.getElementById("btn-goto-promotions").addEventListener("click", osModPromotions);
+    document.getElementById("btn-goto-apps").addEventListener("click", osModApplications);
+});
+
+function osModServices() {
+    location.href = "/services";
+}
+function osModProducts() {
+    location.href = "/products";
+}
+function osModBusiness() {
+    location.href = "/business";
+}
+function osModPromotions() {
+    location.href = "/promotions";
+}
+function osModApplications() {
+    location.href = "/apps";
+}
