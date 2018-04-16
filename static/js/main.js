@@ -92,6 +92,7 @@ button.addEventListener('click', toggle, false);
 
 //document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('click', function(e) {
+    document.getElementById("btn-goto-home").addEventListener("click", osModHome);
     document.getElementById("btn-goto-services").addEventListener("click", osModServices);
     document.getElementById("btn-goto-products").addEventListener("click", osModProducts);
     document.getElementById("btn-goto-business").addEventListener("click", osModBusiness);
@@ -99,6 +100,9 @@ document.addEventListener('click', function(e) {
     document.getElementById("btn-goto-apps").addEventListener("click", osModApplications);
 });
 
+function osModHome() {
+    location.href = "/";
+}
 function osModServices() {
     location.href = "/services";
 }

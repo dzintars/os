@@ -20,8 +20,14 @@ func osHandler(r *mux.Router) {
 // Handlers
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "OS", Title: "Collaborative Resource Planning"}
-	utils.ExecuteTemplate(w, "index.html", d)
+	//d := models.App{Abr: "OS", Title: "Collaborative Resource Planning"}
+	data, err := models.ListApplications()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+	utils.ExecuteTemplate(w, "index.html", data)
 }
 
 func indexPostHandler(w http.ResponseWriter, r *http.Request) {
@@ -29,7 +35,7 @@ func indexPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func searchGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "OS", Title: "Search"}
+	d := models.Application{ID: 1, Title: "Search"}
 	utils.ExecuteTemplate(w, "mod-search.html", d)
 }
 
@@ -38,6 +44,6 @@ func searchPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func aboutGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "OS", Title: "About"}
+	d := models.Application{ID: 1, Title: "About"}
 	utils.ExecuteTemplate(w, "mod-about.html", d)
 }

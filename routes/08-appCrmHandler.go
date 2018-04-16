@@ -19,21 +19,21 @@ func appCrmHandler(r *mux.Router) {
 // Handlers
 
 func crmGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "CRM", Title: "Customer Relationship Management"}
+	d := models.Application{ID: 1, Title: "Customer Relationship Management"}
 	utils.ExecuteTemplate(w, "mod-crm.html", d)
 }
 
 func crmDashboardGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "CRM", Title: "Customer Relationship Management", ModuleTitle: "Dashboard"}
+	d := models.Application{ID: 1, Title: "Customer Relationship Management"}
 	utils.ExecuteTemplate(w, "mod-crm-dashboard.html", d)
 }
 
 func crmCustomersGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "CRM", Title: "Customer Relationship Management", ModuleTitle: "Customers"}
+	d := models.Application{ID: 1, Title: "Customer Relationship Management"}
 	utils.ExecuteTemplate(w, "mod-crm-customers.html", d)
 }
 
 func crmProjectsGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.App{Abr: "CRM", Title: "Customer Relationship Management", ModuleTitle: "Projects"}
+	d := models.Application{ID: 1, Title: "Customer Relationship Management"}
 	utils.ExecuteTemplate(w, "mod-crm-projects.html", d)
 }

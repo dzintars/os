@@ -1,22 +1,34 @@
 {{ define "tpl-app-taskbar" }}
 <os-taskbar vbox>
+    <button>OFF</button>
+    <os-panel vbox></os-panel>
+    <form action="/" method="POST">
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <input type="submit" value="Sign In">
+    </form>
+    <os-group hbox>
+        <p><a href="/signup">Sign Up</a></p>
+        <p><a href="/signup">Forgot Password</a></p>
+    </os-group>
     <button id="btn-open-launcher" open-launcher>APPS</button>
 </os-taskbar>
 <template  id="os-start-menu">
     <div class="os1-start-menu vbox">
+        <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
         <div class="os1-start-menu-body hbox">
             <div class="directions vbox">
-                <button id="btn-goto-services" direction green>Services</button>
-                <button id="btn-goto-products" direction blue>Products</button>
-                <button id="btn-goto-business" direction orange>Business</button>
-                <button id="btn-goto-promotions" direction red>Promotions</button>
-                <button id="btn-goto-apps" direction violet>Applications</button>
+                <button id="btn-goto-home" direction black>Home</button>
+                <button id="btn-goto-services" direction red>Services</button>
+                <button id="btn-goto-products" direction orange>Products</button>
+                <button id="btn-goto-business" direction green>Business</button>
+                <button id="btn-goto-promotions" direction violet>Promotions</button>
+                <button id="btn-goto-apps" direction blue>Applications</button>
             </div>
             <div class="shortcuts">
-                <a href="/apps/sys/users">Users</a>
+                <!-- <a href="/apps/sys/users">Users</a> -->
             </div>
         </div>
-        <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
     </div>
 </template>
 {{ end }}

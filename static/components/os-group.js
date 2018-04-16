@@ -1,10 +1,9 @@
-let row = document.createElement('template');
+let group = document.createElement('template');
 
-row.innerHTML = `
+group.innerHTML = `
     <style>
     :host {
         display: flex;
-        width: 100%;
     }
     :host([vbox]) {
         flex-direction: row;
@@ -16,10 +15,10 @@ row.innerHTML = `
     <slot></slot>
 `;
 
-customElements.define('os-row', class extends HTMLElement {
+customElements.define('os-group', class extends HTMLElement {
     constructor() {
         super();
         let shadow = this.attachShadow({mode: 'open'});
-        shadow.appendChild(row.content.cloneNode(true))
+        shadow.appendChild(group.content.cloneNode(true))
     }
 });

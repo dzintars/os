@@ -80,7 +80,6 @@ button {
   text-transform: uppercase;
   white-space: normal;
   cursor: pointer;
-  margin-right: 4px;
   padding: 0 4px;
 }
 
@@ -120,6 +119,10 @@ button[direction] {
   border: none;
   color: #fff;
   font-weight: 400;
+}
+
+button[black] {
+  background-color: #000;
 }
 
 button[green] {
@@ -494,8 +497,8 @@ fieldset {
 }
 
 .os1-start-menu-body {
-  width: 600px;
-  min-width: 600px;
+  width: 40%;
+  min-width: 40%;
   height: 100%;
   background: rgba(255, 255, 255, 0.9);
 }
@@ -507,7 +510,7 @@ fieldset {
 
 .directions {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   height: 30px;
   padding: 4px;
 }
@@ -564,7 +567,6 @@ button[open-launcher] {
   min-width: 80px;
   height: 100%;
   background-color: #006AFF;
-  margin-right: 4px;
   cursor: pointer;
   color: #fff;
   font-weight: 400;
@@ -599,6 +601,10 @@ os-statusbar > div:hover {
 
 os-taskbar {
   min-height: 37px;
+}
+
+os-row {
+  justify-items: center;
 }
 
 .vika-body {

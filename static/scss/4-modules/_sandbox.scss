@@ -20,7 +20,6 @@ os-button-toogle {
     min-width: 80px;
     height: 100%;
     background-color: $blue;
-    margin-right: 4px;
     cursor: pointer;
     color: $light;
     font-weight: 400;
@@ -53,4 +52,8 @@ os-button-toogle {
 
   os-taskbar {
     min-height: 37px;
+  }
+
+  os-row {
+    justify-items: center;
   }
