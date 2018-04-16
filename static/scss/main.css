@@ -603,8 +603,36 @@ os-taskbar {
   min-height: 37px;
 }
 
-os-row {
-  justify-items: center;
+os-panel[search] {
+  padding-top: 300px;
+}
+
+os-row[search] {
+  justify-content: center;
+  margin: 10px;
+}
+
+div[expand] {
+  flex-grow: 1;
+}
+
+form[signin] > input {
+  height: 28px;
+}
+
+os-group[signup] {
+  padding: 0 8px;
+}
+
+os-group[signup] a {
+  color: gray;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+os-group[signup] a:hover {
+  text-decoration: underline;
+  color: #006AFF;
 }
 
 .vika-body {

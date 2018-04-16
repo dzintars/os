@@ -1,13 +1,15 @@
 {{ define "tpl-app-taskbar" }}
-<os-taskbar vbox>
-    <button>OFF</button>
-    <os-panel vbox></os-panel>
-    <form action="/" method="POST">
+<os-taskbar hbox>
+    <button style="padding: 2px; margin: 2px;">
+        <img src="/static/img/svg-icons/signout.svg" alt="Sign Out" width="20px">
+    </button>
+    <os-panel hbox></os-panel>
+    <form action="/" method="POST" signin>
         <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
         <input type="submit" value="Sign In">
     </form>
-    <os-group hbox>
+    <os-group vbox signup>
         <p><a href="/signup">Sign Up</a></p>
         <p><a href="/signup">Forgot Password</a></p>
     </os-group>

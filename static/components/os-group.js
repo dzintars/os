@@ -5,10 +5,10 @@ group.innerHTML = `
     :host {
         display: flex;
     }
-    :host([vbox]) {
+    :host([hbox]) {
         flex-direction: row;
     }
-    :host([hbox]) {
+    :host([vbox]) {
         flex-direction: column;
     }
     </style>

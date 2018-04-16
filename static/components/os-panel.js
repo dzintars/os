@@ -6,10 +6,10 @@ panel.innerHTML = `
         display: flex;
         flex-grow: 1;
     }
-    :host([vbox]) {
+    :host([hbox]) {
         flex-direction: row;
     }
-    :host([hbox]) {
+    :host([vbox]) {
         flex-direction: column;
     }
     </style>

@@ -54,6 +54,31 @@ os-button-toogle {
     min-height: 37px;
   }
 
-  os-row {
-    justify-items: center;
+  os-panel[search] {
+    padding-top: 300px;
+  }
+  os-row[search] {
+    justify-content: center;
+    margin: 10px;
+  }
+
+  div[expand] {
+    flex-grow: 1;
+  }
+
+  form[signin] > input {
+    height: 28px;
+  }
+
+  os-group[signup] {
+    padding: 0 8px;
+    & a {
+      color: $light5;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    & a:hover {
+      text-decoration: underline;
+      color: $blue;
+    }
   }

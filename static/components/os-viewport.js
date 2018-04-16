@@ -7,10 +7,10 @@ viewport.innerHTML = `
         width: 100vw;
         height: 100vh;
     }
-    :host([vbox]) {
+    :host([hbox]) {
         flex-direction: row;
     }
-    :host([hbox]) {
+    :host([vbox]) {
         flex-direction: column;
     }
     </style>

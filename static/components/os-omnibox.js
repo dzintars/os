@@ -5,7 +5,9 @@ omnibox.innerHTML = `
     :host {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         height: 40px;
-        max-width: 500px;
+        width: 600px;
+        max-width: 700px;
+        min-width: 200px;
         margin: 20px;
     }
     div {
