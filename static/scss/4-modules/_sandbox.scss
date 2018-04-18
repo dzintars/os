@@ -114,3 +114,9 @@ os-button-toogle {
       text-decoration: underline;
     }
   }
+
+  os-sidebar {
+    & button[direction] {
+      height: 36px;
+    }
+  }

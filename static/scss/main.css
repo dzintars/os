@@ -673,6 +673,10 @@ os-viewport {
   text-decoration: underline;
 }
 
+os-sidebar button[direction] {
+  height: 36px;
+}
+
 .vika-body {
   background: #f7f7f7;
 }
