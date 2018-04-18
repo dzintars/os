@@ -16,10 +16,11 @@ $red: #E70E02;
 $violet: #CA3CFF;
 
 $light: $white; //Primary color
-$light1: darken($light, 5%);
-$light2: darken($light, 15%);
-$light3: darken($light, 25%);
-$light5: darken($light, 50%);
+$light5: darken($light, 3%);
+$light10: darken($light, 10%);
+$light20: darken($light, 20%);
+$light30: darken($light, 30%);
+$light50: darken($light, 50%);
 $light65: darken($light, 65%);
 
 $primaryColor: $light;

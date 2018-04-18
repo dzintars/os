@@ -9,12 +9,12 @@
 }
 
 .vsep {
-  border-left: 1px solid #f2f2f2;
+  border-left: 1px solid #e6e6e6;
   height: 90%;
 }
 
 .hsep {
-  border-top: 1px solid #f2f2f2;
+  border-top: 1px solid #e6e6e6;
   width: 90%;
 }
 
@@ -102,7 +102,7 @@ button {
   background: #006AFF;
   border: 1px solid #0055cc;
   background: linear-gradient(to bottom, #006AFF 0%, #005fe6 100%);
-  color: #f2f2f2;
+  color: #f7f7f7;
   font-size: 0.9rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -176,8 +176,8 @@ button[direction]:hover {
 .workspace {
   grid-column: 2/2;
   grid-row: 2/2;
-  border-top: 1px solid #bfbfbf;
-  border-left: 1px solid #bfbfbf;
+  border-top: 1px solid #b3b3b3;
+  border-left: 1px solid #b3b3b3;
   height: 100%;
   width: 100%;
   overflow-x: auto;
@@ -201,8 +201,8 @@ button[direction]:hover {
 
 .statusbar {
   height: 22px;
-  background: #d9d9d9;
-  border-top: 1px solid #bfbfbf;
+  background: #e6e6e6;
+  border-top: 1px solid #b3b3b3;
 }
 
 .taskbar {
@@ -287,7 +287,7 @@ button[small] {
   height: 48px;
   justify-content: center;
   align-content: center;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid #cccccc;
 }
 
 .card-header-icon {
@@ -333,7 +333,7 @@ button[small] {
 
 .card-footer {
   padding: 10px;
-  border-top: 1px solid #d9d9d9;
+  border-top: 1px solid #cccccc;
   height: auto;
   display: flex;
   justify-content: flex-end;
@@ -526,7 +526,7 @@ fieldset {
 
 tr {
   height: 21px;
-  border-top: 1px solid #d9d9d9;
+  border-top: 1px solid #cccccc;
 }
 
 .toolbar {
@@ -568,7 +568,7 @@ button[open-launcher] {
   height: 100%;
   background-color: #006AFF;
   cursor: pointer;
-  color: #fff;
+  color: #f7f7f7;
   font-weight: 400;
   font-size: 1rem;
   vertical-align: center;
@@ -579,8 +579,8 @@ os-taskbar {
 }
 
 os-statusbar {
-  background: #f2f2f2;
-  color: gray;
+  background: #e6e6e6;
+  color: #595959;
 }
 
 os-statusbar > div {
@@ -589,7 +589,13 @@ os-statusbar > div {
   cursor: pointer;
 }
 
-os-statusbar > div:hover {
+os-statusbar > div a {
+  text-decoration: none;
+  color: #595959;
+}
+
+os-statusbar > div a:hover {
+  color: #006AFF;
   text-decoration: underline;
 }
 
@@ -604,7 +610,7 @@ os-taskbar {
 }
 
 os-panel[search] {
-  padding-top: 300px;
+  padding-top: 15%;
 }
 
 os-row[search] {
@@ -624,10 +630,18 @@ os-group[signup] {
   padding: 0 8px;
 }
 
+os-group[signup] p {
+  margin-top: 1px;
+}
+
 os-group[signup] a {
-  color: gray;
+  color: #595959;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+os-group[signup] p:nth-child(2) {
+  font-size: 0.8em;
 }
 
 os-group[signup] a:hover {
@@ -635,8 +649,32 @@ os-group[signup] a:hover {
   color: #006AFF;
 }
 
+os-viewport {
+  background: #f7f7f7;
+}
+
+.search-result-sections {
+  padding: 10px;
+}
+
+.search-result-sections[active] {
+  border-bottom: 2px solid #006AFF;
+  color: #006AFF;
+  font-weight: bold;
+}
+
+.search-result-sections a {
+  text-decoration: none;
+  color: #595959;
+}
+
+.search-result-sections a:hover {
+  color: #000;
+  text-decoration: underline;
+}
+
 .vika-body {
-  background: #f2f2f2;
+  background: #f7f7f7;
 }
 
 .element {

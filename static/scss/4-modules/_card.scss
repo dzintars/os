@@ -23,7 +23,7 @@
     height: 48px;
     justify-content: center;
     align-content: center;
-    border-bottom: 1px solid $light2;
+    border-bottom: 1px solid $light20;
     &-icon {
         width: 48px;
         display: flex;
@@ -65,7 +65,7 @@
 
 .card-footer {
     padding: 10px;
-    border-top: 1px solid $light2;
+    border-top: 1px solid $light20;
     height: auto;
     display: flex;
     justify-content: flex-end;

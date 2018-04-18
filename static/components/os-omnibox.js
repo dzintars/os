@@ -10,10 +10,9 @@ omnibox.innerHTML = `
         min-width: 200px;
         margin: 20px;
     }
-    div {
+    form {
         display: flex;
         align-items: center;
-        border-radius: 4px;
     }
     input {
         border: none;
@@ -24,22 +23,22 @@ omnibox.innerHTML = `
     input:focus {
         outline: none;
     }
-    button {
-        border: none;
+    input[search] {
         padding: 0 10px;
-        height: 100%
+        height: 100%;
+        width: 80px;
     }
-    button:hover {
+    input[search]:hover {
         background-color: gray;
     }
-    button:focus {
+    input[search]:focus {
         outline: none;
     }
     </style>
-    <div>
-        <input type="search" name="search"></input>
-        <button>Search</button>
-    </div>
+    <form action="/search" method="GET">
+        <input type="search" name="search">
+        <input search type="submit" value="Search">
+    </form>
 `;
 
 customElements.define('os-omnibox', class extends HTMLElement {

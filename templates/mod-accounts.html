@@ -8,10 +8,9 @@
     <link rel="stylesheet" type="text/css" href="/static/scss/main.css">
 </head>
 <body>
+    <os-viewport vbox>
+    {{ template "tpl-app-taskbar" . }}
     <div class="os">
-        <div class="start"><button id="btn-start" class="btn-start btn-sq-28 ico-apps" type="button"></button></div>
-        <div class="actions"></div>
-        <div class="taskbar"></div>
         <div class="workspace">
             <div class="module hbox">
                 <div class="app-header row">Accounts</div>
@@ -110,36 +109,12 @@
                                 <p>Account merging currently is not available, but we have some ideas and we think to implement this in some future.</p>
                             </div>
                         </div>
-                    </div>
-
-                    <div>
-                            <table>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                </tr>
-                                {{ range . }}
-                                <tr>
-                                    <td>{{ .ID }}</td>
-                                    <td>{{ .Name }}</td>
-                                </tr>
-                                {{ end }}
-                            </table>
-                        </div>
-                        
+                    </div>                        
                 </div>
             </div>
         </div>
     </div>
-
-    <template  id="os-start-menu">
-        <div class="os1-start-menu vbox">
-            <div class="os1-start-menu-body hbox">
-                <div class="ico-32 ico-close"></div>
-            </div>
-            <div id="startOverlay" class="os1-start-menu-transparent"></div>
-        </div>
-    </template>
+</os-viewport>
 <script>
     //https://stackoverflow.com/questions/49244944/toggle-appendchild-if-doesnt-exist-and-removechild-if-exist/49245337#49245337
     //Will play with this to use display: block and outside click to hide.

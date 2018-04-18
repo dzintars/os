@@ -72,7 +72,7 @@
 let element = document.getElementById('os-start-menu');
 let content = element.content;
 
-function toggle () {
+function toggle() {
     'use strict';
     // Attempt to reference the element in the document, not the template content
     var imported = document.querySelector(".os1-start-menu");
