@@ -1,18 +1,25 @@
 package models
 
-import "strings"
+import (
+	"strings"
+)
 
 // Organization struct
 type Organization struct {
-	ID      int    `json:"ID"`
-	LegalID int64  `json:"legalID"`
-	Name    string `json:"name"`
-	Form    int    `json:"form"`
+	ID                int    `json:"ID"`
+	LegalID           int64  `json:"legalID"`
+	Name              string `json:"name"`
+	FirstCharacter    string `json:"firstCharacter"`
+	Form              int    `json:"form"`
+	LegalAddress      string `json:"legalAddress"`
+	VerificationLevel int    `json:"verificationLevel"`
+	Color             string `json:"color"`
+	VatRegistrationID string `json:"vatRegistrationID"`
 }
 
 // ListOrganizations is function to retrieve a full list of all Organizations
 func ListOrganizations() ([]Organization, error) {
-	getOrganizations := "SELECT id, legal_id, name, form FROM os_organizations"
+	getOrganizations := `SELECT id, legal_id, name, form, address_legal, verification_level, color, vat_registration_id FROM os_organizations`
 
 	db := dbLoc()
 	rows, err := db.Query(getOrganizations)
@@ -26,14 +33,23 @@ func ListOrganizations() ([]Organization, error) {
 		var legalID int64
 		var name string
 		var form int
+		var addressLegal string
+		var verificationLevel int
+		var color string
+		var vatRegistrationID string
 
-		err := rows.Scan(&ID, &legalID, &name, &form)
+		err := rows.Scan(&ID, &legalID, &name, &form, &addressLegal, &verificationLevel, &color, &vatRegistrationID)
 		checkErr(err)
 
 		org.ID = ID
 		org.LegalID = legalID
 		org.Name = name
 		org.Form = form
+		org.LegalAddress = addressLegal
+		org.VerificationLevel = verificationLevel
+		org.Color = color
+		org.VatRegistrationID = vatRegistrationID
+		org.FirstCharacter = string([]rune(name)[0])
 
 		res = append(res, org)
 	}

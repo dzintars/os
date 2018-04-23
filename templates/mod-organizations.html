@@ -1,0 +1,52 @@
+{{ template "tpl-app-head-x" . }}
+<os-viewport vbox>
+    {{ template "tpl-app-taskbar" . }}
+    <os-row><h1>Organizations</h1></os-row>
+    <os-container hbox>
+        <os-sidebar vbox>
+            <os-group vbox>
+                {{ range .Apps}}
+                <a href="/{{ .Title }}" style="background: {{ .Bcolor }}; height: 36px; color: #FFF;">{{ .Title }}</a>
+                {{ end }}
+            </os-group>
+            <os-panel>Filtering features there</os-panel>
+        </os-sidebar>
+        <os-panel style="padding: 0 40px; overflow: auto" vbox>
+            {{ range .Orgs }}
+            <os-row hbox style="min-height: 160px; margin-bottom: 20px; border: 1px solid {{ .Color }};">
+                <div style="background: {{.Color}}; width: 260px;">
+                    <h1 style="vertical-align: middle; font-size: 5em; text-align: center; margin: auto;">{{ .FirstCharacter}}</h1>
+                </div>
+                <div style="flex-grow: 1">
+                    <h2>{{ .Name }}</h2>
+                    <p><a href="/organization/{{ .LegalID }}">{{ .LegalID }}</a></p>
+                    <h3>{{ .LegalAddress }}</h3>
+                </div>
+            </os-row>
+            {{ end }}
+            <!-- <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Registration ID</th>
+                    <th>Name</th>
+                    <th>Form</th>
+                    <th>Legal Address</th>
+                    <th>Verification Level</th>
+                    <th>VAT ID</th>
+                </tr>
+                {{ range . }}
+                <tr style="background: {{.Color}}">
+                    <td>{{ .ID }}</td>
+                    <td><a href="/business/{{ .LegalID }}">{{ .LegalID }}</a></td>
+                    <td><a href="/business/{{ .Name }}">{{ .Name }}</a></td>
+                    <td>{{ .Form }}</td>
+                    <td>{{ .LegalAddress }}</td>
+                    <td>{{ .VerificationLevel }}</td>
+                    <td>{{ .VatRegistrationID }}</td>
+                </tr>
+                {{ end }}
+            </table> -->
+        </os-panel>
+    </os-container>
+</os-viewport>
+{{ template "tpl-app-bottom" . }}

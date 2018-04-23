@@ -3,7 +3,9 @@
     <button id="btn-goto-home" style="padding: 2px; margin: 4px;">
         <img src="/static/img/svg-icons/signout.svg" alt="Sign Out" width="20px" style="transform: rotate(180deg);">
     </button>
-    <os-panel hbox></os-panel>
+    <os-panel hbox>
+        {{ .Title}}
+    </os-panel>
     <form action="/" method="POST" signin>
         <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
@@ -19,17 +21,12 @@
     <div class="os1-start-menu vbox">
         <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
         <div class="os1-start-menu-body hbox">
-            <div class="directions vbox">
-                <button id="btn-goto-home" direction black>Home</button>
-                <button id="btn-goto-services" direction red>Services</button>
-                <button id="btn-goto-products" direction orange>Products</button>
-                <button id="btn-goto-business" direction green>Business</button>
-                <button id="btn-goto-promotions" direction violet>Promotions</button>
-                <button id="btn-goto-apps" direction blue>Applications</button>
+            <div class="directions">
+                {{ range .Apps }}
+                <div style="background: {{ .Bcolor }}; height: 28px; width: 100%;"><a href="/{{ .Title }}">{{ .Title }}</a></div>
+                {{ end }}
             </div>
             <div class="shortcuts">
-                <!-- <a href="/apps/sys/users">Users</a> -->
-            </div>
         </div>
     </div>
 </template>

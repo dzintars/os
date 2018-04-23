@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -20,14 +21,18 @@ func osHandler(r *mux.Router) {
 // Handlers
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
-	//d := models.App{Abr: "OS", Title: "Collaborative Resource Planning"}
-	data, err := models.ListApplications()
+	applications, err := models.ListApplications()
 	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Error: 001, Internal Server Error"))
+		fmt.Println("Some error in osHandler")
 		return
 	}
-	utils.ExecuteTemplate(w, "index.html", data)
+	utils.ExecuteTemplate(w, "index.html", struct {
+		Title string
+		Apps  []models.Application
+	}{
+		Title: "Oswee.com: Online Collaborative Resource Planning platform & more",
+		Apps:  applications,
+	})
 }
 
 func indexPostHandler(w http.ResponseWriter, r *http.Request) {

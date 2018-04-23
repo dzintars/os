@@ -2,18 +2,11 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
-h1 {
-    font-size: 1.4rem;
-    font-weight: normal;
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+    padding: 0;
 }
 
-p {
-    font-size: 1rem;
-    font-weight: normal;
-    line-height: 1rem;
-    margin: unset;
-    padding: unset;
-}
 
 .signup {
     text-transform: uppercase;
