@@ -9,11 +9,11 @@ type Application struct {
 }
 
 // ListApplications is function to retrieve a full list of all users
-func ListApplications() ([]Application, error) {
-	getApplications := "SELECT id, title, visibility, background_color FROM sys_applications WHERE visibility = 1"
+func ListApplications(visibility int) ([]Application, error) {
+	getApplications := `SELECT id, title, visibility, background_color FROM sys_applications WHERE visibility=?`
 
 	db := dbLoc()
-	rows, err := db.Query(getApplications)
+	rows, err := db.Query(getApplications, visibility)
 	checkErr(err)
 
 	app := Application{}

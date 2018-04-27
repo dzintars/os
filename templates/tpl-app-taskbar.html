@@ -4,7 +4,7 @@
         <img src="/static/img/svg-icons/signout.svg" alt="Sign Out" width="20px" style="transform: rotate(180deg);">
     </button>
     <os-panel hbox>
-        {{ .Title}}
+
     </os-panel>
     <form action="/" method="POST" signin>
         <input type="text" placeholder="Username">
@@ -22,6 +22,7 @@
         <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
         <div class="os1-start-menu-body hbox">
             <div class="directions">
+                <div style="background: #000000; height: 28px; width: 100%;"><a href="/">Home</a></div>
                 {{ range .Apps }}
                 <div style="background: {{ .Bcolor }}; height: 28px; width: 100%;"><a href="/{{ .Title }}">{{ .Title }}</a></div>
                 {{ end }}

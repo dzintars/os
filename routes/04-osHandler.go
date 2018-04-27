@@ -21,7 +21,7 @@ func osHandler(r *mux.Router) {
 // Handlers
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
-	applications, err := models.ListApplications()
+	applications, err := models.ListApplications(searchCategories)
 	if err != nil {
 		fmt.Println("Some error in osHandler")
 		return
@@ -30,7 +30,7 @@ func indexGetHandler(w http.ResponseWriter, r *http.Request) {
 		Title string
 		Apps  []models.Application
 	}{
-		Title: "Oswee.com: Online Collaborative Resource Planning platform & more",
+		Title: "Oswee.com: Shared Resource Planning platform & more",
 		Apps:  applications,
 	})
 }

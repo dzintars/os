@@ -8,7 +8,6 @@ omnibox.innerHTML = `
         width: 600px;
         max-width: 700px;
         min-width: 200px;
-        margin: 20px;
     }
     form {
         display: flex;
