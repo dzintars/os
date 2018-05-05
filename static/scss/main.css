@@ -576,7 +576,7 @@ os-statusbar {
 }
 
 os-statusbar > div {
-  margin: 0 8px;
+  padding: 4px;
   font-size: 0.8rem;
   cursor: pointer;
 }
@@ -667,6 +667,59 @@ os-viewport {
 
 os-sidebar button[direction] {
   height: 36px;
+}
+
+.front-sidebar-sections {
+  display: flex;
+  flex-direction: row;
+  min-height: 36px;
+  text-transform: uppercase;
+  font-size: 1em;
+  border-top: 1px solid #fff;
+  background: #006AFF;
+}
+
+.front-sidebar-sections:hover {
+  background: #3EC300;
+}
+
+.front-sidebar-sections img {
+  margin: auto 10px;
+}
+
+.front-sidebar-sections a {
+  text-decoration: unset;
+  vertical-align: middle;
+  margin: auto 0;
+  color: #fff;
+}
+
+table {
+  all: unset;
+  font-size: 0.8em;
+  width: inherit;
+  border: none;
+}
+
+table th {
+  background: #b3b3b3;
+}
+
+table tr:nth-child(even) {
+  background: #e6e6e6;
+}
+
+table tr:hover {
+  background: #b3b3b3;
+}
+
+table .tbl-address {
+  width: 50%;
+}
+
+.sub-toolbar input, .sub-toolbar button {
+  height: 28px;
+  margin-left: 4px;
 }
 
 .vika-body {

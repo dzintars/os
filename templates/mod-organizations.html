@@ -4,15 +4,11 @@
     <os-container hbox>
         <os-sidebar vbox style="border-right: 1px solid #006AFF;">
             <os-panel>Filtering features there</os-panel>
-            <os-group vbox>
-                {{ range .Apps}}
-                <a href="/{{ .Title }}" style="background: {{ .Bcolor }}; height: 36px;">{{ .Title }}</a>
-                {{ end }}
-            </os-group>
+            {{ template "inc-front-sidebar-nav" . }}
         </os-sidebar>
         <os-panel vbox>
-            <os-taskbar>
-                <input type="search">
+            <os-taskbar class="sub-toolbar">
+                <input type="search" placeholder="Search...">
                 <input type="date" name="from" id="from">
                 <input type="date" name="till" id="till">
                 <button>Filter</button>
@@ -28,12 +24,12 @@
                     <th>VAT ID</th>
                 </tr>
                 {{ range .Orgs }}
-                <tr style="background: {{.Color}}">
-                    <td>{{ .ID }}</td>
-                    <td><a href="/business/{{ .LegalID }}">{{ .LegalID }}</a></td>
-                    <td><a href="/business/{{ .Name }}">{{ .Name }}</a></td>
+                <tr>
+                    <td><a href="/organization/{{ .ID }}">{{ .ID }}</a></td>
+                    <td><a href="/organization/{{ .LegalID }}">{{ .LegalID }}</a></td>
+                    <td><a href="/organization/{{ .PrettyLink }}">{{ .Name }}</a></td>
                     <td>{{ .Form }}</td>
-                    <td>{{ .LegalAddress }}</td>
+                    <td class="tbl-address">{{ .LegalAddress }}</td>
                     <td>{{ .VerificationLevel }}</td>
                     <td>{{ .VatRegistrationID }}</td>
                 </tr>

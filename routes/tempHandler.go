@@ -20,8 +20,7 @@ func vikaHandler(w http.ResponseWriter, r *http.Request) {
 	utils.ExecuteTemplate(w, "temp-vika.html", nil)
 }
 
-func getHTML() string {
-	url := "http://google.com"
+func getHTML(url string) string {
 	response, err := http.Get(url)
 	if err != nil {
 		log.Fatal(err)

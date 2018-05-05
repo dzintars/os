@@ -1,8 +1,6 @@
 package models
 
-import (
-	"strings"
-)
+import help "github.com/oswee/os/helpers"
 
 // Organization struct
 type Organization struct {
@@ -10,6 +8,7 @@ type Organization struct {
 	LegalID           int64  `json:"legalID"`
 	Name              string `json:"name"`
 	FirstCharacter    string `json:"firstCharacter"`
+	PrettyLink        string `json:"prettyLink"`
 	Form              int    `json:"form"`
 	LegalAddress      string `json:"legalAddress"`
 	VerificationLevel int    `json:"verificationLevel"`
@@ -50,15 +49,10 @@ func ListOrganizations() ([]Organization, error) {
 		org.Color = color
 		org.VatRegistrationID = vatRegistrationID
 		org.FirstCharacter = string([]rune(name)[0])
+		org.PrettyLink = help.PrettyLinks(name)
 
 		res = append(res, org)
 	}
 	defer db.Close()
 	return res, nil
-}
-
-// PrettyLinks is function to make string lower case and replace spaces with dash.
-func PrettyLinks(s string) string {
-	l := strings.ToLower(s)
-	return l
 }

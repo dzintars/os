@@ -35,7 +35,7 @@ os-button-toogle {
     background: $light10;
     color: $light65;
     & > div {
-      margin: 0 8px;
+      padding: 4px;
       font-size: 0.8rem;
       cursor: pointer;
       & a {
@@ -118,5 +118,54 @@ os-button-toogle {
   os-sidebar {
     & button[direction] {
       height: 36px;
+    }
+  }
+
+  .front-sidebar-sections {
+    display: flex;
+    flex-direction: row;
+    min-height: 36px;
+    text-transform: uppercase;
+    font-size: 1em;
+    border-top: 1px solid $light;
+    background: $blue;
+    &:hover {
+      background: $green;
+    }
+    & img {
+      margin: auto 10px;
+    }
+    & a {
+      text-decoration: unset;
+      vertical-align: middle;
+      margin: auto 0;
+      color: $light;
+    }
+  }
+
+  table {
+    all: unset;
+    font-size: 0.8em;
+    width: inherit;
+    // border-collapse: collapse;
+    border: none;
+    & th {
+      background: $light30;
+    }
+    & tr:nth-child(even) {
+      background: $light10;
+    }
+    & tr:hover {
+      background: $light30;
+    }
+    & .tbl-address {
+      width: 50%;
+    }
+  }
+
+  .sub-toolbar {
+    & input, button {
+      height: 28px;
+      margin-left: 4px;
     }
   }

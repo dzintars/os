@@ -21,6 +21,9 @@ func osHandler(r *mux.Router) {
 // Handlers
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
+
+	searchCategories := 1
+
 	applications, err := models.ListApplications(searchCategories)
 	if err != nil {
 		fmt.Println("Some error in osHandler")
