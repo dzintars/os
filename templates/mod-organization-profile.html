@@ -2,21 +2,26 @@
 <os-viewport vbox>
     {{ template "tpl-app-taskbar" . }}
     <os-container hbox>
-        <os-sidebar vbox style="border-right: 1px solid #006AFF;">
-            <os-panel>Filtering features there</os-panel>
-            {{ template "inc-front-sidebar-nav" . }}
-        </os-sidebar>
         <os-panel vbox>
-            <os-taskbar class="sub-toolbar">
-                <input type="search" placeholder="Search...">
-                <input type="date" name="from" id="from">
-                <input type="date" name="till" id="till">
-                <button>Filter</button>
-            </os-taskbar>
             <div>
                 {{ range .Orgs }}
-                <h1>{{ .Name}}</h1>
-                <p>{{ .LegalAddress}}</p>
+                <os-group hbox style="margin: 36px;">
+                    <svg id="verification-level-ico" data-name="Verification Level Icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="64" height="64">
+                        <defs><style>.cls-1 {fill: {{ .Color }};}</style></defs>
+                        <title>Account</title>
+                        <path class="cls-1" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
+                    </svg>
+                    <div>
+                        <h1>{{ .Name}}</h1>
+                        <p>{{ .LegalAddress}}</p>
+                    </div>
+                </os-group>
+                <os-toolbar hbox>
+                    <button>Main</button>
+                    <button>Services</button>
+                    <button>Products</button>
+                    <button>About</button>
+                </os-toolbar>
                 {{ end }}
             </div>
         </os-panel>

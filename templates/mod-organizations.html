@@ -28,9 +28,9 @@
                 <tbody>
                     {{ range .Orgs }}
                     <tr>
-                        <td><a href="/organization/{{ .ID }}">{{ .ID }}</a></td>
-                        <td><a href="/organization/{{ .LegalID }}">{{ .LegalID }}</a></td>
-                        <td><a href="/organization/{{ .PrettyLink }}">{{ .Name }}</a></td>
+                        <td style="width: 40px; text-align: center; font-weight: bold;"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
+                        <td>{{ .LegalID }}</td>
+                        <td>{{ .Name }}</td>
                         <td>{{ .Form }}</td>
                         <td class="tbl-address">{{ .LegalAddress }}</td>
                         <td>{{ .VerificationLevel }}</td>
