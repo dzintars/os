@@ -1,6 +1,6 @@
 package models
 
-import help "github.com/oswee/os/helpers"
+import "github.com/oswee/os/helpers"
 
 // Organization struct
 type Organization struct {
@@ -49,7 +49,7 @@ func ListOrganizations() ([]Organization, error) {
 		org.Color = color
 		org.VatRegistrationID = vatRegistrationID
 		org.FirstCharacter = string([]rune(name)[0])
-		org.PrettyLink = help.PrettyLinks(name)
+		org.PrettyLink = helpers.PrettyLinks(name)
 
 		res = append(res, org)
 	}

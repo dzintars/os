@@ -9,7 +9,7 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func servicesHandler(r *mux.Router) {
+func frontServicesHandler(r *mux.Router) {
 	r.HandleFunc("/services", servicesMainHandler).Methods("GET")
 }
 

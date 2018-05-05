@@ -8,7 +8,7 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func productsHandler(r *mux.Router) {
+func frontProductsHandler(r *mux.Router) {
 	r.HandleFunc("/products", productsMainHandler).Methods("GET")
 }
 

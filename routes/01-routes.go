@@ -14,11 +14,11 @@ func NewRouter() *mux.Router {
 	authHandler(r)  // Authorization handlers
 	setupHandler(r) // Accounts setup handlers
 
-	searchHandler(r)             // Front page
-	servicesHandler(r)           // Front page
-	productsHandler(r)           // Front page
+	frontSearchHandler(r)        // Front page
+	frontServicesHandler(r)      // Front page
+	frontProductsHandler(r)      // Front page
 	frontOrganizationsHandler(r) // Front page
-	promotionsHandler(r)         // Front page
+	frontPromotionsHandler(r)    // Front page
 	frontApplicationsHandler(r)  // Front page list of available applications
 
 	appSysHandler(r) // System level modules.

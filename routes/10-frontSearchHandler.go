@@ -7,7 +7,7 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func searchHandler(r *mux.Router) {
+func frontSearchHandler(r *mux.Router) {
 	r.HandleFunc("/search", searchMainHandler).Methods("GET")
 }
 

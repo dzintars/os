@@ -1,6 +1,6 @@
 package models
 
-import help "github.com/oswee/os/helpers"
+import "github.com/oswee/os/helpers"
 
 // Application struct
 type Application struct {
@@ -37,7 +37,7 @@ func ListApplications(visibility int) ([]Application, error) {
 		app.Title = title
 		app.Visibility = visibility
 		app.Bcolor = bcolor
-		app.PrettyTitle = help.PrettyLinks(title)
+		app.PrettyTitle = helpers.PrettyLinks(title)
 		app.RelativeURL = relativeURL
 
 		res = append(res, app)

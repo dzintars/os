@@ -7,7 +7,7 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func promotionsHandler(r *mux.Router) {
+func frontPromotionsHandler(r *mux.Router) {
 	r.HandleFunc("/promotions", promotionsMainHandler).Methods("GET")
 }
 
