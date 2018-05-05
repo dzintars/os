@@ -13,32 +13,12 @@
                 <input type="date" name="till" id="till">
                 <button>Filter</button>
             </os-taskbar>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Registration ID</th>
-                        <th>Name</th>
-                        <th>Form</th>
-                        <th class="tbl-address">Legal Address</th>
-                        <th>Verification Level</th>
-                        <th>VAT ID</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{ range .Orgs }}
-                    <tr>
-                        <td><a href="/organization/{{ .ID }}">{{ .ID }}</a></td>
-                        <td><a href="/organization/{{ .LegalID }}">{{ .LegalID }}</a></td>
-                        <td><a href="/organization/{{ .PrettyLink }}">{{ .Name }}</a></td>
-                        <td>{{ .Form }}</td>
-                        <td class="tbl-address">{{ .LegalAddress }}</td>
-                        <td>{{ .VerificationLevel }}</td>
-                        <td>{{ .VatRegistrationID }}</td>
-                    </tr>
-                    {{ end }}
-                </tbody>
-            </table>
+            <div>
+                {{ range .Orgs }}
+                <h1>{{ .Name}}</h1>
+                <p>{{ .LegalAddress}}</p>
+                {{ end }}
+            </div>
         </os-panel>
     </os-container>
     <os-statusbar hbox>

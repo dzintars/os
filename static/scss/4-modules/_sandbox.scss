@@ -145,8 +145,8 @@ os-button-toogle {
 
   table {
     all: unset;
+    display: table;
     font-size: 0.8em;
-    width: inherit;
     // border-collapse: collapse;
     border: none;
     & th {
@@ -159,7 +159,7 @@ os-button-toogle {
       background: $light30;
     }
     & .tbl-address {
-      width: 50%;
+      width: auto;
     }
   }
 

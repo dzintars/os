@@ -696,8 +696,8 @@ os-sidebar button[direction] {
 
 table {
   all: unset;
+  display: table;
   font-size: 0.8em;
-  width: inherit;
   border: none;
 }
 
@@ -714,7 +714,7 @@ table tr:hover {
 }
 
 table .tbl-address {
-  width: 50%;
+  width: auto;
 }
 
 .sub-toolbar input, .sub-toolbar button {
