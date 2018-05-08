@@ -25,7 +25,7 @@ func frontApplicationsMainHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "mod-apps.html", struct {
+	utils.ExecuteTemplate(w, "mod-applications.html", struct {
 		Title string
 		Apps  []models.Application
 	}{

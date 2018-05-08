@@ -1,6 +1,14 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
-    {{ template "tpl-app-taskbar" . }}
+    <os-taskbar hbox>
+        <svg id="btn-close-app" style="margin-left: 7px" class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+            <path d="M2 30 L30 2 M30 30 L2 2" />
+        </svg>
+        <os-panel hbox></os-panel>
+        {{ template "inc-authentication-form" . }}
+        <!-- <button id="btn-open-launcher" open-launcher>APPS</button> -->
+    </os-taskbar>
+    {{ template "inc-launcher" . }}
     <os-container hbox>
         <os-sidebar vbox style="border-right: 1px solid #006AFF;">
             <os-panel>Filtering features there</os-panel>
@@ -28,12 +36,16 @@
                 <tbody>
                     {{ range .Orgs }}
                     <tr>
-                        <td style="width: 40px; text-align: center; font-weight: bold;"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
+                        <td style="width: 40px; text-align: center; font-weight: bold; background: lightgrey; border-right: 1px solid gray;"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
                         <td>{{ .LegalID }}</td>
                         <td>{{ .Name }}</td>
                         <td>{{ .Form }}</td>
                         <td class="tbl-address">{{ .LegalAddress }}</td>
-                        <td>{{ .VerificationLevel }}</td>
+                        <td>
+                            <svg viewBox="0 0 256 256" width="16" height="16">
+                                <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
+                            </svg>
+                        </td>
                         <td>{{ .VatRegistrationID }}</td>
                     </tr>
                     {{ end }}

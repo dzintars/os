@@ -162,6 +162,9 @@ os-button-toogle {
       width: auto;
     }
   }
+  tbody {
+    overflow: auto;
+  }
 
   .sub-toolbar {
     & input, button {

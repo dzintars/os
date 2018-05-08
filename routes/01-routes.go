@@ -21,6 +21,8 @@ func NewRouter() *mux.Router {
 	frontPromotionsHandler(r)    // Front page
 	frontApplicationsHandler(r)  // Front page list of available applications
 
+	desktopHandler(r)
+
 	appSysHandler(r) // System level modules.
 	appCrmHandler(r) // CRM application and modules
 	appSrmHandler(r) // SRM application and modules

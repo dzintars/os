@@ -3,6 +3,7 @@ package routes
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/oswee/os/models"
@@ -48,7 +49,8 @@ func organizationsMainHandler(w http.ResponseWriter, r *http.Request) {
 func getOrganization(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	orgID := vars["id"]
-	fmt.Println(orgID)
+	t := time.Now()
+	fmt.Println(orgID, r.Header.Get("X-Forwarded-For"), t)
 
 	visibility := 1
 

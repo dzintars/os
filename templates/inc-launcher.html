@@ -1,0 +1,15 @@
+{{ define "inc-launcher" }}
+<template  id="os-start-menu">
+    <div class="os1-start-menu vbox">
+        <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
+        <div class="os1-start-menu-body hbox">
+            <div class="directions">
+                {{ range .Apps }}
+                <div style="background: {{ .Bcolor }}; height: 28px; width: 100%;"><a href="{{ .RelativeURL }}">{{ .Title }}</a></div>
+                {{ end }}
+            </div>
+            <div class="shortcuts">
+        </div>
+    </div>
+</template>
+{{ end }}

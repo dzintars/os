@@ -5,8 +5,9 @@
             <path d="M2 30 L30 2 M30 30 L2 2" />
         </svg>
         <os-panel hbox></os-panel>
-        {{ template "inc-authentication-form" . }}
+        <button id="btn-open-launcher" open-launcher>APPS</button>
     </os-taskbar>
-    <h1>Restore Password</h1>
+    <h1>This is your desktop/dashboard</h1>
 </os-viewport>
+{{ template "inc-launcher" . }}
 {{ template "tpl-app-bottom" . }}

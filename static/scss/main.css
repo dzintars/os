@@ -717,13 +717,17 @@ table .tbl-address {
   width: auto;
 }
 
+tbody {
+  overflow: auto;
+}
+
 .sub-toolbar input, .sub-toolbar button {
   height: 28px;
   margin-left: 4px;
 }
 
 .vika-body {
-  background: #f7f7f7;
+  background: #B9D6FF;
 }
 
 .element {
