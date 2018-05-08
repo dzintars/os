@@ -23,15 +23,15 @@ func signupGetHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func signupPostHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/signin", 302)
+	http.Redirect(w, r, "/", 302)
 }
 
 func signinGetHandler(w http.ResponseWriter, r *http.Request) {
-	utils.ExecuteTemplate(w, "signin.html", nil)
+	utils.ExecuteTemplate(w, "mod-signin.html", nil)
 }
 
 func signinPostHandler(w http.ResponseWriter, r *http.Request) {
-	http.Redirect(w, r, "/", 302)
+	http.Redirect(w, r, "/desktop", 302)
 }
 
 func signoutGetHandler(w http.ResponseWriter, r *http.Request) {
