@@ -141,40 +141,6 @@ button[direction]:hover {
   text-decoration: underline;
 }
 
-.os {
-  display: grid;
-  grid-template-columns: 36px 1fr;
-  grid-template-rows: 36px 1fr;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-}
-
-.start {
-  grid-column: 1/1;
-  grid-row: 1/1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.actions {
-  grid-column: 2/2;
-  grid-row: 1/1;
-  display: flex;
-  justify-content: center;
-}
-
-.workspace {
-  grid-column: 2/2;
-  grid-row: 2/2;
-  border-top: 1px solid #b3b3b3;
-  border-left: 1px solid #b3b3b3;
-  height: 100%;
-  width: 100%;
-  overflow-x: auto;
-}
-
 .container {
   flex-grow: 1;
   height: 100%;
@@ -479,38 +445,6 @@ fieldset {
   margin-right: 8px;
 }
 
-.os1-start-menu {
-  position: fixed;
-  top: 37px;
-  width: 100%;
-  height: calc(100% - 36px);
-  z-index: 100;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-}
-
-.os1-start-menu-body {
-  width: 40%;
-  min-width: 40%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.os1-start-menu-overlay {
-  flex-grow: 1;
-  background: rgba(0, 0, 0, 0.6);
-}
-
-.directions {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  height: 30px;
-  padding: 4px;
-}
-
-.shortcuts {
-  padding: 20px;
-}
-
 .row {
   display: flex;
   flex-grow: 1;
@@ -724,6 +658,54 @@ tbody {
 .sub-toolbar input, .sub-toolbar button {
   height: 28px;
   margin-left: 4px;
+}
+
+.launcher-btn {
+  height: 36px;
+  width: 36px;
+}
+
+.os1-start-menu {
+  position: fixed;
+  top: 37px;
+  width: 100%;
+  height: calc(100% - 36px);
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.os1-start-menu-body {
+  width: 40%;
+  min-width: 40%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.os1-start-menu-overlay {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.directions {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: 30px;
+  padding: 4px;
+}
+
+.launcher-body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  height: 100%;
+  width: 100%;
+  padding: 20px;
+  grid-gap: 20px;
+}
+
+.launcher-shortcuts {
+  border: 1px solid #cccccc;
+  height: 60px;
+  background: #f7f7f7;
 }
 
 .vika-body {

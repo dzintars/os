@@ -3,3 +3,43 @@
     height: $h-36;
     width: $w-36;
 }
+
+.#{$os1}#{$start}#{$menu} {
+    position: fixed;
+    top: 37px;
+    width: $startMenuContainerWidth;
+    height: $startMenuContainerHeight;
+    z-index: 1;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    &-body {
+        width: $startMenuBodyWidth;
+        min-width: $startMenuBodyWidth;
+        height: $startMenuBodyHeight;
+        background: rgba(255,255,255,0.9);
+        //background: $light;
+    }
+    &-overlay {
+        flex-grow: 1;
+        background: rgba(0,0,0,0.6);
+    }
+}
+.directions {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    height: 30px;
+    padding: 4px;
+}
+
+.launcher-body {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    grid-gap: 20px;
+}
+.launcher-shortcuts {
+    border: 1px solid $light20;
+    height: 60px;
+    background: $light5;
+}

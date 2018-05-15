@@ -43,8 +43,11 @@ func indexPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func searchGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.Application{ID: 1, Title: "Search"}
-	utils.ExecuteTemplate(w, "mod-search.html", d)
+	utils.ExecuteTemplate(w, "mod-search.html", struct {
+		Title string
+	}{
+		Title: "Oswee.com: Search",
+	})
 }
 
 func searchPostHandler(w http.ResponseWriter, r *http.Request) {
@@ -52,6 +55,9 @@ func searchPostHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func aboutGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.Application{ID: 1, Title: "About"}
-	utils.ExecuteTemplate(w, "mod-about.html", d)
+	utils.ExecuteTemplate(w, "mod-about.html", struct {
+		Title string
+	}{
+		Title: "Oswee.com: About",
+	})
 }

@@ -2,7 +2,7 @@
 <os-group vbox>
     {{ range .Apps}}
     <div class="front-sidebar-sections">
-        <a href="{{ .RelativeURL }}"><img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">{{ .Title }}</a>
+        <a href="{{ .RelativeURL }}"><img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">{{ .ShortName }}</a>
     </div>
     {{ end }}
 </os-group>

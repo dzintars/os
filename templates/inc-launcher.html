@@ -5,10 +5,14 @@
         <div class="os1-start-menu-body hbox">
             <div class="directions">
                 {{ range .Apps }}
-                <div style="background: {{ .Bcolor }}; height: 28px; width: 100%;"><a href="{{ .RelativeURL }}">{{ .Title }}</a></div>
+                <div style="background: {{ .Bcolor }}; height: 28px; width: 100%;"><a href="{{ .RelativeURL }}">{{ .ShortName }}</a></div>
                 {{ end }}
             </div>
-            <div class="shortcuts">
+            <div class="launcher-body">
+                {{ range .Mods }}
+                <div class="launcher-shortcuts"><a href="{{ .RelativeURL }}">{{ .ShortName }}</a></div>
+                {{ end }}
+            </div>
         </div>
     </div>
 </template>

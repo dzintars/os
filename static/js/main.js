@@ -25,3 +25,6 @@ function toggle() {
         document.body.appendChild(document.importNode(content, true));
     }
 }
+
+let button = document.getElementById('btn-open-launcher');
+button.addEventListener('click', toggle, false); 

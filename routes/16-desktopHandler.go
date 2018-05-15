@@ -22,6 +22,15 @@ func desktopMainGetHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
 	organizations, err := models.ListOrganizations()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -32,9 +41,11 @@ func desktopMainGetHandler(w http.ResponseWriter, r *http.Request) {
 		Title string
 		Apps  []models.Application
 		Orgs  []models.Organization
+		Mods  []models.Application
 	}{
 		Title: "Oswee.com: Desktop",
 		Apps:  applications,
 		Orgs:  organizations,
+		Mods:  modules,
 	})
 }
