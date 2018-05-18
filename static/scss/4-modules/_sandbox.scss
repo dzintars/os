@@ -28,25 +28,8 @@ os-button-toogle {
   }
 
   os-taskbar {
-    border-bottom: 1px solid $blue;
-  }
-
-  os-statusbar {
     background: $light10;
-    color: $light65;
-    & > div {
-      padding: 4px;
-      font-size: 0.8rem;
-      cursor: pointer;
-      & a {
-        text-decoration: none;
-        color: $light65;
-      }
-      & a:hover {
-        color: $blue;
-        text-decoration: underline;
-      }
-    }
+    border-bottom: 1px solid $light20;
   }
 
   .expander {

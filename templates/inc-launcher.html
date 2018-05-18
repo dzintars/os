@@ -10,7 +10,15 @@
             </div>
             <div class="launcher-body">
                 {{ range .Mods }}
-                <div class="launcher-shortcuts"><a href="{{ .RelativeURL }}">{{ .ShortName }}</a></div>
+                <a href="{{ .RelativeURL }}">
+                    <os-group hbox class="launcher-shortcuts">
+                        <div class="shortcut-ico" style="background: {{ .Bcolor }};"></div>
+                        <os-group vbox class="shortcut-meta">
+                            <p>{{ .ShortName }}</p>
+                            <p>by Oswee Inc.</p>
+                        </os-group>
+                    </os-group>
+                </a>
                 {{ end }}
             </div>
         </div>

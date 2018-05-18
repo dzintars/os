@@ -10,17 +10,17 @@
     width: $startMenuContainerWidth;
     height: $startMenuContainerHeight;
     z-index: 1;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    // box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
     &-body {
         width: $startMenuBodyWidth;
         min-width: $startMenuBodyWidth;
         height: $startMenuBodyHeight;
-        background: rgba(255,255,255,0.9);
+        background: rgba(230,230,230,0.9);
         //background: $light;
     }
     &-overlay {
         flex-grow: 1;
-        background: rgba(0,0,0,0.6);
+        background: rgba(0,0,0,0.7);
     }
 }
 .directions {
@@ -28,18 +28,49 @@
     grid-template-columns: repeat(6, 1fr);
     height: 30px;
     padding: 4px;
+    & div {
+        justify-content: center;
+        align-items: center;
+    }
+    & a {
+        text-decoration: unset;
+        text-transform: uppercase;
+        margin: auto;
+        color: #FFF;
+    }
 }
 
 .launcher-body {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    height: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     width: 100%;
     padding: 20px;
     grid-gap: 20px;
+    & a {
+        text-decoration: unset;
+    }
 }
 .launcher-shortcuts {
-    border: 1px solid $light20;
-    height: 60px;
-    background: $light5;
+    // border: 1px solid $light20;
+    height: 80px;
+    background: $light;
+    cursor: pointer;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+}
+
+.shortcut-ico {
+    width: 50px;
+    height: 100%;
+}
+
+.shortcut-meta {
+    padding: 5px;
+    & p:nth-child(1) {
+        font-size: 0.8em;
+        font-weight: bold;
+    }
+    & p:nth-child(2) {
+        font-size: 0.6em;
+        color: $light65;
+    }
 }

@@ -4,21 +4,23 @@ import "github.com/oswee/os/helpers"
 
 // Organization struct
 type Organization struct {
-	ID                int    `json:"ID"`
-	LegalID           int64  `json:"legalID"`
-	Name              string `json:"name"`
-	FirstCharacter    string `json:"firstCharacter"`
-	PrettyLink        string `json:"prettyLink"`
-	Form              int    `json:"form"`
-	LegalAddress      string `json:"legalAddress"`
-	VerificationLevel int    `json:"verificationLevel"`
-	Color             string `json:"color"`
-	VatRegistrationID string `json:"vatRegistrationID"`
+	ID                int     `json:"ID"`
+	LegalID           int64   `json:"legalID"`
+	Name              string  `json:"name"`
+	FirstCharacter    string  `json:"firstCharacter"`
+	PrettyLink        string  `json:"prettyLink"`
+	Form              int     `json:"form"`
+	LegalAddress      string  `json:"legalAddress"`
+	VerificationLevel int     `json:"verificationLevel"`
+	Color             string  `json:"color"`
+	VatRegistrationID string  `json:"vatRegistrationID"`
+	Lat               float64 `json:"lat"`
+	Lng               float64 `json:"lng"`
 }
 
 // ListOrganizations is function to retrieve a full list of all Organizations
 func ListOrganizations() ([]Organization, error) {
-	getOrganizations := `SELECT id, legal_id, name, form, address_legal, verification_level, color, vat_registration_id FROM os_organizations`
+	getOrganizations := `SELECT id, legal_id, name, form, address_legal, verification_level, color, vat_registration_id, lat, lng FROM os_organizations`
 
 	db := dbLoc()
 	rows, err := db.Query(getOrganizations)
@@ -38,9 +40,11 @@ func ListOrganizations() ([]Organization, error) {
 			verificationLevel int
 			color             string
 			vatRegistrationID string
+			lat               float64
+			lng               float64
 		)
 
-		err := rows.Scan(&ID, &legalID, &name, &form, &addressLegal, &verificationLevel, &color, &vatRegistrationID)
+		err := rows.Scan(&ID, &legalID, &name, &form, &addressLegal, &verificationLevel, &color, &vatRegistrationID, &lat, &lng)
 		checkErr(err)
 
 		org.ID = ID
@@ -53,6 +57,8 @@ func ListOrganizations() ([]Organization, error) {
 		org.VatRegistrationID = vatRegistrationID
 		org.FirstCharacter = string([]rune(name)[0])
 		org.PrettyLink = helpers.PrettyLinks(name)
+		org.Lat = lat
+		org.Lng = lng
 
 		res = append(res, org)
 	}

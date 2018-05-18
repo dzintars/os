@@ -157,10 +157,26 @@ button[direction]:hover {
   flex-grow: 1;
 }
 
-.statusbar {
-  height: 22px;
+os-statusbar {
   background: #e6e6e6;
-  border-top: 1px solid #b3b3b3;
+  border-top: 1px solid #cccccc;
+  color: #595959;
+}
+
+os-statusbar > div {
+  padding: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+os-statusbar > div a {
+  text-decoration: none;
+  color: #595959;
+}
+
+os-statusbar > div a:hover {
+  color: #006AFF;
+  text-decoration: underline;
 }
 
 .taskbar {
@@ -501,28 +517,8 @@ button[open-launcher] {
 }
 
 os-taskbar {
-  border-bottom: 1px solid #006AFF;
-}
-
-os-statusbar {
   background: #e6e6e6;
-  color: #595959;
-}
-
-os-statusbar > div {
-  padding: 4px;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-os-statusbar > div a {
-  text-decoration: none;
-  color: #595959;
-}
-
-os-statusbar > div a:hover {
-  color: #006AFF;
-  text-decoration: underline;
+  border-bottom: 1px solid #cccccc;
 }
 
 .expander {
@@ -671,19 +667,18 @@ tbody {
   width: 100%;
   height: calc(100% - 36px);
   z-index: 1;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
 }
 
 .os1-start-menu-body {
   width: 40%;
   min-width: 40%;
   height: 100%;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(230, 230, 230, 0.9);
 }
 
 .os1-start-menu-overlay {
   flex-grow: 1;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .directions {
@@ -693,19 +688,54 @@ tbody {
   padding: 4px;
 }
 
+.directions div {
+  justify-content: center;
+  align-items: center;
+}
+
+.directions a {
+  text-decoration: unset;
+  text-transform: uppercase;
+  margin: auto;
+  color: #FFF;
+}
+
 .launcher-body {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  height: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   width: 100%;
   padding: 20px;
   grid-gap: 20px;
 }
 
+.launcher-body a {
+  text-decoration: unset;
+}
+
 .launcher-shortcuts {
-  border: 1px solid #cccccc;
-  height: 60px;
-  background: #f7f7f7;
+  height: 80px;
+  background: #fff;
+  cursor: pointer;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.shortcut-ico {
+  width: 50px;
+  height: 100%;
+}
+
+.shortcut-meta {
+  padding: 5px;
+}
+
+.shortcut-meta p:nth-child(1) {
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.shortcut-meta p:nth-child(2) {
+  font-size: 0.6em;
+  color: #595959;
 }
 
 .vika-body {

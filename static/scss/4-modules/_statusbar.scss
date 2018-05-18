@@ -1,5 +1,18 @@
-.statusbar {
-    height: 22px;
+os-statusbar {
     background: $light10;
-    border-top: 1px solid $light30;
-}
+    border-top: 1px solid $light20;
+    color: $light65;
+    & > div {
+      padding: 4px;
+      font-size: 0.8rem;
+      cursor: pointer;
+      & a {
+        text-decoration: none;
+        color: $light65;
+      }
+      & a:hover {
+        color: $blue;
+        text-decoration: underline;
+      }
+    }
+  }

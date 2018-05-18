@@ -1,0 +1,72 @@
+{{ template "tpl-app-head-x" . }}
+<os-viewport vbox>
+    <os-taskbar hbox>
+        <svg id="btn-close-app" style="margin: 0 7px;" class="i-signout" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
+        </svg>
+        <button style="height: 28px; min-width: 60px; margin-right: 4px;">New</button>
+        <button style="height: 28px; min-width: 60px; margin-right: 4px;">Import</button>
+        <button style="height: 28px; min-width: 60px; margin-right: 4px;">Paste</button>
+        <os-panel hbox></os-panel>
+        <button id="btn-open-launcher" open-launcher>APPS</button>
+    </os-taskbar>
+    <os-container hbox>
+        <os-panel style="border-right: 1px solid dodgerblue;"></os-panel>
+        <os-panel id="map" style="height: 100%;"></os-panel>
+    </os-container>
+    <os-statusbar hbox>
+        <div style="background: #FCBA04"><a href="#">{{ .Title }}</a></div>
+        <div><a href="/about">About</a></div>
+        <div><a href="#">Advertising</a></div>
+        <div><a href="#">Business</a></div>
+        <div><a href="#">Team</a></div>
+        <div><a href="#">Terms</a></div>
+        <div expand></div>
+        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
+        <div>Google Chrome Only</div>
+    </os-statusbar>
+</os-viewport>
+
+<script>
+    function initMap() {
+        var options = {
+            zoom:8,
+            center:{lat:56.9496, lng:24.1052},
+        }
+        var map = new google.maps.Map(document.getElementById('map'), options);
+
+        var markers = [
+            {
+                coords:{lat:56.9496, lng:24.1052},
+                icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content:'<p>Hello from Oswee</p>',
+            },
+        ];
+
+        for(var i = 0; i < markers.length; i++){
+            addMarker(markers[i]);
+        }
+
+        function addMarker(props){
+            var marker = new google.maps.Marker({
+                position:props.coords,
+                map:map,
+                //icon:props.icon,
+            });
+            if(props.icon){
+                marker.setIcon(props.icon);
+            }
+            if(props.content){
+                var infoWindow = new google.maps.InfoWindow({
+                    content:props.content,
+                });
+                marker.addListener('click', function(){
+                    infoWindow.open(map, marker);
+                })
+            }
+        }
+    }
+
+</script>
+{{ template "inc-launcher" . }}
+{{ template "tpl-app-bottom" . }}

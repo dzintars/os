@@ -1,11 +1,3 @@
-// document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById("btn-close-app").addEventListener("click", goToMain);
-// });
-
-function goToMain() {
-    location.href = "/";
-};
-
 //https://stackoverflow.com/questions/49244944/toggle-appendchild-if-doesnt-exist-and-removechild-if-exist/49245337#49245337
 //Will play with this to use display: block and outside click to hide.
 let element = document.getElementById('os-start-menu');
@@ -28,3 +20,21 @@ function toggle() {
 
 let button = document.getElementById('btn-open-launcher');
 button.addEventListener('click', toggle, false); 
+
+
+let btnGoToDesktop = document.getElementById("btn-close-app");
+if (btnGoToDesktop) {
+    btnGoToDesktop.addEventListener("click", goToDesktop, false);
+}
+
+let signOut = document.getElementById("btn-sign-out");
+if (signOut) {
+    signOut.addEventListener("click", goToMain, false);
+}
+
+function goToDesktop() {
+    location.href = "/desktop";
+};
+function goToMain() {
+    location.href = "/";
+};
