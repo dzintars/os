@@ -13,12 +13,14 @@ func appRoutePlannerHandler(r *mux.Router) {
 }
 
 func appRoutePlannerMainGetHandler(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
+
 	visibility := 1
 
 	applications, err := models.ListApplications(visibility)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Error: 001, Internal Server Error"))
+		w.Write([]byte("Error: Can't list applications"))
 		return
 	}
 
@@ -27,14 +29,14 @@ func appRoutePlannerMainGetHandler(w http.ResponseWriter, r *http.Request) {
 	modules, err := models.ListApplications(visibleModules)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Error: 001, Internal Server Error"))
+		w.Write([]byte("Error: Cant't list sections"))
 		return
 	}
 
 	organizations, err := models.ListOrganizations()
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Error: 001, Internal Server Error"))
+		w.Write([]byte("Error: Can't list organizations"))
 		return
 	}
 	utils.ExecuteTemplate(w, "app-route-planner.html", struct {

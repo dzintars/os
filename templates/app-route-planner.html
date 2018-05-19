@@ -11,8 +11,37 @@
         <button id="btn-open-launcher" open-launcher>APPS</button>
     </os-taskbar>
     <os-container hbox>
-        <os-panel style="border-right: 1px solid dodgerblue;"></os-panel>
-        <os-panel id="map" style="height: 100%;"></os-panel>
+        <os-panel style="flex: 1;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th class="tbl-address">Legal Address</th>
+                        <th>Verification</th>
+                        <th>Lat</th>
+                        <th>Lng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Orgs }}
+                    <tr>
+                        <td style="width: 40px; text-align: center; font-weight: bold; background: lightgrey; border-right: 1px solid gray;"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
+                        <td>{{ .Name }}</td>
+                        <td class="tbl-address">{{ .LegalAddress }}</td>
+                        <td>
+                            <svg viewBox="0 0 256 256" width="16" height="16">
+                                <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
+                            </svg>
+                        </td>
+                        <td>{{ .Lat }}</td>
+                        <td>{{ .Lng }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </os-panel>
+        <os-panel id="map" style="height: 100%;" style="flex: 1;"></os-panel>
     </os-container>
     <os-statusbar hbox>
         <div style="background: #FCBA04"><a href="#">{{ .Title }}</a></div>
