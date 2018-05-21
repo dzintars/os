@@ -1,6 +1,9 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
+        {{ range .Apps }}
+        <a href="{{ .RelativeURL }}" style="margin-left: 7px; text-decoration: unset;">{{ .Title }}</a>
+        {{ end}}
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>

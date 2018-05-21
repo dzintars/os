@@ -1,10 +1,11 @@
 //https://stackoverflow.com/questions/49244944/toggle-appendchild-if-doesnt-exist-and-removechild-if-exist/49245337#49245337
 //Will play with this to use display: block and outside click to hide.
-let element = document.getElementById('os-start-menu');
-let content = element.content;
-
 function toggle() {
     'use strict';
+
+    let element = document.getElementById('os-start-menu');
+    let content = element.content;
+    
     // Attempt to reference the element in the document, not the template content
     var imported = document.querySelector(".os1-start-menu");
 

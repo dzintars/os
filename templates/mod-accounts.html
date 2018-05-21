@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="">
-    <title>Accounts</title>
-    <link rel="stylesheet" type="text/css" href="/static/scss/main.css">
-</head>
-<body>
-    <os-viewport vbox>
-    {{ template "tpl-app-taskbar" . }}
+{{ template "tpl-app-head-x" . }}
+<os-viewport vbox>
+    <os-taskbar hbox>
+        <svg id="btn-close-app" style="margin: 0 7px;" class="i-signout" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
+        </svg>
+        <os-panel hbox></os-panel>
+        <button id="btn-open-launcher" open-launcher>APPS</button>
+    </os-taskbar>
     <div class="os">
         <div class="workspace">
             <div class="module hbox">
@@ -115,29 +112,5 @@
         </div>
     </div>
 </os-viewport>
-<script>
-    //https://stackoverflow.com/questions/49244944/toggle-appendchild-if-doesnt-exist-and-removechild-if-exist/49245337#49245337
-    //Will play with this to use display: block and outside click to hide.
-    let element = document.getElementById('os-start-menu');
-    let content = element.content;
-
-    function toggle () {
-        'use strict';
-        // Attempt to reference the element in the document, not the template content
-        var imported = document.querySelector(".os1-start-menu");
-    
-        // Check for the element, not the template content
-        if (document.body.contains(imported)) {
-            // Element exists, get its parent
-            imported.parentNode.removeChild(imported);
-        } else {
-            // Use .importNode to bring template content in:
-            document.body.appendChild(document.importNode(content, true));
-        }
-    }
-
-    let button = document.getElementById('btn-start');
-    button.addEventListener('click', toggle, false);
-</script>
-</body>
-</html>
+{{ template "inc-launcher" . }}
+{{ template "tpl-app-bottom" . }}
