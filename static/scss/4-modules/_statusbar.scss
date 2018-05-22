@@ -15,4 +15,10 @@ os-statusbar {
         text-decoration: underline;
       }
     }
+    & .i-icon {
+      width: 16px;
+      height: 16px;
+      margin: 0 6px;
+      cursor: pointer;
+    }
   }

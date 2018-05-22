@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400");
 .vbox {
   display: flex;
   flex-direction: row;
@@ -178,6 +178,20 @@ os-statusbar > div a {
 os-statusbar > div a:hover {
   color: #006AFF;
   text-decoration: underline;
+}
+
+os-statusbar .i-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+os-taskbar .i-icon {
+  height: 22px;
+  width: 22px;
+  cursor: pointer;
+  stroke-width: 2;
 }
 
 .taskbar {
@@ -781,7 +795,7 @@ tbody {
   color: #595959;
   font-size: 1em;
   font-family: Montserrat, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .front-sidebar-sections a img {

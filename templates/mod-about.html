@@ -1,25 +1,38 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <svg id="btn-close-app" style="margin-left: 7px" class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
-            <path d="M2 30 L30 2 M30 30 L2 2" />
-        </svg>
+        <a href="/" title="Home"  class="taskbar-logo">
+            <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo">
+            <span>Beta</div>
+        </a>
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>
-    <os-row vbox style="padding: 20px 160px;">
-        <h1>About Project</h1>
-        <p>This is my personal test environment while learning programming.<br>
-            In future it gonna be GOlang backed collaborative ERP system for Supply Chain domain.<br>
-            Used technologies: GOlang, Web Components, MariaDB, GraphQL, ESI, Microservices and others.
-        </p>
-        <h1>About Me</h1>
-        <p>I am newbie in programming but with good skills in Supply Chain domain. I selected GO as my main and first programming language because it perfectly fits for project I gonna build.<br>
-        This project is refactoring of existing PHP based prototype which I am not able to finish.</p>
-        <h1>For Developers</h1>
-        <p>If you are passionated GOlang developer and you would like join to the development, you can find me online.</p>
-        <h1>Disclaimer</h1>
-        <p>This project can be deleted or modified at any time and you should not to use it!</p>
-    </os-row>
+    <os-container>
+        <os-row vbox style="padding: 20px 160px;">
+            <h1>About Project</h1>
+            <p>This is my personal test environment while learning programming.<br>
+                In future it gonna be GOlang backed collaborative ERP system for Supply Chain domain.<br>
+                Used technologies: GOlang, Web Components, MariaDB, GraphQL, ESI, Microservices and others.
+            </p>
+            <h1>About Me</h1>
+            <p>I am newbie in programming but with good skills in Supply Chain domain. I selected GO as my main and first programming language because it perfectly fits for project I gonna build.<br>
+            This project is refactoring of existing PHP based prototype which I am not able to finish.</p>
+            <h1>For Developers</h1>
+            <p>If you are passionated GOlang developer and you would like join to the development, you can find me online.</p>
+            <h1>Disclaimer</h1>
+            <p>This project can be deleted or modified at any time and you should not to use it!</p>
+        </os-row>
+    </os-container>
+    <os-statusbar hbox>
+        <div><a href="/about">About</a></div>
+        <div><a href="#">Advertising</a></div>
+        <div><a href="#">Business</a></div>
+        <div><a href="#">Team</a></div>
+        <div><a href="#">Terms</a></div>
+        <div expand></div>
+        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
+        <div>Google Chrome Only</div>
+    </os-statusbar>
 </os-viewport>
 {{ template "tpl-app-bottom" . }}

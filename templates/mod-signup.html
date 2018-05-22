@@ -1,16 +1,15 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <svg id="btn-close-app" style="margin-left: 7px" class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
-            <path d="M2 30 L30 2 M30 30 L2 2" />
-        </svg>
+        <a href="/" title="Home"  class="taskbar-logo">
+            <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo">
+            <span>Pre-Alpha</div>
+        </a>
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>
-    <div class="app-header">Sign Up</div>
-    <os-row>Sign Up row</os-row>
     <os-row vbox>
-        <h1>Create your Oswee User</h1>
+        <h1>Create your Oswee ID</h1>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, reiciendis voluptatem eius distinctio velit aspernatur soluta accusamus iusto magnam mollitia, quo, assumenda ratione a. Aliquam, quaerat! Quam error expedita ex.</p>
     </os-row>
     <os-row>

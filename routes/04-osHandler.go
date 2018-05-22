@@ -3,6 +3,7 @@ package routes
 import (
 	"fmt"
 	"net/http"
+	"time"
 
 	"github.com/gorilla/mux"
 	"github.com/oswee/os/models"
@@ -21,6 +22,8 @@ func osHandler(r *mux.Router) {
 // Handlers
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {
+	t := time.Now()
+	fmt.Println(r.Header.Get("X-Forwarded-For"), t)
 
 	searchCategories := 1
 
