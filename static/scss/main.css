@@ -599,31 +599,6 @@ os-sidebar button[direction] {
   height: 36px;
 }
 
-.front-sidebar-sections {
-  display: flex;
-  flex-direction: row;
-  min-height: 36px;
-  text-transform: uppercase;
-  font-size: 1em;
-  border-top: 1px solid #fff;
-  background: #006AFF;
-}
-
-.front-sidebar-sections:hover {
-  background: #3EC300;
-}
-
-.front-sidebar-sections img {
-  margin: auto 10px;
-}
-
-.front-sidebar-sections a {
-  text-decoration: unset;
-  vertical-align: middle;
-  margin: auto 0;
-  color: #fff;
-}
-
 table {
   all: unset;
   display: table;
@@ -738,8 +713,26 @@ tbody {
   color: #595959;
 }
 
-.vika-body {
-  background: #B9D6FF;
+.front-sidebar-sections a {
+  display: flex;
+  flex-direction: row;
+  min-height: 28px;
+  background: #006AFF;
+  border-top: 1px solid #fff;
+  text-decoration: unset;
+  align-items: center;
+}
+
+.front-sidebar-sections a:hover {
+  background: #3EC300;
+}
+
+.front-sidebar-sections a span {
+  color: #fff;
+}
+
+.front-sidebar-sections a img {
+  margin: 6px;
 }
 
 .element {

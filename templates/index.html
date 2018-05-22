@@ -2,7 +2,7 @@
 <os-viewport vbox>
     <os-taskbar hbox>
         {{ range .Apps }}
-        <a href="{{ .RelativeURL }}" style="margin-left: 7px; text-decoration: unset;">{{ .Title }}</a>
+        <a href="{{ .RelativeURL }}" style="margin-left: 7px; text-decoration: unset;">{{ .ShortName }}</a>
         {{ end}}
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}

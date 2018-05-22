@@ -8,6 +8,10 @@
         <button style="height: 28px; min-width: 60px; margin-right: 4px;">Import</button>
         <button style="height: 28px; min-width: 60px; margin-right: 4px;">Paste</button>
         <os-panel hbox></os-panel>
+        <os-group vbox signup>
+            <p><a href="#">Guest User</a></p>
+            <p><a href="#">Demo Account</a></p>
+        </os-group>
         <button id="btn-open-launcher" open-launcher>APPS</button>
     </os-taskbar>
     <os-container hbox>
@@ -67,6 +71,10 @@
         var markers = [
             {
                 coords:{lat:56.9496, lng:24.1052},
+                icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                content:'<p>Hello from Oswee</p>',
+            },{
+                coords:{lat:56.95693835, lng:24.13415839},
                 icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
                 content:'<p>Hello from Oswee</p>',
             },

@@ -1,0 +1,20 @@
+.front-sidebar-sections {
+    & a {
+        display: flex;
+        flex-direction: row;
+        min-height: 28px;
+        background: $blue;
+        border-top: 1px solid $light;
+        text-decoration: unset;
+        align-items: center;
+    }
+    & a:hover {
+        background: $green;
+    }
+    & a span {
+        color: $light;
+    }
+    & a img {
+        margin: 6px;
+    }
+}

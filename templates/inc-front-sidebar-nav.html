@@ -1,9 +1,13 @@
 {{ define "inc-front-sidebar-nav" }}
-<os-group vbox>
+<!-- Styles are located in _frontsidebar.scss -->
+<os-group vbox class="front-sidebar-sections">
     {{ range .Apps}}
-    <div class="front-sidebar-sections">
-        <a href="{{ .RelativeURL }}"><img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">{{ .ShortName }}</a>
-    </div>
+    <!-- ToDo: I need to create .active class to set styling for currently active section -->
+        <a href="{{ .RelativeURL }}" title="{{ .ShortDescription }}">
+            <!-- ToDo: Probably I need to chage this to <i> tag with some icon class -->
+            <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
+            <span>{{ .ShortName }}</span>
+        </a>
     {{ end }}
 </os-group>
 {{ end }}
