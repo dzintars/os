@@ -12,3 +12,6 @@
 
 # Project-local glide cache, RE: https://github.com/Masterminds/glide/issues/736
 .glide/
+
+# https://github.com/Microsoft/vscode/issues/40742
+.vscode/
