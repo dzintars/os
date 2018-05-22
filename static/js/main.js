@@ -19,13 +19,14 @@ function toggle() {
     }
 }
 
-let button = document.getElementById('btn-open-launcher');
-button.addEventListener('click', toggle, false); 
+let btnOpenLauncher = document.getElementById('btn-open-launcher');
+if (btnOpenLauncher) {
+    btnOpenLauncher.addEventListener('click', toggle, false);
+}
 
-
-let btnGoToDesktop = document.getElementById("btn-close-app");
-if (btnGoToDesktop) {
-    btnGoToDesktop.addEventListener("click", goToDesktop, false);
+let btnCloseApp = document.getElementById("btn-close-app");
+if (btnCloseApp) {
+    btnCloseApp.addEventListener("click", goToDesktop, false);
 }
 
 let signOut = document.getElementById("btn-sign-out");

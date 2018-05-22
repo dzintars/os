@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:200,300");
 .vbox {
   display: flex;
   flex-direction: row;
@@ -109,7 +110,7 @@ button[direction] {
   height: 28px;
   margin: 0;
   border: none;
-  color: #fff;
+  color: white;
   font-weight: 400;
 }
 
@@ -190,6 +191,45 @@ button[small] {
   background-color: red;
 }
 
+.taskbar-logo {
+  display: flex;
+  flex-direction: row;
+  text-decoration: unset;
+}
+
+.taskbar-logo img {
+  width: 120px;
+  height: 36px;
+  margin: 0 10px;
+}
+
+.taskbar-logo span {
+  background: #006AFF;
+  color: white;
+  height: 12px;
+  font-size: 0.6em;
+  padding: 0 4px;
+  position: relative;
+  top: 4px;
+}
+
+.front-section-links {
+  margin-left: 20px;
+  text-decoration: unset;
+}
+
+.front-section-links span {
+  color: #595959;
+  font-size: 1.2em;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
+
+.front-section-links span:hover {
+  text-decoration: underline;
+  color: #000;
+}
+
 .ico-16 {
   display: inline-block;
   background-repeat: no-repeat;
@@ -239,7 +279,7 @@ button[small] {
 }
 
 .card {
-  background: #fff;
+  background: white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   margin-top: 18px;
@@ -368,7 +408,7 @@ button[small] {
   align-items: center;
   height: 56px;
   background: #006AFF;
-  color: #fff;
+  color: white;
   padding: 10px 20px;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
   font-size: 24px;
@@ -663,16 +703,21 @@ tbody {
   padding: 4px;
 }
 
-.directions div {
-  justify-content: center;
+.directions a {
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  text-decoration: unset;
+  height: 28px;
+  width: 100%;
 }
 
-.directions a {
-  text-decoration: unset;
-  text-transform: uppercase;
-  margin: auto;
-  color: #FFF;
+.directions a span {
+  color: white;
+  font-size: 1em;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
 }
 
 .launcher-body {
@@ -689,7 +734,7 @@ tbody {
 
 .launcher-shortcuts {
   height: 80px;
-  background: #fff;
+  background: white;
   cursor: pointer;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
@@ -713,26 +758,41 @@ tbody {
   color: #595959;
 }
 
+.front-sidebar os-panel {
+  border-right: 1px solid #cccccc;
+}
+
 .front-sidebar-sections a {
   display: flex;
   flex-direction: row;
   min-height: 28px;
-  background: #006AFF;
-  border-top: 1px solid #fff;
+  background: #e6e6e6;
+  border-top: 1px solid #cccccc;
+  border-right: 1px solid #cccccc;
   text-decoration: unset;
   align-items: center;
 }
 
 .front-sidebar-sections a:hover {
-  background: #3EC300;
+  background: #cccccc;
 }
 
 .front-sidebar-sections a span {
-  color: #fff;
+  color: #595959;
+  font-size: 1em;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
 }
 
 .front-sidebar-sections a img {
   margin: 6px;
+}
+
+.c-icon {
+  width: 22px;
+  height: 22px;
+  margin: 7px;
+  cursor: pointer;
 }
 
 .element {
@@ -760,14 +820,14 @@ tbody {
 }
 
 .theme-header {
-  color: #fff;
+  color: white;
 }
 
 .theme-border {
-  color: #fff;
+  color: white;
 }
 
 .theme-background {
-  color: #fff;
+  color: white;
 }
 /*# sourceMappingURL=main.css.map */

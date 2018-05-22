@@ -28,15 +28,20 @@
     grid-template-columns: repeat(6, 1fr);
     height: 30px;
     padding: 4px;
-    & div {
-        justify-content: center;
-        align-items: center;
-    }
     & a {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
         text-decoration: unset;
-        text-transform: uppercase;
-        margin: auto;
-        color: #FFF;
+        height: 28px;
+        width: 100%;
+    }
+    & a span {
+        color: $light;
+        font-size: 1em;
+        font-family: Montserrat, sans-serif;
+        font-weight: 300;
     }
 }
 

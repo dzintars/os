@@ -1,14 +1,18 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <svg id="btn-close-app" style="margin-left: 7px" class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
+        <!-- <svg id="btn-close-app" style="margin-left: 7px" class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
             <path d="M2 30 L30 2 M30 30 L2 2" />
-        </svg>
+        </svg> -->
+        <a href="/" title="Home"  class="taskbar-logo">
+            <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo">
+            <span>Beta</div>
+        </a>
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>
     <os-container hbox>
-        <os-sidebar vbox style="border-right: 1px solid #006AFF;">
+        <os-sidebar vbox class="front-sidebar">
             <os-panel>Filtering features there</os-panel>
             {{ template "inc-front-sidebar-nav" . }}
         </os-sidebar>
@@ -52,7 +56,7 @@
         </os-panel>
     </os-container>
     <os-statusbar hbox>
-            <div style="background: #FCBA04"><a href="#">{{ .Title }}</a></div>
+            <div style="background: #FCBA04"><a href="#" title="Learn more about this application">{{ .Title }}</a></div>
             <div><a href="/about">About</a></div>
             <div><a href="#">Advertising</a></div>
             <div><a href="#">Business</a></div>

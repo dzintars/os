@@ -5,7 +5,9 @@
         <div class="os1-start-menu-body hbox">
             <div class="directions">
                 {{ range .Apps }}
-                <div style="background: {{ .Bcolor }}; height: 28px; width: 100%;"><a href="{{ .RelativeURL }}">{{ .ShortName }}</a></div>
+                <a class="launcher-sections" href="{{ .RelativeURL }}" style="background: {{ .Bcolor }};">
+                    <span>{{ .ShortName }}</span>
+                </a>
                 {{ end }}
             </div>
             <div class="launcher-body">

@@ -7,3 +7,37 @@
 button[small] {
     background-color: red;
 }
+
+.taskbar-logo {
+    display: flex;
+    flex-direction: row;
+    text-decoration: unset;
+    & img {
+        width: 120px;
+        height: 36px;
+        margin: 0 10px;
+    }
+    & span {
+        background: $blue;
+        color: $light;
+        height: 12px;
+        font-size: 0.6em;
+        padding: 0 4px;
+        position: relative;
+        top: 4px;
+    }
+}
+.front-section-links {
+    margin-left: 20px;
+    text-decoration: unset;
+    & span {
+        color: $light65;
+        font-size: 1.2em;
+        font-family: Montserrat, sans-serif;
+        font-weight: 300;
+    }
+    & span:hover {
+        text-decoration: underline;
+        color: $black;
+    }
+}

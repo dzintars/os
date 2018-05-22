@@ -7,7 +7,7 @@
 // CH01 - Color Variables
 // *******************************
 
-$white: #fff;
+$white: rgba(255,255,255,1);
 $black: #000;
 $red: #E70E02;
 $orange: #FCBA04;
@@ -22,6 +22,8 @@ $light20: darken($light, 20%);
 $light30: darken($light, 30%);
 $light50: darken($light, 50%);
 $light65: darken($light, 65%);
+
+$blue20: lighten($blue, 20%);
 
 $primaryColor: $light;
 

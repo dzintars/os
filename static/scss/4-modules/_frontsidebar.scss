@@ -1,20 +1,37 @@
+.front-sidebar {
+    & os-panel {
+        border-right: 1px solid $light20;
+    }
+}
+
 .front-sidebar-sections {
     & a {
         display: flex;
         flex-direction: row;
         min-height: 28px;
-        background: $blue;
-        border-top: 1px solid $light;
+        background: $light10;
+        border-top: 1px solid $light20;
+        border-right: 1px solid $light20;
         text-decoration: unset;
         align-items: center;
     }
     & a:hover {
-        background: $green;
+        background: $light20;
     }
     & a span {
-        color: $light;
+        color: $light65;
+        font-size: 1em;
+        font-family: Montserrat, sans-serif;
+        font-weight: 300;
     }
     & a img {
         margin: 6px;
     }
+}
+
+.c-icon{
+    width: 22px;
+    height: 22px;
+    margin: 7px;
+    cursor: pointer;
 }
