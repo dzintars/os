@@ -310,6 +310,10 @@ os-toolbar input, os-toolbar button {
   margin-left: 4px;
 }
 
+os-omnibox[search-results] {
+  margin: 30px 0 10 180px;
+}
+
 .ico-16 {
   display: inline-block;
   background-repeat: no-repeat;
@@ -599,7 +603,10 @@ table {
 }
 
 table th {
-  background: #b3b3b3;
+  background: #e6e6e6;
+  border-bottom: 1px solid #b3b3b3;
+  border-right: 1px solid #e6e6e6;
+  text-align: left;
 }
 
 table tr:nth-child(even) {
@@ -614,8 +621,48 @@ table .tbl-address {
   width: auto;
 }
 
-tbody {
-  overflow: auto;
+table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-right: 1px solid #e6e6e6;
+}
+
+#RecordID {
+  max-width: 40px;
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  background: rgba(255, 255, 255, 0.6);
+}
+
+#RecordID a {
+  display: block;
+}
+
+#LegalID {
+  max-width: 80px;
+}
+
+#Name {
+  max-width: 200px;
+}
+
+#Form {
+  max-width: 40px;
+}
+
+#LegalAddress {
+  max-width: 200px;
+}
+
+#VerificationLevel {
+  max-width: 40px;
+  width: 40px;
+}
+
+#VatID {
+  max-width: 40px;
 }
 
 .toolselection {

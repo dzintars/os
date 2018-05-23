@@ -11,7 +11,10 @@
         </os-group>
         <button id="btn-open-launcher" open-launcher>APPS</button>
     </os-taskbar>
-    <h1 style="margin: 20px;">This will be desktop/dashboard</h1>
+    <os-container vbox style="padding: 36px;">
+        <h1>This will be your main desktop/dashboard</h1>
+        <p>Use APPS to see available applications. For example <a href="/apps/router">Rout Planner</a></p>
+    </os-container>
 </os-viewport>
 {{ template "inc-launcher" . }}
 {{ template "tpl-app-bottom" . }}

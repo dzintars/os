@@ -11,9 +11,13 @@
     </os-taskbar>
     <os-container hbox>
         <os-sidebar vbox class="front-sidebar">
-            <os-panel>Filtering features there</os-panel>
+            <os-panel></os-panel>
             {{ template "inc-front-sidebar-nav" . }}
         </os-sidebar>
+        <os-panel vbox style="padding: 36px;">
+            <h1>Applications are not implemented</h1>
+            <p>Please try to check <a href="/services">Services </a>or <a href="/organizations">Organizations</a></p>
+        </os-panel>
     </os-container>
 </os-viewport>
 {{ template "tpl-app-bottom" . }}

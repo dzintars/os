@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -18,6 +19,12 @@ func frontPromotionsMainHandler(w http.ResponseWriter, r *http.Request) {
 
 	visibility := 1
 
+	services, err := models.ListServices()
+	if err != nil {
+		fmt.Println("Some error in ervicesHandler")
+		return
+	}
+
 	applications, err := models.ListApplications(visibility)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -28,8 +35,10 @@ func frontPromotionsMainHandler(w http.ResponseWriter, r *http.Request) {
 	utils.ExecuteTemplate(w, "mod-promotions.html", struct {
 		Title string
 		Apps  []models.Application
+		Srv   []models.Service
 	}{
 		Title: "Oswee.com: Promotions",
 		Apps:  applications,
+		Srv:   services,
 	})
 }

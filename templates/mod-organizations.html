@@ -25,27 +25,27 @@
                     <tr>
                         <th>ID</th>
                         <th>Registration ID</th>
-                        <th>Name</th>
+                        <th>Organization Name</th>
                         <th>Form</th>
                         <th class="tbl-address">Legal Address</th>
-                        <th>Verification Level</th>
+                        <th>VL</th>
                         <th>VAT ID</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{ range .Orgs }}
                     <tr>
-                        <td style="width: 40px; text-align: center; font-weight: bold; background: lightgrey; border-right: 1px solid gray;"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
-                        <td>{{ .LegalID }}</td>
-                        <td>{{ .Name }}</td>
-                        <td>{{ .Form }}</td>
-                        <td class="tbl-address">{{ .LegalAddress }}</td>
-                        <td>
+                        <td id="RecordID"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
+                        <td id="LegalID">{{ .LegalID }}</td>
+                        <td id="Name">{{ .Name }}</td>
+                        <td id="Form">{{ .Form }}</td>
+                        <td id="LegalAddress" class="tbl-address">{{ .LegalAddress }}</td>
+                        <td id="VerificationLevel">
                             <svg viewBox="0 0 256 256" width="16" height="16">
                                 <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
                             </svg>
                         </td>
-                        <td>{{ .VatRegistrationID }}</td>
+                        <td id="VatID">{{ .VatRegistrationID }}</td>
                     </tr>
                     {{ end }}
                 </tbody>

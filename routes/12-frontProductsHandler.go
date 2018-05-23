@@ -1,6 +1,7 @@
 package routes
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -18,6 +19,12 @@ func productsMainHandler(w http.ResponseWriter, r *http.Request) {
 
 	searchCategories := 1
 
+	services, err := models.ListServices()
+	if err != nil {
+		fmt.Println("Some error in ervicesHandler")
+		return
+	}
+
 	applications, err := models.ListApplications(searchCategories)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -30,10 +37,12 @@ func productsMainHandler(w http.ResponseWriter, r *http.Request) {
 	utils.ExecuteTemplate(w, "mod-products.html", struct {
 		Title string
 		Apps  []models.Application
+		Srv   []models.Service
 		//Orgs  template.HTML
 	}{
 		Title: "Oswee.com: Products",
 		Apps:  applications,
+		Srv:   services,
 		//Orgs:  ssi,
 	})
 }
