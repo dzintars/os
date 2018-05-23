@@ -2,9 +2,9 @@
 @import "container";
 @import "module";
 @import "panel";
-@import "statusbar";
-@import "startmenu";
-@import "taskbar";
+@import "os-statusbar";
+@import "os-taskbar";
+@import "os-toolbar";
 @import "icon";
 @import "card";
 @import "grid";
@@ -14,7 +14,6 @@
 @import "form";
 @import "row";
 @import "table";
-@import "toolbar";
 @import "toolgroup";
 @import "input";
 @import "sandbox";

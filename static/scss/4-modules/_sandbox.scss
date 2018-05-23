@@ -27,19 +27,10 @@ os-button-toogle {
     vertical-align: center;
   }
 
-  os-taskbar {
-    background: $light10;
-    border-bottom: 1px solid $light20;
-  }
-
   .expander {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-  }
-
-  os-taskbar {
-    min-height: 37px;
   }
 
   os-panel[search] {
@@ -48,33 +39,6 @@ os-button-toogle {
   os-row[search] {
     justify-content: center;
     margin: 10px;
-  }
-
-  div[expand] {
-    flex-grow: 1;
-  }
-
-  form[signin] > input {
-    height: 28px;
-  }
-
-  os-group[signup] {
-    padding: 0 8px;
-    & p {
-      margin-top: 1px;
-    }
-    & a {
-      color: $light65;
-      text-decoration: none;
-      text-transform: uppercase;
-    }
-    & p:nth-child(2) {
-      font-size: 0.8em;
-    }
-    & a:hover {
-      text-decoration: underline;
-      color: $blue;
-    }
   }
 
   os-viewport {
@@ -101,35 +65,5 @@ os-button-toogle {
   os-sidebar {
     & button[direction] {
       height: 36px;
-    }
-  }
-
-  table {
-    all: unset;
-    display: table;
-    font-size: 0.8em;
-    // border-collapse: collapse;
-    border: none;
-    & th {
-      background: $light30;
-    }
-    & tr:nth-child(even) {
-      background: $light10;
-    }
-    & tr:hover {
-      background: $light30;
-    }
-    & .tbl-address {
-      width: auto;
-    }
-  }
-  tbody {
-    overflow: auto;
-  }
-
-  .sub-toolbar {
-    & input, button {
-      height: 28px;
-      margin-left: 4px;
     }
   }

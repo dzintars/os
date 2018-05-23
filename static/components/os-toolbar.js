@@ -1,10 +1,9 @@
-const taskbar = document.createElement('template');
+const toolbar = document.createElement('template');
 
-taskbar.innerHTML = `
+toolbar.innerHTML = `
     <style>
     :host {
         display: flex;
-        align-items: center;
         width: 100%;
     }
     :host([hbox]) {
@@ -17,10 +16,10 @@ taskbar.innerHTML = `
     <slot></slot>
 `;
 
-customElements.define('os-taskbar', class extends HTMLElement {
+customElements.define('os-toolbar', class extends HTMLElement {
     constructor() {
         super();
         let shadow = this.attachShadow({mode: 'open'});
-        shadow.appendChild(taskbar.content.cloneNode(true))
+        shadow.appendChild(toolbar.content.cloneNode(true))
     }
 });

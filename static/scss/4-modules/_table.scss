@@ -2,3 +2,26 @@ tr {
     height: 21px;
     border-top: 1px solid $light20;
 }
+
+table {
+    all: unset;
+    display: table;
+    font-size: 0.8em;
+    // border-collapse: collapse;
+    border: none;
+    & th {
+      background: $light30;
+    }
+    & tr:nth-child(even) {
+      background: $light10;
+    }
+    & tr:hover {
+      background: $light30;
+    }
+    & .tbl-address {
+      width: auto;
+    }
+  }
+  tbody {
+    overflow: auto;
+  }

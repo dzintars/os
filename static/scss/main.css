@@ -161,23 +161,37 @@ button[direction]:hover {
 os-statusbar {
   background: #e6e6e6;
   border-top: 1px solid #cccccc;
-  color: #595959;
+  color: #333333;
 }
 
 os-statusbar > div {
   padding: 4px;
   font-size: 0.8rem;
   cursor: pointer;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
 }
 
 os-statusbar > div a {
   text-decoration: none;
-  color: #595959;
+  color: #333333;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
 }
 
 os-statusbar > div a:hover {
   color: #006AFF;
   text-decoration: underline;
+}
+
+os-statusbar .app-title {
+  width: 240px;
+  min-width: 240px;
+  background: #E70E02;
+}
+
+os-statusbar .app-title a {
+  color: white;
 }
 
 os-statusbar .i-icon {
@@ -187,22 +201,18 @@ os-statusbar .i-icon {
   cursor: pointer;
 }
 
+os-taskbar {
+  height: 36px;
+  min-height: 37px;
+  background: #cccccc;
+  border-bottom: 1px solid #b3b3b3;
+}
+
 os-taskbar .i-icon {
   height: 22px;
   width: 22px;
   cursor: pointer;
   stroke-width: 2;
-}
-
-.taskbar {
-  height: 36px;
-  display: flex;
-  align-items: center;
-  border-bottom: 1px solid #006AFF;
-}
-
-button[small] {
-  background-color: red;
 }
 
 .taskbar-logo {
@@ -218,10 +228,12 @@ button[small] {
 }
 
 .taskbar-logo span {
-  background: #006AFF;
+  background: #E70E02;
   color: white;
   height: 12px;
   font-size: 0.6em;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
   padding: 0 4px;
   position: relative;
   top: 4px;
@@ -233,7 +245,7 @@ button[small] {
 }
 
 .front-section-links span {
-  color: #595959;
+  color: #333333;
   font-size: 1.2em;
   font-family: Montserrat, sans-serif;
   font-weight: 300;
@@ -242,6 +254,60 @@ button[small] {
 .front-section-links span:hover {
   text-decoration: underline;
   color: #000;
+}
+
+div[expand] {
+  flex-grow: 1;
+}
+
+form[signin] > input {
+  height: 28px;
+}
+
+os-group[signup] {
+  padding: 0 10px;
+  height: 32px;
+}
+
+os-group[signup] p {
+  margin-top: 2px;
+}
+
+os-group[signup] a {
+  color: #333333;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: Montserrat, sans-serif;
+}
+
+os-group[signup] p:nth-child(1) {
+  font-size: 1em;
+  line-height: 1em;
+  font-weight: 400;
+}
+
+os-group[signup] p:nth-child(2) {
+  font-size: 0.8em;
+  line-height: 0.8em;
+  font-weight: 300;
+}
+
+os-group[signup] a:hover {
+  text-decoration: underline;
+  color: #006AFF;
+}
+
+os-toolbar {
+  height: 32px;
+  min-height: 32px;
+  align-items: center;
+  background: #e6e6e6;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+os-toolbar input, os-toolbar button {
+  height: 24px;
+  margin-left: 4px;
 }
 
 .ico-16 {
@@ -525,10 +591,31 @@ tr {
   border-top: 1px solid #cccccc;
 }
 
-.toolbar {
-  min-height: 36px;
-  flex-grow: 1;
-  align-items: center;
+table {
+  all: unset;
+  display: table;
+  font-size: 0.8em;
+  border: none;
+}
+
+table th {
+  background: #b3b3b3;
+}
+
+table tr:nth-child(even) {
+  background: #e6e6e6;
+}
+
+table tr:hover {
+  background: #b3b3b3;
+}
+
+table .tbl-address {
+  width: auto;
+}
+
+tbody {
+  overflow: auto;
 }
 
 .toolselection {
@@ -570,19 +657,10 @@ button[open-launcher] {
   vertical-align: center;
 }
 
-os-taskbar {
-  background: #e6e6e6;
-  border-bottom: 1px solid #cccccc;
-}
-
 .expander {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-os-taskbar {
-  min-height: 37px;
 }
 
 os-panel[search] {
@@ -592,37 +670,6 @@ os-panel[search] {
 os-row[search] {
   justify-content: center;
   margin: 10px;
-}
-
-div[expand] {
-  flex-grow: 1;
-}
-
-form[signin] > input {
-  height: 28px;
-}
-
-os-group[signup] {
-  padding: 0 8px;
-}
-
-os-group[signup] p {
-  margin-top: 1px;
-}
-
-os-group[signup] a {
-  color: #595959;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-os-group[signup] p:nth-child(2) {
-  font-size: 0.8em;
-}
-
-os-group[signup] a:hover {
-  text-decoration: underline;
-  color: #006AFF;
 }
 
 os-viewport {
@@ -651,38 +698,6 @@ os-viewport {
 
 os-sidebar button[direction] {
   height: 36px;
-}
-
-table {
-  all: unset;
-  display: table;
-  font-size: 0.8em;
-  border: none;
-}
-
-table th {
-  background: #b3b3b3;
-}
-
-table tr:nth-child(even) {
-  background: #e6e6e6;
-}
-
-table tr:hover {
-  background: #b3b3b3;
-}
-
-table .tbl-address {
-  width: auto;
-}
-
-tbody {
-  overflow: auto;
-}
-
-.sub-toolbar input, .sub-toolbar button {
-  height: 28px;
-  margin-left: 4px;
 }
 
 .launcher-btn {

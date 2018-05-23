@@ -1,0 +1,11 @@
+os-toolbar {
+    height: 32px;
+    min-height: 32px;
+    align-items: center;
+    background: $light10;
+    border-bottom: 1px solid $light30;
+    & input, button {
+        height: 24px;
+        margin-left: 4px;
+    }
+}

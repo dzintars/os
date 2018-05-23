@@ -10,16 +10,16 @@
     </os-taskbar>
     <os-container hbox>
         <os-sidebar vbox class="front-sidebar">
-            <os-panel>Filtering features there</os-panel>
+            <os-panel></os-panel>
             {{ template "inc-front-sidebar-nav" . }}
         </os-sidebar>
         <os-panel vbox>
-            <os-taskbar class="sub-toolbar">
+            <os-toolbar hbox>
                 <input type="search" placeholder="Search...">
                 <input type="date" name="from" id="from">
                 <input type="date" name="till" id="till">
                 <button>Filter</button>
-            </os-taskbar>
+            </os-toolbar>
             <table>
                 <thead>
                     <tr>
@@ -53,7 +53,7 @@
         </os-panel>
     </os-container>
     <os-statusbar hbox>
-        <div style="background: #FCBA04"><a href="#" title="Learn more about this application">{{ .Title }}</a></div>
+        <div class="app-title"><a href="#" title="Learn more about this application">{{ .Title }}</a></div>
         <div><a href="/about">About</a></div>
         <div><a href="#">Advertising</a></div>
         <div><a href="#">Business</a></div>

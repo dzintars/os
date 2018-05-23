@@ -1,4 +1,8 @@
 os-taskbar {
+    height: 36px;
+    min-height: 37px;
+    background: $light20;
+    border-bottom: 1px solid $light30;
     //box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.2);
     & .i-icon {
         height: 22px;
@@ -6,16 +10,6 @@ os-taskbar {
         cursor: pointer;
         stroke-width: 2;
     }
-}
-
-.taskbar {
-    height: $h-36;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid $blue;
-}
-button[small] {
-    background-color: red;
 }
 
 .taskbar-logo {
@@ -28,10 +22,12 @@ button[small] {
         margin: 0 10px;
     }
     & span {
-        background: $blue;
+        background: $red;
         color: $light;
         height: 12px;
         font-size: 0.6em;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
         padding: 0 4px;
         position: relative;
         top: 4px;
@@ -41,7 +37,7 @@ button[small] {
     margin-left: 20px;
     text-decoration: unset;
     & span {
-        color: $light65;
+        color: $light80;
         font-size: 1.2em;
         font-family: Montserrat, sans-serif;
         font-weight: 300;
@@ -51,3 +47,39 @@ button[small] {
         color: $black;
     }
 }
+
+div[expand] {
+    flex-grow: 1;
+  }
+
+  form[signin] > input {
+    height: 28px;
+  }
+
+  os-group[signup] {
+    padding: 0 10px;
+    height: 32px;
+    & p {
+      margin-top: 2px;
+    }
+    & a {
+      color: $light80;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-family: Montserrat, sans-serif;
+    }
+    & p:nth-child(1) {
+      font-size: 1em;
+      line-height: 1em;
+      font-weight: 400;
+    }
+    & p:nth-child(2) {
+      font-size: 0.8em;
+      line-height: 0.8em;
+      font-weight: 300;
+    }
+    & a:hover {
+      text-decoration: underline;
+      color: $blue;
+    }
+  }

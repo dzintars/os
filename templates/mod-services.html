@@ -15,12 +15,12 @@
             {{ template "inc-front-sidebar-nav" . }}
         </os-sidebar>
         <os-panel vbox>
-            <os-taskbar class="sub-toolbar">
+            <os-toolbar hbox>
                 <input type="search" placeholder="Search...">
                 <input type="date" name="from" id="from">
                 <input type="date" name="till" id="till">
                 <button>Filter</button>
-            </os-taskbar>
+            </os-toolbar>
             <table>
                 <tr>
                     <th>ID</th>
