@@ -13,13 +13,33 @@
             <div class="launcher-body">
                 {{ range .Mods }}
                 <a href="{{ .RelativeURL }}">
-                    <os-group hbox class="launcher-shortcuts">
+                    <os-group hbox class="new-shortcut">
+                            <os-group vbox class="new-shortcut-icon">
+                                <div>
+                                    <img src="/static/img/svg-icons/account.svg" alt="Test">
+                                </div>
+                                <div>
+                                    <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#si-glyph-resize-out-frame"></use></svg>
+                                </div>
+                            </os-group>
+                            <os-group vbox class="new-shortcut-body">
+                                <span>{{ .ShortName }}</span>
+                                <span>by Oswee Inc.</span>
+                            </os-group>
+                            <os-group vbox class="new-shortcut-tools">
+                                <div>A</div>
+                                <div>B</div>
+                                <div>C</div>
+                                <div>D</div>
+                            </os-group>
+                        </os-group>
+                    <!-- <os-group hbox class="launcher-shortcuts">
                         <div class="shortcut-ico" style="background: {{ .Bcolor }};"></div>
                         <os-group vbox class="shortcut-meta">
                             <p>{{ .ShortName }}</p>
                             <p>by Oswee Inc.</p>
                         </os-group>
-                    </os-group>
+                    </os-group> -->
                 </a>
                 {{ end }}
             </div>
@@ -27,3 +47,12 @@
     </div>
 </template>
 {{ end }}
+
+<a href="https://google.com">
+    <div>
+        <span>Some outter element</span>
+        <a href="https://google.com" target="_blank">
+            <span>Some inner element</span>
+        </a>
+    </div>
+</a>

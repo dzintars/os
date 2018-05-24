@@ -79,3 +79,69 @@
         color: $light65;
     }
 }
+
+.new-shortcut {
+    background: $light;
+    height: 80px;
+    width: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+}
+
+.new-shortcut-icon {
+    width: 50px;
+    height: 100%;
+    border-right: 1px solid $light10;
+    background: $light5;
+
+    & div {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        border-bottom: 1px solid $light10;
+        & img {
+            width: 36px;
+        }
+        &:nth-child(1) {
+            height: 50px;
+            min-height: 50px;
+        }
+        &:nth-child(2) {
+            height: 30px;
+        }
+    }
+    & svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.new-shortcut-body {
+    flex: 1;
+    padding: 6px;
+    & span {
+        font-family: Montserrat;
+        font-weight: 400;
+        color: $light80;
+        &:nth-child(1) {
+            font-size: 0.8em;
+        }
+        &:nth-child(2) {
+            font-size: 0.6em;
+        }
+    }
+}
+
+.new-shortcut-tools {
+    width: 20px;
+    border-left: 1px solid $light10;
+    & div {
+        background: $light5;
+        border-bottom: 1px solid $light10;
+        text-align: center;
+        &:nth-child(4) {
+            border-bottom: none;
+        }
+    }
+}

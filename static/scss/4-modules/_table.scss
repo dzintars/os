@@ -4,66 +4,105 @@ tr {
 }
 
 table {
-    all: unset;
-    display: table;
-    font-size: 0.8em;
-    // border-collapse: collapse;
-    border: none;
-    & th {
-      background: $light10;
-      border-bottom: 1px solid $light30;
-      border-right: 1px solid $light10;
-      text-align: left;
-    }
-    & tr:nth-child(even) {
-      background: $light10;
-    }
-    & tr:hover {
-      background: $light30;
-    }
-    & .tbl-address {
-      width: auto;
-    }
-    & td {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      border-right: 1px solid $light10;
-    }
+  all: unset;
+  display: table;
+  font-size: 0.8em;
+  // border-collapse: collapse;
+  border: none;
+  border-bottom: 1px solid $light10;
+  & th {
+    background: $light10;
+    border-bottom: 1px solid $light30;
+    border-right: 1px solid $light20;
+    text-align: left;
+    padding: 0 0 0 4px;
   }
+  & th:hover {
+    background: $light30;
+    cursor:context-menu;
+  }
+  & tr:nth-child(even) {
+    background: $light10;
+  }
+  & tr:hover {
+    background: $light20;
+  }
+  & .tbl-address {
+    width: auto;
+  }
+  & td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border-right: 1px solid $light10;
+    padding: 0 4px;
+  }
+}
 
-  #RecordID {
-    max-width: 40px;
-    width: 40px;
-    text-align: center;
-    font-weight: bold;
-    background:rgba(255,255,255,0.6);
-    & a {
-      display:block;
-    }
+#RecordID {
+  max-width: 40px;
+  width: 40px;
+  text-align: center;
+  font-weight: bold;
+  background:rgba(255,255,255,0.6);
+  & a {
+    display:block;
   }
+}
 
-  #LegalID {
-    max-width: 80px;
-  }
+#LegalID {
+  width: 100px;
+  min-width: 80px;
+}
 
-  #Name {
-    max-width: 200px;
-  }
+#Name {
+  max-width: 40px;
+  width: 80px;
+}
 
-  #Form {
-    max-width: 40px;
-  }
+#Form {
+  max-width: 40px;
+  width: 80px;
+}
 
-  #LegalAddress {
-    max-width: 200px;
-  }
+#LegalAddress {
+  max-width: 40px;
+  width: auto;
+}
 
-  #VerificationLevel {
-    max-width: 40px;
-    width: 40px;
-  }
+#VerificationLevel {
+  max-width: 40px;
+  width: 40px;
+}
 
-  #VatID {
-    max-width: 40px;
+#VatID {
+  max-width: 40px;
+  width: 80px;
+}
+
+#a {
+  display: flex;
+  flex-direction: row;
+  height: 21px;
+  width: 100px;
+  min-width: 80px;
+  & #b {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
+}
+#c {
+  border-left: 1px solid $light20;
+  background: $light10;
+  width: 16px;
+  & img {
+    transform: rotate(90deg);
+    margin: 2px 2px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
+

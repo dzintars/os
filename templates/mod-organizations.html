@@ -13,7 +13,7 @@
             <os-panel></os-panel>
             {{ template "inc-front-sidebar-nav" . }}
         </os-sidebar>
-        <os-panel vbox>
+        <os-panel vbox class="workspace">
             <os-toolbar hbox>
                 <input type="search" placeholder="Search...">
                 <input type="date" name="from" id="from">
@@ -24,7 +24,10 @@
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Registration ID</th>
+                        <th id="a">
+                            <span id="b" title="Registration ID">Registration ID</span>
+                            <span id="c"><img src="/static/img/svg-icons/chevron-r.svg" alt="T" width="12"></span>
+                        </th>
                         <th>Organization Name</th>
                         <th>Form</th>
                         <th class="tbl-address">Legal Address</th>

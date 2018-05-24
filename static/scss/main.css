@@ -306,7 +306,7 @@ os-toolbar {
 }
 
 os-toolbar input, os-toolbar button {
-  height: 24px;
+  height: 23px;
   margin-left: 4px;
 }
 
@@ -600,13 +600,20 @@ table {
   display: table;
   font-size: 0.8em;
   border: none;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 table th {
   background: #e6e6e6;
   border-bottom: 1px solid #b3b3b3;
-  border-right: 1px solid #e6e6e6;
+  border-right: 1px solid #cccccc;
   text-align: left;
+  padding: 0 0 0 4px;
+}
+
+table th:hover {
+  background: #b3b3b3;
+  cursor: context-menu;
 }
 
 table tr:nth-child(even) {
@@ -614,7 +621,7 @@ table tr:nth-child(even) {
 }
 
 table tr:hover {
-  background: #b3b3b3;
+  background: #cccccc;
 }
 
 table .tbl-address {
@@ -626,6 +633,7 @@ table td {
   text-overflow: ellipsis;
   white-space: nowrap;
   border-right: 1px solid #e6e6e6;
+  padding: 0 4px;
 }
 
 #RecordID {
@@ -641,19 +649,23 @@ table td {
 }
 
 #LegalID {
-  max-width: 80px;
+  width: 100px;
+  min-width: 80px;
 }
 
 #Name {
-  max-width: 200px;
+  max-width: 40px;
+  width: 80px;
 }
 
 #Form {
   max-width: 40px;
+  width: 80px;
 }
 
 #LegalAddress {
-  max-width: 200px;
+  max-width: 40px;
+  width: auto;
 }
 
 #VerificationLevel {
@@ -663,6 +675,37 @@ table td {
 
 #VatID {
   max-width: 40px;
+  width: 80px;
+}
+
+#a {
+  display: flex;
+  flex-direction: row;
+  height: 21px;
+  width: 100px;
+  min-width: 80px;
+}
+
+#a #b {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#c {
+  border-left: 1px solid #cccccc;
+  background: #e6e6e6;
+  width: 16px;
+}
+
+#c img {
+  transform: rotate(90deg);
+  margin: 2px 2px;
+}
+
+#c:hover {
+  cursor: pointer;
 }
 
 .toolselection {
@@ -745,6 +788,10 @@ os-viewport {
 
 os-sidebar button[direction] {
   height: 36px;
+}
+
+.workspace {
+  background: white;
 }
 
 .launcher-btn {
@@ -832,6 +879,81 @@ os-sidebar button[direction] {
 .shortcut-meta p:nth-child(2) {
   font-size: 0.6em;
   color: #595959;
+}
+
+.new-shortcut {
+  background: white;
+  height: 80px;
+  width: 100%;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.new-shortcut-icon {
+  width: 50px;
+  height: 100%;
+  border-right: 1px solid #e6e6e6;
+  background: #f7f7f7;
+}
+
+.new-shortcut-icon div {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.new-shortcut-icon div img {
+  width: 36px;
+}
+
+.new-shortcut-icon div:nth-child(1) {
+  height: 50px;
+  min-height: 50px;
+}
+
+.new-shortcut-icon div:nth-child(2) {
+  height: 30px;
+}
+
+.new-shortcut-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.new-shortcut-body {
+  flex: 1;
+  padding: 6px;
+}
+
+.new-shortcut-body span {
+  font-family: Montserrat;
+  font-weight: 400;
+  color: #333333;
+}
+
+.new-shortcut-body span:nth-child(1) {
+  font-size: 0.8em;
+}
+
+.new-shortcut-body span:nth-child(2) {
+  font-size: 0.6em;
+}
+
+.new-shortcut-tools {
+  width: 20px;
+  border-left: 1px solid #e6e6e6;
+}
+
+.new-shortcut-tools div {
+  background: #f7f7f7;
+  border-bottom: 1px solid #e6e6e6;
+  text-align: center;
+}
+
+.new-shortcut-tools div:nth-child(4) {
+  border-bottom: none;
 }
 
 .front-sidebar os-panel {
