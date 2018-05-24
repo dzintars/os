@@ -91,29 +91,32 @@
     width: 50px;
     height: 100%;
     border-right: 1px solid $light10;
-    background: $light5;
+    //background: $light5;
 
     & div {
         flex: 1;
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
+        padding-top: 7px;
         width: 100%;
-        border-bottom: 1px solid $light10;
         & img {
             width: 36px;
         }
         &:nth-child(1) {
             height: 50px;
             min-height: 50px;
+            //border-bottom: 1px solid $light10;
         }
         &:nth-child(2) {
+            display: none;
             height: 30px;
         }
     }
     & svg {
         width: 20px;
         height: 20px;
+        fill: $light;
     }
 }
 
@@ -122,8 +125,9 @@
     padding: 6px;
     & span {
         font-family: Montserrat;
-        font-weight: 400;
+        font-weight: 500;
         color: $light80;
+        align-self: flex-start;
         &:nth-child(1) {
             font-size: 0.8em;
         }

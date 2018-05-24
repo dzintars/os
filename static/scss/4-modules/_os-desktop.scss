@@ -1,0 +1,31 @@
+os-desktop {
+    overflow: auto;
+    & div {
+        border: 1px solid dodgerblue;
+        width: 100%;
+        height: 100%;
+        background: lightgray;
+        display: grid;
+        place-items: center;
+        &:nth-child(1) {
+            grid-column: span 16;
+            grid-row: span 10;
+            background: $blue;
+        }
+        &:nth-child(2) {
+            grid-column: span 10;
+            grid-row: span 10;
+            background: $green;
+        }
+        &:nth-child(3) {
+            grid-column: span 6;
+            grid-row: span 18;
+            background: $violet;
+        }
+        &:nth-child(4) {
+            grid-column: span 26;
+            grid-row: span 8;
+        }
+
+    }
+}

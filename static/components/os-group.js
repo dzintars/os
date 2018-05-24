@@ -10,7 +10,6 @@ group.innerHTML = `
     }
     :host([vbox]) {
         flex-direction: column;
-        justify-content: center;
     }
     </style>
     <slot></slot>

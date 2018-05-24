@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500");
 .vbox {
   display: flex;
   flex-direction: row;
@@ -152,6 +152,42 @@ button[direction]:hover {
   display: flex;
   height: 100%;
   width: 100%;
+}
+
+os-desktop {
+  overflow: auto;
+}
+
+os-desktop div {
+  border: 1px solid dodgerblue;
+  width: 100%;
+  height: 100%;
+  background: lightgray;
+  display: grid;
+  place-items: center;
+}
+
+os-desktop div:nth-child(1) {
+  grid-column: span 16;
+  grid-row: span 10;
+  background: #006AFF;
+}
+
+os-desktop div:nth-child(2) {
+  grid-column: span 10;
+  grid-row: span 10;
+  background: #3EC300;
+}
+
+os-desktop div:nth-child(3) {
+  grid-column: span 6;
+  grid-row: span 18;
+  background: #CA3CFF;
+}
+
+os-desktop div:nth-child(4) {
+  grid-column: span 26;
+  grid-row: span 8;
 }
 
 .panel {
@@ -892,16 +928,15 @@ os-sidebar button[direction] {
   width: 50px;
   height: 100%;
   border-right: 1px solid #e6e6e6;
-  background: #f7f7f7;
 }
 
 .new-shortcut-icon div {
   flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding-top: 7px;
   width: 100%;
-  border-bottom: 1px solid #e6e6e6;
 }
 
 .new-shortcut-icon div img {
@@ -914,12 +949,14 @@ os-sidebar button[direction] {
 }
 
 .new-shortcut-icon div:nth-child(2) {
+  display: none;
   height: 30px;
 }
 
 .new-shortcut-icon svg {
   width: 20px;
   height: 20px;
+  fill: white;
 }
 
 .new-shortcut-body {
@@ -929,8 +966,9 @@ os-sidebar button[direction] {
 
 .new-shortcut-body span {
   font-family: Montserrat;
-  font-weight: 400;
+  font-weight: 500;
   color: #333333;
+  align-self: flex-start;
 }
 
 .new-shortcut-body span:nth-child(1) {
