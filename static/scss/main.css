@@ -188,6 +188,7 @@ os-desktop div:nth-child(3) {
 os-desktop div:nth-child(4) {
   grid-column: span 26;
   grid-row: span 8;
+  background: #FCBA04;
 }
 
 .panel {
@@ -331,6 +332,33 @@ os-group[signup] p:nth-child(2) {
 os-group[signup] a:hover {
   text-decoration: underline;
   color: #006AFF;
+}
+
+.actions {
+  align-items: center;
+}
+
+.actions-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #b3b3b3;
+  margin-left: 4px;
+  cursor: pointer;
+}
+
+.actions-icon:last-child {
+  margin-right: 4px;
+}
+
+.actions-icon .i-icon {
+  fill: white;
+}
+
+.actions-icon:hover {
+  background: #999999;
 }
 
 os-toolbar {
@@ -830,11 +858,6 @@ os-sidebar button[direction] {
   background: white;
 }
 
-.launcher-btn {
-  height: 36px;
-  width: 36px;
-}
-
 .os1-start-menu {
   position: fixed;
   top: 37px;
@@ -855,28 +878,71 @@ os-sidebar button[direction] {
   background: rgba(0, 0, 0, 0.7);
 }
 
-.directions {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  height: 30px;
-  padding: 4px;
-}
-
-.directions a {
-  display: flex;
-  flex-direction: row;
+.launcher-header {
+  border-bottom: 1px solid #b3b3b3;
+  height: 50px;
+  background: #e6e6e6;
   align-items: center;
-  justify-content: center;
-  text-decoration: unset;
-  height: 28px;
-  width: 100%;
 }
 
-.directions a span {
-  color: white;
-  font-size: 1em;
-  font-family: Montserrat, sans-serif;
-  font-weight: 300;
+.launcher-header-avatar {
+  width: 50px;
+  height: 100%;
+  border-right: 1px solid #cccccc;
+  display: grid;
+  place-items: center;
+}
+
+.launcher-header-avatar-bkg {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: #cccccc;
+  display: grid;
+  place-items: center;
+}
+
+.launcher-header-avatar-icon {
+  width: 28px;
+}
+
+.launcher-header-avatar-status {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
+  background: #3EC300;
+  border: 1px solid #e6e6e6;
+  position: absolute;
+  top: 34px;
+  left: 1185px;
+}
+
+.launcher-header-credentials {
+  flex: 1;
+  padding: 0 10px;
+  height: 100%;
+}
+
+.launcher-header-credentials span {
+  font-family: Montserrat;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.launcher-header-credentials span:nth-child(1) {
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
+
+.launcher-header-credentials span:nth-child(2) {
+  font-size: 0.8em;
+  line-height: 1.2em;
+}
+
+.launcher-header-signout {
+  width: 32px;
+  height: 32px;
+  margin: 0 9px;
 }
 
 .launcher-body {

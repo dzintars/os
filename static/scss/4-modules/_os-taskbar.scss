@@ -83,3 +83,26 @@ div[expand] {
       color: $blue;
     }
   }
+
+ .actions {
+     align-items: center;
+     &-icon {
+         display: grid;
+         place-items: center;
+         width: 28px;
+         height: 28px;
+         border-radius: 6px;
+         background: $light30;
+         margin-left: 4px;
+         cursor: pointer;
+         &:last-child {
+             margin-right: 4px;
+         }
+         & .i-icon {
+             fill: $light;
+         }
+         &:hover {
+             background: $light40;
+         }
+     }
+ }

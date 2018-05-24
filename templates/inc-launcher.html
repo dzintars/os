@@ -3,43 +3,45 @@
     <div class="os1-start-menu vbox">
         <div id="os-start-overlay" class="os1-start-menu-overlay"></div>
         <div class="os1-start-menu-body hbox">
-            <div class="directions">
-                {{ range .Apps }}
-                <a class="launcher-sections" href="{{ .RelativeURL }}" style="background: {{ .Bcolor }};">
-                    <span>{{ .ShortName }}</span>
-                </a>
-                {{ end }}
-            </div>
+            <os-group hbox class="launcher-header">
+                <div class="launcher-header-avatar">
+                    <div class="launcher-header-avatar-bkg">
+                        <img class="launcher-header-avatar-icon" src="/static/img/svg-icons/account.svg" alt="Guest User">
+                    </div>
+                    <div class="launcher-header-avatar-status"></div>
+                </div>
+                <os-group vbox class="launcher-header-credentials">
+                    <span class="launcher-header-credentials-username">Guest User</span>
+                    <span class="launcher-header-credentials-accountname">Demo Account</span>
+                </os-group>
+                <svg id="btn-sign-out" class="launcher-header-signout" style="margin-left: 7px;" class="i-signout" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <title>Sign Out</title>
+                    <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
+                </svg>
+            </os-group>
             <div class="launcher-body">
                 {{ range .Mods }}
                 <a href="{{ .RelativeURL }}">
                     <os-group hbox class="new-shortcut">
-                            <os-group vbox class="new-shortcut-icon" style="background: {{ .Bcolor }}">
-                                <div>
-                                    <img src="/static/img/svg-icons/account.svg" alt="Test">
-                                </div>
-                                <div>
-                                    <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#si-glyph-resize-out-frame"></use></svg>
-                                </div>
-                            </os-group>
-                            <os-group vbox class="new-shortcut-body">
-                                <span>{{ .ShortName }}</span>
-                                <span>by Oswee Inc.</span>
-                            </os-group>
-                            <os-group vbox class="new-shortcut-tools">
-                                <div>A</div>
-                                <div>B</div>
-                                <div>C</div>
-                                <div>D</div>
-                            </os-group>
+                        <os-group vbox class="new-shortcut-icon" style="background: {{ .Bcolor }}">
+                            <div>
+                                <img src="/static/img/svg-icons/account.svg" alt="Test">
+                            </div>
+                            <div>
+                                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#si-glyph-resize-out-frame"></use></svg>
+                            </div>
                         </os-group>
-                    <!-- <os-group hbox class="launcher-shortcuts">
-                        <div class="shortcut-ico" style="background: {{ .Bcolor }};"></div>
-                        <os-group vbox class="shortcut-meta">
-                            <p>{{ .ShortName }}</p>
-                            <p>by Oswee Inc.</p>
+                        <os-group vbox class="new-shortcut-body">
+                            <span>{{ .ShortName }}</span>
+                            <span>by Oswee Inc.</span>
                         </os-group>
-                    </os-group> -->
+                        <os-group vbox class="new-shortcut-tools">
+                            <div>A</div>
+                            <div>B</div>
+                            <div>C</div>
+                            <div>D</div>
+                        </os-group>
+                    </os-group>
                 </a>
                 {{ end }}
             </div>

@@ -6,11 +6,21 @@
         <button style="height: 28px; min-width: 60px; margin-right: 4px;">Import</button>
         <button style="height: 28px; min-width: 60px; margin-right: 4px;">Paste</button>
         <os-panel hbox></os-panel>
-        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-bell"></use></svg>
-        <os-group vbox signup>
+        <os-group hbox class="actions">
+            <div class="actions-icon">
+                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-search"></use></svg>
+            </div>
+            <div class="actions-icon">
+                    <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-bell"></use></svg>
+                </div>
+                <div class="actions-icon">
+                        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
+                    </div>
+        </os-group>
+        <!-- <os-group vbox signup>
             <p><a href="#">Guest User</a></p>
             <p><a href="#">Demo Account</a></p>
-        </os-group>
+        </os-group> -->
         <button id="btn-open-launcher" open-launcher>APPS</button>
     </os-taskbar>
     <os-container hbox>
