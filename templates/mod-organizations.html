@@ -21,9 +21,18 @@
                 <button>Filter</button>
             </os-toolbar>
             <table>
+                <colgroup>
+                    <col style="width: 40px;">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col style="width: 40px;">
+                    <col>
+                </colgroup>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th style="text-align:center;">ID</th>
                         <th id="a">
                             <span id="b" title="Registration ID">Registration ID</span>
                             <span id="c"><img src="/static/img/svg-icons/chevron-r.svg" alt="T" width="12"></span>
@@ -31,19 +40,20 @@
                         <th>Organization Name</th>
                         <th>Form</th>
                         <th class="tbl-address">Legal Address</th>
-                        <th>VL</th>
+                        <th style="text-align:center;">VL</th>
                         <th>VAT ID</th>
                     </tr>
                 </thead>
                 <tbody>
                     {{ range .Orgs }}
                     <tr>
-                        <td id="RecordID" class="table-row-number"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
+                        <!-- ToDo: Move styles to stylesheet -->
+                        <td id="RecordID"><a href="/organization/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
                         <td id="LegalID">{{ .LegalID }}</td>
                         <td id="Name">{{ .Name }}</td>
                         <td id="Form">{{ .Form }}</td>
                         <td id="LegalAddress" class="tbl-address">{{ .LegalAddress }}</td>
-                        <td id="VerificationLevel">
+                        <td id="VerificationLevel" style="text-align: center;">
                             <svg viewBox="0 0 256 256" width="16" height="16">
                                 <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
                             </svg>

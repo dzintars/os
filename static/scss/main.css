@@ -664,43 +664,88 @@ table {
   font-size: 0.8em;
   border-collapse: collapse;
   border-bottom: 1px solid #e6e6e6;
+  width: 100%;
 }
 
 table colgroup col {
-  border-right: 1px solid #E70E02;
+  border-right: 1px solid #cccccc;
   background: transparent;
 }
 
-table th {
-  background: #e6e6e6;
-  border-bottom: 1px solid #b3b3b3;
-  text-align: left;
-  padding: 0 0 0 4px;
+table colgroup col:hover {
+  background: #006AFF;
 }
 
-table th:hover {
+table thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+
+table thead tr {
+  height: 21px;
+  background: #e6e6e6;
+  border-bottom: 1px solid #b3b3b3;
+}
+
+table thead tr th {
+  text-align: left;
+  padding: 0 0 0 4px;
+  font-weight: bold;
+}
+
+table thead tr th:hover {
   background: #b3b3b3;
   cursor: context-menu;
 }
 
-table tr {
+table tbody tr {
   height: 21px;
   border-top: 1px solid #cccccc;
 }
 
-table tr:nth-child(even) {
+table tbody tr:nth-child(even) {
   background: #e6e6e6;
 }
 
-table tr:hover {
+table tbody tr:hover {
   background: #cccccc;
 }
 
-table td {
+table tbody tr td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   padding: 0 4px;
+  cursor: context-menu;
+}
+
+#a {
+  display: flex;
+  flex-direction: row;
+}
+
+#a #b {
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#c {
+  border-left: 1px solid #cccccc;
+  background: #e6e6e6;
+  width: 16px;
+  height: 100%;
+}
+
+#c img {
+  transform: rotate(90deg);
+  margin: 2px 2px;
+}
+
+#c:hover {
+  cursor: pointer;
 }
 
 .toolselection {

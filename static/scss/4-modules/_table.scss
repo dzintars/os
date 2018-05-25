@@ -3,129 +3,80 @@ table {
   font-size: 0.8em;
   border-collapse: collapse; //Should be defined for column border styling
   border-bottom: 1px solid $light10;
+  width: 100%;
   & colgroup {
+    //background: red;
     & col {
-      border-right: 1px solid $red;
+      border-right: 1px solid $light20;
       background: transparent;
+      &:hover {
+        background: $blue;
+      }
     }
   }
-  & th {
-    background: $light10;
-    border-bottom: 1px solid $light30;
-    text-align: left;
-    padding: 0 0 0 4px;
+  & thead {
+    display: table-header-group;
+    vertical-align: middle;
+    & tr {
+      height: 21px;
+      background: $light10;
+      border-bottom: 1px solid $light30;
+      & th {
+        text-align: left;
+        padding: 0 0 0 4px;
+        font-weight: bold;
+        &:hover {
+          background: $light30;
+          cursor:context-menu;
+        }
+      }
+    }
   }
-  & th:hover {
-    background: $light30;
-    cursor:context-menu;
-  }
-  & tr {
-    height: 21px;
-    border-top: 1px solid $light20;
-  }
-  & tr:nth-child(even) {
-    background: $light10;
-  }
-  & tr:hover {
-    background: $light20;
-  }
-  & td {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    // border-right: 1px solid $light10;
-    padding: 0 4px;
+
+  & tbody {
+    & tr {
+      height: 21px;
+      border-top: 1px solid $light20;
+      &:nth-child(even) {
+        background: $light10;
+      }
+      &:hover {
+        background: $light20;
+      }
+      & td {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        // border-right: 1px solid $light10;
+        padding: 0 4px;
+        cursor:context-menu;
+      }
+    }
   }
 }
 
-// .column-header {
-//   padding: 0 0 0 4px;
-//   vertical-align: middle;
-//   &:hover {
-//     cursor:context-menu;
-//   }
-// }
-
-// .table-cell {
-//   text-align: center;
-//   font-weight: bold;
-//   background:rgba(255,255,255,0.6);
-//   & a {
-//     text-decoration: unset;
-//     display:block;
-//   }
-// }
-
-// .row-number {
-//   width: 40px;
-//   max-width: 40px;
-// }
-
-// .table-row-number {
-//   max-width: 40px;
-//   width: 40px;
-//   text-align: center;
-//   font-weight: bold;
-//   background:rgba(255,255,255,0.6);
-//   & a {
-//     text-decoration: unset;
-//     display:block;
-//   }
-// }
-
-// #LegalID {
-//   width: 100px;
-//   min-width: 80px;
-// }
-
-// #Name {
-//   max-width: 40px;
-//   width: 80px;
-// }
-
-// #Form {
-//   max-width: 40px;
-//   width: 80px;
-// }
-
-// #LegalAddress {
-//   max-width: 40px;
-//   width: auto;
-// }
-
-// #VerificationLevel {
-//   max-width: 40px;
-//   width: 40px;
-// }
-
-// #VatID {
-//   max-width: 40px;
-//   width: 80px;
-// }
-
-// #a {
-//   display: flex;
-//   flex-direction: row;
-//   height: 21px;
-//   width: 100px;
-//   min-width: 80px;
-//   & #b {
-//     flex: 1;
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-//   }
-// }
-// #c {
-//   border-left: 1px solid $light20;
-//   background: $light10;
-//   width: 16px;
-//   & img {
-//     transform: rotate(90deg);
-//     margin: 2px 2px;
-//   }
-//   &:hover {
-//     cursor: pointer;
-//   }
-// }
+#a {
+  display: flex;
+  flex-direction: row;
+  & #b {
+    flex: 1;
+    height: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+#c {
+  border-left: 1px solid $light20;
+  background: $light10;
+  width: 16px;
+  height: 100%;
+  & img {
+    transform: rotate(90deg);
+    margin: 2px 2px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}
 
