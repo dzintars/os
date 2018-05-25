@@ -24,16 +24,94 @@ func crmGetHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func crmDashboardGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.Application{ID: 1, ShortName: "Customer Relationship Management"}
-	utils.ExecuteTemplate(w, "mod-crm-dashboard.html", d)
+
+	visibility := 1
+
+	applications, err := models.ListApplications(visibility)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-dashboard.html", struct {
+		Title string
+		Apps  []models.Application
+		Mods  []models.Application
+	}{
+		Title: "Oswee.com: CRM Dashboard",
+		Apps:  applications,
+		Mods:  modules,
+	})
 }
 
 func crmCustomersGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.Application{ID: 1, ShortName: "Customer Relationship Management"}
-	utils.ExecuteTemplate(w, "mod-crm-customers.html", d)
+
+	visibility := 1
+
+	applications, err := models.ListApplications(visibility)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-customers.html", struct {
+		Title string
+		Apps  []models.Application
+		Mods  []models.Application
+	}{
+		Title: "Oswee.com: CRM Customers",
+		Apps:  applications,
+		Mods:  modules,
+	})
 }
 
 func crmProjectsGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.Application{ID: 1, ShortName: "Customer Relationship Management"}
-	utils.ExecuteTemplate(w, "mod-crm-projects.html", d)
+
+	visibility := 1
+
+	applications, err := models.ListApplications(visibility)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-projects.html", struct {
+		Title string
+		Apps  []models.Application
+		Mods  []models.Application
+	}{
+		Title: "Oswee.com: CRM Projects",
+		Apps:  applications,
+		Mods:  modules,
+	})
 }

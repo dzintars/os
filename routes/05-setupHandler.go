@@ -4,6 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
+	"github.com/oswee/os/models"
 	"github.com/oswee/os/utils"
 )
 
@@ -12,5 +13,31 @@ func setupHandler(r *mux.Router) {
 }
 
 func sysAccountsGetHandler(w http.ResponseWriter, r *http.Request) {
-	utils.ExecuteTemplate(w, "mod-accounts.html", nil)
+
+	visibility := 1
+
+	applications, err := models.ListApplications(visibility)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+	utils.ExecuteTemplate(w, "mod-accounts.html", struct {
+		Title string
+		Apps  []models.Application
+		Mods  []models.Application
+	}{
+		Title: "Oswee.com: Desktop",
+		Apps:  applications,
+		Mods:  modules,
+	})
 }

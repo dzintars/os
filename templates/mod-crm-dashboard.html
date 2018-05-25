@@ -1,22 +1,14 @@
-{{ template "tpl-app-head" . }}
-
-<body>
-    <div class="os-app">
-        <div class="os-mod">
-            <div class="os-mod-1 icn-apps" id="btn-start"></div>
-            {{ template "tpl-app-start-menu" . }}
-            {{ template "tpl-app-taskbar" . }}
-            {{ template "tpl-app-shortcuts" . }}
-            <div class="os-mod-panel left full-height"></div>
-            <div class="os-mod-panel right full-height"></div>
-            <div class="os-mod-8">
-                <div class="os-mod-sb-title">{{.Abr}} | {{.ModuleTitle}}</div>
-                <form class="os-mod-sb-tools" action="/signin">
-                    <input type="submit" class="os-btn-ftr" value="Sign Out" />
-                </form>
-            </div>
-        </div>
-    </div>
-    {{ template "bottom" . }}
-</body>
-</html>
+{{ template "tpl-app-head-x" . }}
+<os-viewport vbox>
+    <os-taskbar hbox>
+        <svg id="btn-close-app" class="c-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use></svg>
+        <os-panel hbox></os-panel>
+        <button id="btn-open-launcher" open-launcher>APPS</button>
+    </os-taskbar>
+    <os-container vbox style="padding: 36px;">
+        <h1>This will be your CRM Dashboard</h1>
+        <p>Use APPS to see available applications. For example <a href="/apps/router">Rout Planner</a></p>
+    </os-container>
+</os-viewport>
+{{ template "inc-launcher" . }}
+{{ template "tpl-app-bottom" . }}

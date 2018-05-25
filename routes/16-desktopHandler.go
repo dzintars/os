@@ -13,6 +13,7 @@ func desktopHandler(r *mux.Router) {
 }
 
 func desktopMainGetHandler(w http.ResponseWriter, r *http.Request) {
+
 	visibility := 1
 
 	applications, err := models.ListApplications(visibility)

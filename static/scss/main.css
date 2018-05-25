@@ -196,8 +196,8 @@ os-desktop div:nth-child(4) {
 }
 
 os-statusbar {
-  background: #e6e6e6;
-  border-top: 1px solid #cccccc;
+  background: #cccccc;
+  border-top: 1px solid #b3b3b3;
   color: #333333;
 }
 
@@ -376,6 +376,11 @@ os-toolbar input, os-toolbar button {
 
 os-omnibox[search-results] {
   margin: 30px 0 10 180px;
+}
+
+os-splitter {
+  background: #cccccc;
+  cursor: col-resize;
 }
 
 .ico-16 {
@@ -654,23 +659,21 @@ fieldset {
   flex-grow: 1;
 }
 
-tr {
-  height: 21px;
-  border-top: 1px solid #cccccc;
-}
-
 table {
-  all: unset;
   display: table;
   font-size: 0.8em;
-  border: none;
+  border-collapse: collapse;
   border-bottom: 1px solid #e6e6e6;
+}
+
+table colgroup col {
+  border-right: 1px solid #E70E02;
+  background: transparent;
 }
 
 table th {
   background: #e6e6e6;
   border-bottom: 1px solid #b3b3b3;
-  border-right: 1px solid #cccccc;
   text-align: left;
   padding: 0 0 0 4px;
 }
@@ -678,6 +681,11 @@ table th {
 table th:hover {
   background: #b3b3b3;
   cursor: context-menu;
+}
+
+table tr {
+  height: 21px;
+  border-top: 1px solid #cccccc;
 }
 
 table tr:nth-child(even) {
@@ -688,88 +696,11 @@ table tr:hover {
   background: #cccccc;
 }
 
-table .tbl-address {
-  width: auto;
-}
-
 table td {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border-right: 1px solid #e6e6e6;
   padding: 0 4px;
-}
-
-#RecordID {
-  max-width: 40px;
-  width: 40px;
-  text-align: center;
-  font-weight: bold;
-  background: rgba(255, 255, 255, 0.6);
-}
-
-#RecordID a {
-  display: block;
-}
-
-#LegalID {
-  width: 100px;
-  min-width: 80px;
-}
-
-#Name {
-  max-width: 40px;
-  width: 80px;
-}
-
-#Form {
-  max-width: 40px;
-  width: 80px;
-}
-
-#LegalAddress {
-  max-width: 40px;
-  width: auto;
-}
-
-#VerificationLevel {
-  max-width: 40px;
-  width: 40px;
-}
-
-#VatID {
-  max-width: 40px;
-  width: 80px;
-}
-
-#a {
-  display: flex;
-  flex-direction: row;
-  height: 21px;
-  width: 100px;
-  min-width: 80px;
-}
-
-#a #b {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#c {
-  border-left: 1px solid #cccccc;
-  background: #e6e6e6;
-  width: 16px;
-}
-
-#c img {
-  transform: rotate(90deg);
-  margin: 2px 2px;
-}
-
-#c:hover {
-  cursor: pointer;
 }
 
 .toolselection {
@@ -1131,5 +1062,9 @@ os-sidebar button[direction] {
 
 .theme-background {
   color: white;
+}
+
+#app-router #grid-delivery-orders {
+  flex: 1;
 }
 /*# sourceMappingURL=main.css.map */

@@ -23,12 +23,20 @@
         </os-group> -->
         <button id="btn-open-launcher" open-launcher>APPS</button>
     </os-taskbar>
-    <os-container hbox>
-        <os-panel style="flex: 1;">
+    <os-container hbox id="app-router">
+        <os-panel id="grid-delivery-orders">
             <table>
+                <colgroup>
+                    <col class="order-id" style="100px">
+                    <col class="name" style="100px">
+                    <col class="address" style="100px">
+                    <col class="verification" style="100px">
+                    <col class="lat" style="100px">
+                    <col class="lng" style="100%">
+                </colgroup>
                 <thead>
                     <tr>
-                        <th>ID</th>
+                        <th class="column-header row-number">ID</th>
                         <th>Name</th>
                         <th class="tbl-address">Legal Address</th>
                         <th>Verification</th>
@@ -39,7 +47,7 @@
                 <tbody>
                     {{ range .Orgs }}
                     <tr>
-                        <td style="width: 40px; text-align: center; font-weight: bold; background: lightgrey; border-right: 1px solid gray;"><a href="/organization/{{ .ID }}" style="text-decoration: unset;">{{ .ID }}</a></td>
+                        <td class="table-cell row-number"><a href="/organization/{{ .ID }}">{{ .ID }}</a></td>
                         <td>{{ .Name }}</td>
                         <td class="tbl-address">{{ .LegalAddress }}</td>
                         <td>
@@ -54,6 +62,7 @@
                 </tbody>
             </table>
         </os-panel>
+        <os-splitter vbox></os-splitter>
         <os-panel id="map" style="height: 100%;" style="flex: 1;"></os-panel>
     </os-container>
     <os-statusbar hbox>
