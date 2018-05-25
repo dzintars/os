@@ -12,6 +12,9 @@ table {
       &:hover {
         background: $blue;
       }
+      &:last-child {
+        border-right: none;
+      }
     }
   }
   & thead {
@@ -34,9 +37,11 @@ table {
   }
 
   & tbody {
+    border-right: none;
     & tr {
       height: 21px;
       border-top: 1px solid $light20;
+      border-right: none;
       &:nth-child(even) {
         background: $light10;
       }

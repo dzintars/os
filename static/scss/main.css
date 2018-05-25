@@ -676,6 +676,10 @@ table colgroup col:hover {
   background: #006AFF;
 }
 
+table colgroup col:last-child {
+  border-right: none;
+}
+
 table thead {
   display: table-header-group;
   vertical-align: middle;
@@ -698,9 +702,14 @@ table thead tr th:hover {
   cursor: context-menu;
 }
 
+table tbody {
+  border-right: none;
+}
+
 table tbody tr {
   height: 21px;
   border-top: 1px solid #cccccc;
+  border-right: none;
 }
 
 table tbody tr:nth-child(even) {
