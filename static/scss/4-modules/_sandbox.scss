@@ -32,19 +32,7 @@ os-button-toogle {
     flex-direction: column;
     flex-grow: 1;
   }
-
-  os-panel[search] {
-    padding-top: 15%;
-  }
-  os-row[search] {
-    justify-content: center;
-    margin: 10px;
-  }
-
-  os-viewport {
-    background: $light5;
-  }
-
+  
   .search-result-sections {
     padding: 10px;
     &[active] {

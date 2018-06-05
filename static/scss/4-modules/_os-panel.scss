@@ -1,0 +1,9 @@
+os-panel{
+    &[search] {
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+    grid-gap: 2em;
+  }
+}

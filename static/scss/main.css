@@ -67,79 +67,46 @@ h1, h2, h3, h4, h5, h6, p {
 button {
   display: inline-block;
   vertical-align: middle;
+  border: none;
   outline: none;
-  color: inherit;
   text-align: center;
-  text-transform: uppercase;
   white-space: normal;
-  cursor: pointer;
+  cursor: context-menu;
   padding: 0 4px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
 }
 
-.btn-28 {
+button.md {
+  height: 22px;
+}
+
+button.lg {
   height: 28px;
-  min-width: 28px;
+  font-size: 0.9em;
 }
 
-.btn-32 {
-  height: 32px;
-  min-width: 32px;
-}
-
-.btn-36 {
-  min-width: 36px;
-  height: 36px;
+button.signin {
+  margin-right: 8px;
+  background: #006AFF;
+  color: white;
+  min-width: 80px;
+  width: 80px;
 }
 
 .btn-blue {
   background: #006AFF;
   border: 1px solid #0055cc;
   background: linear-gradient(to bottom, #006AFF 0%, #005fe6 100%);
-  color: #f7f7f7;
+  color: #f2f2f2;
   font-size: 0.9rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  min-width: 100px;
 }
 
 .btn-blue:hover {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-button[direction] {
-  flex-grow: 1;
-  height: 28px;
-  margin: 0;
-  border: none;
-  color: white;
-  font-weight: 400;
-}
-
-button[black] {
-  background-color: #000;
-}
-
-button[green] {
-  background-color: #3EC300;
-}
-
-button[blue] {
-  background-color: dodgerblue;
-}
-
-button[red] {
-  background-color: #E70E02;
-}
-
-button[orange] {
-  background-color: #FCBA04;
-}
-
-button[violet] {
-  background-color: #CA3CFF;
-}
-
-button[direction]:hover {
-  text-decoration: underline;
 }
 
 .container {
@@ -155,40 +122,48 @@ button[direction]:hover {
 }
 
 os-desktop {
-  overflow: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(64px, 1fr));
+  grid-gap: 10px;
+  overflow: visible;
 }
 
 os-desktop div {
-  border: 1px solid dodgerblue;
   width: 100%;
   height: 100%;
   background: lightgray;
   display: grid;
   place-items: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
 }
 
 os-desktop div:nth-child(1) {
-  grid-column: span 16;
-  grid-row: span 10;
+  grid-column: span 12;
+  grid-row: span 8;
   background: #006AFF;
 }
 
 os-desktop div:nth-child(2) {
-  grid-column: span 10;
-  grid-row: span 10;
+  grid-column: span 8;
+  grid-row: span 8;
   background: #3EC300;
 }
 
 os-desktop div:nth-child(3) {
-  grid-column: span 6;
-  grid-row: span 18;
+  grid-column: span 5;
+  grid-row: span 12;
   background: #CA3CFF;
 }
 
 os-desktop div:nth-child(4) {
-  grid-column: span 26;
-  grid-row: span 8;
+  grid-column: span 20;
+  grid-row: span 4;
   background: #FCBA04;
+}
+
+os-viewport {
+  background: white;
 }
 
 .panel {
@@ -196,8 +171,8 @@ os-desktop div:nth-child(4) {
 }
 
 os-statusbar {
-  background: #cccccc;
-  border-top: 1px solid #b3b3b3;
+  background: white;
+  border-top: 1px solid #f2f2f2;
   color: #333333;
 }
 
@@ -241,8 +216,8 @@ os-statusbar .i-icon {
 os-taskbar {
   height: 36px;
   min-height: 37px;
-  background: #cccccc;
-  border-bottom: 1px solid #b3b3b3;
+  background: white;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 os-taskbar .i-icon {
@@ -283,9 +258,9 @@ os-taskbar .i-icon {
 
 .front-section-links span {
   color: #333333;
-  font-size: 1.2em;
+  font-size: 1em;
   font-family: Montserrat, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .front-section-links span:hover {
@@ -383,6 +358,31 @@ os-splitter {
   cursor: col-resize;
 }
 
+os-panel[search] {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  grid-gap: 2em;
+}
+
+os-row[signup] {
+  padding: 20px;
+}
+
+os-row[signup] .card {
+  min-width: 700px;
+  align-self: center;
+}
+
+os-row[signup-intro] {
+  padding: 40px;
+}
+
+os-row[signup-intro] > * {
+  align-self: center;
+}
+
 .ico-16 {
   display: inline-block;
   background-repeat: no-repeat;
@@ -435,9 +435,6 @@ os-splitter {
   background: white;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  margin-top: 18px;
-  margin-left: 20px;
-  align-self: start;
 }
 
 .card:last-child {
@@ -633,30 +630,31 @@ os-splitter {
 
 form {
   margin: unset;
-  padding: unset;
+  padding: 5px;
 }
 
-form-element {
-  display: flex;
+form legend {
+  font-size: 0.8em;
+}
+
+form input {
+  border: 1px solid #e6e6e6;
+  padding: 0 4px;
+  height: 22px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+form label {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
 }
 
 fieldset {
-  margin: unset;
-  padding: unset;
-}
-
-.hfrm fieldset {
-  align-items: center;
-  border: 0;
-}
-
-.hfrm fieldset input {
-  margin-right: 8px;
-}
-
-.row {
-  display: flex;
-  flex-grow: 1;
+  margin: 10px;
+  padding: 5px;
+  border: 1px solid #cccccc;
+  width: 100%;
 }
 
 table {
@@ -790,7 +788,7 @@ button[open-launcher] {
   height: 100%;
   background-color: #006AFF;
   cursor: pointer;
-  color: #f7f7f7;
+  color: #f2f2f2;
   font-weight: 400;
   font-size: 1rem;
   vertical-align: center;
@@ -800,19 +798,6 @@ button[open-launcher] {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-
-os-panel[search] {
-  padding-top: 15%;
-}
-
-os-row[search] {
-  justify-content: center;
-  margin: 10px;
-}
-
-os-viewport {
-  background: #f7f7f7;
 }
 
 .search-result-sections {
@@ -1036,7 +1021,7 @@ os-sidebar button[direction] {
 }
 
 .new-shortcut-tools div {
-  background: #f7f7f7;
+  background: #f2f2f2;
   border-bottom: 1px solid #e6e6e6;
   text-align: center;
 }

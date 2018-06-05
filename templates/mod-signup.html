@@ -8,147 +8,149 @@
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>
-    <os-row vbox>
-        <h1>Create your Oswee ID</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, reiciendis voluptatem eius distinctio velit aspernatur soluta accusamus iusto magnam mollitia, quo, assumenda ratione a. Aliquam, quaerat! Quam error expedita ex.</p>
-    </os-row>
-    <os-row>
-        <div class="card hbox">
-            <div class="card-header">
-                <div class="card-header-icon">
-                    <div class="ico-28  ico-user"></div>
+    <os-container vbox>
+        <os-row vbox signup-intro>
+            <h1>Create your Oswee ID</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, reiciendis voluptatem eius distinctio velit aspernatur soluta accusamus iusto magnam mollitia, quo, assumenda ratione a. Aliquam, quaerat! Quam error expedita ex.</p>
+        </os-row>
+        <os-row vbox signup>
+            <os-panel vbox class="card">
+                <div class="card-header">
+                    <div class="card-header-icon">
+                        <div class="ico-28  ico-user"></div>
+                    </div>
+                    <div class="card-header-title">Create your User ID</div>
                 </div>
-                <div class="card-header-title">Create your User</div>
-            </div>
-            <div class="card-body">
-                <form method="POST" class="create-user-form">
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Your Name</strong>
-                            </legend>
-                            <label for="fname">
-                                <strong>First name</strong>
-                                <input id="fname" class="" name="fname" type="text" placeholder="First"/>
-                                <span class="errormsg" id="errormsg_fname" role="alert"></span>
-                            </label>
-                            <label for="lname">
-                                <strong>Last name</strong>
-                                <input id="lname" class="" name="lname" type="text" placeholder="Last"/>
-                                <span class="errormsg" id="errormsg_lname" role="alert"></span>
-                            </label>
-                            <span id="errmsg-fname" class="errmsg"></span>
-                            <span id="errmsg-lname" class="errmsg"></span>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Choose your username</strong>
-                            </legend>
-                            <label for="uname">
-                                <strong>Username</strong>
-                                <input id="uname" class="" name="uname" type="text" placeholder="Username"/>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Create a password</strong>
-                            </legend>
-                            <label for="password">
-                                <strong>New Password</strong>
-                                <input id="password" class="" name="password" type="password"/>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Confirm your password</strong>
-                            </legend>
-                            <label for="password-again">
-                                <strong>Confirm Password</strong>
-                                <input id="password-again" class="" name="password-again" type="password"/>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Birth Date</strong>
-                            </legend>
-                            <label for="bd-yyyy">
-                                <strong>Year</strong>
-                                <input id="bd-yyyy" class="" name="bd-yyyy" type="text" placeholder="Year"/>
-                            </label>
-                            <label for="bd-dd">
-                                <strong>Date</strong>
-                                <input id="bd-dd" class="" name="bd-dd" type="text" placeholder="Date"/>
-                            </label>
-                            <label for="bd-mm">
-                                <strong>Month</strong>
-                                <select id="bd-mm" class="" name="bd-mm" placeholder="Month">
-                                    <option value="jan">January</option>
-                                    <option value="feb">February</option>
-                                    <option value="mar">March</option>
-                                    <option value="apr">April</option>
-                                </select>
-                                <span class="errormsg" id="errormsg_fname" role="alert"></span>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Gender</strong>
-                            </legend>
-                            <label for="gender">
-                                <select id="gender" class="" name="gender" placeholder="I am...">
-                                    <option value="gender-female">Female</option>
-                                    <option value="gender-male">Male</option>
-                                    <option value="gender-other">Other</option>
-                                </select>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Mobile phone</strong>
-                            </legend>
-                            <label for="mobile-phone">
-                                <input id="mobile-phone" class="" name="mobile-phone" type="text" placeholder="+371"/>
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Your current email address</strong>
-                            </legend>
-                            <label for="primary-email">
-                                <input id="primary-email" class="" name="primary-email" type="email" />
-                            </label>
-                        </fieldset>
-                    </div>
-                    <div class="form-element vbox">
-                        <fieldset>
-                            <legend>
-                                <strong>Location</strong>
-                            </legend>
-                            <label for="user-location">
-                                <input id="user-location" class="" name="user-location" type="text" placeholder="Latvia"/>
-                            </label>
-                        </fieldset>
-                    </div>
-                </form>
-            </div>
-            <div class="card-footer">
-                <button class="btn-32 btn-blue" type="button">Next Step</button>
-            </div>
-        </div>
-    </os-row>
+                <div class="card-body">
+                    <form method="POST" class="create-user-form">
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Your Name</strong>
+                                </legend>
+                                <label for="fname">
+                                    <strong>First name</strong>
+                                    <input id="fname" class="" name="fname" type="text" placeholder="First"/>
+                                    <span class="errormsg" id="errormsg_fname" role="alert"></span>
+                                </label>
+                                <label for="lname">
+                                    <strong>Last name</strong>
+                                    <input id="lname" class="" name="lname" type="text" placeholder="Last"/>
+                                    <span class="errormsg" id="errormsg_lname" role="alert"></span>
+                                </label>
+                                <span id="errmsg-fname" class="errmsg"></span>
+                                <span id="errmsg-lname" class="errmsg"></span>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Choose your username</strong>
+                                </legend>
+                                <label for="uname">
+                                    <strong>Username</strong>
+                                    <input id="uname" class="" name="uname" type="text" placeholder="Username"/>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Create a password</strong>
+                                </legend>
+                                <label for="password">
+                                    <strong>New Password</strong>
+                                    <input id="password" class="" name="password" type="password"/>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Confirm your password</strong>
+                                </legend>
+                                <label for="password-again">
+                                    <strong>Confirm Password</strong>
+                                    <input id="password-again" class="" name="password-again" type="password"/>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Birth Date</strong>
+                                </legend>
+                                <label for="bd-yyyy">
+                                    <strong>Year</strong>
+                                    <input id="bd-yyyy" class="" name="bd-yyyy" type="date" placeholder="Year" min="1900-01-02" max="2030-01-02"/>
+                                </label>
+                                <label for="bd-dd">
+                                    <strong>Date</strong>
+                                    <input id="bd-dd" class="" name="bd-dd" type="text" placeholder="Date"/>
+                                </label>
+                                <label for="bd-mm">
+                                    <strong>Month</strong>
+                                    <select id="bd-mm" class="" name="bd-mm" placeholder="Month">
+                                        <option value="jan">January</option>
+                                        <option value="feb">February</option>
+                                        <option value="mar">March</option>
+                                        <option value="apr">April</option>
+                                    </select>
+                                    <span class="errormsg" id="errormsg_fname" role="alert"></span>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Gender</strong>
+                                </legend>
+                                <label for="gender">
+                                    <select id="gender" class="" name="gender" placeholder="I am...">
+                                        <option value="gender-female">Female</option>
+                                        <option value="gender-male">Male</option>
+                                        <option value="gender-other">Other</option>
+                                    </select>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Mobile phone</strong>
+                                </legend>
+                                <label for="mobile-phone">
+                                    <input id="mobile-phone" class="" name="mobile-phone" type="text" placeholder="+371"/>
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Your current email address</strong>
+                                </legend>
+                                <label for="primary-email">
+                                    <input id="primary-email" class="" name="primary-email" type="email" />
+                                </label>
+                            </fieldset>
+                        </div>
+                        <div class="form-element vbox">
+                            <fieldset>
+                                <legend>
+                                    <strong>Location</strong>
+                                </legend>
+                                <label for="user-location">
+                                    <input id="user-location" class="" name="user-location" type="text" placeholder="Latvia"/>
+                                </label>
+                            </fieldset>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-32 btn-blue" type="button">SIGN UP</button>
+                </div>
+            </os-panel>
+        </os-row>
+    </os-container>
 </os-viewport>
 {{ template "tpl-app-bottom" . }}

@@ -1,8 +1,8 @@
 os-taskbar {
     height: 36px;
     min-height: 37px;
-    background: $light20;
-    border-bottom: 1px solid $light30;
+    background: $light;
+    border-bottom: 1px solid $light10;
     //box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14),0 1px 10px 0 rgba(0,0,0,0.12),0 2px 4px -1px rgba(0,0,0,0.2);
     & .i-icon {
         height: 22px;
@@ -38,9 +38,9 @@ os-taskbar {
     text-decoration: unset;
     & span {
         color: $light80;
-        font-size: 1.2em;
+        font-size: 1em;
         font-family: Montserrat, sans-serif;
-        font-weight: 300;
+        font-weight: 400;
     }
     & span:hover {
         text-decoration: underline;

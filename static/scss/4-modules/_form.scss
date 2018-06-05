@@ -1,22 +1,26 @@
 form {
     margin: unset;
-    padding: unset;
-    &-element {
-        display: flex;
+    padding: 5px;
+    //border: 1px solid dodgerblue;
+    & legend {
+        font-size: 0.8em;
+    }
+    & input {
+        border: 1px solid $light10;
+        padding: 0 4px;
+        height: 22px;
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+    }
+    & label {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
     }
 }
 
 fieldset {
-    margin: unset;
-    padding: unset;
-}
-
-.hfrm {
-    fieldset {
-        align-items: center;
-        border: 0;
-        input {
-            margin-right: 8px;
-        }
-    }
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid $light20;
+    width: 100%;
 }

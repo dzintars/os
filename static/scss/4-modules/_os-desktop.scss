@@ -1,30 +1,35 @@
 os-desktop {
-    overflow: auto;
+    // ToDo: Move this general style into component shadow.
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(64px, 1fr));
+    grid-gap: 10px;
+    overflow: visible;
     & div {
-        border: 1px solid dodgerblue;
         width: 100%;
         height: 100%;
         background: lightgray;
         display: grid;
         place-items: center;
+        box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
         &:nth-child(1) {
-            grid-column: span 16;
-            grid-row: span 10;
+            grid-column: span 12;
+            grid-row: span 8;
             background: $blue;
         }
         &:nth-child(2) {
-            grid-column: span 10;
-            grid-row: span 10;
+            grid-column: span 8;
+            grid-row: span 8;
             background: $green;
         }
         &:nth-child(3) {
-            grid-column: span 6;
-            grid-row: span 18;
+            grid-column: span 5;
+            grid-row: span 12;
             background: $violet;
         }
         &:nth-child(4) {
-            grid-column: span 26;
-            grid-row: span 8;
+            grid-column: span 20;
+            grid-row: span 4;
             background: $orange;
         }
     }

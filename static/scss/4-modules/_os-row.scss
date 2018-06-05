@@ -1,0 +1,17 @@
+os-row  {
+    &[signup] {
+        // border: 2px solid red;
+        padding: 20px;
+        & .card {
+            //background-color: $light10;
+            min-width: 700px;
+            align-self: center;
+        }
+    }
+    &[signup-intro] {
+        padding: 40px;
+        & > * {
+            align-self: center;
+        }
+    }
+}

@@ -1,12 +1,7 @@
 {{define "tpl-app-search"}}
-<os-container vbox>
     <os-panel vbox search>
-        <os-row hbox search>
-            <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo" width="270px">
-        </os-row>
-        <os-row hbox search>
-            <os-omnibox></os-omnibox>
-        </os-row>
+        <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo" width="270px">
+        <os-omnibox></os-omnibox>
     </os-panel>
     <os-statusbar hbox>
         <div><a href="/about">About</a></div>
@@ -18,5 +13,4 @@
         <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
         <div>Google Chrome Only</div>
     </os-statusbar>
-</os-container>
 {{end}}
