@@ -7,7 +7,7 @@ table {
   & colgroup {
     //background: red;
     & col {
-      border-right: 1px solid $light20;
+      border-right: 1px solid $light10;
       background: transparent;
       &:hover {
         background: $blue;
@@ -22,14 +22,14 @@ table {
     vertical-align: middle;
     & tr {
       height: 21px;
-      background: $light10;
-      border-bottom: 1px solid $light30;
+      background: $light5;
+      border-bottom: 1px solid $light10;
       & th {
         text-align: left;
         padding: 0 0 0 4px;
         font-weight: bold;
         &:hover {
-          background: $light30;
+          background: $light10;
           cursor:context-menu;
         }
       }
@@ -40,13 +40,13 @@ table {
     border-right: none;
     & tr {
       height: 21px;
-      border-top: 1px solid $light20;
+      border-top: 1px solid $light5;
       border-right: none;
       &:nth-child(even) {
-        background: $light10;
+        background: $light2;
       }
       &:hover {
-        background: $light20;
+        background: $light5;
       }
       & td {
         overflow: hidden;
@@ -59,29 +59,3 @@ table {
     }
   }
 }
-
-#a {
-  display: flex;
-  flex-direction: row;
-  & #b {
-    flex: 1;
-    height: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-}
-#c {
-  border-left: 1px solid $light20;
-  background: $light10;
-  width: 16px;
-  height: 100%;
-  & img {
-    transform: rotate(90deg);
-    margin: 2px 2px;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-}
-

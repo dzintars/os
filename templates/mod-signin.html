@@ -1,9 +1,9 @@
 {{ template "tpl-app-head-x" . }}
-<os-viewport vbox>
+<os-viewport vbox centered>
     <form action="/signin" method="POST" signin>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <input type="submit" value="Sign In">
+        <input class="lg" type="text" placeholder="Username">
+        <input class="lg" type="password" placeholder="Password">
+        <input class="lg signin"type="submit" value="Sign In">
     </form>
     <os-group vbox signup>
         <p><a href="/signup">Sign Up</a></p>

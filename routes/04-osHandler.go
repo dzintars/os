@@ -13,6 +13,7 @@ import (
 func osHandler(r *mux.Router) {
 
 	r.HandleFunc("/favicon.ico", faviconHandler).Methods("GET")
+	r.HandleFunc("/non-supported-browser", unsupportedBrowserHandler).Methods("GET")
 	r.HandleFunc("/", indexGetHandler).Methods("GET")
 	r.HandleFunc("/", indexPostHandler).Methods("POST")
 	r.HandleFunc("/search", searchGetHandler).Methods("GET")
@@ -24,6 +25,10 @@ func osHandler(r *mux.Router) {
 
 func faviconHandler(w http.ResponseWriter, r *http.Request) {
 	utils.ExecuteTemplate(w, "/static/img/favicon.png", nil)
+}
+
+func unsupportedBrowserHandler(w http.ResponseWriter, r *http.Request) {
+	utils.ExecuteTemplate(w, "mod-unsupported-browser.html", nil)
 }
 
 func indexGetHandler(w http.ResponseWriter, r *http.Request) {

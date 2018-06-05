@@ -34,6 +34,45 @@ html, body {
   overflow: hidden;
 }
 
+input, button {
+  display: inline-block;
+  vertical-align: middle;
+  outline: none;
+  white-space: normal;
+  cursor: context-menu;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  height: 24px;
+  font-size: 0.8em;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+input.md, button.md {
+  height: 24px;
+  font-size: 0.8em;
+  padding: 0 4px;
+}
+
+input.lg, button.lg {
+  height: 28px;
+  font-size: 0.9em;
+  padding: 0 4px;
+}
+
+input {
+  border: 1px solid #b3b3b3;
+}
+
+input[type="submit"] {
+  background: #e6e6e6;
+  border: 1px solid #e6e6e6;
+}
+
+input[type="submit"]:hover {
+  border: 1px solid #b3b3b3;
+}
+
 * {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -65,25 +104,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 button {
-  display: inline-block;
-  vertical-align: middle;
-  border: none;
-  outline: none;
-  text-align: center;
-  white-space: normal;
-  cursor: context-menu;
-  padding: 0 4px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 400;
-}
-
-button.md {
-  height: 22px;
-}
-
-button.lg {
-  height: 28px;
-  font-size: 0.9em;
+  border: unset;
 }
 
 button.signin {
@@ -92,6 +113,7 @@ button.signin {
   color: white;
   min-width: 80px;
   width: 80px;
+  text-align: center;
 }
 
 .btn-blue {
@@ -109,6 +131,42 @@ button.signin {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
+button[open-launcher] {
+  border: none;
+  min-width: 80px;
+  height: 100%;
+  background-color: #006AFF;
+  cursor: pointer;
+  color: #f2f2f2;
+  font-weight: 400;
+  font-size: 1rem;
+  vertical-align: center;
+}
+
+os-button-toogle {
+  background-color: #eee;
+  padding: 3px;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid #333;
+  border-radius: 3px;
+  transition: background-color .2s ease;
+}
+
+os-button-toogle[pressed],
+os-button-toogle:not([disabled]):active {
+  background-color: #999;
+}
+
+os-button-toogle[disabled] {
+  opacity: 0.35;
+}
+
+os-toolbar input, os-toolbar button {
+  height: 23px;
+  margin-left: 4px;
+}
+
 .container {
   flex-grow: 1;
   height: 100%;
@@ -123,10 +181,10 @@ button.signin {
 
 os-desktop {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(64px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(4em, 1fr));
+  grid-template-rows: repeat(auto-fit, minmax(4em, 1fr));
   grid-gap: 10px;
-  overflow: visible;
+  overflow: auto;
 }
 
 os-desktop div {
@@ -164,6 +222,13 @@ os-desktop div:nth-child(4) {
 
 os-viewport {
   background: white;
+}
+
+os-viewport[centered] {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-content: center center;
 }
 
 .panel {
@@ -272,10 +337,6 @@ div[expand] {
   flex-grow: 1;
 }
 
-form[signin] > input {
-  height: 28px;
-}
-
 os-group[signup] {
   padding: 0 10px;
   height: 32px;
@@ -337,16 +398,23 @@ os-group[signup] a:hover {
 }
 
 os-toolbar {
+  box-sizing: initial;
   height: 32px;
   min-height: 32px;
   align-items: center;
-  background: #e6e6e6;
-  border-bottom: 1px solid #b3b3b3;
+  background: #fafafa;
+  border-bottom: 1px solid #e6e6e6;
 }
 
-os-toolbar input, os-toolbar button {
-  height: 23px;
-  margin-left: 4px;
+os-omnibox {
+  height: 40px;
+  width: 600px;
+  max-width: 700px;
+  min-width: 200px;
+}
+
+os-omnibox[main-search] {
+  width: 600px;
 }
 
 os-omnibox[search-results] {
@@ -360,10 +428,10 @@ os-splitter {
 
 os-panel[search] {
   display: grid;
+  grid-gap: 40px;
   height: 100%;
   width: 100%;
-  place-items: center;
-  grid-gap: 2em;
+  place-content: center center;
 }
 
 os-row[signup] {
@@ -637,14 +705,6 @@ form legend {
   font-size: 0.8em;
 }
 
-form input {
-  border: 1px solid #e6e6e6;
-  padding: 0 4px;
-  height: 22px;
-  font-family: Montserrat, sans-serif;
-  font-weight: 400;
-}
-
 form label {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
@@ -653,7 +713,7 @@ form label {
 fieldset {
   margin: 10px;
   padding: 5px;
-  border: 1px solid #cccccc;
+  border: 1px solid #e6e6e6;
   width: 100%;
 }
 
@@ -666,7 +726,7 @@ table {
 }
 
 table colgroup col {
-  border-right: 1px solid #cccccc;
+  border-right: 1px solid #e6e6e6;
   background: transparent;
 }
 
@@ -685,8 +745,8 @@ table thead {
 
 table thead tr {
   height: 21px;
-  background: #e6e6e6;
-  border-bottom: 1px solid #b3b3b3;
+  background: #f2f2f2;
+  border-bottom: 1px solid #e6e6e6;
 }
 
 table thead tr th {
@@ -696,7 +756,7 @@ table thead tr th {
 }
 
 table thead tr th:hover {
-  background: #b3b3b3;
+  background: #e6e6e6;
   cursor: context-menu;
 }
 
@@ -706,16 +766,16 @@ table tbody {
 
 table tbody tr {
   height: 21px;
-  border-top: 1px solid #cccccc;
+  border-top: 1px solid #f2f2f2;
   border-right: none;
 }
 
 table tbody tr:nth-child(even) {
-  background: #e6e6e6;
+  background: #fafafa;
 }
 
 table tbody tr:hover {
-  background: #cccccc;
+  background: #f2f2f2;
 }
 
 table tbody tr td {
@@ -726,72 +786,12 @@ table tbody tr td {
   cursor: context-menu;
 }
 
-#a {
-  display: flex;
-  flex-direction: row;
-}
-
-#a #b {
-  flex: 1;
-  height: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-#c {
-  border-left: 1px solid #cccccc;
-  background: #e6e6e6;
-  width: 16px;
-  height: 100%;
-}
-
-#c img {
-  transform: rotate(90deg);
-  margin: 2px 2px;
-}
-
-#c:hover {
-  cursor: pointer;
-}
-
 .toolselection {
   align-items: center;
 }
 
 .inp-28 {
   height: 28px;
-}
-
-os-button-toogle {
-  background-color: #eee;
-  padding: 3px;
-  cursor: pointer;
-  user-select: none;
-  border: 1px solid #333;
-  border-radius: 3px;
-  transition: background-color .2s ease;
-}
-
-os-button-toogle[pressed],
-os-button-toogle:not([disabled]):active {
-  background-color: #999;
-}
-
-os-button-toogle[disabled] {
-  opacity: 0.35;
-}
-
-button[open-launcher] {
-  border: none;
-  min-width: 80px;
-  height: 100%;
-  background-color: #006AFF;
-  cursor: pointer;
-  color: #f2f2f2;
-  font-weight: 400;
-  font-size: 1rem;
-  vertical-align: center;
 }
 
 .expander {
@@ -820,12 +820,22 @@ button[open-launcher] {
   text-decoration: underline;
 }
 
-os-sidebar button[direction] {
-  height: 36px;
-}
-
 .workspace {
   background: white;
+}
+
+.unsupported-browser {
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+}
+
+.unsupported-browser > * {
+  margin: 0 auto;
 }
 
 .os1-start-menu {

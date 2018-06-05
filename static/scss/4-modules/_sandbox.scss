@@ -1,32 +1,3 @@
-os-button-toogle {
-    background-color: #eee;  
-    padding: 3px;
-    cursor: pointer;
-    user-select: none;
-    border: 1px solid #333;
-    border-radius: 3px;
-    transition: background-color .2s ease;
-  }
-  os-button-toogle[pressed],
-  os-button-toogle:not([disabled]):active {
-    background-color: #999;
-  }
-  os-button-toogle[disabled] {
-    opacity: 0.35;
-  }
-
-  button[open-launcher] {
-    border: none;
-    min-width: 80px;
-    height: 100%;
-    background-color: $blue;
-    cursor: pointer;
-    color: $light5;
-    font-weight: 400;
-    font-size: 1rem;
-    vertical-align: center;
-  }
-
   .expander {
     display: flex;
     flex-direction: column;
@@ -49,13 +20,19 @@ os-button-toogle {
       text-decoration: underline;
     }
   }
-
-  os-sidebar {
-    & button[direction] {
-      height: 36px;
-    }
-  }
-
   .workspace {
     background: $light;
   }
+
+.unsupported-browser {
+  display: grid;
+  height: 100%;
+  justify-content: center;
+  align-content: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  & > * {
+    margin: 0 auto;
+  }
+}

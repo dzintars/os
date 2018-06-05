@@ -1,11 +1,8 @@
 os-toolbar {
+    box-sizing: initial;
     height: 32px;
     min-height: 32px;
     align-items: center;
-    background: $light10;
-    border-bottom: 1px solid $light30;
-    & input, button {
-        height: 23px;
-        margin-left: 4px;
-    }
+    background: $light2;
+    border-bottom: 1px solid $light10;
 }

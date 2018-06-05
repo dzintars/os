@@ -15,10 +15,10 @@
         </os-sidebar>
         <os-panel vbox class="workspace">
             <os-toolbar hbox>
-                <input type="search" placeholder="Search...">
-                <input type="date" name="from" id="from">
-                <input type="date" name="till" id="till">
-                <button>Filter</button>
+                <input class="md" type="search" placeholder="Search...">
+                <input class="md" type="date" name="from" id="from">
+                <input class="md" type="date" name="till" id="till">
+                <input class="md" type="submit" name="filter" >
             </os-toolbar>
             <table>
                 <colgroup>
@@ -32,11 +32,8 @@
                 </colgroup>
                 <thead>
                     <tr>
-                        <th style="text-align:center;">ID</th>
-                        <th id="a">
-                            <span id="b" title="Registration ID">Registration ID</span>
-                            <span id="c"><img src="/static/img/svg-icons/chevron-r.svg" alt="T" width="12"></span>
-                        </th>
+                        <th style="text-align: center;">ID</th>
+                        <th>Registration ID</th>
                         <th>Organization Name</th>
                         <th>Form</th>
                         <th class="tbl-address">Legal Address</th>

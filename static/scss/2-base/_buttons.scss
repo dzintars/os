@@ -1,27 +1,12 @@
 button {
-    display: inline-block;
-    vertical-align: middle;
-    border: none;
-    outline: none;
-    text-align: center;
-    white-space: normal;
-    cursor: context-menu;
-    padding: 0 4px;
-    font-family: Montserrat, sans-serif;
-    font-weight: 400;
-    &.md {
-        height: 22px;
-    }
-    &.lg {
-        height: 28px;
-        font-size: 0.9em;
-    }
+    border: unset;
     &.signin {
         margin-right: 8px;
         background: $blue;;
         color: $light;
         min-width: 80px;
         width: 80px;
+        text-align: center;
     }
 }
 
@@ -38,4 +23,40 @@ button {
 
 .btn-blue:hover {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+button[open-launcher] {
+    border: none;
+    min-width: 80px;
+    height: 100%;
+    background-color: $blue;
+    cursor: pointer;
+    color: $light5;
+    font-weight: 400;
+    font-size: 1rem;
+    vertical-align: center;
+  }
+
+  os-button-toogle {
+    background-color: #eee;  
+    padding: 3px;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #333;
+    border-radius: 3px;
+    transition: background-color .2s ease;
+  }
+  os-button-toogle[pressed],
+  os-button-toogle:not([disabled]):active {
+    background-color: #999;
+  }
+  os-button-toogle[disabled] {
+    opacity: 0.35;
+  }
+
+  os-toolbar {
+    & input, button {
+        height: 23px;
+        margin-left: 4px;
+    }
 }

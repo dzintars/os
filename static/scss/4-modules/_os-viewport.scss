@@ -1,3 +1,10 @@
 os-viewport {
-    background: $light;
+  background: $light;
+    //ToDo: This should be refactored
+  &[centered] { //Used in SignIn page to center SignIn/Signup forms
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-content: center center;
   }
+}

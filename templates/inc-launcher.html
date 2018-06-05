@@ -14,10 +14,12 @@
                     <span class="launcher-header-credentials-username">Guest User</span>
                     <span class="launcher-header-credentials-accountname">Demo Account</span>
                 </os-group>
-                <svg id="btn-sign-out" class="launcher-header-signout" style="margin-left: 7px;" class="i-signout" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-                    <title>Sign Out</title>
-                    <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
-                </svg>
+                <a href="/">
+                    <svg class="launcher-header-signout" style="margin-left: 7px;" class="i-signout" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                        <title>Sign Out</title>
+                        <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
+                    </svg>
+                </a>
             </os-group>
             <div class="launcher-body">
                 {{ range .Mods }}

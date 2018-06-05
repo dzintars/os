@@ -11,6 +11,38 @@ html, body {
     margin: unset;
     overflow: hidden;
 }
-// button {
-//     all: unset;
-// }
+
+input, button {
+    display: inline-block;
+    vertical-align: middle;
+    outline: none;
+    white-space: normal;
+    cursor: context-menu;
+    font-family: Montserrat, sans-serif;
+    font-weight: 400;
+    height: 24px;
+    font-size: 0.8em;
+    padding: 0 4px;
+    box-sizing: border-box;
+    &.md {
+        height: 24px;
+        font-size: 0.8em;
+        padding: 0 4px;
+    }
+    &.lg {
+        height: 28px;
+        font-size: 0.9em;
+        padding: 0 4px;
+    }
+}
+
+input {
+    border: 1px solid $light30;
+    &[type="submit"] {
+        background: $light10;
+        border: 1px solid $light10;
+        &:hover {
+            border: 1px solid $light30;
+        }
+    }
+}

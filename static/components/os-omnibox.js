@@ -4,10 +4,6 @@ omnibox.innerHTML = `
     <style>
     :host {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        height: 40px;
-        width: 600px;
-        max-width: 700px;
-        min-width: 200px;
     }
     form {
         display: flex;
