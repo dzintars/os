@@ -31,6 +31,10 @@ $light90: darken($light, 90%);
 
 $blue20: lighten($blue, 20%);
 
+$alert: $red;
+$alert20: darken($red, 20%);
+$alert30: lighten($red, 30%);
+
 $primaryColor: $light;
 
 $dark: $black;

@@ -80,25 +80,46 @@ os-group[signup] {
     }
 }
 
- .actions {
-     align-items: center;
-     &-icon {
-         display: grid;
-         place-items: center;
-         width: 28px;
-         height: 28px;
-         border-radius: 6px;
-         background: $light30;
-         margin-left: 4px;
-         cursor: pointer;
-         &:last-child {
-             margin-right: 4px;
-         }
-         & .i-icon {
-             fill: $light;
-         }
-         &:hover {
-             background: $light40;
-         }
-     }
- }
+.actions {
+    align-items: center;
+    &-icon {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 3px;
+        background: $light10;
+        margin-left: 4px;
+        cursor: pointer;
+        &:last-child {
+            margin-right: 8px;
+        }
+        & .i-icon {
+            color: $blue;
+        }
+        &:hover {
+            background: $light20;
+        }
+    }
+}
+
+.app-control-icon {
+    height: 36px;
+    width: 36px;
+    min-width: 36px;
+    display: grid;
+    place-items: center;
+    background: $light50;
+    &:first-child {
+        margin-left: 8px;
+    }
+    &.alert {
+        background: $red;
+        & .i-icon {
+            color: $light;
+        }
+    }
+    & .i-icon {
+        color: $light;
+    }
+}

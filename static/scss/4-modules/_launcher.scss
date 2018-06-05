@@ -20,9 +20,9 @@
 
 .launcher {
     &-header {
-        border-bottom: 1px solid $light30;
+        border-bottom: 1px solid $light20;
         height: 50px;
-        background: $light10;
+        background: $light5;
         align-items: center;
         &-avatar {
             width: 50px;
@@ -49,7 +49,7 @@
                 border: 1px solid $light10;
                 position: absolute;
                 top: 34px;
-                left: 1185px;
+                left: 34px;
             }
         }
         &-credentials {

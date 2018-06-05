@@ -141,6 +141,7 @@ button[open-launcher] {
   font-weight: 400;
   font-size: 1rem;
   vertical-align: center;
+  margin-right: 8px;
 }
 
 os-button-toogle {
@@ -379,22 +380,47 @@ os-group[signup] a:hover {
   place-items: center;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
-  background: #b3b3b3;
+  border-radius: 3px;
+  background: #e6e6e6;
   margin-left: 4px;
   cursor: pointer;
 }
 
 .actions-icon:last-child {
-  margin-right: 4px;
+  margin-right: 8px;
 }
 
 .actions-icon .i-icon {
-  fill: white;
+  color: #006AFF;
 }
 
 .actions-icon:hover {
-  background: #999999;
+  background: #cccccc;
+}
+
+.app-control-icon {
+  height: 36px;
+  width: 36px;
+  min-width: 36px;
+  display: grid;
+  place-items: center;
+  background: gray;
+}
+
+.app-control-icon:first-child {
+  margin-left: 8px;
+}
+
+.app-control-icon.alert {
+  background: #E70E02;
+}
+
+.app-control-icon.alert .i-icon {
+  color: white;
+}
+
+.app-control-icon .i-icon {
+  color: white;
 }
 
 os-toolbar {
@@ -838,6 +864,14 @@ table tbody tr td {
   margin: 0 auto;
 }
 
+#mapid {
+  z-index: 0;
+}
+
+#grid-delivery-orders {
+  overflow: auto;
+}
+
 .os1-start-menu {
   position: fixed;
   top: 37px;
@@ -859,9 +893,9 @@ table tbody tr td {
 }
 
 .launcher-header {
-  border-bottom: 1px solid #b3b3b3;
+  border-bottom: 1px solid #cccccc;
   height: 50px;
-  background: #e6e6e6;
+  background: #f2f2f2;
   align-items: center;
 }
 
@@ -894,7 +928,7 @@ table tbody tr td {
   border: 1px solid #e6e6e6;
   position: absolute;
   top: 34px;
-  left: 1185px;
+  left: 34px;
 }
 
 .launcher-header-credentials {
