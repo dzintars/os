@@ -104,12 +104,13 @@ os-group[signup] {
 }
 
 .app-control-icon {
-    height: 36px;
-    width: 36px;
-    min-width: 36px;
+    height: 37px;
+    width: 37px;
+    min-width: 37px;
     display: grid;
     place-items: center;
     background: $light50;
+    cursor: context-menu;
     &:first-child {
         margin-left: 8px;
     }
@@ -120,6 +121,8 @@ os-group[signup] {
         }
     }
     & .i-icon {
+        // ToDo: Tooltip on hover appears only on icon and not on the whole button
         color: $light;
+        cursor: context-menu;
     }
 }

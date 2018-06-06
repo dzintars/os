@@ -44,3 +44,24 @@
 #grid-delivery-orders {
   overflow: auto;
 }
+
+.organization-profile-sidebar {
+  flex: 0;
+  width: 360px;
+  min-width: 360px;
+  border-right: 1px solid $light10;
+  &-navigation{
+    & button {
+      height: 36px;
+      min-height: 36px;
+      font-size: 1em;
+      background: unset;
+      text-align: left;
+      font-weight: 500;
+      padding: 0 20px;
+      &:hover {
+        background: $light5;
+      }
+    }
+  }
+}

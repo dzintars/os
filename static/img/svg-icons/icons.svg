@@ -12,7 +12,6 @@
     </symbol>
 
     <symbol id="i-close" viewBox="0 0 32 32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
-        <title>Close</title>
         <path d="M2 30 L30 2 M30 30 L2 2" />
     </symbol>
 
@@ -30,7 +29,6 @@
     </symbol>
 
     <symbol id="si-glyph-resize-out-frame" viewBox="0 0 17 16" class="si-glyph si-glyph-resize-out-frame">
-        <title>910</title>
         <g stroke="none" stroke-width="1">
             <g>
                 <path d="M8.994,12.967 C8.994,14.101 8.074,15.021 6.939,15.021 L3.03,15.021 C1.896,15.021 0.976,14.101 0.976,12.967 L0.976,9.057 C0.976,7.924 1.896,7.004 3.03,7.004 L6.939,7.004 C8.074,7.004 8.994,7.924 8.994,9.057 L8.994,12.967 L8.994,12.967 Z" class="si-glyph-fill"></path>

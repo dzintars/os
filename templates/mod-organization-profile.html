@@ -1,17 +1,18 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <svg id="btn-close-app" style="margin-left: 7px" class="i-close" viewBox="0 0 32 32" width="22" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1">
-            <path d="M2 30 L30 2 M30 30 L2 2" />
-        </svg>
+        <a href="/" title="Home"  class="taskbar-logo">
+            <img src="/static/img/svg-logo/oswee.svg" alt="Oswee Logo">
+            <span>Pre-Alpha</div>
+        </a>
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>
     <os-container hbox>
-        <os-panel vbox>
+        <os-panel vbox class="organization-profile-sidebar">
             <div>
                 {{ range .Orgs }}
-                <os-group hbox style="margin: 36px;">
+                <os-group vbox style="margin: 36px;">
                     <svg id="verification-level-ico" data-name="Verification Level Icon" viewBox="0 0 256 256" width="64" height="64">
                         <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
                     </svg>
@@ -20,14 +21,18 @@
                         <p>{{ .LegalAddress}}</p>
                     </div>
                 </os-group>
-                <os-toolbar hbox>
-                    <button>Main</button>
-                    <button>Services</button>
-                    <button>Products</button>
-                    <button>About</button>
-                </os-toolbar>
                 {{ end }}
             </div>
+            <os-group vbox class="organization-profile-sidebar-navigation">
+                <button>Main</button>
+                <button>Services</button>
+                <button>Products</button>
+                <button>Promotions</button>
+                <button>About</button>
+            </os-group>
+        </os-panel>
+        <os-panel vbox>
+            <h1>Content is not implemented</h1>
         </os-panel>
     </os-container>
     <os-statusbar hbox>

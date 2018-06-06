@@ -399,12 +399,13 @@ os-group[signup] a:hover {
 }
 
 .app-control-icon {
-  height: 36px;
-  width: 36px;
-  min-width: 36px;
+  height: 37px;
+  width: 37px;
+  min-width: 37px;
   display: grid;
   place-items: center;
   background: gray;
+  cursor: context-menu;
 }
 
 .app-control-icon:first-child {
@@ -421,6 +422,7 @@ os-group[signup] a:hover {
 
 .app-control-icon .i-icon {
   color: white;
+  cursor: context-menu;
 }
 
 os-toolbar {
@@ -870,6 +872,27 @@ table tbody tr td {
 
 #grid-delivery-orders {
   overflow: auto;
+}
+
+.organization-profile-sidebar {
+  flex: 0;
+  width: 360px;
+  min-width: 360px;
+  border-right: 1px solid #e6e6e6;
+}
+
+.organization-profile-sidebar-navigation button {
+  height: 36px;
+  min-height: 36px;
+  font-size: 1em;
+  background: unset;
+  text-align: left;
+  font-weight: 500;
+  padding: 0 20px;
+}
+
+.organization-profile-sidebar-navigation button:hover {
+  background: #f2f2f2;
 }
 
 .os1-start-menu {
