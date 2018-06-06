@@ -1,9 +1,20 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <svg id="btn-close-app" class="c-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use></svg>
-        <os-panel hbox></os-panel>
         <button id="btn-open-launcher" open-launcher>APPS</button>
+        <os-panel hbox></os-panel>
+        <div class="app-control-icon">
+            <svg class="i-icon">
+                <title>Full Screen</title>
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-desktop"></use>
+            </svg>
+        </div>
+        <div class="app-control-icon alert">
+            <svg id="btn-close-app" class="i-icon">
+                <title>Exit Application</title>
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use>
+            </svg>
+        </div>
     </os-taskbar>
     <os-container vbox style="padding: 36px;">
         <h1>This will be your CRM Projects</h1>
