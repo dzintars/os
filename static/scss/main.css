@@ -789,6 +789,7 @@ table thead tr th:hover {
 }
 
 table tbody {
+  display: table-row-group;
   border-right: none;
 }
 
@@ -812,6 +813,11 @@ table tbody tr td {
   white-space: nowrap;
   padding: 0 4px;
   cursor: context-menu;
+}
+
+table tbody [class*="tbl-row-"].selected {
+  border: 1px solid #006AFF;
+  background: #f2f2f2;
 }
 
 .toolselection {
@@ -904,8 +910,8 @@ table tbody tr td {
 }
 
 .os1-start-menu-body {
-  width: 40%;
-  min-width: 40%;
+  width: 45%;
+  min-width: 45%;
   height: 100%;
   background: rgba(230, 230, 230, 0.9);
 }
@@ -918,6 +924,7 @@ table tbody tr td {
 .launcher-header {
   border-bottom: 1px solid #cccccc;
   height: 50px;
+  min-height: 50px;
   background: #f2f2f2;
   align-items: center;
 }
@@ -958,20 +965,24 @@ table tbody tr td {
   flex: 1;
   padding: 0 10px;
   height: 100%;
-}
-
-.launcher-header-credentials span {
-  font-family: Montserrat;
-  font-weight: 400;
   text-transform: uppercase;
 }
 
-.launcher-header-credentials span:nth-child(1) {
+.launcher-header-credentials a {
+  text-decoration: unset;
+  color: #4d4d4d;
+}
+
+.launcher-header-credentials-username {
+  font-family: Montserrat;
+  font-weight: 400;
   font-size: 1.2em;
   line-height: 1.6em;
 }
 
-.launcher-header-credentials span:nth-child(2) {
+.launcher-header-credentials-accountname {
+  font-family: Montserrat;
+  font-weight: 400;
   font-size: 0.8em;
   line-height: 1.2em;
 }
@@ -980,14 +991,16 @@ table tbody tr td {
   width: 32px;
   height: 32px;
   margin: 0 9px;
+  color: #333333;
 }
 
 .launcher-body {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   width: 100%;
   padding: 20px;
   grid-gap: 20px;
+  overflow: auto;
 }
 
 .launcher-body a {

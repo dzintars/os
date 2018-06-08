@@ -22,6 +22,7 @@
     &-header {
         border-bottom: 1px solid $light20;
         height: 50px;
+        min-height: 50px;
         background: $light5;
         align-items: center;
         &-avatar {
@@ -56,34 +57,40 @@
             flex: 1;
             padding: 0 10px;
             height: 100%;
-            & span {
+            text-transform: uppercase;
+            & a {
+                text-decoration: unset;
+                color: $light70;
+            }
+            &-username {
                 font-family: Montserrat;
                 font-weight: 400;
-                text-transform: uppercase;
-                &:nth-child(1) {
-                    font-size: 1.2em;
-                    line-height: 1.6em;
-                }
-                &:nth-child(2) {
-                    font-size: 0.8em;
-                    line-height: 1.2em;
-                }
+                font-size: 1.2em;
+                line-height: 1.6em;
+            }
+            &-accountname {
+                font-family: Montserrat;
+                font-weight: 400;
+                font-size: 0.8em;
+                line-height: 1.2em;
             }
         }
         &-signout {
             width: 32px;
             height: 32px;
             margin: 0 9px;
+            color: $light80;
         }
     }
 }
 
 .launcher-body {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     width: 100%;
     padding: 20px;
     grid-gap: 20px;
+    overflow: auto;
     & a {
         text-decoration: unset;
     }

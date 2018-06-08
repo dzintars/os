@@ -17,6 +17,7 @@ table {
       }
     }
   }
+
   & thead {
     display: table-header-group;
     vertical-align: middle;
@@ -37,6 +38,7 @@ table {
   }
 
   & tbody {
+    display: table-row-group;
     border-right: none;
     & tr {
       height: 21px;
@@ -52,9 +54,14 @@ table {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        // border-right: 1px solid $light10;
         padding: 0 4px;
         cursor:context-menu;
+      }
+    }
+    & [class*="tbl-row-"] {
+      &.selected {
+        border: 1px solid $blue;
+        background: $light5;
       }
     }
   }

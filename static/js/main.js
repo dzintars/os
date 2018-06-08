@@ -1,5 +1,6 @@
 //https://stackoverflow.com/questions/49244944/toggle-appendchild-if-doesnt-exist-and-removechild-if-exist/49245337#49245337
 //Will play with this to use display: block and outside click to hide.
+
 function toggle() {
     'use strict';
 
@@ -41,13 +42,39 @@ function goToMain() {
     location.href = "/";
 };
 
-var mymap = L.map('mapid').setView([56.94965, 24.1052], 13);
-var marker = L.marker([56.94965, 24.1052]).addTo(mymap);
+function addRowHandlers() {
+    var table = document.querySelector('table');
+    var rows = table.getElementsByTagName('tr');
+    for (i = 0; i < rows.length; i++) {
+        var currentRow = table.rows.dataset.id;
+        var createClickHandler = function(row) {
+                return function() { 
+                // Set row class to be .selected
+                    alert("id: " + row);
+                };
+            };
+        currentRow.onclick = createClickHandler(currentRow);
+    }
+}
 
-L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 16,
-    id: 'mapbox.streets',
-    accessToken: 'pk.eyJ1Ijoib3N3ZWUiLCJhIjoiY2ppMXdycTZyMGY3ZDNwcXBzZnUzcTBiYiJ9.mi4BGXgJbdDgS7mVGVyExA',
-    style: 'mapbox://styles/mapbox/basic-v9',
-}).addTo(mymap);
+window.onload = addRowHandlers();
+
+function toggleFullScreen() {
+    if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+      if (document.documentElement.requestFullScreen) {  
+        document.documentElement.requestFullScreen();  
+      } else if (document.documentElement.mozRequestFullScreen) {  
+        document.documentElement.mozRequestFullScreen();  
+      } else if (document.documentElement.webkitRequestFullScreen) {  
+        document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);  
+      }  
+    } else {  
+      if (document.cancelFullScreen) {  
+        document.cancelFullScreen();  
+      } else if (document.mozCancelFullScreen) {  
+        document.mozCancelFullScreen();  
+      } else if (document.webkitCancelFullScreen) {  
+        document.webkitCancelFullScreen();  
+      }  
+    }  
+  }

@@ -10,6 +10,7 @@ type Service struct {
 
 // ListServices is function to retrieve a full list of all Services
 func ListServices() ([]Service, error) {
+
 	getServices := `SELECT id, title, description, unit_price FROM os_services`
 
 	db := dbLoc()

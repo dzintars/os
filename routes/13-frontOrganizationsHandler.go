@@ -50,7 +50,8 @@ func getOrganization(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	orgID := vars["id"]
 	t := time.Now()
-	fmt.Println(orgID, r.Header.Get("X-Forwarded-For"), t)
+	ts := t.Format("2006-01-02 15:04:05")
+	fmt.Println("Org. ID:", orgID, "IP:", r.Header.Get("X-Forwarded-For"), "Time:", ts)
 
 	visibility := 1
 
