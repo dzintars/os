@@ -56,15 +56,6 @@ func crmDashboardGetHandler(w http.ResponseWriter, r *http.Request) {
 
 func crmCustomersGetHandler(w http.ResponseWriter, r *http.Request) {
 
-	visibility := 1
-
-	applications, err := models.ListApplications(visibility)
-	if err != nil {
-		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("Error: 001, Internal Server Error"))
-		return
-	}
-
 	visibleModules := 3
 
 	modules, err := models.ListApplications(visibleModules)
@@ -83,12 +74,10 @@ func crmCustomersGetHandler(w http.ResponseWriter, r *http.Request) {
 
 	utils.ExecuteTemplate(w, "mod-crm-customers.html", struct {
 		Title     string
-		Apps      []models.Application
 		Mods      []models.Application
 		Customers []models.Customer
 	}{
 		Title:     "Oswee.com: CRM Customers",
-		Apps:      applications,
 		Mods:      modules,
 		Customers: customers,
 	})

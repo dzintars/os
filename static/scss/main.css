@@ -1111,7 +1111,7 @@ table tbody [class*="tbl-row-"].selected {
 }
 
 .front-sidebar os-panel {
-  border-right: 1px solid #cccccc;
+  border-right: 1px solid #e6e6e6;
 }
 
 .front-sidebar-sections a {
