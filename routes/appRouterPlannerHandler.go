@@ -39,15 +39,25 @@ func appRoutePlannerMainGetHandler(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Error: Can't list organizations"))
 		return
 	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: Can't list shortcuts"))
+		return
+	}
+
 	utils.ExecuteTemplate(w, "app-route-planner.html", struct {
-		Title string
-		Apps  []models.Application
-		Orgs  []models.Organization
-		Mods  []models.Application
+		Title     string
+		Apps      []models.Application
+		Orgs      []models.Organization
+		Mods      []models.Application
+		Shortcuts []models.Shortcut
 	}{
-		Title: "Oswee.com: Route Planner",
-		Apps:  applications,
-		Orgs:  organizations,
-		Mods:  modules,
+		Title:     "Oswee.com: Route Planner",
+		Apps:      applications,
+		Orgs:      organizations,
+		Mods:      modules,
+		Shortcuts: shortcuts,
 	})
 }

@@ -479,6 +479,13 @@ os-row[signup-intro] > * {
   align-self: center;
 }
 
+os-shortcutbar {
+  min-width: 36px;
+  width: 36px;
+  height: 100%;
+  border-right: 1px solid #e6e6e6;
+}
+
 .ico-16 {
   display: inline-block;
   background-repeat: no-repeat;

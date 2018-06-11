@@ -72,14 +72,23 @@ func crmCustomersGetHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
 	utils.ExecuteTemplate(w, "mod-crm-customers.html", struct {
 		Title     string
 		Mods      []models.Application
 		Customers []models.Customer
+		Shortcuts []models.Shortcut
 	}{
 		Title:     "Oswee.com: CRM Customers",
 		Mods:      modules,
 		Customers: customers,
+		Shortcuts: shortcuts,
 	})
 }
 
