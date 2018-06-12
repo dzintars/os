@@ -8,11 +8,11 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func appPersonalSettingsHandler(r *mux.Router) {
-	r.HandleFunc("/apps/personal-settings", appPersonalSettingsMainGetHandler).Methods("GET")
+func appSettingsPersonalHandler(r *mux.Router) {
+	r.HandleFunc("/apps/settings/personal", appSettingsPersonalMainGetHandler).Methods("GET")
 }
 
-func appPersonalSettingsMainGetHandler(w http.ResponseWriter, r *http.Request) {
+func appSettingsPersonalMainGetHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 
 	// Get Launcher modules

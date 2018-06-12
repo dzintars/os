@@ -8,11 +8,11 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func appBusinessSettingsHandler(r *mux.Router) {
-	r.HandleFunc("/apps/business-settings", appBusinessSettingsMainGetHandler).Methods("GET")
+func appSettingsBusinessHandler(r *mux.Router) {
+	r.HandleFunc("/apps/settings/business", appSettingsBusinessMainGetHandler).Methods("GET")
 }
 
-func appBusinessSettingsMainGetHandler(w http.ResponseWriter, r *http.Request) {
+func appSettingsBusinessMainGetHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 
 	// Get Launcher modules

@@ -9,12 +9,12 @@ import (
 )
 
 // System Management Modules
-func appSystemSettingsHandler(r *mux.Router) {
-	r.HandleFunc("/apps/system-settings", appSystemSettingsMainGetHandler).Methods("GET")
+func appSettingsSystemHandler(r *mux.Router) {
+	r.HandleFunc("/apps/settings/system", appSettingsSystemMainGetHandler).Methods("GET")
 	r.HandleFunc("/apps/sys/users", usersGetHandler).Methods("GET")
 }
 
-func appSystemSettingsMainGetHandler(w http.ResponseWriter, r *http.Request) {
+func appSettingsSystemMainGetHandler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html; charset=UTF-8")
 
 	// Get Launcher modules
