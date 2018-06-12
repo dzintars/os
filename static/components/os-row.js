@@ -4,7 +4,6 @@ row.innerHTML = `
     <style>
     :host {
         display: flex;
-        width: 100%;
     }
     :host([hbox]) {
         flex-direction: row;

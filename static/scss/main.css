@@ -486,6 +486,10 @@ os-shortcutbar {
   border-right: 1px solid #e6e6e6;
 }
 
+os-shortcutbar div {
+  padding: 4px;
+}
+
 .ico-16 {
   display: inline-block;
   background-repeat: no-repeat;
@@ -906,6 +910,51 @@ table tbody [class*="tbl-row-"].selected {
 
 .organization-profile-sidebar-navigation button:hover {
   background: #f2f2f2;
+}
+
+.business-settings {
+  background: #fafafa;
+  overflow: auto;
+}
+
+.business-settings-header {
+  height: auto;
+  width: 100%;
+  padding: 24px;
+}
+
+.business-settings-header h1, .business-settings-header h3 {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
+
+.business-settings-header h1 {
+  font-size: 1.4em;
+  line-height: 1.6em;
+}
+
+.business-settings-header h3 {
+  font-size: 1em;
+  line-height: 1.2em;
+}
+
+.grid-shortcuts {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(80px, 1fr));
+  grid-gap: 36px;
+  padding: 24px;
+}
+
+.grid-shortcuts a {
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-decoration: unset;
+  cursor: context-menu;
+  color: #666666;
 }
 
 .os1-start-menu {

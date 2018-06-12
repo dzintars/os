@@ -23,6 +23,7 @@ func NewRouter() *mux.Router {
 
 	desktopHandler(r)
 
+	appBusinessSettingsHandler(r)
 	appRoutePlannerHandler(r)
 	appSysHandler(r) // System level modules.
 	appCrmHandler(r) // CRM application and modules

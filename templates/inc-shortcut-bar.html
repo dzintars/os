@@ -1,7 +1,7 @@
 {{ define "inc-shortcut-bar" }}
 <os-shortcutbar vbox>
     {{ range .Shortcuts }}
-    <a href="{{ .RelativeURL }}">
+    <a href="{{ .RelativeURL }}" title="{{ .Name }}">
         <div style="background: {{ .Bcolor }}">
             <img src="/static/img/svg-icons/account.svg" alt="Test">
         </div>
