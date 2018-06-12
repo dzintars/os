@@ -5,6 +5,7 @@ import "github.com/oswee/os/helpers"
 // Application struct
 type Application struct {
 	ID               int    `json:"ID"`
+	Sequence         int    `json:"sequence"`
 	ShortName        string `json:"shortName"`
 	FullName         string `json:"fullName"`
 	ShortDescription string `json:"shortDescription"`
@@ -16,7 +17,7 @@ type Application struct {
 
 // ListApplications is function to retrieve a full list of all users
 func ListApplications(visibility int) ([]Application, error) {
-	getApplications := `SELECT id, short_name, full_name, visibility, background_color, relative_url, short_description FROM sys_applications WHERE visibility=?`
+	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, relative_url, short_description FROM sys_applications WHERE visibility=? ORDER BY sys_applications.sequence;`
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, visibility)
@@ -26,18 +27,22 @@ func ListApplications(visibility int) ([]Application, error) {
 	res := []Application{}
 
 	for rows.Next() {
-		var id int
-		var shortName string
-		var fullName string
-		var visibility int
-		var bcolor string
-		var relativeURL string
-		var shortDescription string
+		var (
+			id               int
+			sequence         int
+			shortName        string
+			fullName         string
+			visibility       int
+			bcolor           string
+			relativeURL      string
+			shortDescription string
+		)
 
-		err := rows.Scan(&id, &shortName, &fullName, &visibility, &bcolor, &relativeURL, &shortDescription)
+		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &relativeURL, &shortDescription)
 		checkErr(err)
 
 		app.ID = id
+		app.Sequence = sequence
 		app.ShortName = shortName
 		app.FullName = fullName
 		app.Visibility = visibility
@@ -54,7 +59,7 @@ func ListApplications(visibility int) ([]Application, error) {
 
 // ListChildApplications is function to retrieve a list of all applications based on requested parent
 func ListChildApplications(parentID int) ([]Application, error) {
-	getApplications := `SELECT id, short_name, full_name, visibility, background_color, relative_url, short_description FROM sys_applications WHERE parent_id=?`
+	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, relative_url, short_description FROM sys_applications WHERE parent_id=? ORDER BY sys_applications.sequence;`
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, parentID)
@@ -64,18 +69,22 @@ func ListChildApplications(parentID int) ([]Application, error) {
 	res := []Application{}
 
 	for rows.Next() {
-		var id int
-		var shortName string
-		var fullName string
-		var visibility int
-		var bcolor string
-		var relativeURL string
-		var shortDescription string
+		var (
+			id               int
+			sequence         int
+			shortName        string
+			fullName         string
+			visibility       int
+			bcolor           string
+			relativeURL      string
+			shortDescription string
+		)
 
-		err := rows.Scan(&id, &shortName, &fullName, &visibility, &bcolor, &relativeURL, &shortDescription)
+		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &relativeURL, &shortDescription)
 		checkErr(err)
 
 		app.ID = id
+		app.Sequence = sequence
 		app.ShortName = shortName
 		app.FullName = fullName
 		app.Visibility = visibility
