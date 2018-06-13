@@ -5,6 +5,7 @@ sidebar.innerHTML = `
     :host {
         display: flex;
         width: 240px;
+        min-width: 240px;
     }
     :host([hbox]) {
         flex-direction: row;

@@ -1,5 +1,6 @@
 table {
-  display: table;
+  table-layout: fixed;
+  overflow: auto;
   font-size: 0.8em;
   border-collapse: collapse; //Should be defined for column border styling
   border-bottom: 1px solid $light10;
@@ -31,7 +32,7 @@ table {
         font-weight: bold;
         &:hover {
           background: $light10;
-          cursor:context-menu;
+          cursor: context-menu;
         }
       }
     }
@@ -45,10 +46,10 @@ table {
       border-top: 1px solid $light5;
       border-right: none;
       &:nth-child(even) {
-        background: $light2;
+        background: $light5;
       }
       &:hover {
-        background: $light5;
+        background: $light10;
       }
       & td {
         overflow: hidden;

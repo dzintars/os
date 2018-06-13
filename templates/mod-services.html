@@ -22,20 +22,30 @@
                 <button>Filter</button>
             </os-toolbar>
             <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>Description</th>
-                    <th>Untit Price</th>
-                </tr>
-                {{ range .Srv }}
-                <tr>
-                    <td><a href="/service/{{ .ID }}">{{ .ID }}</a></td>
-                    <td>{{ .Title }}</td>
-                    <td>{{ .Description }}</td>
-                    <td>{{ .UnitPrice }}</td>
-                </tr>
-                {{ end }}
+                <colgroup>
+                    <col style="width: 40px;">
+                    <col style="width: 400px;">
+                    <col style="width: auto;">
+                    <col style="width: 80px;">
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Untit Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Srv }}
+                    <tr>
+                        <td><a href="/service/{{ .ID }}">{{ .ID }}</a></td>
+                        <td>{{ .Title }}</td>
+                        <td>{{ .Description }}</td>
+                        <td>{{ .UnitPrice }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
             </table>
         </os-panel>
     </os-container>
