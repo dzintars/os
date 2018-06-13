@@ -29,6 +29,7 @@ func NewRouter() *mux.Router {
 	appRoutePlannerHandler(r)
 	appCrmHandler(r) // CRM application and modules
 	appSrmHandler(r) // SRM application and modules
+	appMarketplaceHandler(r)
 
 	temporaryHandler(r) // Some random stuff testing
 	return r

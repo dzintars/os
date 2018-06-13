@@ -1,0 +1,82 @@
+{{ template "tpl-app-head-x" . }}
+<os-viewport vbox>
+    <os-taskbar hbox>
+        <button id="btn-open-launcher" open-launcher>APPS</button>
+        <button id="new-destination" style="height: 28px; min-width: 60px; margin-right: 4px; border: 1px solid #3EC300; border-radius: 3px;">New</button>
+        <button style="height: 28px; min-width: 60px; margin-right: 4px; border: 1px solid #E70E02; border-radius: 3px;">Delete</button>
+        <os-panel hbox></os-panel>
+        <os-group hbox class="actions">
+            <div class="actions-icon">
+                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-search"></use></svg>
+            </div>
+            <div class="actions-icon">
+                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-bell"></use></svg>
+            </div>
+            <a href="/help/apps/crm/customers">
+                <div class="actions-icon">
+                    <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
+                </div>
+            </a>
+        </os-group>
+        <div class="app-control-icon">
+            <svg class="i-icon">
+                <title>Full Screen</title>
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-desktop"></use>
+            </svg>
+        </div>
+        <div class="app-control-icon alert">
+            <svg id="btn-close-app" class="i-icon">
+                <title>Exit Application</title>
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use>
+            </svg>
+        </div>
+    </os-taskbar>
+    <os-container hbox>
+        {{ template "inc-shortcut-bar" . }}
+        <os-sidebar vbox class="front-sidebar">
+            <os-panel></os-panel>
+        </os-sidebar>
+        <os-panel>
+            <table>
+                <colgroup>
+                    <col style="width: 40px;">
+                    <col>
+                    <col>
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th style="text-align: center;">ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Created at</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Users }}
+                    <tr id="org-{{ .ID }}" data-id="{{ .ID }}">
+                        <!-- ToDo: Move styles to stylesheet -->
+                        <td id="recordID"><a href="/settings/system/users/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
+                        <td id="tbl-row">{{ .Name }}</td>
+                        <td>{{ .Username }}</td>
+                        <td id="Name">{{ .CreatedAt }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </os-panel>
+    </os-container>
+    <os-statusbar hbox>
+        <div style="background: #CA3CFF"><a href="#">{{ .Title }}</a></div>
+        <div><a href="/about">About</a></div>
+        <div><a href="#">Advertising</a></div>
+        <div><a href="#">Business</a></div>
+        <div><a href="#">Team</a></div>
+        <div><a href="#">Terms</a></div>
+        <div expand></div>
+        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
+        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
+        <div>Google Chrome Only</div>
+    </os-statusbar>
+</os-viewport>
+{{ template "inc-launcher" . }}
+{{ template "tpl-app-bottom" . }}

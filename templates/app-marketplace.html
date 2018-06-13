@@ -1,0 +1,57 @@
+{{ template "tpl-app-head-x" . }}
+
+<os-viewport vbox>
+    <os-taskbar hbox>
+        <button id="btn-open-launcher" open-launcher>APPS</button>
+        <os-panel hbox></os-panel>
+        <os-group hbox class="actions">
+            <div class="actions-icon">
+                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-search"></use></svg>
+            </div>
+            <div class="actions-icon">
+                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-bell"></use></svg>
+            </div>
+            <div class="actions-icon">
+                <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
+            </div>
+        </os-group>
+        <div class="app-control-icon" onclick="toggleFullScreen()">
+            <svg class="i-icon">
+                <title>Full Screen</title>
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-desktop"></use>
+            </svg>
+        </div>
+        <div class="app-control-icon alert">
+            <svg id="btn-close-app" class="i-icon">
+                <title>Exit Application</title>
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use>
+            </svg>
+        </div>
+    </os-taskbar>
+    <os-container hbox>
+        {{ template "inc-shortcut-bar" . }}
+        <os-panel vbox class="business-settings">
+            <div vbox class="business-settings-header">
+                <h1>Oswee Marketplace</h1>
+                <h3>Discover applications</h3>
+            </div>
+            <div class="grid-shortcuts">
+            </div>
+        </os-panel>
+    </os-container>
+    <os-statusbar hbox>
+        <div style="background: #FCBA04"><a href="#">{{ .Title }}</a></div>
+        <div><a href="/about">About</a></div>
+        <div><a href="#">Advertising</a></div>
+        <div><a href="#">Business</a></div>
+        <div><a href="#">Team</a></div>
+        <div><a href="#">Terms</a></div>
+        <div expand></div>
+        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
+        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
+        <div>Google Chrome Only</div>
+    </os-statusbar>
+</os-viewport>
+
+{{ template "inc-launcher" . }}
+{{ template "tpl-app-bottom" . }}

@@ -1,6 +1,8 @@
 package models
 
-import "github.com/oswee/os/helpers"
+import (
+	"github.com/oswee/os/helpers"
+)
 
 // Organization struct
 type Organization struct {
