@@ -488,6 +488,8 @@ os-shortcutbar {
 
 os-shortcutbar div {
   padding: 4px;
+  margin: 3px;
+  border-radius: 15px;
 }
 
 .ico-16 {

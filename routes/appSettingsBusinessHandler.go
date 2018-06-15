@@ -9,7 +9,7 @@ import (
 )
 
 func appSettingsBusinessHandler(r *mux.Router) {
-	r.HandleFunc("/apps/settings/business", appSettingsBusinessMainGetHandler).Methods("GET")
+	r.HandleFunc("/settings/business", appSettingsBusinessMainGetHandler).Methods("GET")
 }
 
 func appSettingsBusinessMainGetHandler(w http.ResponseWriter, r *http.Request) {

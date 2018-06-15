@@ -13,6 +13,7 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm", crmGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/dashboard", crmDashboardGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/edit/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/projects", crmProjectsGetHandler).Methods("GET")
 }
 
@@ -94,14 +95,45 @@ func crmCustomersGetHandler(w http.ResponseWriter, r *http.Request) {
 
 func crmProjectsGetHandler(w http.ResponseWriter, r *http.Request) {
 
-	visibility := 1
+	visibleModules := 3
 
-	applications, err := models.ListApplications(visibility)
+	modules, err := models.ListApplications(visibleModules)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Error: 001, Internal Server Error"))
 		return
 	}
+
+	projects, err := models.ListProjects()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-projects.html", struct {
+		Title     string
+		Mods      []models.Application
+		Projects  []models.Project
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "Oswee.com: CRM Projects",
+		Mods:      modules,
+		Projects:  projects,
+		Shortcuts: shortcuts,
+	})
+}
+
+func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["id"]
 
 	visibleModules := 3
 
@@ -112,13 +144,29 @@ func crmProjectsGetHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "mod-crm-projects.html", struct {
-		Title string
-		Apps  []models.Application
-		Mods  []models.Application
+	projects, err := models.ListCustomerProjects(customerID)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-customer-profile.html", struct {
+		Title     string
+		Mods      []models.Application
+		Projects  []models.Project
+		Shortcuts []models.Shortcut
 	}{
-		Title: "Oswee.com: CRM Projects",
-		Apps:  applications,
-		Mods:  modules,
+		Title:     "Oswee.com: CRM Projects",
+		Mods:      modules,
+		Projects:  projects,
+		Shortcuts: shortcuts,
 	})
 }

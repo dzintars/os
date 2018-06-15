@@ -10,8 +10,8 @@ import (
 
 // System Management Modules
 func appSettingsSystemHandler(r *mux.Router) {
-	r.HandleFunc("/apps/settings/system", appSettingsSystemMainGetHandler).Methods("GET")
-	r.HandleFunc("/apps/settings/system/users", usersGetHandler).Methods("GET")
+	r.HandleFunc("/settings/system", appSettingsSystemMainGetHandler).Methods("GET")
+	r.HandleFunc("/settings/system/users", usersGetHandler).Methods("GET")
 }
 
 func appSettingsSystemMainGetHandler(w http.ResponseWriter, r *http.Request) {

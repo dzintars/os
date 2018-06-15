@@ -9,7 +9,7 @@ import (
 )
 
 func appSettingsPersonalHandler(r *mux.Router) {
-	r.HandleFunc("/apps/settings/personal", appSettingsPersonalMainGetHandler).Methods("GET")
+	r.HandleFunc("/settings/personal", appSettingsPersonalMainGetHandler).Methods("GET")
 }
 
 func appSettingsPersonalMainGetHandler(w http.ResponseWriter, r *http.Request) {

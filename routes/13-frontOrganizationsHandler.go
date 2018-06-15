@@ -12,7 +12,7 @@ import (
 
 func frontOrganizationsHandler(r *mux.Router) {
 	r.HandleFunc("/organizations", organizationsMainHandler).Methods("GET")
-	r.HandleFunc("/organization/{id:[0-9]+}", getOrganization).Methods("GET")
+	r.HandleFunc("/organizations/{id:[0-9]+}", getOrganization).Methods("GET")
 }
 
 // Handlers

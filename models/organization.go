@@ -70,7 +70,17 @@ func ListOrganizations() ([]Organization, error) {
 
 // GetOrganization is a function
 func GetOrganization(id string) ([]Organization, error) {
-	getOrganizations := `SELECT id, legal_id, name, form, address_legal, verification_level, color, vat_registration_id FROM os_organizations WHERE id=?`
+	getOrganizations := `SELECT
+			id,
+			legal_id,
+			name,
+			form,
+			address_legal,
+			verification_level,
+			color,
+			vat_registration_id
+		FROM os_organizations
+		WHERE id=?`
 
 	db := dbLoc()
 	rows, err := db.Query(getOrganizations, id)
