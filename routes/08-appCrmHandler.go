@@ -135,6 +135,13 @@ func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	customerID := vars["id"]
 
+	customer := models.GetCustomer(customerID)
+	// if err != nil {
+	// 	w.WriteHeader(http.StatusInternalServerError)
+	// 	w.Write([]byte("Error: 001, Internal Server Error"))
+	// 	return
+	// }
+
 	visibleModules := 3
 
 	modules, err := models.ListApplications(visibleModules)
@@ -160,11 +167,13 @@ func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 
 	utils.ExecuteTemplate(w, "mod-crm-customer-profile.html", struct {
 		Title     string
+		Customer  models.Customer
 		Mods      []models.Application
 		Projects  []models.Project
 		Shortcuts []models.Shortcut
 	}{
 		Title:     "Oswee.com: CRM Projects",
+		Customer:  customer,
 		Mods:      modules,
 		Projects:  projects,
 		Shortcuts: shortcuts,

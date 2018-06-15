@@ -47,41 +47,21 @@ func ListCustomers() ([]Customer, error) {
 }
 
 // GetCustomer function return list of all customers
-func GetCustomer(id string) ([]Customer, error) {
+func GetCustomer(id string) Customer {
 
-	getCustomers := `SELECT
+	thisCustomer := Customer{}
+
+	getCustomer := `SELECT
 			id,
 			name,
 			created_at
 		FROM os_customers
-		WHERE os_customer.id = ?`
+		WHERE os_customers.id = ?`
 
 	db := dbLoc()
-	rows, err := db.Query(getCustomers, id)
+	err := db.QueryRow(getCustomer, id).Scan(&thisCustomer.ID, &thisCustomer.Name, &thisCustomer.CreatedAt)
 	// ToDo: Handle error
 	checkErr(err)
-
-	c := Customer{}
-	cs := []Customer{}
-
-	for rows.Next() {
-		var (
-			id        int
-			name      string
-			createdAt string
-		)
-
-		err := rows.Scan(&id, &name, &createdAt)
-		// ToDo: Handle error
-		checkErr(err)
-
-		c.ID = id
-		c.Name = name
-		c.CreatedAt = createdAt
-
-		cs = append(cs, c)
-	}
 	defer db.Close()
-
-	return cs, nil
+	return thisCustomer
 }
