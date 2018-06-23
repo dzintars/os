@@ -136,11 +136,6 @@ func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 	customerID := vars["id"]
 
 	customer := models.GetCustomer(customerID)
-	// if err != nil {
-	// 	w.WriteHeader(http.StatusInternalServerError)
-	// 	w.Write([]byte("Error: 001, Internal Server Error"))
-	// 	return
-	// }
 
 	visibleModules := 3
 

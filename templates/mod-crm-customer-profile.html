@@ -38,6 +38,30 @@
                 <h1>Customer: {{ .Customer.Name}}</h1>
                 <p>Created: {{ .Customer.CreatedAt }}</p>
             </div>
+            <!-- Tab links -->
+            <os-toolbar hbox class="tab">
+                <button class="tablinks" onclick="openCity(event, 'Quotes')">Quotes</button>
+                <button class="tablinks" onclick="openCity(event, 'Orders')">Orders</button>
+                <button class="tablinks" onclick="openCity(event, 'Projects')" id="defaultOpen">Projects</button>
+                <button class="tablinks" onclick="openCity(event, 'Invoices')">Invoices</button>
+                <button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
+                <button class="tablinks" onclick="openCity(event, 'Warehouses')">Warehouses</button>
+                <button class="tablinks" onclick="openCity(event, 'Locations')">Locations</button>
+                <button class="tablinks" onclick="openCity(event, 'Contacts')">Contacts</button>
+            </os-toolbar>
+      
+      <!-- Tab content -->
+      <div id="Quotes" class="tabcontent">
+        <h3>Quotes</h3>
+        <p>Quotes are not implemented</p>
+      </div>
+      
+      <div id="Orders" class="tabcontent">
+        <h3>Orders</h3>
+        <p>Orders are not implemented</p> 
+      </div>
+      
+      <div id="Projects" class="tabcontent">
             <table>
                 <colgroup>
                     <col style="width: 40px;">
@@ -80,6 +104,33 @@
                     {{ end }}
                 </tbody>
             </table>
+        </div>
+              
+        <div id="Invoices" class="tabcontent">
+            <h3>Invoices</h3>
+            <p>Invoices are not implemented</p> 
+        </div>
+                
+        <div id="Services" class="tabcontent">
+            <h3>Services</h3>
+            <p>Services are not implemented</p> 
+        </div>
+                
+        <div id="Warehouses" class="tabcontent">
+            <h3>Warehouses</h3>
+            <p>Warehouses are not implemented</p> 
+        </div>
+                
+        <div id="Locations" class="tabcontent">
+            <h3>Locations</h3>
+            <p>Locations are not implemented</p> 
+        </div>
+                
+        <div id="Contacts" class="tabcontent">
+            <h3>Contacts</h3>
+            <p>Orders are not implemented</p> 
+        </div>
+
         </os-panel>
     </os-container>
     <os-statusbar hbox>
@@ -96,4 +147,28 @@
     </os-statusbar>
 </os-viewport>
 {{ template "inc-launcher" . }}
+<script>
+  function openCity(evt, cityName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
 {{ template "tpl-app-bottom" . }}

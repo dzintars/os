@@ -42,24 +42,24 @@ function goToMain() {
     location.href = "/";
 };
 
-let table = document.querySelector('table');
-if (table) {
-    function addRowHandlers() {
-        // var table = document.querySelector('table');
-        var rows = table.getElementsByTagName('tr');
-        for (i = 0; i < rows.length; i++) {
-            var currentRow = table.rows.dataset.id;
-            var createClickHandler = function(row) {
-                    return function() { 
-                    // Set row class to be .selected
-                        alert("id: " + row);
-                    };
-                };
-            currentRow.onclick = createClickHandler(currentRow);
-        }
-    }
-    window.onload = addRowHandlers();
-}
+// let table = document.querySelector('table');
+// if (table) {
+//     function addRowHandlers() {
+//         // var table = document.querySelector('table');
+//         var rows = table.getElementsByTagName('tr');
+//         for (i = 0; i < rows.length; i++) {
+//             var currentRow = table.rows.dataset.id;
+//             var createClickHandler = function(row) {
+//                     return function() { 
+//                     // Set row class to be .selected
+//                         alert("id: " + row);
+//                     };
+//                 };
+//             currentRow.onclick = createClickHandler(currentRow);
+//         }
+//     }
+//     window.onload = addRowHandlers();
+// }
 
 function toggleFullScreen() {
     if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
