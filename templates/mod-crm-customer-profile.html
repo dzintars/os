@@ -40,14 +40,14 @@
             </div>
             <!-- Tab links -->
             <os-toolbar hbox class="tab">
-                <button class="tablinks" onclick="openCity(event, 'Quotes')">Quotes</button>
-                <button class="tablinks" onclick="openCity(event, 'Orders')">Orders</button>
-                <button class="tablinks" onclick="openCity(event, 'Projects')" id="defaultOpen">Projects</button>
-                <button class="tablinks" onclick="openCity(event, 'Invoices')">Invoices</button>
-                <button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
-                <button class="tablinks" onclick="openCity(event, 'Warehouses')">Warehouses</button>
-                <button class="tablinks" onclick="openCity(event, 'Locations')">Locations</button>
-                <button class="tablinks" onclick="openCity(event, 'Contacts')">Contacts</button>
+                <button class="tablinks" onclick="openTab(event, 'Quotes')">Quotes</button>
+                <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
+                <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'Projects')">Projects</button>
+                <button class="tablinks" onclick="openTab(event, 'Invoices')">Invoices</button>
+                <button class="tablinks" onclick="openTab(event, 'Services')">Services</button>
+                <button class="tablinks" onclick="openTab(event, 'Warehouses')">Warehouses</button>
+                <button class="tablinks" onclick="openTab(event, 'Locations')">Locations</button>
+                <button class="tablinks" onclick="openTab(event, 'Contacts')">Contacts</button>
             </os-toolbar>
       
       <!-- Tab content -->
@@ -148,7 +148,7 @@
 </os-viewport>
 {{ template "inc-launcher" . }}
 <script>
-  function openCity(evt, cityName) {
+  function openTab(evt, tabName) {
     // Declare all variables
     var i, tabcontent, tablinks;
 
@@ -165,7 +165,7 @@
     }
 
     // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(cityName).style.display = "block";
+    document.getElementById(tabName).style.display = "block";
     evt.currentTarget.className += " active";
 }
 // Get the element with id="defaultOpen" and click on it

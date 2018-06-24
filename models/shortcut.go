@@ -10,6 +10,7 @@ type Shortcut struct {
 	Name          string `json:"name"`
 	RelativeURL   string `json:"relativeURL"`
 	Bcolor        string `json:"bcolor"`
+	IconName      string `json:"iconName"`
 }
 
 // ListShortcuts retrieve all current user shortcuts
@@ -21,7 +22,8 @@ func ListShortcuts() ([]Shortcut, error) {
 	os_account_shortcuts.created_at,
 	sys_applications.short_name AS name,
 	sys_applications.relative_url AS relative_url,
-	sys_applications.background_color AS bcolor
+	sys_applications.background_color AS bcolor,
+	sys_applications.icon_name
   FROM os_account_shortcuts
   LEFT JOIN sys_applications ON os_account_shortcuts.application_id = sys_applications.id
   ORDER BY os_account_shortcuts.order;`
@@ -42,9 +44,10 @@ func ListShortcuts() ([]Shortcut, error) {
 			name          string
 			relativeURL   string
 			bcolor        string
+			iconName      string
 		)
 
-		err := rows.Scan(&id, &applicationID, &order, &createdAt, &name, &relativeURL, &bcolor)
+		err := rows.Scan(&id, &applicationID, &order, &createdAt, &name, &relativeURL, &bcolor, &iconName)
 		checkErr(err)
 
 		s.ID = id
@@ -54,6 +57,7 @@ func ListShortcuts() ([]Shortcut, error) {
 		s.Name = name
 		s.RelativeURL = relativeURL
 		s.Bcolor = bcolor
+		s.IconName = iconName
 
 		ss = append(ss, s)
 	}

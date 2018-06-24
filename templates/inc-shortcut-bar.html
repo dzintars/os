@@ -3,7 +3,7 @@
     {{ range .Shortcuts }}
     <a href="{{ .RelativeURL }}" title="{{ .Name }}">
         <div style="background: {{ .Bcolor }}">
-            <img src="/static/img/svg-icons/account.svg" alt="Test">
+            <img src="/static/img/svg-icons/app-icons/{{ .IconName }}" alt=" {{ .Name }} Application Icon">
         </div>
     </a>
     {{ end }}
