@@ -42,7 +42,6 @@ input, button {
   cursor: context-menu;
   font-family: Montserrat, sans-serif;
   font-weight: 400;
-  height: 24px;
   font-size: 0.8em;
   padding: 0 4px;
   box-sizing: border-box;
@@ -282,6 +281,12 @@ os-statusbar .i-icon {
   cursor: pointer;
 }
 
+os-statusbar .app-version {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  font-size: 0.8em;
+}
+
 os-taskbar {
   height: 36px;
   min-height: 37px;
@@ -436,6 +441,13 @@ os-group[signup] a:hover {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
   color: #1a1a1a;
+  text-decoration: unset;
+}
+
+.app-name-path a:hover {
+  text-decoration: underline;
+  color: #006AFF;
+  font-weight: 400;
 }
 
 os-toolbar {
@@ -451,7 +463,30 @@ os-toolbar input, os-toolbar button {
   height: 24px;
   min-width: 60px;
   margin-left: 4px;
-  border-radius: 3px;
+}
+
+os-toolbar input.success, os-toolbar button.success {
+  border: 1px solid #3EC300;
+}
+
+os-toolbar input.primary, os-toolbar button.primary {
+  border: 1px solid #006AFF;
+}
+
+os-toolbar input.danger, os-toolbar button.danger {
+  border: 1px solid #E70E02;
+}
+
+os-toolbar input.default, os-toolbar button.default {
+  border: unset;
+}
+
+os-toolbar button {
+  background-color: #f2f2f2;
+}
+
+os-toolbar button:hover {
+  background-color: #e6e6e6;
 }
 
 os-omnibox {
@@ -510,6 +545,87 @@ os-shortcutbar div {
   padding: 4px;
   margin: 3px;
   border-radius: 15px;
+}
+
+os-tabbar {
+  overflow: hidden;
+  background-color: #fafafa;
+  height: 28px;
+  align-items: flex-end;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+os-tabbar button {
+  display: flex;
+  flex-direction: row;
+  background-color: #e6e6e6;
+  height: 24px;
+  margin-right: 1px;
+  float: left;
+  cursor: context-menu;
+  transition: 0.3s;
+  background-color: #f2f2f2;
+  border-bottom: 2px solid #e6e6e6;
+}
+
+os-tabbar button span {
+  font-family: Montserrat, sans-serif;
+}
+
+os-tabbar button span:last-child {
+  margin-left: 4px;
+  background-color: #3EC300;
+  color: white;
+  font-weight: 500;
+}
+
+os-tabbar button:hover {
+  background-color: #e6e6e6;
+}
+
+os-tabbar button.active {
+  background-color: #e6e6e6;
+  border-bottom: 2px solid #006AFF;
+}
+
+os-tabbar button.active span {
+  font-family: Montserrat, sans-serif;
+}
+
+os-tabbar button.active span:last-child {
+  margin-left: 4px;
+  background-color: #3EC300;
+  color: white;
+  font-weight: 500;
+}
+
+/* Style the tab */
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  border-top: none;
+}
+
+.tabcontent {
+  animation: fadeEffect 1s;
+  /* Fading effect takes 1 second */
+}
+
+/* Go from zero to full opacity */
+@keyframes fadeEffect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.tab-notifications {
+  min-width: 16px;
+  width: 16px;
+  min-height: 16px;
+  border-radius: 8px;
 }
 
 .ico-16 {
@@ -980,84 +1096,6 @@ table tbody [class*="tbl-row-"].selected {
   color: #666666;
 }
 
-/* Style the tab */
-.tab {
-  overflow: hidden;
-}
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  display: flex;
-  flex-direction: row;
-  background-color: inherit;
-  float: left;
-  cursor: context-menu;
-  transition: 0.3s;
-  background-color: #f2f2f2;
-  border-bottom: 2px solid #e6e6e6;
-}
-
-.tab button span {
-  font-family: Montserrat, sans-serif;
-}
-
-.tab button span:last-child {
-  margin-left: 4px;
-  background-color: #3EC300;
-  color: white;
-  font-weight: 500;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #e6e6e6;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #e6e6e6;
-  border-bottom: 2px solid #006AFF;
-}
-
-.tab button.active span {
-  font-family: Montserrat, sans-serif;
-}
-
-.tab button.active span:last-child {
-  margin-left: 4px;
-  background-color: #3EC300;
-  color: white;
-  font-weight: 500;
-}
-
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  border-top: none;
-}
-
-.tabcontent {
-  animation: fadeEffect 1s;
-  /* Fading effect takes 1 second */
-}
-
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.tab-notifications {
-  min-width: 16px;
-  width: 16px;
-  min-height: 16px;
-  border-radius: 8px;
-}
-
 .os1-start-menu {
   position: fixed;
   top: 37px;
@@ -1342,5 +1380,10 @@ table tbody [class*="tbl-row-"].selected {
 
 #app-router #grid-delivery-orders {
   flex: 1;
+}
+
+.app-crm-customer-profile-head {
+  height: auto;
+  padding: 36px;
 }
 /*# sourceMappingURL=main.css.map */

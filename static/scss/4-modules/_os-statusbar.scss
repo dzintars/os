@@ -35,4 +35,9 @@ os-statusbar {
       margin: 0 6px;
       cursor: pointer;
     }
+    & .app-version {
+      font-family: Montserrat, sans-serif;
+      font-weight: 400;
+      font-size: 0.8em;
+    }
   }

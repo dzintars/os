@@ -1,9 +1,20 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <button id="btn-open-launcher" open-launcher>APPS</button>
-        <button id="new-destination" style="height: 28px; min-width: 60px; margin-right: 4px; border: 1px solid #3EC300; border-radius: 3px;">New</button>
-        <button style="height: 28px; min-width: 60px; margin-right: 4px; border: 1px solid #E70E02; border-radius: 3px;">Delete</button>
+            <button id="btn-open-launcher" open-launcher>
+                <svg class="i-icon">
+                    <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
+                </svg>
+            </button>
+        <div class="app-name-path">
+            <a href="/apps">APPS</a>
+            <span> / </span>
+            <a href="/apps/crm">CRM</a>
+            <span> / </span>
+            <a href="/apps/crm/customers">Customers</a>
+            <span> / </span>
+            <a href="#">Profile</a>
+        </div>
         <os-panel hbox></os-panel>
         <os-group hbox class="actions">
             <div class="actions-icon">
@@ -36,7 +47,7 @@
         <os-panel vbox>
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
-            <os-toolbar hbox class="tab">
+            <os-tabbar hbox>
                 <button class="tablinks" onclick="openTab(event, 'Dashboard')">Dashboard</button>
                 <button class="tablinks" onclick="openTab(event, 'Quotes')">Quotes</button>
                 <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
@@ -49,7 +60,7 @@
                 <button class="tablinks" onclick="openTab(event, 'Warehouses')">Warehouses</button>
                 <button class="tablinks" onclick="openTab(event, 'Locations')">Locations</button>
                 <button class="tablinks" onclick="openTab(event, 'Contacts')">Contacts</button>
-            </os-toolbar>
+            </os-tabbar>
       
       <!-- Tab content -->
       <div id="Dashboard" class="tabcontent">
@@ -68,6 +79,13 @@
       </div>
       
       <div id="Projects" class="tabcontent">
+          <os-toolbar>
+              <button class="success">New</button>
+              <button class="primary">Edit</button>
+              <button class="danger">Delete</button>
+              <button class="default">Print</button>
+              <button class="default">Export</button>
+          </os-toolbar>
             <table>
                 <colgroup>
                     <col style="width: 40px;">
@@ -141,15 +159,14 @@
     </os-container>
     <os-statusbar hbox>
         <div style="background: #CA3CFF"><a href="#">{{ .Title }}</a></div>
-        <div><a href="/about">About</a></div>
-        <div><a href="#">Advertising</a></div>
-        <div><a href="#">Business</a></div>
-        <div><a href="#">Team</a></div>
-        <div><a href="#">Terms</a></div>
+
         <div expand></div>
+        <span class="app-version">Version 0.0.2 Updated 2018-06-26 by Oswee Inc.</span>
         <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
-        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
-        <div>Google Chrome Only</div>
+        <svg class="i-icon">
+            <title>Report a bug</title>
+            <use xlink:href="/static/img/svg-icons/icons.svg#i-bug"></use>
+        </svg>
     </os-statusbar>
 </os-viewport>
 {{ template "inc-launcher" . }}

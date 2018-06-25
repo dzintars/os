@@ -9,6 +9,23 @@ os-toolbar {
         height: 24px;
         min-width: 60px; 
         margin-left: 4px;
-        border-radius: 3px;
+        &.success {
+            border: 1px solid $green;
+        }
+        &.primary {
+            border: 1px solid $blue;
+        }
+        &.danger {
+            border: 1px solid $red;
+        }
+        &.default {
+            border: unset;
+        }
+    }
+    & button {
+        background-color: $light5;
+        &:hover {
+            background-color: $light10;
+        }
     }
 }

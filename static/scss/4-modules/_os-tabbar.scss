@@ -1,0 +1,72 @@
+os-tabbar {
+    overflow: hidden;
+    background-color: $light2;
+    height: 28px;
+    align-items: flex-end;
+    border-bottom: 1px solid $light10;
+    & button {
+        display: flex;
+        flex-direction: row;
+        background-color: $light10;
+        height: 24px;
+        margin-right: 1px;
+        float: left;
+        cursor: context-menu;
+        transition: 0.3s;
+        background-color: #f2f2f2;
+        border-bottom: 2px solid #e6e6e6;
+        & span {
+            font-family: Montserrat, sans-serif;
+        }
+        & span:last-child {
+            margin-left: 4px;
+            background-color: $green;
+            color: $light;
+            font-weight: 500;
+        }
+        &:hover {
+            background-color: $light10;
+        }
+        &.active {
+            background-color: #e6e6e6;
+            border-bottom: 2px solid #006AFF;
+            & span {
+                font-family: Montserrat, sans-serif;
+              }
+              & span:last-child {
+                margin-left: 4px;
+                background-color: $green;
+                color: $light;
+                font-weight: 500;
+              }
+        }
+    }
+}
+
+
+/* Style the tab */
+  
+  
+  /* Style the tab content */
+  .tabcontent {
+    display: none;
+    border-top: none;
+  }
+  
+  .tabcontent {
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+  }
+  
+  /* Go from zero to full opacity */
+  @keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  .tab-notifications {
+    // display: block;
+    min-width: 16px;
+    width: 16px;
+    min-height: 16px;
+    border-radius: 8px;
+  }

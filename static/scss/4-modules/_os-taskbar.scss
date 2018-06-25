@@ -133,5 +133,11 @@ os-group[signup] {
         font-family: Montserrat, sans-serif;
         font-weight: 400;
         color: $light90;
+        text-decoration: unset;
+        &:hover {
+            text-decoration: underline;
+            color: $blue;
+            font-weight: 400;
+        }
     }
 }

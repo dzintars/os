@@ -1,6 +1,8 @@
 {{ define "inc-crm-customer-profile-head" }}
-<div>
-    <h1>Customer: {{ .Customer.Name}}</h1>
-    <p>Created: {{ .Customer.CreatedAt }}</p>
-</div>
+<os-container hbox class="app-crm-customer-profile-head">
+    <div>
+        <h1>{{ .Customer.Name}}</h1>
+        <p>{{ .Customer.CreatedAt }}</p>
+    </div>
+</os-container>
 {{ end }}
