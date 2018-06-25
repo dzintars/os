@@ -21,8 +21,32 @@ func appCrmHandler(r *mux.Router) {
 // Handlers
 
 func crmGetHandler(w http.ResponseWriter, r *http.Request) {
-	d := models.Application{ID: 1, ShortName: "Customer Relationship Management"}
-	utils.ExecuteTemplate(w, "mod-crm.html", d)
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm.html", struct {
+		Title     string
+		Mods      []models.Application
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "Oswee Applications",
+		Mods:      modules,
+		Shortcuts: shortcuts,
+	})
 }
 
 func crmDashboardGetHandler(w http.ResponseWriter, r *http.Request) {
@@ -205,7 +229,7 @@ func crmCustomerProjectsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "app-crm-customer-projects.html", struct {
+	utils.ExecuteTemplate(w, "mod-crm-customer-projects.html", struct {
 		Title     string
 		Customer  models.Customer
 		Mods      []models.Application

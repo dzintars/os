@@ -126,7 +126,7 @@
                     {{ range .Projects }}
                     <tr id="org-{{ .ID }}" data-id="{{ .ID }}">
                         <!-- ToDo: Move styles to stylesheet -->
-                        <td id="recordID"><a href="/apps/crm/projects/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
+                        <td id="recordID"><a href="/apps/crm/customers/{{ .CustomerID }}/projects/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
                         <td id="tbl-row">{{ .CustomerName }}</td>
                         <td id="tbl-row">{{ .Name }}</td>
                         <td id="tbl-row">{{ .ServiceTitle }}</td>

@@ -19,6 +19,7 @@ func osHandler(r *mux.Router) {
 	r.HandleFunc("/search", searchGetHandler).Methods("GET")
 	r.HandleFunc("/search", searchPostHandler).Methods("POST")
 	r.HandleFunc("/about", aboutGetHandler).Methods("GET")
+	r.HandleFunc("/apps", appsGetHandler).Methods("GET")
 }
 
 // Handlers
@@ -72,5 +73,34 @@ func aboutGetHandler(w http.ResponseWriter, r *http.Request) {
 		Title string
 	}{
 		Title: "Oswee.com: About",
+	})
+}
+
+func appsGetHandler(w http.ResponseWriter, r *http.Request) {
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-apps.html", struct {
+		Title     string
+		Mods      []models.Application
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "Oswee Applications",
+		Mods:      modules,
+		Shortcuts: shortcuts,
 	})
 }
