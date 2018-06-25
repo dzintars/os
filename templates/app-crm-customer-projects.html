@@ -13,7 +13,9 @@
             <span> / </span>
             <a href="/apps/crm/customers">Customers</a>
             <span> / </span>
-            <a href="#">Profile</a>
+            <a href="/apps/crm/customers/{{ .Customer.ID }}">{{ .Customer.Name }}</a>
+            <span> / </span>
+            <a href="#">Projects</a>
         </div>
         <os-panel hbox></os-panel>
         <os-group hbox class="actions">
@@ -48,18 +50,16 @@
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
             <os-tabbar hbox>
-                <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
+                <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
                 <button class="tablinks" onclick="openTab(event, 'Dashboard')">
                         <span>Dashboard</span>
                         <span class="tab-badge">New</span>
                 </button>
                 <button class="tablinks" onclick="openTab(event, 'Quotes')">Quotes</button>
                 <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
-                <button>
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Projects</a>
-                    </span>
-                    <span class="tab-notification">2</span>
+                <button id="defaultOpen" class="tablinks active" onclick="openTab(event, 'Projects')">
+                    <span>Projects</span>
+                    <span class="tab-notification">4</span>
                 </button>
                 <button class="tablinks" onclick="openTab(event, 'Invoices')">Invoices</button>
                 <button class="tablinks" onclick="openTab(event, 'Services')">Services</button>

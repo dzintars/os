@@ -15,12 +15,18 @@ os-tabbar {
         transition: 0.3s;
         background-color: #f2f2f2;
         border-bottom: 2px solid #e6e6e6;
+        color: $light90;
+        font-weight: 500;
         & span {
+            & a {
+                font-family: Montserrat, sans-serif;
+                text-decoration: unset;
+                color: $light90;
+            }
             font-family: Montserrat, sans-serif;
         }
         & span:last-child {
             margin-left: 4px;
-            background-color: $green;
             color: $light;
             font-weight: 500;
         }
@@ -35,7 +41,6 @@ os-tabbar {
               }
               & span:last-child {
                 margin-left: 4px;
-                background-color: $green;
                 color: $light;
                 font-weight: 500;
               }
@@ -47,26 +52,35 @@ os-tabbar {
 /* Style the tab */
   
   
-  /* Style the tab content */
-  .tabcontent {
-    display: none;
-    border-top: none;
-  }
+//   /* Style the tab content */
+//   .tabcontent {
+//     display: none;
+//     border-top: none;
+//   }
   
-  .tabcontent {
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
-  }
+//   .tabcontent {
+//     animation: fadeEffect 1s; /* Fading effect takes 1 second */
+//   }
   
-  /* Go from zero to full opacity */
-  @keyframes fadeEffect {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
+//   /* Go from zero to full opacity */
+//   @keyframes fadeEffect {
+//     from {opacity: 0;}
+//     to {opacity: 1;}
+//   }
   
-  .tab-notifications {
+  .tab-notification {
     // display: block;
-    min-width: 16px;
-    width: 16px;
-    min-height: 16px;
-    border-radius: 8px;
+    background-color: $green;
+    min-width: 14px;
+    width: 14px;
+    min-height: 14px;
+    border-radius: 7px;
+    font-size: 0.8em;
+  }
+
+  .tab-badge {
+      background-color: $red;
+      color: $light;
+      font-size: 0.7em;
+      padding: 0 2px;
   }

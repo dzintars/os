@@ -2,3 +2,27 @@
     height: auto;
     padding: 36px;
 }
+
+.app-summary-widget {
+    justify-content: center;
+    // border: 1px solid $light10;;
+    margin-left: 20px;
+    background-color: $light2;
+    width: 200px;
+    height: 80px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 2px 1px -1px rgba(0,0,0,.12);
+    & span {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        text-align: center;
+    }
+    & span:first-child {
+        font-size: 1.6em;
+        height: 100%;
+    }
+    & span:last-child {
+        height: 16px;
+        background-color: $light10;
+        font-size: 0.8em;
+    }
+}

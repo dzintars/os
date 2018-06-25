@@ -566,15 +566,22 @@ os-tabbar button {
   transition: 0.3s;
   background-color: #f2f2f2;
   border-bottom: 2px solid #e6e6e6;
+  color: #1a1a1a;
+  font-weight: 500;
 }
 
 os-tabbar button span {
   font-family: Montserrat, sans-serif;
 }
 
+os-tabbar button span a {
+  font-family: Montserrat, sans-serif;
+  text-decoration: unset;
+  color: #1a1a1a;
+}
+
 os-tabbar button span:last-child {
   margin-left: 4px;
-  background-color: #3EC300;
   color: white;
   font-weight: 500;
 }
@@ -594,38 +601,25 @@ os-tabbar button.active span {
 
 os-tabbar button.active span:last-child {
   margin-left: 4px;
-  background-color: #3EC300;
   color: white;
   font-weight: 500;
 }
 
 /* Style the tab */
-/* Style the tab content */
-.tabcontent {
-  display: none;
-  border-top: none;
+.tab-notification {
+  background-color: #3EC300;
+  min-width: 14px;
+  width: 14px;
+  min-height: 14px;
+  border-radius: 7px;
+  font-size: 0.8em;
 }
 
-.tabcontent {
-  animation: fadeEffect 1s;
-  /* Fading effect takes 1 second */
-}
-
-/* Go from zero to full opacity */
-@keyframes fadeEffect {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-.tab-notifications {
-  min-width: 16px;
-  width: 16px;
-  min-height: 16px;
-  border-radius: 8px;
+.tab-badge {
+  background-color: #E70E02;
+  color: white;
+  font-size: 0.7em;
+  padding: 0 2px;
 }
 
 .ico-16 {
@@ -1385,5 +1379,31 @@ table tbody [class*="tbl-row-"].selected {
 .app-crm-customer-profile-head {
   height: auto;
   padding: 36px;
+}
+
+.app-summary-widget {
+  justify-content: center;
+  margin-left: 20px;
+  background-color: #fafafa;
+  width: 200px;
+  height: 80px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+
+.app-summary-widget span {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  text-align: center;
+}
+
+.app-summary-widget span:first-child {
+  font-size: 1.6em;
+  height: 100%;
+}
+
+.app-summary-widget span:last-child {
+  height: 16px;
+  background-color: #e6e6e6;
+  font-size: 0.8em;
 }
 /*# sourceMappingURL=main.css.map */

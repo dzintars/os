@@ -14,6 +14,7 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm/dashboard", crmDashboardGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/projects", crmProjectsGetHandler).Methods("GET")
 }
 
@@ -161,6 +162,50 @@ func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.ExecuteTemplate(w, "mod-crm-customer-profile.html", struct {
+		Title     string
+		Customer  models.Customer
+		Mods      []models.Application
+		Projects  []models.Project
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "Oswee.com: CRM Projects",
+		Customer:  customer,
+		Mods:      modules,
+		Projects:  projects,
+		Shortcuts: shortcuts,
+	})
+}
+
+func crmCustomerProjectsHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["customerID"]
+
+	customer := models.GetCustomer(customerID)
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	projects, err := models.ListCustomerProjects(customerID)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "app-crm-customer-projects.html", struct {
 		Title     string
 		Customer  models.Customer
 		Mods      []models.Application
