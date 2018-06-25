@@ -34,15 +34,16 @@
     <os-container hbox>
         {{ template "inc-shortcut-bar" . }}
         <os-panel vbox>
-            <div>
-                <h1>Customer: {{ .Customer.Name}}</h1>
-                <p>Created: {{ .Customer.CreatedAt }}</p>
-            </div>
+            {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
             <os-toolbar hbox class="tab">
+                <button class="tablinks" onclick="openTab(event, 'Dashboard')">Dashboard</button>
                 <button class="tablinks" onclick="openTab(event, 'Quotes')">Quotes</button>
                 <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
-                <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'Projects')">Projects</button>
+                <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'Projects')">
+                    <span>Projects</span>
+                    <span class="tab-notifications">4</span>
+                </button>
                 <button class="tablinks" onclick="openTab(event, 'Invoices')">Invoices</button>
                 <button class="tablinks" onclick="openTab(event, 'Services')">Services</button>
                 <button class="tablinks" onclick="openTab(event, 'Warehouses')">Warehouses</button>
@@ -51,6 +52,11 @@
             </os-toolbar>
       
       <!-- Tab content -->
+      <div id="Dashboard" class="tabcontent">
+        <h3>Dashboard</h3>
+        <p>Dashboard is not implemented</p>
+      </div>
+
       <div id="Quotes" class="tabcontent">
         <h3>Quotes</h3>
         <p>Quotes are not implemented</p>
