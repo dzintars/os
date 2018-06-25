@@ -1,11 +1,12 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28">
-<title>start</title>
-<circle cx="4.2969" cy="4.2969" r="3.7969"/>
-<circle cx="14" cy="14" r="3.7969"/>
-<circle cx="4.2969" cy="14" r="3.7969"/>
-<circle cx="14" cy="4.2969" r="3.7969"/>
-<circle cx="23.7031" cy="4.2969" r="3.7969"/>
-<circle cx="23.7031" cy="14" r="3.7969"/>
-<circle cx="4.2969" cy="23.7031" r="3.7969"/>
-<circle cx="14" cy="23.7031" r="3.7969"/>
-<circle cx="23.7031" cy="23.7031" r="3.7969"/></svg>
+    <title>Applications</title>
+    <circle cx="4.2969" cy="4.2969" r="3.7969"/>
+    <circle cx="14" cy="14" r="3.7969"/>
+    <circle cx="4.2969" cy="14" r="3.7969"/>
+    <circle cx="14" cy="4.2969" r="3.7969"/>
+    <circle cx="23.7031" cy="4.2969" r="3.7969"/>
+    <circle cx="23.7031" cy="14" r="3.7969"/>
+    <circle cx="4.2969" cy="23.7031" r="3.7969"/>
+    <circle cx="14" cy="23.7031" r="3.7969"/>
+    <circle cx="23.7031" cy="23.7031" r="3.7969"/>
+</svg>

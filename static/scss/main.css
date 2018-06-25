@@ -132,8 +132,12 @@ button.signin {
 }
 
 button[open-launcher] {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   border: none;
-  min-width: 80px;
+  min-width: 36px;
   height: 100%;
   background-color: #006AFF;
   cursor: pointer;
@@ -142,6 +146,10 @@ button[open-launcher] {
   font-size: 1rem;
   vertical-align: center;
   margin-right: 8px;
+}
+
+button[open-launcher] svg {
+  fill: white;
 }
 
 os-button-toogle {
@@ -161,11 +169,6 @@ os-button-toogle:not([disabled]):active {
 
 os-button-toogle[disabled] {
   opacity: 0.35;
-}
-
-os-toolbar input, os-toolbar button {
-  height: 23px;
-  margin-left: 4px;
 }
 
 .container {
@@ -425,6 +428,16 @@ os-group[signup] a:hover {
   cursor: context-menu;
 }
 
+.app-name-path {
+  font-size: 1.2em;
+}
+
+.app-name-path a {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+  color: #1a1a1a;
+}
+
 os-toolbar {
   box-sizing: initial;
   height: 32px;
@@ -432,6 +445,13 @@ os-toolbar {
   align-items: center;
   background: #fafafa;
   border-bottom: 1px solid #e6e6e6;
+}
+
+os-toolbar input, os-toolbar button {
+  height: 24px;
+  min-width: 60px;
+  margin-left: 4px;
+  border-radius: 3px;
 }
 
 os-omnibox {
@@ -974,6 +994,7 @@ table tbody [class*="tbl-row-"].selected {
   cursor: context-menu;
   transition: 0.3s;
   background-color: #f2f2f2;
+  border-bottom: 2px solid #e6e6e6;
 }
 
 .tab button span {
@@ -1110,14 +1131,14 @@ table tbody [class*="tbl-row-"].selected {
 }
 
 .launcher-header-credentials-username {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-size: 1.2em;
   line-height: 1.6em;
 }
 
 .launcher-header-credentials-accountname {
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
   font-weight: 400;
   font-size: 0.8em;
   line-height: 1.2em;

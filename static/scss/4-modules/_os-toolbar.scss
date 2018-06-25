@@ -5,4 +5,10 @@ os-toolbar {
     align-items: center;
     background: $light2;
     border-bottom: 1px solid $light10;
+    & input, button {
+        height: 24px;
+        min-width: 60px; 
+        margin-left: 4px;
+        border-radius: 3px;
+    }
 }

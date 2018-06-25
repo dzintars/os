@@ -37,5 +37,16 @@
             </g>
         </g>
     </symbol>
+    <symbol id="i-9dots" viewBox="0 0 28 28">
+        <circle cx="4.2969" cy="4.2969" r="3.7969"/>
+        <circle cx="14" cy="14" r="3.7969"/>
+        <circle cx="4.2969" cy="14" r="3.7969"/>
+        <circle cx="14" cy="4.2969" r="3.7969"/>
+        <circle cx="23.7031" cy="4.2969" r="3.7969"/>
+        <circle cx="23.7031" cy="14" r="3.7969"/>
+        <circle cx="4.2969" cy="23.7031" r="3.7969"/>
+        <circle cx="14" cy="23.7031" r="3.7969"/>
+        <circle cx="23.7031" cy="23.7031" r="3.7969"/>
+    </symbol>
 
 </svg>

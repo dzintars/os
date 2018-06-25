@@ -126,3 +126,12 @@ os-group[signup] {
         cursor: context-menu;
     }
 }
+
+.app-name-path {
+    font-size: 1.2em;
+    & a {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+        color: $light90;
+    }
+}

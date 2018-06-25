@@ -26,8 +26,12 @@ button {
 }
 
 button[open-launcher] {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     border: none;
-    min-width: 80px;
+    min-width: 36px;
     height: 100%;
     background-color: $blue;
     cursor: pointer;
@@ -36,6 +40,9 @@ button[open-launcher] {
     font-size: 1rem;
     vertical-align: center;
     margin-right: 8px;
+    & svg {
+        fill: $light;
+    }
   }
 
   os-button-toogle {
@@ -54,10 +61,3 @@ button[open-launcher] {
   os-button-toogle[disabled] {
     opacity: 0.35;
   }
-
-  os-toolbar {
-    & input, button {
-        height: 23px;
-        margin-left: 4px;
-    }
-}
