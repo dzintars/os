@@ -1,0 +1,58 @@
+{{ template "tpl-app-head-x" . }}
+<os-viewport vbox>
+    <os-taskbarx>
+
+        <div slot="path" class="app-name-path">
+            <a href="/apps">APPS</a>
+            <span> / </span>
+            <a href="/apps/crm">CRM</a>
+            <span> / </span>
+            <a href="/apps/crm/customers">Customers</a>
+            <span> / </span>
+            <span class="active">New Customer</span>
+        </div>
+    </os-taskbarx>
+    <os-container hbox>
+        {{ template "inc-shortcut-bar" . }}
+        <os-panel vbox class="business-settings">
+            <div vbox class="business-settings-header">
+                <h1>CRM New Customer</h1>
+                <h3>Create new customer account</h3>
+            </div>
+            <os-panel vbox>
+                <os-omnibox style="align-self: center; vertical-align: middle;"></os-omnibox>
+            </os-panel>
+            <os-stepbar hbox>
+                <div class="active">
+                    <span>1. Search</span>
+                    <span>Search for an existing Oswee Account</span>
+                </div>
+                <div>
+                    <span>2. Select</span>
+                    <span>Select existing account or create new one</span>
+                </div>
+                <div>
+                    <span>3. Create</span>
+                    <span>Create new customer account</span>
+                </div>
+                <os-panel hbox></os-panel>
+                <a href="/apps/crm/customers">
+                    <button class="warning">Cancel</button>
+                </a>
+                <button class="success">Next</button>
+            </os-stepbar>
+        </os-panel>
+    </os-container>
+    <os-statusbar hbox>
+        <div expand></div>
+        <span class="app-version">Version 0.0.1 Updated 2018-06-26 by Oswee Inc.</span>
+        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
+        <svg class="i-icon">
+            <title>Report a bug</title>
+            <use xlink:href="/static/img/svg-icons/icons.svg#i-bug"></use>
+        </svg>
+    </os-statusbar>
+</os-viewport>
+
+{{ template "inc-launcher" . }}
+{{ template "tpl-app-bottom" . }}

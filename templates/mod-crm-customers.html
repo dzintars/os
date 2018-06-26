@@ -31,7 +31,7 @@
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-desktop"></use>
             </svg>
         </div>
-        <div class="app-control-icon alert">
+        <div class="app-control-icon danger">
             <svg id="btn-close-app" class="i-icon">
                 <title>Exit Application</title>
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use>
@@ -42,8 +42,10 @@
         {{ template "inc-shortcut-bar" . }}
         <os-workspace vbox>
             <os-toolbar hbox>
-                <button style="border: 1px solid #3EC300;">New</button>
-                <button style="border: 1px solid #E70E02;">Delete</button>
+                <a href="/apps/crm/customers/new">
+                    <button class="success">New</button>
+                </a>
+                <button class="danger">Delete</button>
             </os-toolbar>
             <os-container>
                 <os-sidebar vbox class="front-sidebar">
@@ -73,8 +75,8 @@
                             {{ range .Customers }}
                             <tr id="org-{{ .ID }}" data-id="{{ .ID }}">
                                 <!-- ToDo: Move styles to stylesheet -->
-                                <td id="recordID"><a href="/apps/crm/customers/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
-                                <td id="tbl-row"><a href="/apps/crm/customers/{{ .ID }}" style="text-decoration: unset; display:block;">{{ .Name }}</a></td>
+                                <td id="recordID"><a href="/apps/crm/customers/{{ .ID }}/profile" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
+                                <td id="tbl-row"><a href="/apps/crm/customers/{{ .ID }}/profile" style="text-decoration: unset; display:block;">{{ .Name }}</a></td>
                                 <td></td>
                                 <td></td>
                                 <td></td>

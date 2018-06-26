@@ -416,15 +416,11 @@ os-group[signup] a:hover {
   cursor: context-menu;
 }
 
-.app-control-icon:first-child {
-  margin-left: 8px;
-}
-
-.app-control-icon.alert {
+.app-control-icon.danger {
   background: #E70E02;
 }
 
-.app-control-icon.alert .i-icon {
+.app-control-icon.danger .i-icon {
   color: white;
 }
 
@@ -437,6 +433,11 @@ os-group[signup] a:hover {
   font-size: 1.2em;
 }
 
+.app-name-path span {
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
 .app-name-path a {
   font-family: Montserrat, sans-serif;
   font-weight: 400;
@@ -447,7 +448,10 @@ os-group[signup] a:hover {
 .app-name-path a:hover {
   text-decoration: underline;
   color: #006AFF;
-  font-weight: 400;
+}
+
+.app-name-path .active {
+  color: #006AFF;
 }
 
 os-toolbar {
@@ -532,6 +536,65 @@ os-row[signup-intro] {
 
 os-row[signup-intro] > * {
   align-self: center;
+}
+
+os-stepbar {
+  height: 60px;
+  border-top: 1px solid #e6e6e6;
+  align-content: center;
+}
+
+os-stepbar div {
+  height: 100%;
+  width: 180px;
+  min-width: 120px;
+  background: #f2f2f2;
+  color: #1a1a1a;
+  padding: 6px;
+  border-right: 1px solid #e6e6e6;
+}
+
+os-stepbar div.active {
+  background: #e6e6e6;
+  border-bottom: 3px solid #006AFF;
+}
+
+os-stepbar div span {
+  display: block;
+  font-family: Montserrat, sans-serif;
+  font-weight: 400;
+}
+
+os-stepbar div span:first-child {
+  font-size: 1em;
+}
+
+os-stepbar div span:last-child {
+  font-size: 0.8em;
+}
+
+os-stepbar a {
+  height: 100%;
+}
+
+os-stepbar a button {
+  height: 100%;
+}
+
+os-stepbar button {
+  float: right;
+  width: 100px;
+  color: white;
+  font-size: 1.2em;
+  font-weight: 300;
+}
+
+os-stepbar button.warning {
+  background-color: #FCBA04;
+}
+
+os-stepbar button.success {
+  background-color: #3EC300;
 }
 
 os-shortcutbar {

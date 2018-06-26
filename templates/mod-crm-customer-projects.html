@@ -1,11 +1,11 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-            <button id="btn-open-launcher" open-launcher>
-                <svg class="i-icon">
-                    <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
-                </svg>
-            </button>
+        <button id="btn-open-launcher" open-launcher>
+            <svg class="i-icon">
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
+            </svg>
+        </button>
         <div class="app-name-path">
             <a href="/apps">APPS</a>
             <span> / </span>
@@ -13,7 +13,7 @@
             <span> / </span>
             <a href="/apps/crm/customers">Customers</a>
             <span> / </span>
-            <a href="/apps/crm/customers/{{ .Customer.ID }}">{{ .Customer.Name }}</a>
+            <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">{{ .Customer.Name }}</a>
             <span> / </span>
             <a href="#">Projects</a>
         </div>
@@ -37,7 +37,7 @@
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-desktop"></use>
             </svg>
         </div>
-        <div class="app-control-icon alert">
+        <div class="app-control-icon danger">
             <svg id="btn-close-app" class="i-icon">
                 <title>Exit Application</title>
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use>
@@ -50,44 +50,27 @@
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
             <os-tabbar hbox>
-                <button class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-                <button class="tablinks" onclick="openTab(event, 'Dashboard')">
+                <button>
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">Profile</a>
+                    </span>
+                </button>
+                <button class="tablinks">
                         <span>Dashboard</span>
                         <span class="tab-badge">New</span>
                 </button>
-                <button class="tablinks" onclick="openTab(event, 'Quotes')">Quotes</button>
-                <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
-                <button id="defaultOpen" class="tablinks active" onclick="openTab(event, 'Projects')">
+                <button class="tablinks">Quotes</button>
+                <button class="tablinks">Orders</button>
+                <button id="defaultOpen" class="tablinks active">
                     <span>Projects</span>
                     <span class="tab-notification">4</span>
                 </button>
-                <button class="tablinks" onclick="openTab(event, 'Invoices')">Invoices</button>
-                <button class="tablinks" onclick="openTab(event, 'Services')">Services</button>
-                <button class="tablinks" onclick="openTab(event, 'Warehouses')">Warehouses</button>
-                <button class="tablinks" onclick="openTab(event, 'Locations')">Locations</button>
-                <button class="tablinks" onclick="openTab(event, 'Contacts')">Contacts</button>
+                <button class="tablinks">Invoices</button>
+                <button class="tablinks">Services</button>
+                <button class="tablinks">Warehouses</button>
+                <button class="tablinks">Locations</button>
+                <button class="tablinks">Contacts</button>
             </os-tabbar>
-      
-    <!-- Tab content -->
-    <div id="Profile" class="tabcontent">
-        <h3>Profile</h3>
-        <p>Profile is not implemented</p>
-    </div>
-
-    <div hbox id="Dashboard" class="tabcontent">
-        <h3>Dashboard</h3>
-        <p>Dashboard is not implemented</p>
-    </div>
-
-      <div id="Quotes" class="tabcontent">
-        <h3>Quotes</h3>
-        <p>Quotes are not implemented</p>
-      </div>
-      
-      <div id="Orders" class="tabcontent">
-        <h3>Orders</h3>
-        <p>Orders are not implemented</p> 
-      </div>
       
       <div id="Projects" class="tabcontent">
         <os-toolbar>
@@ -140,31 +123,6 @@
                 </tbody>
             </table>
         </div>
-              
-        <div id="Invoices" class="tabcontent">
-            <h3>Invoices</h3>
-            <p>Invoices are not implemented</p> 
-        </div>
-                
-        <div id="Services" class="tabcontent">
-            <h3>Services</h3>
-            <p>Services are not implemented</p> 
-        </div>
-                
-        <div id="Warehouses" class="tabcontent">
-            <h3>Warehouses</h3>
-            <p>Warehouses are not implemented</p> 
-        </div>
-                
-        <div id="Locations" class="tabcontent">
-            <h3>Locations</h3>
-            <p>Locations are not implemented</p> 
-        </div>
-                
-        <div id="Contacts" class="tabcontent">
-            <h3>Contacts</h3>
-            <p>Orders are not implemented</p> 
-        </div>
 
         </os-panel>
     </os-container>
@@ -181,28 +139,4 @@
     </os-statusbar>
 </os-viewport>
 {{ template "inc-launcher" . }}
-<script>
-  function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
 {{ template "tpl-app-bottom" . }}

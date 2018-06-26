@@ -1,0 +1,49 @@
+os-stepbar {
+    height: 60px;
+    border-top: 1px solid $light10;
+    align-content: center;
+    & div {
+        height: 100%;
+        width: 180px;
+        min-width: 120px;
+        background: $light5;
+        color: $light90;
+        padding: 6px;
+        border-right: 1px solid $light10;
+        &.active {
+            background: $light10;
+            border-bottom: 3px solid $blue;
+        }
+        & span {
+            display: block;
+            font-family: Montserrat, sans-serif;
+            font-weight: 400;
+            &:first-child {
+                font-size: 1em;
+            }
+            &:last-child {
+                font-size: 0.8em;
+            }
+        }
+    }
+    & a {
+        height: 100%;
+        & button {
+            height: 100%;
+        }
+    }
+
+    & button {
+        float: right;
+        width: 100px;
+        color: $light;
+        font-size: 1.2em;
+        font-weight: 300;
+        &.warning {
+            background-color: $orange;
+        }
+        &.success {
+            background-color: $green;
+        }
+    }
+}

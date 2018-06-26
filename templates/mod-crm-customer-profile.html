@@ -1,17 +1,19 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-            <button id="btn-open-launcher" open-launcher>
-                <svg class="i-icon">
-                    <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
-                </svg>
-            </button>
+        <button id="btn-open-launcher" open-launcher>
+            <svg class="i-icon">
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
+            </svg>
+        </button>
         <div class="app-name-path">
             <a href="/apps">APPS</a>
             <span> / </span>
             <a href="/apps/crm">CRM</a>
             <span> / </span>
             <a href="/apps/crm/customers">Customers</a>
+            <span> / </span>
+            <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">{{ .Customer.Name }}</a>
             <span> / </span>
             <a href="#">Profile</a>
         </div>
@@ -35,7 +37,7 @@
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-desktop"></use>
             </svg>
         </div>
-        <div class="app-control-icon alert">
+        <div class="app-control-icon danger">
             <svg id="btn-close-app" class="i-icon">
                 <title>Exit Application</title>
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-close"></use>
@@ -48,124 +50,55 @@
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
             <os-tabbar hbox>
-                <button id="defaultOpen" class="tablinks" onclick="openTab(event, 'Profile')">Profile</button>
-                <button class="tablinks" onclick="openTab(event, 'Dashboard')">
-                        <span>Dashboard</span>
-                        <span class="tab-badge">New</span>
+                <button class="tablinks active">Profile</button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/dashboard">Dashboard</a>
+                    </span>
+                    <span class="tab-badge">New</span>
                 </button>
-                <button class="tablinks" onclick="openTab(event, 'Quotes')">Quotes</button>
-                <button class="tablinks" onclick="openTab(event, 'Orders')">Orders</button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/quotes">Quotes</a>
+                    </span>
+                </button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/orders">Orders</a>
+                    </span>
+                </button>
                 <button>
                     <span>
                         <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Projects</a>
                     </span>
                     <span class="tab-notification">2</span>
                 </button>
-                <button class="tablinks" onclick="openTab(event, 'Invoices')">Invoices</button>
-                <button class="tablinks" onclick="openTab(event, 'Services')">Services</button>
-                <button class="tablinks" onclick="openTab(event, 'Warehouses')">Warehouses</button>
-                <button class="tablinks" onclick="openTab(event, 'Locations')">Locations</button>
-                <button class="tablinks" onclick="openTab(event, 'Contacts')">Contacts</button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Invoices</a>
+                    </span>
+                </button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Services</a>
+                    </span>
+                </button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Warehouses</a>
+                    </span>
+                </button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Locations</a>
+                    </span>
+                </button>
+                <button class="tablinks">
+                    <span>
+                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Contacts</a>
+                    </span>
+                </button>
             </os-tabbar>
-      
-    <!-- Tab content -->
-    <div id="Profile" class="tabcontent">
-        <h3>Profile</h3>
-        <p>Profile is not implemented</p>
-    </div>
-
-    <div hbox id="Dashboard" class="tabcontent">
-        <h3>Dashboard</h3>
-        <p>Dashboard is not implemented</p>
-    </div>
-
-      <div id="Quotes" class="tabcontent">
-        <h3>Quotes</h3>
-        <p>Quotes are not implemented</p>
-      </div>
-      
-      <div id="Orders" class="tabcontent">
-        <h3>Orders</h3>
-        <p>Orders are not implemented</p> 
-      </div>
-      
-      <div id="Projects" class="tabcontent">
-        <os-toolbar>
-            <button class="success">New</button>
-            <button class="primary">Edit</button>
-            <button class="danger">Delete</button>
-            <button class="default">Print</button>
-            <button class="default">Export</button>
-        </os-toolbar>
-            <table>
-                <colgroup>
-                    <col style="width: 40px;">
-                    <col style="width: 200px;">
-                    <col style="width: auto;">
-                    <col style="width: 200px;">
-                    <col style="width: 80px;">
-                    <col style="width: 80px;">
-                    <col style="width: 80px;">
-                    <col style="width: 80px;">
-                    <col style="width: 140px;">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th style="text-align: center;">ID</th>
-                        <th>Customer</th>
-                        <th>Name</th>
-                        <th>Service</th>
-                        <th>Units</th>
-                        <th>Amount</th>
-                        <th>Cost</th>
-                        <th>Profit</th>
-                        <th>Created at</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{ range .Projects }}
-                    <tr id="org-{{ .ID }}" data-id="{{ .ID }}">
-                        <!-- ToDo: Move styles to stylesheet -->
-                        <td id="recordID"><a href="/apps/crm/projects/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
-                        <td id="tbl-row">{{ .CustomerName }}</td>
-                        <td id="tbl-row">{{ .Name }}</td>
-                        <td id="tbl-row">{{ .ServiceTitle }}</td>
-                        <td id="tbl-row">{{ .Units }} pc.</td>
-                        <td id="tbl-row">{{ .Amount }} Eur</td>
-                        <td id="tbl-row">{{ .Cost }} Eur</td>
-                        <td id="tbl-row">{{ .Profit }} Eur</td>
-                        <td id="Name">{{ .CreatedAt }}</td>
-                    </tr>
-                    {{ end }}
-                </tbody>
-            </table>
-        </div>
-              
-        <div id="Invoices" class="tabcontent">
-            <h3>Invoices</h3>
-            <p>Invoices are not implemented</p> 
-        </div>
-                
-        <div id="Services" class="tabcontent">
-            <h3>Services</h3>
-            <p>Services are not implemented</p> 
-        </div>
-                
-        <div id="Warehouses" class="tabcontent">
-            <h3>Warehouses</h3>
-            <p>Warehouses are not implemented</p> 
-        </div>
-                
-        <div id="Locations" class="tabcontent">
-            <h3>Locations</h3>
-            <p>Locations are not implemented</p> 
-        </div>
-                
-        <div id="Contacts" class="tabcontent">
-            <h3>Contacts</h3>
-            <p>Orders are not implemented</p> 
-        </div>
-
         </os-panel>
     </os-container>
     <os-statusbar hbox>
@@ -181,28 +114,4 @@
     </os-statusbar>
 </os-viewport>
 {{ template "inc-launcher" . }}
-<script>
-  function openTab(evt, tabName) {
-    // Declare all variables
-    var i, tabcontent, tablinks;
-
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-
-    // Get all elements with class="tablinks" and remove the class "active"
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tabName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
 {{ template "tpl-app-bottom" . }}

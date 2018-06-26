@@ -111,10 +111,7 @@ os-group[signup] {
     place-items: center;
     background: $light50;
     cursor: context-menu;
-    &:first-child {
-        margin-left: 8px;
-    }
-    &.alert {
+    &.danger {
         background: $red;
         & .i-icon {
             color: $light;
@@ -129,6 +126,10 @@ os-group[signup] {
 
 .app-name-path {
     font-size: 1.2em;
+    & span {
+        font-family: Montserrat, sans-serif;
+        font-weight: 400;
+    }
     & a {
         font-family: Montserrat, sans-serif;
         font-weight: 400;
@@ -137,7 +138,9 @@ os-group[signup] {
         &:hover {
             text-decoration: underline;
             color: $blue;
-            font-weight: 400;
         }
+    }
+    & .active {
+        color: $blue;
     }
 }

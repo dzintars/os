@@ -13,8 +13,10 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm", crmGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/dashboard", crmDashboardGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/new", crmCustomersNewHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/profile", crmCustomerProfileHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/projects", crmProjectsGetHandler).Methods("GET")
 }
 
@@ -156,6 +158,37 @@ func crmProjectsGetHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func crmCustomersNewHandler(w http.ResponseWriter, r *http.Request) {
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-customers-new.html", struct {
+		Title     string
+		Customer  models.Customer
+		Mods      []models.Application
+		Projects  []models.Project
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "CRM Customers New",
+		Mods:      modules,
+		Shortcuts: shortcuts,
+	})
+}
+
 func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	customerID := vars["id"]
@@ -240,6 +273,41 @@ func crmCustomerProjectsHandler(w http.ResponseWriter, r *http.Request) {
 		Customer:  customer,
 		Mods:      modules,
 		Projects:  projects,
+		Shortcuts: shortcuts,
+	})
+}
+
+func crmCustomerProfileHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["customerID"]
+
+	customer := models.GetCustomer(customerID)
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-customer-profile.html", struct {
+		Title     string
+		Customer  models.Customer
+		Mods      []models.Application
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "CRM Customer Profile",
+		Customer:  customer,
+		Mods:      modules,
 		Shortcuts: shortcuts,
 	})
 }
