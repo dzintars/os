@@ -3,7 +3,7 @@
 <os-group vbox class="front-sidebar-sections">
     {{ range .Apps}}
     <!-- ToDo: I need to create .active class to set styling for currently active section -->
-        <a href="{{ .RelativeURL }}" title="{{ .ShortDescription }}">
+        <a href="{{ .Permalink }}" title="{{ .ShortDescription }}">
             <!-- ToDo: Probably I need to chage this to <i> tag with some icon class -->
             <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
             <span>{{ .ShortName }}</span>

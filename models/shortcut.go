@@ -8,7 +8,7 @@ type Shortcut struct {
 	Order         int    `json:"order"`
 	CreatedAt     string `json:"createdAt"`
 	Name          string `json:"name"`
-	RelativeURL   string `json:"relativeURL"`
+	Permalink     string `json:"permalink"`
 	Bcolor        string `json:"bcolor"`
 	IconName      string `json:"iconName"`
 }
@@ -21,7 +21,7 @@ func ListShortcuts() ([]Shortcut, error) {
 	os_account_shortcuts.order,
 	os_account_shortcuts.created_at,
 	sys_applications.short_name AS name,
-	sys_applications.relative_url AS relative_url,
+	sys_applications.permalink AS permalink,
 	sys_applications.background_color AS bcolor,
 	sys_applications.icon_name
   FROM os_account_shortcuts
@@ -42,12 +42,12 @@ func ListShortcuts() ([]Shortcut, error) {
 			order         int
 			createdAt     string
 			name          string
-			relativeURL   string
+			permalink     string
 			bcolor        string
 			iconName      string
 		)
 
-		err := rows.Scan(&id, &applicationID, &order, &createdAt, &name, &relativeURL, &bcolor, &iconName)
+		err := rows.Scan(&id, &applicationID, &order, &createdAt, &name, &permalink, &bcolor, &iconName)
 		checkErr(err)
 
 		s.ID = id
@@ -55,7 +55,7 @@ func ListShortcuts() ([]Shortcut, error) {
 		s.Order = order
 		s.CreatedAt = createdAt
 		s.Name = name
-		s.RelativeURL = relativeURL
+		s.Permalink = permalink
 		s.Bcolor = bcolor
 		s.IconName = iconName
 

@@ -14,13 +14,13 @@ type Application struct {
 	Visibility       int    `json:"visibility"`
 	Bcolor           string `json:"bcolor"`
 	PrettyTitle      string `json:"prettyTitle"`
-	RelativeURL      string `json:"relativeURL"`
+	Permalink        string `json:"permalink"`
 	IconName         string `json:"icon"`
 }
 
 // ListApplications is function to retrieve a full list of all users
 func ListApplications(visibility int) ([]Application, error) {
-	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, relative_url, short_description, icon_name FROM sys_applications WHERE visibility=? ORDER BY sys_applications.sequence;`
+	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, permalink, short_description, icon_name FROM sys_applications WHERE visibility=? ORDER BY sys_applications.sequence;`
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, visibility)
@@ -37,12 +37,12 @@ func ListApplications(visibility int) ([]Application, error) {
 			fullName         string
 			visibility       int
 			bcolor           string
-			relativeURL      string
+			permalink        string
 			shortDescription string
 			iconName         string
 		)
 
-		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &relativeURL, &shortDescription, &iconName)
+		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &permalink, &shortDescription, &iconName)
 		checkErr(err)
 
 		app.ID = id
@@ -52,7 +52,7 @@ func ListApplications(visibility int) ([]Application, error) {
 		app.Visibility = visibility
 		app.Bcolor = bcolor
 		app.PrettyTitle = helpers.PrettyLinks(shortName)
-		app.RelativeURL = relativeURL
+		app.Permalink = permalink
 		app.ShortDescription = shortDescription
 		app.IconName = iconName
 
@@ -64,7 +64,7 @@ func ListApplications(visibility int) ([]Application, error) {
 
 // ListChildApplications is function to retrieve a list of all applications based on requested parent
 func ListChildApplications(parentID int) ([]Application, error) {
-	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, relative_url, short_description, icon_name FROM sys_applications WHERE parent_id=? ORDER BY sys_applications.sequence;`
+	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, permalink, short_description, icon_name FROM sys_applications WHERE parent_id=? ORDER BY sys_applications.sequence;`
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, parentID)
@@ -81,12 +81,12 @@ func ListChildApplications(parentID int) ([]Application, error) {
 			fullName         string
 			visibility       int
 			bcolor           string
-			relativeURL      string
+			permalink        string
 			shortDescription string
 			iconName         string
 		)
 
-		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &relativeURL, &shortDescription, &iconName)
+		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &permalink, &shortDescription, &iconName)
 		checkErr(err)
 
 		app.ID = id
@@ -96,7 +96,7 @@ func ListChildApplications(parentID int) ([]Application, error) {
 		app.Visibility = visibility
 		app.Bcolor = bcolor
 		app.PrettyTitle = helpers.PrettyLinks(shortName)
-		app.RelativeURL = relativeURL
+		app.Permalink = permalink
 		app.ShortDescription = shortDescription
 		app.IconName = iconName
 

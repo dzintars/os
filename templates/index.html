@@ -2,7 +2,7 @@
 <os-viewport vbox>
     <os-taskbar hbox>
         {{ range .Apps }}
-        <a class="front-section-links" href="{{ .RelativeURL }}">
+        <a class="front-section-links" href="{{ .Permalink }}">
             <span>{{ .ShortName }}</span>
         </a>
         {{ end}}
