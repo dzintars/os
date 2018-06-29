@@ -15,12 +15,14 @@
     <os-container hbox>
         {{ template "inc-shortcut-bar" . }}
         <os-panel vbox class="business-settings">
-            <div vbox class="business-settings-header">
-                <h1>CRM New Customer</h1>
-                <h3>Create new customer account</h3>
-            </div>
-            <os-panel vbox>
-                <os-omnibox style="align-self: center; vertical-align: middle;"></os-omnibox>
+            <form action="/apps/crm/customers/new" method="POST">
+                <div vbox class="business-settings-header">
+                    <h1>CRM New Customer</h1>
+                    <h3>Create new customer account</h3>
+                </div>
+                <os-panel vbox>
+                <input type="text" name="account-name" placeholder="Account Name">
+
             </os-panel>
             <os-stepbar hbox>
                 <div class="active">
@@ -40,7 +42,9 @@
                     <button class="warning">Cancel</button>
                 </a>
                 <button class="success">Next</button>
+                <input type="submit" value="Create" class="success">
             </os-stepbar>
+        </form>
         </os-panel>
     </os-container>
     <os-statusbar hbox>

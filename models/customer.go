@@ -1,5 +1,11 @@
 package models
 
+import (
+	"database/sql"
+	"fmt"
+	"log"
+)
+
 // Customer struct
 type Customer struct {
 	ID        int    `json:"ID"`
@@ -21,6 +27,8 @@ func ListCustomers() ([]Customer, error) {
 	// ToDo: Handle error
 	checkErr(err)
 
+	defer rows.Close()
+
 	c := Customer{}
 	cs := []Customer{}
 
@@ -31,7 +39,7 @@ func ListCustomers() ([]Customer, error) {
 			createdAt string
 		)
 
-		err := rows.Scan(&id, &name, &createdAt)
+		err = rows.Scan(&id, &name, &createdAt)
 		// ToDo: Handle error
 		checkErr(err)
 
@@ -41,15 +49,19 @@ func ListCustomers() ([]Customer, error) {
 
 		cs = append(cs, c)
 	}
+	err = rows.Err()
+	if err != nil {
+		panic(err)
+	}
 	defer db.Close()
 
-	return cs, nil
+	return cs, err
 }
 
 // GetCustomer function return list of all customers
-func GetCustomer(id string) Customer {
+func GetCustomer(customerID string) Customer {
 
-	thisCustomer := Customer{}
+	var customer Customer
 
 	getCustomer := `SELECT
 			id,
@@ -59,9 +71,26 @@ func GetCustomer(id string) Customer {
 		WHERE os_customers.id = ?`
 
 	db := dbLoc()
-	err := db.QueryRow(getCustomer, id).Scan(&thisCustomer.ID, &thisCustomer.Name, &thisCustomer.CreatedAt)
-	// ToDo: Handle error
-	checkErr(err)
+	row := db.QueryRow(getCustomer, customerID)
+	switch err := row.Scan(&customer.ID, &customer.Name, &customer.CreatedAt); err {
+	case sql.ErrNoRows:
+		fmt.Println("No rows were returned!")
+	case nil:
+		fmt.Println("Customer:", customer, "were returned")
+	default:
+		panic(err)
+	}
 	defer db.Close()
-	return thisCustomer
+	return customer
+}
+
+// CustomerCreate creates a new customer account
+func CustomerCreate(accName string) {
+	newCustomer := `INSERT INTO os_customers(name) VALUES(?)`
+	db := dbLoc()
+	sql, err := db.Prepare(newCustomer)
+	if err != nil {
+		log.Println(err)
+	}
+	sql.Exec(accName)
 }

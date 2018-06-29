@@ -1,6 +1,8 @@
 package routes
 
 import (
+	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/gorilla/mux"
@@ -14,6 +16,7 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm/dashboard", crmDashboardGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/new", crmCustomersNewHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/new", crmCustomerCreateHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/profile", crmCustomerProfileHandler).Methods("GET")
@@ -189,6 +192,20 @@ func crmCustomersNewHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
+func crmCustomerCreateHandler(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err.Error)
+	}
+	//name := r.PostForm.Get("account-name")
+	accName := r.FormValue("account-name")
+	// Database function goes there
+	models.CustomerCreate(accName)
+
+	fmt.Println("New customer created: ")
+	http.Redirect(w, r, "/apps/crm/customers", 302)
+}
+
 func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	customerID := vars["id"]
@@ -299,15 +316,24 @@ func crmCustomerProfileHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	tabs, err := models.ListChildApplications(14)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
 	utils.ExecuteTemplate(w, "mod-crm-customer-profile.html", struct {
 		Title     string
 		Customer  models.Customer
 		Mods      []models.Application
 		Shortcuts []models.Shortcut
+		Tabs      []models.Application
 	}{
 		Title:     "CRM Customer Profile",
 		Customer:  customer,
 		Mods:      modules,
 		Shortcuts: shortcuts,
+		Tabs:      tabs,
 	})
 }
