@@ -200,9 +200,9 @@ func crmCustomerCreateHandler(w http.ResponseWriter, r *http.Request) {
 	//name := r.PostForm.Get("account-name")
 	accName := r.FormValue("account-name")
 	// Database function goes there
-	models.CustomerCreate(accName)
+	lastID, err := models.CustomerCreate(accName)
 
-	fmt.Println("New customer created: ")
+	fmt.Println("New customer created: ", lastID)
 	http.Redirect(w, r, "/apps/crm/customers", 302)
 }
 

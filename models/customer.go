@@ -85,12 +85,21 @@ func GetCustomer(customerID string) Customer {
 }
 
 // CustomerCreate creates a new customer account
-func CustomerCreate(accName string) {
+func CustomerCreate(accName string) (lastID int64, err error) {
 	newCustomer := `INSERT INTO os_customers(name) VALUES(?)`
 	db := dbLoc()
 	sql, err := db.Prepare(newCustomer)
 	if err != nil {
 		log.Println(err)
 	}
-	sql.Exec(accName)
+	res, err := sql.Exec(accName)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	lastID, err = res.LastInsertId()
+	if err != nil {
+		log.Fatal(err)
+	}
+	return lastID, err
 }
