@@ -50,60 +50,61 @@
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
             <os-tabbar hbox>
-                <button class="tablinks active">Profile</button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/dashboard">Dashboard</a>
-                    </span>
-                    <span class="tab-badge">New</span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/quotes">Quotes</a>
-                    </span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/orders">Orders</a>
-                    </span>
-                </button>
-                <button>
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Projects</a>
-                    </span>
-                    <span class="tab-notification">2</span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Invoices</a>
-                    </span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Services</a>
-                    </span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Warehouses</a>
-                    </span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Locations</a>
-                    </span>
-                </button>
-                <button class="tablinks">
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Contacts</a>
-                    </span>
-                </button>
+                <os-group hbox class="tabs">
+                    <button class="tablinks active">Profile</button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/dashboard">Dashboard</a>
+                        </span>
+                        <span class="tab-badge">New</span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/quotes">Quotes</a>
+                        </span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/orders">Orders</a>
+                        </span>
+                    </button>
+                    <button>
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Projects</a>
+                        </span>
+                        <span class="tab-notification">2</span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Invoices</a>
+                        </span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Services</a>
+                        </span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Warehouses</a>
+                        </span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Locations</a>
+                        </span>
+                    </button>
+                    <button class="tablinks">
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Contacts</a>
+                        </span>
+                    </button>
+                </os-group>
+                <os-group hbox></os-group>
             </os-tabbar>
         </os-panel>
     </os-container>
     <os-statusbar hbox>
-        <div style="background: #CA3CFF"><a href="#">{{ .Title }}</a></div>
-
         <div expand></div>
         <span class="app-version">Version 0.0.2 Updated 2018-06-26 by Oswee Inc.</span>
         <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>

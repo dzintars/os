@@ -4,7 +4,7 @@ panel.innerHTML = `
     <style>
     :host {
         display: flex;
-        flex-grow: 1;
+        flex: 1;
     }
     :host([hbox]) {
         flex-direction: row;

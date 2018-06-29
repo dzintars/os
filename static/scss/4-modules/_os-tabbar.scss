@@ -1,13 +1,21 @@
 os-tabbar {
     overflow: hidden;
-    background-color: $light2;
+    background-color: $light;
     height: 28px;
     align-items: flex-end;
-    border-bottom: 1px solid $light10;
+    & os-group {
+        &.tabs {
+            border-bottom: none;
+        }
+        &:last-child {
+            flex-grow: 1;
+            border-bottom: 1px solid $light5;
+        }
+    }
     & button {
         display: flex;
         flex-direction: row;
-        background-color: $light10;
+        background-color: $light5;
         height: 24px;
         margin-right: 1px;
         float: left;
@@ -32,6 +40,7 @@ os-tabbar {
         }
         &:hover {
             background-color: $light10;
+            border-bottom: 2px solid #5CA0FF;
         }
         &.active {
             background-color: #e6e6e6;

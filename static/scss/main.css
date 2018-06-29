@@ -28,7 +28,7 @@
   box-sizing: border-box;
 }
 
-html, body {
+html, body, form {
   padding: unset;
   margin: unset;
   overflow: hidden;
@@ -459,7 +459,7 @@ os-toolbar {
   height: 32px;
   min-height: 32px;
   align-items: center;
-  background: #fafafa;
+  background: white;
   border-bottom: 1px solid #e6e6e6;
 }
 
@@ -612,16 +612,24 @@ os-shortcutbar div {
 
 os-tabbar {
   overflow: hidden;
-  background-color: #fafafa;
+  background-color: white;
   height: 28px;
   align-items: flex-end;
-  border-bottom: 1px solid #e6e6e6;
+}
+
+os-tabbar os-group.tabs {
+  border-bottom: none;
+}
+
+os-tabbar os-group:last-child {
+  flex-grow: 1;
+  border-bottom: 1px solid #f2f2f2;
 }
 
 os-tabbar button {
   display: flex;
   flex-direction: row;
-  background-color: #e6e6e6;
+  background-color: #f2f2f2;
   height: 24px;
   margin-right: 1px;
   float: left;
@@ -651,6 +659,7 @@ os-tabbar button span:last-child {
 
 os-tabbar button:hover {
   background-color: #e6e6e6;
+  border-bottom: 2px solid #5CA0FF;
 }
 
 os-tabbar button.active {
@@ -930,11 +939,6 @@ os-tabbar button.active span:last-child {
   display: flex;
 }
 
-form {
-  margin: unset;
-  padding: 5px;
-}
-
 form legend {
   font-size: 0.8em;
 }
@@ -1109,7 +1113,6 @@ table tbody [class*="tbl-row-"].selected {
 }
 
 .business-settings {
-  background: #fafafa;
   overflow: auto;
 }
 
@@ -1440,14 +1443,17 @@ table tbody [class*="tbl-row-"].selected {
 }
 
 .app-crm-customer-profile-head {
-  height: auto;
-  padding: 36px;
+  height: 200px;
+}
+
+.app-crm-customer-profile-head os-panel {
+  padding: 20px;
 }
 
 .app-summary-widget {
   justify-content: center;
   margin-left: 20px;
-  background-color: #fafafa;
+  background-color: #f7f7f7;
   width: 200px;
   height: 80px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
@@ -1468,5 +1474,25 @@ table tbody [class*="tbl-row-"].selected {
   height: 16px;
   background-color: #e6e6e6;
   font-size: 0.8em;
+}
+
+.business-settings form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 2;
+}
+
+.business-settings form input {
+  height: 24px;
+  width: 600px;
+  min-width: 600px;
+  background: #f7f7f7;
+  border: 1px solid #cccccc;
+  margin: 20px;
+}
+
+.business-settings form input.lg {
+  height: 28px;
+  border-radius: 3px;
 }
 /*# sourceMappingURL=main.css.map */

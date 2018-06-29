@@ -50,26 +50,29 @@
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
             <os-tabbar hbox>
-                <button>
-                    <span>
-                        <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">Profile</a>
-                    </span>
-                </button>
-                <button class="tablinks">
-                        <span>Dashboard</span>
-                        <span class="tab-badge">New</span>
-                </button>
-                <button class="tablinks">Quotes</button>
-                <button class="tablinks">Orders</button>
-                <button id="defaultOpen" class="tablinks active">
-                    <span>Projects</span>
-                    <span class="tab-notification">4</span>
-                </button>
-                <button class="tablinks">Invoices</button>
-                <button class="tablinks">Services</button>
-                <button class="tablinks">Warehouses</button>
-                <button class="tablinks">Locations</button>
-                <button class="tablinks">Contacts</button>
+                <os-group hbox class="tabs">
+                    <button>
+                        <span>
+                            <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">Profile</a>
+                        </span>
+                    </button>
+                    <button class="tablinks">
+                            <span>Dashboard</span>
+                            <span class="tab-badge">New</span>
+                    </button>
+                    <button class="tablinks">Quotes</button>
+                    <button class="tablinks">Orders</button>
+                    <button id="defaultOpen" class="tablinks active">
+                        <span>Projects</span>
+                        <span class="tab-notification">4</span>
+                    </button>
+                    <button class="tablinks">Invoices</button>
+                    <button class="tablinks">Services</button>
+                    <button class="tablinks">Warehouses</button>
+                    <button class="tablinks">Locations</button>
+                    <button class="tablinks">Contacts</button>
+                </os-group>
+                <os-group hbox></os-group>
             </os-tabbar>
       
       <div id="Projects" class="tabcontent">

@@ -1,6 +1,9 @@
 .app-crm-customer-profile-head {
-    height: auto;
-    padding: 36px;
+    height: 200px;
+    & os-panel {
+        padding: 20px;
+
+    }
 }
 
 .app-summary-widget {
@@ -24,5 +27,25 @@
         height: 16px;
         background-color: $light10;
         font-size: 0.8em;
+    }
+}
+
+.business-settings {
+    & form {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 2;
+        & input {
+            height: 24px;
+            width: 600px;
+            min-width: 600px;
+            background: $light2;
+            border: 1px solid $light20;
+            margin: 20px;
+            &.lg {
+                height: 28px;
+                border-radius: 3px;
+            }
+        }
     }
 }
