@@ -105,3 +105,32 @@
     color: $light60;
   }
 }
+
+.about-page {
+  & form {
+    margin: 20px 0;
+    & input, textarea {
+      display: block;
+      margin: 10px 0;
+      height: 28px;
+      width: 200px;
+      border-radius: 3px;
+      background: $light5;
+      border: 1px solid $light10;
+      font-family: Montserrat, sans-serif;
+      font-weight: 300;
+      &:focus {
+        border: 1px solid $blue;
+      }
+      &:last-child {
+        background: $blue;
+        color: $light;
+        width: 60px;
+      }
+    }
+    & textarea {
+      height: 60px;
+      width: 600px;
+    }
+  }
+}

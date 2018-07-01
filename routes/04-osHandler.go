@@ -2,6 +2,7 @@ package routes
 
 import (
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -19,6 +20,7 @@ func osHandler(r *mux.Router) {
 	r.HandleFunc("/search", searchGetHandler).Methods("GET")
 	r.HandleFunc("/search", searchPostHandler).Methods("POST")
 	r.HandleFunc("/about", aboutGetHandler).Methods("GET")
+	r.HandleFunc("/about", aboutPostHandler).Methods("POST")
 	r.HandleFunc("/apps", appsGetHandler).Methods("GET")
 }
 
@@ -74,6 +76,21 @@ func aboutGetHandler(w http.ResponseWriter, r *http.Request) {
 	}{
 		Title: "Oswee.com: About",
 	})
+}
+
+func aboutPostHandler(w http.ResponseWriter, r *http.Request) {
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err.Error)
+	}
+	//name := r.PostForm.Get("account-name")
+	email := r.FormValue("email")
+	message := r.FormValue("message")
+	// Database function goes there
+	lastID, err := models.MessageCreate(email, message)
+
+	fmt.Println("New message received: ", lastID)
+	http.Redirect(w, r, "/about", 302)
 }
 
 func appsGetHandler(w http.ResponseWriter, r *http.Request) {

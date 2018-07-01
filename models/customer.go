@@ -22,7 +22,8 @@ func ListCustomers() ([]Customer, error) {
 			id,
 			name,
 			created_at
-		FROM os_customers`
+		FROM os_customers
+		WHERE deleted=0`
 
 	db := dbLoc()
 	rows, err := db.Query(getCustomers)

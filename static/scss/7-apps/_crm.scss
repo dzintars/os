@@ -42,6 +42,9 @@
             background: $light2;
             border: 1px solid $light10;
             margin: 20px;
+            &:focus {
+                border: 1px solid $blue;
+            }
             &.lg {
                 height: 28px;
                 border-radius: 3px;

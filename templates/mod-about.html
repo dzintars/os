@@ -8,7 +8,7 @@
         <os-panel hbox></os-panel>
         {{ template "inc-authentication-form" . }}
     </os-taskbar>
-    <os-container>
+    <os-container class="about-page">
         <os-row vbox style="padding: 20px 160px;">
             <h1>About Project</h1>
             <p>This is my personal test environment while learning programming.<br>
@@ -22,6 +22,11 @@
             <p>If you are passionated GOlang developer and you would like join to the development, you can find me online.</p>
             <h1>Disclaimer</h1>
             <p>This project can be deleted or modified at any time and you should not to use it!</p>
+            <form method="POST">
+                <input type="email" name="email" placeholder="email@example.com">
+                <textarea name="message"cols="30" rows="6" placeholder="Your message to me"></textarea>
+                <input type="submit" value="Send">
+            </form>
         </os-row>
     </os-container>
     <os-statusbar hbox>

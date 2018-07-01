@@ -1160,6 +1160,37 @@ table tbody [class*="tbl-row-"].selected {
   color: #666666;
 }
 
+.about-page form {
+  margin: 20px 0;
+}
+
+.about-page form input, .about-page form textarea {
+  display: block;
+  margin: 10px 0;
+  height: 28px;
+  width: 200px;
+  border-radius: 3px;
+  background: #f2f2f2;
+  border: 1px solid #e6e6e6;
+  font-family: Montserrat, sans-serif;
+  font-weight: 300;
+}
+
+.about-page form input:focus, .about-page form textarea:focus {
+  border: 1px solid #006AFF;
+}
+
+.about-page form input:last-child, .about-page form textarea:last-child {
+  background: #006AFF;
+  color: white;
+  width: 60px;
+}
+
+.about-page form textarea {
+  height: 60px;
+  width: 600px;
+}
+
 .os1-start-menu {
   position: fixed;
   top: 37px;
@@ -1493,6 +1524,10 @@ table tbody [class*="tbl-row-"].selected {
   background: #f7f7f7;
   border: 1px solid #e6e6e6;
   margin: 20px;
+}
+
+.business-settings form input:focus {
+  border: 1px solid #006AFF;
 }
 
 .business-settings form input.lg {

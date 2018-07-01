@@ -9,6 +9,8 @@
             <span> / </span>
             <a href="/apps/crm/customers">Customers</a>
             <span> / </span>
+            <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">{{ .Customer.Name }}</a>
+            <span> / </span>
             <span class="active">Update Customer</span>
         </div>
     </os-taskbarx>
@@ -17,8 +19,8 @@
         <os-workspace vbox class="business-settings">
             <form method="POST">
                 <div vbox class="business-settings-header">
-                    <h1>CRM New Customer</h1>
-                    <h3>Create new customer account</h3>
+                    <h1>CRM Update Customer</h1>
+                    <h3>Update customer account details</h3>
                 </div>
                 <os-panel vbox>
                     <input type="text" value="{{ .Customer.Name }}" name="account-name" placeholder="Account Name" class="lg" autofocus>
@@ -42,7 +44,7 @@
                         <button class="warning">Cancel</button>
                     </a>
                     <!-- <button class="success">Next</button> -->
-                    <button type="submit" value="Save" class="primary">Save</button>
+                    <button type="submit" value="Update" class="primary">Update</button>
                 </os-stepbar>
             </form>
         </os-workspace>
