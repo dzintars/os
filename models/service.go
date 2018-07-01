@@ -1,5 +1,7 @@
 package models
 
+import "github.com/oswee/os/helpers"
+
 // Service struct
 type Service struct {
 	ID          int     `json:"ID"`
@@ -15,7 +17,7 @@ func ListServices() ([]Service, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getServices)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	srv := Service{}
 	res := []Service{}
@@ -27,7 +29,7 @@ func ListServices() ([]Service, error) {
 		var unitPrice float32
 
 		err := rows.Scan(&ID, &title, &description, &unitPrice)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		srv.ID = ID
 		srv.Title = title

@@ -1487,7 +1487,7 @@ table tbody [class*="tbl-row-"].selected {
   width: 600px;
   min-width: 600px;
   background: #f7f7f7;
-  border: 1px solid #cccccc;
+  border: 1px solid #e6e6e6;
   margin: 20px;
 }
 

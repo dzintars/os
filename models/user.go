@@ -1,5 +1,7 @@
 package models
 
+import "github.com/oswee/os/helpers"
+
 // User struct
 type User struct {
 	ID        int    `json:"id"`
@@ -19,7 +21,7 @@ func ListUsers() ([]User, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getUsers)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	u := User{}
 	us := []User{}
@@ -34,7 +36,7 @@ func ListUsers() ([]User, error) {
 		)
 
 		err := rows.Scan(&id, &name, &username, &createdAt)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		u.ID = id
 		u.Name = name

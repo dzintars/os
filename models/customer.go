@@ -4,6 +4,8 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+
+	"github.com/oswee/os/helpers"
 )
 
 // Customer struct
@@ -25,7 +27,7 @@ func ListCustomers() ([]Customer, error) {
 	db := dbLoc()
 	rows, err := db.Query(getCustomers)
 	// ToDo: Handle error
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	defer rows.Close()
 
@@ -41,7 +43,7 @@ func ListCustomers() ([]Customer, error) {
 
 		err = rows.Scan(&id, &name, &createdAt)
 		// ToDo: Handle error
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		c.ID = id
 		c.Name = name
@@ -102,4 +104,19 @@ func CustomerCreate(accName string) (lastID int64, err error) {
 		log.Fatal(err)
 	}
 	return lastID, err
+}
+
+// CustomerUpdate updates customer account information
+func CustomerUpdate(accName, customerID string) error {
+	updateCustomer := `UPDATE os_customers SET name =? WHERE id=?`
+	db := dbLoc()
+	sql, err := db.Prepare(updateCustomer)
+	if err != nil {
+		log.Println(err)
+	}
+	_, err = sql.Exec(sql, accName, customerID)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return err
 }

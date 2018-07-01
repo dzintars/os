@@ -24,7 +24,7 @@ func ListApplications(visibility int) ([]Application, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, visibility)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	app := Application{}
 	res := []Application{}
@@ -43,7 +43,7 @@ func ListApplications(visibility int) ([]Application, error) {
 		)
 
 		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &permalink, &shortDescription, &iconName)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		app.ID = id
 		app.Sequence = sequence
@@ -68,7 +68,7 @@ func ListChildApplications(parentID int) ([]Application, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, parentID)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	app := Application{}
 	res := []Application{}
@@ -87,7 +87,7 @@ func ListChildApplications(parentID int) ([]Application, error) {
 		)
 
 		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &permalink, &shortDescription, &iconName)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		app.ID = id
 		app.Sequence = sequence

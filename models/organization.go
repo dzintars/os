@@ -26,7 +26,7 @@ func ListOrganizations() ([]Organization, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getOrganizations)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	org := Organization{}
 	res := []Organization{}
@@ -47,7 +47,7 @@ func ListOrganizations() ([]Organization, error) {
 		)
 
 		err := rows.Scan(&ID, &legalID, &name, &form, &addressLegal, &verificationLevel, &color, &vatRegistrationID, &lat, &lng)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		org.ID = ID
 		org.LegalID = legalID
@@ -84,7 +84,7 @@ func GetOrganization(id string) ([]Organization, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getOrganizations, id)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	org := Organization{}
 	res := []Organization{}
@@ -103,7 +103,7 @@ func GetOrganization(id string) ([]Organization, error) {
 		)
 
 		err := rows.Scan(&ID, &legalID, &name, &form, &addressLegal, &verificationLevel, &color, &vatRegistrationID)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		org.ID = ID
 		org.LegalID = legalID

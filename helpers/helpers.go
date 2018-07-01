@@ -11,3 +11,10 @@ func PrettyLinks(s string) string {
 	dash := url.PathEscape(strings.Replace(lower, " ", "-", -1))
 	return dash
 }
+
+// CheckErr is just an temporary function
+func CheckErr(err error) {
+	if err != nil {
+		panic(err)
+	}
+}

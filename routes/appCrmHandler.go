@@ -17,6 +17,8 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/new", crmCustomersNewHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/new", crmCustomerCreateHandler).Methods("POST")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/update", crmCustomerUpdateGetHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/update", crmCustomerUpdatePostHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/profile", crmCustomerProfileHandler).Methods("GET")
@@ -203,6 +205,61 @@ func crmCustomerCreateHandler(w http.ResponseWriter, r *http.Request) {
 	lastID, err := models.CustomerCreate(accName)
 
 	fmt.Println("New customer created: ", lastID)
+	http.Redirect(w, r, "/apps/crm/customers", 302)
+}
+
+func crmCustomerUpdateGetHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["customerID"]
+
+	customer := models.GetCustomer(customerID)
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-customers-update.html", struct {
+		Title     string
+		Customer  models.Customer
+		Mods      []models.Application
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "CRM Customers New",
+		Customer:  customer,
+		Mods:      modules,
+		Shortcuts: shortcuts,
+	})
+}
+
+func crmCustomerUpdatePostHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["customerID"]
+
+	err := r.ParseForm()
+	if err != nil {
+		log.Println(err.Error)
+	}
+	//name := r.PostForm.Get("account-name")
+	accName := r.FormValue("account-name")
+	// Database function goes there
+	err = models.CustomerUpdate(accName, customerID)
+	if err != nil {
+		log.Println(err.Error)
+	}
+
+	fmt.Println("New customer updated: ")
 	http.Redirect(w, r, "/apps/crm/customers", 302)
 }
 

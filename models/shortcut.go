@@ -1,5 +1,7 @@
 package models
 
+import "github.com/oswee/os/helpers"
+
 // Shortcut are user defined shortcut to favorite apps.
 // Order is contstructed by combining account id and number of shortcut sequence.
 type Shortcut struct {
@@ -30,7 +32,7 @@ func ListShortcuts() ([]Shortcut, error) {
 
 	db := dbLoc()
 	rows, err := db.Query(getShortcuts)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	s := Shortcut{}
 	ss := []Shortcut{}
@@ -48,7 +50,7 @@ func ListShortcuts() ([]Shortcut, error) {
 		)
 
 		err := rows.Scan(&id, &applicationID, &order, &createdAt, &name, &permalink, &bcolor, &iconName)
-		checkErr(err)
+		helpers.CheckErr(err)
 
 		s.ID = id
 		s.ApplicationID = applicationID

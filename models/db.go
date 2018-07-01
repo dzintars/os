@@ -6,6 +6,7 @@ import (
 
 	// MySQL Driver
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/oswee/os/helpers"
 )
 
 const (
@@ -19,17 +20,11 @@ const (
 func dbLoc() (db *sql.DB) {
 	connection := fmt.Sprintf("%s:%s@/%s", DBUser, DBPass, DBDbase)
 	db, err := sql.Open("mysql", connection)
-	checkErr(err)
+	helpers.CheckErr(err)
 
 	if err = db.Ping(); err != nil {
 		panic(err)
 	}
 
 	return db
-}
-
-func checkErr(err error) {
-	if err != nil {
-		panic(err)
-	}
 }
