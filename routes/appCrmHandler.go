@@ -251,8 +251,8 @@ func crmCustomerUpdatePostHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		log.Println(err.Error)
 	}
-	//name := r.PostForm.Get("account-name")
-	accName := r.FormValue("account-name")
+	accName := r.PostForm.Get("account-name")
+	//accName := r.FormValue("account-name")
 	// Database function goes there
 	err = models.CustomerUpdate(accName, customerID)
 	if err != nil {

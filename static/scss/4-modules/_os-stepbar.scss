@@ -45,5 +45,8 @@ os-stepbar {
         &.success {
             background-color: $green;
         }
+        &.primary {
+            background-color: $blue;
+        }
     }
 }

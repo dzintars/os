@@ -597,6 +597,10 @@ os-stepbar button.success {
   background-color: #3EC300;
 }
 
+os-stepbar button.primary {
+  background-color: #006AFF;
+}
+
 os-shortcutbar {
   min-width: 36px;
   width: 36px;

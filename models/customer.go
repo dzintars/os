@@ -108,13 +108,13 @@ func CustomerCreate(accName string) (lastID int64, err error) {
 
 // CustomerUpdate updates customer account information
 func CustomerUpdate(accName, customerID string) error {
-	updateCustomer := `UPDATE os_customers SET name =? WHERE id=?`
+	updateCustomer := `UPDATE os_customers SET name = ? WHERE id= ?`
 	db := dbLoc()
 	sql, err := db.Prepare(updateCustomer)
 	if err != nil {
 		log.Println(err)
 	}
-	_, err = sql.Exec(sql, accName, customerID)
+	_, err = sql.Exec(accName, customerID)
 	if err != nil {
 		log.Fatal(err)
 	}
