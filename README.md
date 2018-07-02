@@ -13,4 +13,8 @@ And after that i need to learn how to do UI composition so i could develop stand
 
 // 2018-03-31 Figured out some problem with persistent data volumes. Need to set up some server to server as data storage. Will try to look into some used SANs. Minikube is not solution for me and i got the idea, why it is not good idea to keep data into the same host. As temp solution will try to set up some VM.
 
-// 2018-07-02 Started to think about API implementation. I have idea to start with ![gRPC icon] (https://grpc.io/img/grpc_square_reverse_4x.png) gRPC as main layer and then to add REST if required.
+// 2018-07-02 Started to think about API implementation. I have idea to start with gRPC
+
+![gRPC icon] (https://grpc.io/img/grpc_square_reverse_4x.png)
+
+as main layer and then to add REST if required.
