@@ -1,6 +1,6 @@
 package models
 
-import "github.com/oswee/os/helpers"
+import "github.com/oswee/os/client/helpers"
 
 // Shortcut are user defined shortcut to favorite apps.
 // Order is contstructed by combining account id and number of shortcut sequence.

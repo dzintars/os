@@ -3,8 +3,8 @@ package main
 import (
 	"net/http"
 
-	"github.com/oswee/os/routes"
-	"github.com/oswee/os/utils"
+	"github.com/oswee/os/client/routes"
+	"github.com/oswee/os/client/utils"
 )
 
 func main() {

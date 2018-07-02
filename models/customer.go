@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/oswee/os/helpers"
+	"github.com/oswee/os/client/helpers"
 )
 
 // Customer struct

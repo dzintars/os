@@ -1,7 +1,7 @@
 package models
 
 import (
-	"github.com/oswee/os/helpers"
+	"github.com/oswee/os/client/helpers"
 )
 
 // Organization struct

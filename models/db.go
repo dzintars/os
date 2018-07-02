@@ -6,7 +6,7 @@ import (
 
 	// MySQL Driver
 	_ "github.com/go-sql-driver/mysql"
-	"github.com/oswee/os/helpers"
+	"github.com/oswee/os/client/helpers"
 )
 
 const (

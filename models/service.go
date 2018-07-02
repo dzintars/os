@@ -1,6 +1,6 @@
 package models
 
-import "github.com/oswee/os/helpers"
+import "github.com/oswee/os/client/helpers"
 
 // Service struct
 type Service struct {

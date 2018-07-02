@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/oswee/os/models"
-	"github.com/oswee/os/utils"
+	"github.com/oswee/os/client/models"
+	"github.com/oswee/os/client/utils"
 )
 
 func osHandler(r *mux.Router) {

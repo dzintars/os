@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/oswee/os/utils"
+	"github.com/oswee/os/client/utils"
 )
 
 func appSrmHandler(r *mux.Router) {
