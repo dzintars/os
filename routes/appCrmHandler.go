@@ -22,6 +22,7 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/profile", crmCustomerProfileHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/delete/{customerID:[0-9]+}", crmCustomerDeleteHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/projects", crmProjectsGetHandler).Methods("GET")
 }
 
@@ -349,6 +350,17 @@ func crmCustomerProjectsHandler(w http.ResponseWriter, r *http.Request) {
 		Projects:  projects,
 		Shortcuts: shortcuts,
 	})
+}
+
+func crmCustomerDeleteHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["customerID"]
+
+	err := models.CustomerDelete(customerID)
+	if err != nil {
+		log.Println(err.Error)
+	}
+	http.Redirect(w, r, "/apps/crm/customers", 302)
 }
 
 func crmCustomerProfileHandler(w http.ResponseWriter, r *http.Request) {

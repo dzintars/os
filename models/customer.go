@@ -121,3 +121,18 @@ func CustomerUpdate(accName, customerID string) error {
 	}
 	return err
 }
+
+// CustomerDelete updates customer account record state
+func CustomerDelete(customerID string) error {
+	updateCustomer := `UPDATE os_customers SET deleted = 1 WHERE id= ?`
+	db := dbLoc()
+	sql, err := db.Prepare(updateCustomer)
+	if err != nil {
+		log.Println(err)
+	}
+	_, err = sql.Exec(customerID)
+	if err != nil {
+		log.Fatal(err)
+	}
+	return err
+}
