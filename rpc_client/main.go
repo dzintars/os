@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 
-	"github.com/oswee/os/api"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -27,6 +26,7 @@ func (a *Authentication) GetRequestMetadata(context.Context, ...string) (map[str
 func (a *Authentication) RequireTransportSecurity() bool {
 	return true
 }
+
 func main() {
 	var conn *grpc.ClientConn
 	// Create the client TLS credentials

@@ -1,5 +1,10 @@
 syntax = "proto3";
-package api;
+
+import "protobuf/empty.proto";
+// Oswee Accounting API
+package oswee.acc.v1;
+
+// protoc -I D:\Code\Go\src\github.com\oswee\os\api D:\Code\Go\src\github.com\oswee\os\api\api.proto --go_out=plugins=grpc:D:\Code\Go\src\github.com\oswee\os\api
 
 message PingMessage {
     string greeting = 1;
@@ -7,4 +12,60 @@ message PingMessage {
 
 service Ping {
     rpc SayHello(PingMessage) returns (PingMessage) {}
+}
+
+// Partner is the interface name
+service PartnerAccounts {
+    rpc ListPartnerAccounts(ListPartnersAccountsRequest) returns (ListPartnersAccountsResponse);
+    rpc GetPartnerAccount(GetPartnerAccountRequest) returns (PartnerAccount);
+    rpc CreatePartnerAccount(CreatePartnerAccountRequest) returns (PartnerAccount);
+    rpc UpdatePartnerAccount(UpdatePartnerAccountRequest) returns (PartnerAccount);
+    rpc RenamePartnerAccount(RenamePartnerAccountRequest) returns (RenamePartnerAccountResponse);
+    rpc DeletePartnerAccount(DeletePartnerAccountRequest) returns (oswee.protobuf.v1.Empty);
+}
+
+message ListPartnersAccountsRequest {
+    int64 id =1;
+    int32 page_size = 2;
+    string page_token = 3;
+}
+
+// Returns list of all existing accounts. Not scoped to some specific partner.
+message ListPartnersAccountsResponse {
+    int64 id = 1;
+    string name = 2;
+    string created_at = 15;
+}
+
+message GetPartnerAccountRequest {
+    int64 id = 1;
+}
+
+message PartnerAccount {
+    int64 id = 1;
+    string name = 2;
+    string created_at = 15;
+}
+
+message CreatePartnerAccountRequest {
+    string name = 1;
+}
+
+message UpdatePartnerAccountRequest {
+    string name = 1;
+}
+
+message RenamePartnerAccountRequest {
+    int64 id = 1;
+    string name = 2;
+}
+
+message RenamePartnerAccountResponse {
+    int64 id = 1;
+    string name = 2;
+    string created_at = 15;
+}
+
+message DeletePartnerAccountRequest {
+    int64 id = 1;
 }

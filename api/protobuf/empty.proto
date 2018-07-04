@@ -1,0 +1,6 @@
+syntax = "proto3";
+package oswee.protobuf.v1;
+
+message Empty {
+    
+}
