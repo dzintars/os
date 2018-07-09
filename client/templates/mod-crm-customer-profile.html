@@ -52,13 +52,20 @@
             <os-tabbar hbox>
                 <os-group hbox class="tabs">
                     <button class="tablinks active">Profile</button>
+                    {{ range .Tabs }}
                     <button class="tablinks">
                         <span>
-                            <a href="/apps/crm/customers/{{ .Customer.ID }}/dashboard">Dashboard</a>
+                            <a href="/apps/crm/customers/{{ $.Customer.ID }}{{ .Permalink }}">{{ .ShortName}}</a>
                         </span>
+                        {{ if .Notifications }}
+                        <span class="tab-notification">{{ .Notifications }}</span>
+                        {{ end }}
+                        {{ if .IsNew }}
                         <span class="tab-badge">New</span>
+                        {{ end }}
                     </button>
-                    <button class="tablinks">
+                    {{ end }}
+                    <!-- <button class="tablinks">
                         <span>
                             <a href="/apps/crm/customers/{{ .Customer.ID }}/quotes">Quotes</a>
                         </span>
@@ -98,7 +105,7 @@
                         <span>
                             <a href="/apps/crm/customers/{{ .Customer.ID }}/projects">Contacts</a>
                         </span>
-                    </button>
+                    </button> -->
                 </os-group>
                 <os-group hbox></os-group>
             </os-tabbar>

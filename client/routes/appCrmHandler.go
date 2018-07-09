@@ -20,8 +20,8 @@ func appCrmHandler(r *mux.Router) {
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/update", crmCustomerUpdateGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/update", crmCustomerUpdatePostHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
-	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/profile", crmCustomerProfileHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/delete/{customerID:[0-9]+}", crmCustomerDeleteHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/projects", crmProjectsGetHandler).Methods("GET")
 }

@@ -1,6 +1,8 @@
 package models
 
 import (
+	"fmt"
+
 	"github.com/oswee/os/client/helpers"
 )
 
@@ -16,6 +18,8 @@ type Application struct {
 	PrettyTitle      string `json:"prettyTitle"`
 	Permalink        string `json:"permalink"`
 	IconName         string `json:"icon"`
+	Notifications    int32  `json:"notifications"`
+	IsNew            bool   `json:"isNew"`
 }
 
 // ListApplications is function to retrieve a full list of all users
@@ -64,7 +68,7 @@ func ListApplications(visibility int) ([]Application, error) {
 
 // ListChildApplications is function to retrieve a list of all applications based on requested parent
 func ListChildApplications(parentID int) ([]Application, error) {
-	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, permalink, short_description, icon_name FROM sys_applications WHERE parent_id=? ORDER BY sys_applications.sequence;`
+	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, permalink, short_description, icon_name, notifications, is_new FROM sys_applications WHERE parent_id=? ORDER BY sys_applications.sequence;`
 
 	db := dbLoc()
 	rows, err := db.Query(getApplications, parentID)
@@ -84,10 +88,14 @@ func ListChildApplications(parentID int) ([]Application, error) {
 			permalink        string
 			shortDescription string
 			iconName         string
+			notifications    int32
+			isNew            bool
 		)
 
-		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &permalink, &shortDescription, &iconName)
-		helpers.CheckErr(err)
+		err := rows.Scan(&id, &sequence, &shortName, &fullName, &visibility, &bcolor, &permalink, &shortDescription, &iconName, &notifications, &isNew)
+		if err != nil {
+			fmt.Println(err)
+		}
 
 		app.ID = id
 		app.Sequence = sequence
@@ -99,6 +107,8 @@ func ListChildApplications(parentID int) ([]Application, error) {
 		app.Permalink = permalink
 		app.ShortDescription = shortDescription
 		app.IconName = iconName
+		app.Notifications = notifications
+		app.IsNew = isNew
 
 		res = append(res, app)
 	}
