@@ -40,6 +40,21 @@
                 <h3>Customer Relationship Management</h3>
             </div>
             <div class="grid-shortcuts">
+                {{ range .CrmModules }}
+                <a href="{{ .Permalink }}">
+                    <os-group hbox class="new-shortcut">
+                        <os-group vbox class="new-shortcut-icon" style="background-color: {{ .Bcolor }}">
+                            <div>
+                                <img src="/static/img/svg-icons/{{ .IconName }}" alt="Test">
+                            </div>
+                        </os-group>
+                        <os-group vbox class="new-shortcut-body">
+                            <span>{{ .ShortName }}</span>
+                            <span>{{ .ShortDescription }}</span>
+                        </os-group>
+                    </os-group>
+                </a>
+                {{ end }}
             </div>
         </os-panel>
     </os-container>

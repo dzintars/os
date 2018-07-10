@@ -38,9 +38,23 @@
             <div vbox class="business-settings-header">
                 <h1>Oswee Applications</h1>
                 <h3>Manage your account applications</h3>
-                <p>There should be loaded shortcuts to all current account and user accessible applications</p>
             </div>
             <div class="grid-shortcuts">
+                {{ range .Apps }}
+                <a href="{{ .Permalink }}">
+                    <os-group hbox class="new-shortcut">
+                        <os-group vbox class="new-shortcut-icon" style="background-color: {{ .Bcolor }}">
+                            <div>
+                                <img src="/static/img/svg-icons/{{ .IconName }}" alt="Test">
+                            </div>
+                        </os-group>
+                        <os-group vbox class="new-shortcut-body">
+                            <span>{{ .ShortName }}</span>
+                            <span>{{ .ShortDescription }}</span>
+                        </os-group>
+                    </os-group>
+                </a>
+                {{ end }}
             </div>
         </os-panel>
     </os-container>

@@ -14,6 +14,10 @@
             <a href="/apps/crm/customers">Customers</a>
             <span> / </span>
             <a href="/apps/crm/customers/{{ .Customer.ID }}">{{ .Customer.Name }}</a>
+            <span> / </span>
+            {{ if (eq .App.ID 46) }}
+            <a href="">{{ .App.ShortName }}</a>
+            {{ end }}
         </div>
         <os-panel hbox></os-panel>
         <os-group hbox class="actions">

@@ -31,6 +31,13 @@ func appCrmHandler(r *mux.Router) {
 
 func crmGetHandler(w http.ResponseWriter, r *http.Request) {
 
+	crmModules, err := models.ListChildApplications(13)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
 	visibleModules := 3
 
 	modules, err := models.ListApplications(visibleModules)
@@ -48,13 +55,15 @@ func crmGetHandler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	utils.ExecuteTemplate(w, "mod-crm.html", struct {
-		Title     string
-		Mods      []models.Application
-		Shortcuts []models.Shortcut
+		Title      string
+		Mods       []models.Application
+		CrmModules []models.Application
+		Shortcuts  []models.Shortcut
 	}{
-		Title:     "Oswee Applications",
-		Mods:      modules,
-		Shortcuts: shortcuts,
+		Title:      "Oswee Applications",
+		Mods:       modules,
+		CrmModules: crmModules,
+		Shortcuts:  shortcuts,
 	})
 }
 

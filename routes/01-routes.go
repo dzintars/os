@@ -23,6 +23,8 @@ func NewRouter() *mux.Router {
 
 	desktopHandler(r)
 
+	appHandler(r)
+
 	appSettingsBusinessHandler(r)
 	appSettingsPersonalHandler(r)
 	appSettingsSystemHandler(r)

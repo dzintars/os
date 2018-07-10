@@ -1,7 +1,11 @@
 {{ template "tpl-app-head-x" . }}
 <os-viewport vbox>
     <os-taskbar hbox>
-        <button id="btn-open-launcher" open-launcher>APPS</button>
+        <button id="btn-open-launcher" open-launcher>
+            <svg class="i-icon">
+                <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
+            </svg>
+        </button>
         <button id="new-destination" style="height: 28px; min-width: 60px; margin-right: 4px;">New</button>
         <button style="height: 28px; min-width: 60px; margin-right: 4px;">Import</button>
         <button style="height: 28px; min-width: 60px; margin-right: 4px;">Paste</button>
