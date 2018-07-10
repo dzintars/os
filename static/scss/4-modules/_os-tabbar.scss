@@ -3,93 +3,68 @@ os-tabbar {
     background-color: $light;
     height: 28px;
     align-items: flex-end;
-    & os-group {
-        &.tabs {
-            border-bottom: none;
+    & .tabs {
+        & a {
+            font-family: Montserrat, sans-serif;
+            text-decoration: unset;
         }
-        &:last-child {
-            flex-grow: 1;
-            border-bottom: 1px solid $light5;
-        }
-    }
-    & button {
-        display: flex;
-        flex-direction: row;
-        background-color: $light5;
-        height: 24px;
-        margin-right: 1px;
-        float: left;
-        cursor: context-menu;
-        transition: 0.3s;
-        background-color: #f2f2f2;
-        border-bottom: 2px solid #e6e6e6;
-        color: $light90;
-        font-weight: 500;
-        & span {
-            & a {
-                font-family: Montserrat, sans-serif;
-                text-decoration: unset;
+        & .tab {
+            display: flex;
+            flex-direction: row;
+            background-color: $light5;
+            height: 24px;
+            min-width: 60px;
+            margin-right: 1px;
+            float: left;
+            cursor: context-menu;
+            transition: 0.3s;
+            background-color: #f2f2f2;
+            border-bottom: 2px solid #e6e6e6;
+            color: $light90;
+            font-weight: 500;
+            &-name {
                 color: $light90;
             }
-            font-family: Montserrat, sans-serif;
-        }
-        & span:last-child {
-            margin-left: 4px;
-            color: $light;
-            font-weight: 500;
-        }
-        &:hover {
-            background-color: $light10;
-            border-bottom: 2px solid #5CA0FF;
-        }
-        &.active {
-            background-color: #e6e6e6;
-            border-bottom: 2px solid #006AFF;
-            & span {
-                font-family: Montserrat, sans-serif;
-              }
-              & span:last-child {
+            &-notification {
                 margin-left: 4px;
                 color: $light;
                 font-weight: 500;
-              }
+                background-color: $green;
+                min-width: 14px;
+                width: 14px;
+                min-height: 14px;
+                border-radius: 7px;
+                font-size: 0.8em;
+            }
+            &-badge {
+                margin-left: 4px;
+                color: $light;
+                font-weight: 500;
+                background-color: $red;
+                color: $light;
+                font-size: 0.7em;
+                padding: 0 2px;
+            }
+            &:hover {
+                background-color: $light10;
+                border-bottom: 2px solid #5CA0FF;
+            }
+            &.active {
+                background-color: #e6e6e6;
+                border-bottom: 2px solid #006AFF;
+                & span {
+                    font-family: Montserrat, sans-serif;
+                  }
+                  & span:last-child {
+                    margin-left: 4px;
+                    color: $light;
+                    font-weight: 500;
+                  }
+            }
         }
     }
+    & .tabs-whitespace {
+        flex-grow: 1;
+        border-bottom: 1px solid $light5; 
+    }
 }
-
-
-/* Style the tab */
-  
-  
-//   /* Style the tab content */
-//   .tabcontent {
-//     display: none;
-//     border-top: none;
-//   }
-  
-//   .tabcontent {
-//     animation: fadeEffect 1s; /* Fading effect takes 1 second */
-//   }
-  
-//   /* Go from zero to full opacity */
-//   @keyframes fadeEffect {
-//     from {opacity: 0;}
-//     to {opacity: 1;}
-//   }
-  
-  .tab-notification {
-    // display: block;
-    background-color: $green;
-    min-width: 14px;
-    width: 14px;
-    min-height: 14px;
-    border-radius: 7px;
-    font-size: 0.8em;
-  }
-
-  .tab-badge {
-      background-color: $red;
-      color: $light;
-      font-size: 0.7em;
-      padding: 0 2px;
-  }

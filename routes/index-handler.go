@@ -11,7 +11,7 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-func osHandler(r *mux.Router) {
+func indexHandler(r *mux.Router) {
 
 	r.HandleFunc("/favicon.ico", faviconHandler).Methods("GET")
 	r.HandleFunc("/non-supported-browser", unsupportedBrowserHandler).Methods("GET")

@@ -1,0 +1,126 @@
+{{ define "crm-customer-profile-tabs" }}
+<os-tabbar hbox>
+    <os-group hbox class="tabs">
+        {{ range .Tabs }}
+        <a href="/apps/crm/customers/{{ $.Customer.ID }}{{ .Permalink }}" class="tab-link">
+            <button class="tab">
+                <span class="tab-name">{{ .ShortName}}</span>
+                {{ if .Notifications }}
+                <span class="tab-notification">{{ .Notifications }}</span>
+                {{ end }}
+                {{ if .IsNew }}
+                <span class="tab-badge">New</span>
+                {{ end }}
+            </button>
+        </a>
+        {{ end }}
+    </os-group>
+    <os-group hbox class="tabs-whitespace"></os-group>
+</os-tabbar>
+{{ end }}
+
+{{ define "crm-customer-profile" }}
+    {{ template "crm-customer-profile-tabs" . }}
+<h1>Profile data wil go there</h1>
+<p>Use Projects tab for now</p>
+{{ end }}
+
+{{ define "crm-customer-dashboard" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Dashboard</h1>
+{{ end }}
+
+{{ define "crm-customer-quotes" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Quotes</h1>
+{{ end }}
+
+{{ define "crm-customer-orders" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Orders</h1>
+{{ end }}
+
+{{ define "crm-customer-projects" }}
+    {{ template "crm-customer-profile-tabs" . }}
+<div id="Projects" class="tabcontent">
+    <os-toolbar>
+        <button class="success">New</button>
+        <button class="primary">Edit</button>
+        <button class="danger">Delete</button>
+        <button class="default">Print</button>
+        <button class="default">Export</button>
+    </os-toolbar>
+    <table>
+        <colgroup>
+            <col style="width: 40px;">
+            <col style="width: 200px;">
+            <col style="width: auto;">
+            <col style="width: 200px;">
+            <col style="width: 80px;">
+            <col style="width: 80px;">
+            <col style="width: 80px;">
+            <col style="width: 80px;">
+            <col style="width: 140px;">
+        </colgroup>
+        <thead>
+            <tr>
+                <th style="text-align: center;">ID</th>
+                <th>Customer</th>
+                <th>Name</th>
+                <th>Service</th>
+                <th>Units</th>
+                <th>Amount</th>
+                <th>Cost</th>
+                <th>Profit</th>
+                <th>Created at</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{ range .Projects }}
+            <tr id="org-{{ .ID }}" data-id="{{ .ID }}">
+                <!-- ToDo: Move styles to stylesheet -->
+                <td id="recordID"><a href="/apps/crm/customers/{{ .CustomerID }}/projects/{{ .ID }}" style="text-align:center; text-decoration: unset; display:block;">{{ .ID }}</a></td>
+                <td id="tbl-row">{{ .CustomerName }}</td>
+                <td id="tbl-row">{{ .Name }}</td>
+                <td id="tbl-row">{{ .ServiceTitle }}</td>
+                <td id="tbl-row">{{ .Units }} pc.</td>
+                <td id="tbl-row">{{ .Amount }} Eur</td>
+                <td id="tbl-row">{{ .Cost }} Eur</td>
+                <td id="tbl-row">{{ .Profit }} Eur</td>
+                <td id="Name">{{ .CreatedAt }}</td>
+            </tr>
+            {{ end }}
+        </tbody>
+    </table>
+</div>
+{{ end }}
+
+{{ define "crm-customer-invoices" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Invoices</h1>
+{{ end }}
+
+{{ define "crm-customer-services" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Services</h1>
+{{ end }}
+
+{{ define "crm-customer-warehouses" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Warehouses</h1>
+{{ end }}
+
+{{ define "crm-customer-locations" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Locations</h1>
+{{ end }}
+
+{{ define "crm-customer-contacts" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Contacts</h1>
+{{ end }}
+
+{{ define "crm-customer-feed" }}
+    {{ template "crm-customer-profile-tabs" . }}
+    <h1>Feed</h1>
+{{ end }}

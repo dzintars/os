@@ -10,18 +10,19 @@ import (
 	"github.com/oswee/os/utils"
 )
 
-//Customer Relationship Management endpoints
+// Customer Relationship Management endpoints
 func appCrmHandler(r *mux.Router) {
-	r.HandleFunc("/apps/crm", crmGetHandler).Methods("GET")
-	r.HandleFunc("/apps/crm/dashboard", crmDashboardGetHandler).Methods("GET")
-	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")
-	r.HandleFunc("/apps/crm/customers/new", crmCustomersNewHandler).Methods("GET")
+	r.HandleFunc("/apps/crm", crmGetHandler).Methods("GET")                        // Show CRM App modules, extensions and other
+	r.HandleFunc("/apps/crm/dashboard", crmDashboardGetHandler).Methods("GET")     // Show main (default) Dashboard of CRM
+	r.HandleFunc("/apps/crm/customers", crmCustomersGetHandler).Methods("GET")     // Show list of all customers (Partner Accounts) and management tools
+	r.HandleFunc("/apps/crm/customers/new", crmCustomersNewHandler).Methods("GET") // Show form to create new customer (Partner Account) entry
 	r.HandleFunc("/apps/crm/customers/new", crmCustomerCreateHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/update", crmCustomerUpdateGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/update", crmCustomerUpdatePostHandler).Methods("POST")
-	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomersEditHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{id:[0-9]+}", crmCustomerGetHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/dashboard", crmCustomerDashboardGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/profile", crmCustomerProfileHandler).Methods("GET")
-	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsHandler).Methods("GET")
+	r.HandleFunc("/apps/crm/customers/{customerID:[0-9]+}/projects", crmCustomerProjectsGetHandler).Methods("GET")
 	r.HandleFunc("/apps/crm/customers/delete/{customerID:[0-9]+}", crmCustomerDeleteHandler).Methods("POST")
 	r.HandleFunc("/apps/crm/projects", crmProjectsGetHandler).Methods("GET")
 }
@@ -264,9 +265,11 @@ func crmCustomerUpdatePostHandler(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/apps/crm/customers", 302)
 }
 
-func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
+func crmCustomerDashboardGetHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	customerID := vars["id"]
+	customerID := vars["customerID"]
+
+	application := models.GetApplication(43) // Get CRM Customer Dashboard App
 
 	customer := models.GetCustomer(customerID)
 
@@ -279,7 +282,7 @@ func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	projects, err := models.ListCustomerProjects(customerID)
+	tabs, err := models.ListChildApplications(15)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Error: 001, Internal Server Error"))
@@ -293,30 +296,89 @@ func crmCustomersEditHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "mod-crm-customer-profile.html", struct {
+	utils.ExecuteTemplate(w, "mod-crm-customer.html", struct {
 		Title     string
+		App       models.Application
 		Customer  models.Customer
 		Mods      []models.Application
-		Projects  []models.Project
+		Tabs      []models.Application
 		Shortcuts []models.Shortcut
 	}{
-		Title:     "Oswee.com: CRM Projects",
+		Title:     "CRM Customer",
+		App:       application,
 		Customer:  customer,
 		Mods:      modules,
-		Projects:  projects,
+		Tabs:      tabs,
 		Shortcuts: shortcuts,
 	})
 }
 
-func crmCustomerProjectsHandler(w http.ResponseWriter, r *http.Request) {
+func crmCustomerGetHandler(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	customerID := vars["customerID"]
+	customerID := vars["id"]
+
+	application := models.GetApplication(15) // Get CRM App
 
 	customer := models.GetCustomer(customerID)
 
 	visibleModules := 3
 
 	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	tabs, err := models.ListChildApplications(15)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	shortcuts, err := models.ListShortcuts()
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	utils.ExecuteTemplate(w, "mod-crm-customer.html", struct {
+		Title     string
+		App       models.Application
+		Customer  models.Customer
+		Mods      []models.Application
+		Tabs      []models.Application
+		Shortcuts []models.Shortcut
+	}{
+		Title:     "CRM Customer",
+		App:       application,
+		Customer:  customer,
+		Mods:      modules,
+		Tabs:      tabs,
+		Shortcuts: shortcuts,
+	})
+}
+
+func crmCustomerProjectsGetHandler(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	customerID := vars["customerID"]
+
+	application := models.GetApplication(46) // Get CRM Customer Project
+
+	customer := models.GetCustomer(customerID)
+
+	visibleModules := 3
+
+	modules, err := models.ListApplications(visibleModules)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		w.Write([]byte("Error: 001, Internal Server Error"))
+		return
+	}
+
+	tabs, err := models.ListChildApplications(15)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("Error: 001, Internal Server Error"))
@@ -337,16 +399,20 @@ func crmCustomerProjectsHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "mod-crm-customer-projects.html", struct {
+	utils.ExecuteTemplate(w, "mod-crm-customer.html", struct {
 		Title     string
+		App       models.Application
 		Customer  models.Customer
 		Mods      []models.Application
+		Tabs      []models.Application
 		Projects  []models.Project
 		Shortcuts []models.Shortcut
 	}{
 		Title:     "Oswee.com: CRM Projects",
+		App:       application,
 		Customer:  customer,
 		Mods:      modules,
+		Tabs:      tabs,
 		Projects:  projects,
 		Shortcuts: shortcuts,
 	})

@@ -61,7 +61,7 @@ func ListCustomers() ([]Customer, error) {
 	return cs, err
 }
 
-// GetCustomer function return list of all customers
+// GetCustomer function return selected customer object
 func GetCustomer(customerID string) Customer {
 
 	var customer Customer

@@ -13,9 +13,7 @@
             <span> / </span>
             <a href="/apps/crm/customers">Customers</a>
             <span> / </span>
-            <a href="/apps/crm/customers/{{ .Customer.ID }}/profile">{{ .Customer.Name }}</a>
-            <span> / </span>
-            <a href="">Profile</a>
+            <a href="/apps/crm/customers/{{ .Customer.ID }}">{{ .Customer.Name }}</a>
         </div>
         <os-panel hbox></os-panel>
         <os-group hbox class="actions">
@@ -49,29 +47,36 @@
         <os-panel vbox>
             {{ template "inc-crm-customer-profile-head" . }}
             <!-- Tab links -->
-            {{ if ( eq .Section "customer-profile") }}
-            <os-tabbar hbox>
-                <os-group hbox class="tabs">
-                    <button class="tablinks active">Profile</button>
-                    {{ range .Tabs }}
-                    <button class="tablinks">
-                        <span>
-                            <a href="/apps/crm/customers/{{ $.Customer.ID }}{{ .Permalink }}">{{ .ShortName}}</a>
-                        </span>
-                        {{ if .Notifications }}
-                        <span class="tab-notification">{{ .Notifications }}</span>
-                        {{ end }}
-                        {{ if .IsNew }}
-                        <span class="tab-badge">New</span>
-                        {{ end }}
-                    </button>
-                    {{ end }}
-                </os-group>
-                <os-group hbox></os-group>
-            </os-tabbar>
-            {{ else }}
-                <h1>Other Section</h1>
-            {{ end}}
+            {{ if ( eq .App.ID 15) }}
+                {{ template "crm-customer-profile" . }}
+            {{ end }}
+            {{ if (eq .App.ID 43) }}
+            {{ template "crm-customer-dashboard" . }}
+            {{ end }}
+            {{ if (eq .App.ID 44) }}
+            {{ template "crm-customer-quotes" . }}
+            {{ end }}
+            {{ if (eq .App.ID 45) }}
+            {{ template "crm-customer-orders" . }}
+            {{ end }}
+            {{ if (eq .App.ID 46) }}
+                {{ template "crm-customer-projects" . }}
+            {{ end }}
+            {{ if (eq .App.ID 47) }}
+                {{ template "crm-customer-invoices" . }}
+            {{ end }}
+            {{ if (eq .App.ID 48) }}
+                {{ template "crm-customer-services" . }}
+            {{ end }}
+            {{ if (eq .App.ID 49) }}
+                {{ template "crm-customer-warehouses" . }}
+            {{ end }}
+            {{ if (eq .App.ID 50) }}
+                {{ template "crm-customer-locations" . }}
+            {{ end }}
+            {{ if (eq .App.ID 51) }}
+                {{ template "crm-customer-feed" . }}
+            {{ end }}
         </os-panel>
     </os-container>
     <os-statusbar hbox>

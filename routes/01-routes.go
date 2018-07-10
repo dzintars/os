@@ -8,8 +8,8 @@ import (
 func NewRouter() *mux.Router {
 	r := mux.NewRouter()
 	//There we are calling handlers from package routes
-	osHandler(r)  // Root handler
-	fileServer(r) // Fileserver to serve static files
+	indexHandler(r) // Root level handler
+	fileServer(r)   // Fileserver to serve static files
 
 	authHandler(r)  // Authorization handlers
 	setupHandler(r) // Accounts setup handlers
