@@ -22,6 +22,7 @@ type Application struct {
 	IconName         string `json:"icon"`
 	Notifications    int32  `json:"notifications"`
 	IsNew            bool   `json:"isNew"`
+	AppState         string `json:"appState"`
 }
 
 // ListApplications is function to retrieve a full list of all users
@@ -112,14 +113,24 @@ func ListChildApplications(parentID int) ([]Application, error) {
 		app.Notifications = notifications
 		app.IsNew = isNew
 
+		if app.ID == SelectedPage {
+			app.AppState = "active"
+		} else {
+			app.AppState = ""
+		}
+
 		res = append(res, app)
 	}
 	defer db.Close()
 	return res, nil
 }
 
+var SelectedPage int
+
 // GetApplication function return requested application
 func GetApplication(applicationID int) Application {
+
+	SelectedPage = applicationID
 
 	var app Application
 
@@ -146,6 +157,11 @@ func GetApplication(applicationID int) Application {
 		fmt.Println("Application:", app, "were returned")
 	default:
 		panic(err)
+	}
+	if applicationID == app.ID {
+		app.AppState = "active"
+	} else {
+		app.AppState = ""
 	}
 	defer db.Close()
 	return app

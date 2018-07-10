@@ -24,6 +24,7 @@ os-tabbar {
             font-weight: 500;
             &-name {
                 color: $light90;
+                font-family: Montserrat, sans-serif;
             }
             &-notification {
                 margin-left: 4px;
@@ -55,11 +56,20 @@ os-tabbar {
                 & span {
                     font-family: Montserrat, sans-serif;
                   }
-                  & span:last-child {
+                & .tab-notification {
                     margin-left: 4px;
                     color: $light;
                     font-weight: 500;
-                  }
+                    font-size: 0.7em;
+                    font-family: Montserrat, sans-serif;
+                }
+                & .tab-badge {
+                    margin-left: 4px;
+                    font-size: 0.7em;
+                    color: $light;
+                    font-weight: 500;
+                    font-family: Montserrat, sans-serif;
+                }
             }
         }
     }

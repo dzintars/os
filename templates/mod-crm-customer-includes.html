@@ -3,7 +3,7 @@
     <os-group hbox class="tabs">
         {{ range .Tabs }}
         <a href="/apps/crm/customers/{{ $.Customer.ID }}{{ .Permalink }}" class="tab-link">
-            <button class="tab">
+            <button class="tab {{ .AppState }}">
                 <span class="tab-name">{{ .ShortName}}</span>
                 {{ if .Notifications }}
                 <span class="tab-notification">{{ .Notifications }}</span>

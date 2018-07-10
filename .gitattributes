@@ -1,2 +1,2 @@
-client/static/* linguist-vendored
-client/templates/* linguist-vendored
+static/* linguist-vendored
+templates/* linguist-vendored
