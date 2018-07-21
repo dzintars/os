@@ -44,7 +44,7 @@ func appSettingsSystemMainGetHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "app-system-settings.html", struct {
+	utils.ExecuteTemplate(w, "app-settings-system.html", struct {
 		Title                 string
 		Mods                  []models.Application
 		Shortcuts             []models.Shortcut

@@ -42,7 +42,7 @@ func appSettingsPersonalMainGetHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "app-personal-settings.html", struct {
+	utils.ExecuteTemplate(w, "app-settings-personal.html", struct {
 		Title                   string
 		Mods                    []models.Application
 		PersonalSettingsModules []models.Application

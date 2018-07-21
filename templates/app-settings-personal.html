@@ -2,7 +2,9 @@
 
 <os-viewport vbox>
     <os-taskbar hbox>
-        <button id="btn-open-launcher" open-launcher>APPS</button>
+        <button id="btn-open-launcher" open-launcher>
+            <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use></svg>
+        </button>
         <os-panel hbox></os-panel>
         <os-group hbox class="actions">
             <div class="actions-icon">
@@ -32,12 +34,12 @@
         {{ template "inc-shortcut-bar" . }}
         <os-panel vbox class="business-settings">
             <div vbox class="business-settings-header">
-                <h1>Business Account Settings</h1>
-                <h3>Manage Settings of your Business Account</h3>
+                <h1>Personal Account Settings</h1>
+                <h3>Manage Settings of your Private Account</h3>
             </div>
             <div class="grid-shortcuts">
-                {{ range .BusinessSettingsModules }}
-                <a href="{{ .RelativeURL }}">
+                {{ range .PersonalSettingsModules }}
+                <a href="{{ .Permalink }}">
                     <os-group hbox class="new-shortcut">
                         <os-group vbox class="new-shortcut-icon" style="background-color: {{ .Bcolor }}">
                             <div>

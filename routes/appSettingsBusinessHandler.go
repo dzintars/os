@@ -42,7 +42,7 @@ func appSettingsBusinessMainGetHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	utils.ExecuteTemplate(w, "app-business-settings.html", struct {
+	utils.ExecuteTemplate(w, "app-settings-business.html", struct {
 		Title                   string
 		Mods                    []models.Application
 		BusinessSettingsModules []models.Application

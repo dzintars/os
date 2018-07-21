@@ -25,6 +25,13 @@ type Application struct {
 	AppState         string `json:"appState"`
 }
 
+// Apps interface
+type Apps interface {
+	ListApplications(visibility int) ([]Application, error)
+	ListChildApplications(parentID int) ([]Application, error)
+	GetApplication(applicationID int) Application
+}
+
 // ListApplications is function to retrieve a full list of all users
 func ListApplications(visibility int) ([]Application, error) {
 	getApplications := `SELECT id, sequence, short_name, full_name, visibility, background_color, permalink, short_description, icon_name FROM sys_applications WHERE visibility=? ORDER BY sys_applications.sequence;`
@@ -112,7 +119,7 @@ func ListChildApplications(parentID int) ([]Application, error) {
 		app.IconName = iconName
 		app.Notifications = notifications
 		app.IsNew = isNew
-
+		// Used to apply active class for curent tab
 		if app.ID == SelectedPage {
 			app.AppState = "active"
 		} else {
@@ -125,6 +132,7 @@ func ListChildApplications(parentID int) ([]Application, error) {
 	return res, nil
 }
 
+// SelectedPage is used to apply active class for curent tab
 var SelectedPage int
 
 // GetApplication function return requested application
