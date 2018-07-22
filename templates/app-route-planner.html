@@ -6,9 +6,11 @@
                 <use xlink:href="/static/img/svg-icons/icons.svg#i-9dots"></use>
             </svg>
         </button>
-        <button id="new-destination" style="height: 28px; min-width: 60px; margin-right: 4px;">New</button>
-        <button style="height: 28px; min-width: 60px; margin-right: 4px;">Import</button>
-        <button style="height: 28px; min-width: 60px; margin-right: 4px;">Paste</button>
+        <div class="app-name-path">
+            <a href="/apps">APPS</a>
+            <span> / </span>
+            <a href="/apps/router">Route Planner</a>
+        </div>
         <os-panel hbox></os-panel>
         <os-group hbox class="actions">
             <div class="actions-icon">
@@ -36,58 +38,60 @@
     </os-taskbar>
     <os-container hbox id="app-router">
         {{ template "inc-shortcut-bar" . }}
-        <os-panel id="grid-delivery-orders">
-            <table>
-                <colgroup>
-                    <col style="width: 40px;">
-                    <col style="width: 200px;">
-                    <col style="width: auto;">
-                    <col style="width: 40px;">
-                    <col style="width: 80px;">
-                    <col style="width: 80px;">
-                </colgroup>
-                <thead>
-                    <tr>
-                        <th class="column-header row-number">ID</th>
-                        <th>Name</th>
-                        <th class="tbl-address">Legal Address</th>
-                        <th>VL</th>
-                        <th>Lat</th>
-                        <th>Lng</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {{ range .Orgs }}
-                    <tr>
-                        <td class="table-cell row-number"><a href="/organization/{{ .ID }}">{{ .ID }}</a></td>
-                        <td>{{ .Name }}</td>
-                        <td class="tbl-address">{{ .LegalAddress }}</td>
-                        <td>
-                            <svg viewBox="0 0 256 256" width="16" height="16">
-                                <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
-                            </svg>
-                        </td>
-                        <td>{{ .Lat }}</td>
-                        <td>{{ .Lng }}</td>
-                    </tr>
-                    {{ end }}
-                </tbody>
-            </table>
-        </os-panel>
-        <os-splitter vbox></os-splitter>
-        <os-panel id="mapid" style="height: 100%;"></os-panel>
+        <os-workspace vbox>
+            <os-toolbar hbox>
+                <a href="/apps/crm/customers/new">
+                    <button id="new-destination" class="success">New</button>
+                </a>
+                <button class="danger">Delete</button>
+            </os-toolbar>
+            <os-container hbox>
+                <os-panel vbox id="grid-delivery-orders">
+                    <table>
+                        <colgroup>
+                            <col style="width: 40px;">
+                            <col style="width: 200px;">
+                            <col style="width: auto;">
+                            <col style="width: 40px;">
+                            <col style="width: 80px;">
+                            <col style="width: 80px;">
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th class="column-header row-number">ID</th>
+                                <th>Name</th>
+                                <th class="tbl-address">Legal Address</th>
+                                <th>VL</th>
+                                <th>Lat</th>
+                                <th>Lng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{ range .Orgs }}
+                            <tr>
+                                <td class="table-cell row-number"><a href="/organization/{{ .ID }}">{{ .ID }}</a></td>
+                                <td>{{ .Name }}</td>
+                                <td class="tbl-address">{{ .LegalAddress }}</td>
+                                <td>
+                                    <svg viewBox="0 0 256 256" width="16" height="16">
+                                        <path fill="{{ .Color }}" d="M128.12111,255c90.77739-41.89652,94.18582-95.34281,95.14174-137.03826.48063-20.9434,0-83.79479,0-83.79479C161.28981,21.07478,128.12111,1,128.12111,1S94.95241,21.07654,32.97937,34.1687c0,0-.48061,62.85138,0,83.79479C33.93531,159.65805,37.34371,213.10348,128.12111,255Z"/>
+                                    </svg>
+                                </td>
+                                <td>{{ .Lat }}</td>
+                                <td>{{ .Lng }}</td>
+                            </tr>
+                            {{ end }}
+                        </tbody>
+                    </table>
+                </os-panel>
+                <os-splitter vbox></os-splitter>
+                <os-panel id="mapid" style="height: 100%;"></os-panel>
+            </os-container>
+        </os-workspace>
     </os-container>
     <os-statusbar hbox>
-        <div style="background: #FCBA04"><a href="#">{{ .Title }}</a></div>
-        <div><a href="/about">About</a></div>
-        <div><a href="#">Advertising</a></div>
-        <div><a href="#">Business</a></div>
-        <div><a href="#">Team</a></div>
-        <div><a href="#">Terms</a></div>
         <div expand></div>
-        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-info"></use></svg>
-        <img src="/static/img/svg-icons/gchrome.svg" alt="Google Chrome Logo" width="16px">
-        <div>Google Chrome Only</div>
+        <svg class="i-icon"><use xlink:href="/static/img/svg-icons/icons.svg#i-bug"></use></svg>
     </os-statusbar>
 </os-viewport>
 

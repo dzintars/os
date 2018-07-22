@@ -14,8 +14,8 @@
             <a href="/apps/crm/customers">Customers</a>
             <span> / </span>
             <a href="/apps/crm/customers/{{ .Customer.ID }}">{{ .Customer.Name }}</a>
-            <span> / </span>
             {{ if (eq .App.ID 46) }}
+            <span> / </span>
             <a href="">{{ .App.ShortName }}</a>
             {{ end }}
         </div>
@@ -55,13 +55,13 @@
                 {{ template "crm-customer-profile" . }}
             {{ end }}
             {{ if (eq .App.ID 43) }}
-            {{ template "crm-customer-dashboard" . }}
+                {{ template "crm-customer-dashboard" . }}
             {{ end }}
             {{ if (eq .App.ID 44) }}
-            {{ template "crm-customer-quotes" . }}
+                {{ template "crm-customer-quotes" . }}
             {{ end }}
             {{ if (eq .App.ID 45) }}
-            {{ template "crm-customer-orders" . }}
+                {{ template "crm-customer-orders" . }}
             {{ end }}
             {{ if (eq .App.ID 46) }}
                 {{ template "crm-customer-projects" . }}

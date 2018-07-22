@@ -1666,12 +1666,6 @@ table tbody [class*="tbl-row-"].selected {
   color: white;
 }
 
-#app-router #grid-delivery-orders {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-}
-
 .app-crm-customer-profile-head {
   height: 200px;
 }
